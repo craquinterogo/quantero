@@ -9,16 +9,17 @@
    ================================================================================ */
 
 /* ---------- Light Mode: CSS Variables ---------- */
-:root {
+:root,
+[data-md-color-scheme="default"] {
   /* Custom brand variables */
-  --custom-brand-secondary: #8e6e53;
-  --custom-brand-secondary-quant: #c69c72;
+  --custom-brand-secondary: #6a381f;
+  --custom-brand-secondary-quant: #8e6e53;
   --custom-highlight: #c69c72;
   --custom-text-muted: #7a7265;
 
   /* Primary colors (header, navigation, tabs) */
   --md-primary-fg-color: #c0b7b1;        /* Text on primary background */
-  --md-primary-bg-color: #8e6e53;        /* Header/nav background - MEDIUM BROWN */
+  --md-primary-bg-color: #433e3f;        /* Header/nav background - MEDIUM BROWN */
   
   /* Accent colors (links, buttons, highlights) */
   --md-accent-fg-color: #c0b7b1;         /* Text on accent elements */
@@ -57,7 +58,7 @@
 }
 
 [data-md-color-scheme="default"] .md-content a:hover {
-  color: #ea8c55 !important;
+  color: #a54a00 !important;
 }
 
 /* Navigation sidebar links */
@@ -66,7 +67,7 @@
 }
 
 [data-md-color-scheme="default"] .md-nav a:hover {
-  color: #ea8c55 !important;
+  color: #a54a00 !important;
 }
 
 /* Active state for navigation links */
