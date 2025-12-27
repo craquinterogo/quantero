@@ -1,0 +1,159 @@
+/* ================================================================================
+   QUANTERO THEME - COMPLETE COLOR MANAGEMENT
+   All colors controlled here, not in mkdocs.yml
+   ================================================================================ */
+
+/* ================================================================================
+   LIGHT MODE (default scheme)
+   Color Palette: #433e3f, #c69c72, #8e6e53, #c0b7b1, #7a7265
+   ================================================================================ */
+
+/* ---------- Light Mode: CSS Variables ---------- */
+:root {
+  /* Custom brand variables */
+  --custom-brand-secondary: #8e6e53;
+  --custom-brand-secondary-quant: #c69c72;
+  --custom-highlight: #c69c72;
+  --custom-text-muted: #7a7265;
+
+  /* Primary colors (header, navigation, tabs) */
+  --md-primary-fg-color: #c0b7b1;        /* Text on primary background */
+  --md-primary-bg-color: #8e6e53;        /* Header/nav background - MEDIUM BROWN */
+  
+  /* Accent colors (links, buttons, highlights) */
+  --md-accent-fg-color: #c0b7b1;         /* Text on accent elements */
+  --md-accent-bg-color: #8e6e53;         /* Links and interactive elements - MEDIUM BROWN */
+  
+  /* Main content area */
+  --md-default-bg-color: #c0b7b1;        /* Main content background - LIGHT BEIGE */
+  --md-default-fg-color: #433e3f;        /* Main text color - DARKEST */
+  
+  /* Typography */
+  --md-typeset-color: #433e3f;           /* Body text - DARKEST */
+  --md-typeset-a-color: #8e6e53;         /* Links in content - MEDIUM BROWN */
+  
+  /* Code blocks */
+  --md-code-bg-color: #7a7265;           /* Code background - DARK GREY/BROWN */
+  --md-code-fg-color: #c0b7b1;           /* Code text - LIGHT BEIGE */
+}
+
+/* ---------- Light Mode: Header & Navigation Overrides ---------- */
+[data-md-color-scheme="default"] .md-header {
+  background-color: #8e6e53 !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #8e6e53 !important;
+}
+
+[data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
+  background-color: #8e6e53 !important;
+}
+
+/* ---------- Light Mode: Link Styling ---------- */
+/* Content area links (in main text) */
+[data-md-color-scheme="default"] .md-content a {
+  color: #7f7979 !important;
+}
+
+[data-md-color-scheme="default"] .md-content a:hover {
+  color: #ea8c55 !important;
+}
+
+/* Navigation sidebar links */
+[data-md-color-scheme="default"] .md-nav a {
+  color: #433e3f !important;
+}
+
+[data-md-color-scheme="default"] .md-nav a:hover {
+  color: #ea8c55 !important;
+}
+
+/* Active state for navigation links */
+[data-md-color-scheme="default"] .md-nav a.md-nav__link--active,
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: #a54a00 !important;
+  font-weight: bold !important;
+}
+
+/* ---------- Light Mode: Navigation Links ---------- */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: #433e3f !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #ea8c55 !important;
+}
+
+/* ---------- Light Mode: Footer Links ---------- */
+[data-md-color-scheme="default"] .md-footer a {
+  color: #8e6e53 !important;
+}
+
+
+/* ================================================================================
+   DARK MODE (slate scheme)
+   Color Palette: #0d1321, #1d2d44, #3e5c76, #748cab, #f0ebd8
+   ================================================================================ */
+
+/* ---------- Dark Mode: CSS Variables ---------- */
+[data-md-color-scheme="slate"] {
+  /* Custom brand variables */
+  --custom-brand-secondary: #748cab;
+  --custom-brand-secondary-quant: #fe5f55;
+  --custom-highlight: #f0ebd8;
+  --custom-text-muted: #748cab;
+  
+  /* Primary colors (header, navigation, tabs) */
+  --md-primary-fg-color: #0d1321;        /* Text on primary background */
+  --md-primary-bg-color: #f0ebd8;        /* Header/nav background - LIGHT BEIGE */
+  
+  /* Accent colors (links, buttons, highlights) */
+  --md-accent-fg-color: #748cab;         /* Text on accent elements */
+  --md-accent-bg-color: #748cab;         /* Links and interactive elements - MEDIUM BLUE */
+  
+  /* Main content area */
+  --md-default-bg-color: #1d2d44;        /* Main content background - DARK BLUE */
+  --md-default-fg-color: #f0ebd8;        /* Main text color - LIGHTEST */
+  
+  /* Typography */
+  --md-typeset-color: #f0ebd8;           /* Body text - LIGHTEST */
+  --md-typeset-a-color: #748cab;         /* Links in content - MEDIUM BLUE */
+  
+  /* Code blocks */
+  --md-code-bg-color: #1d2d44;           /* Code background - DARK BLUE */
+  --md-code-fg-color: #f0ebd8;           /* Code text - LIGHTEST */
+}
+
+/* ---------- Dark Mode: Link Styling ---------- */
+[data-md-color-scheme="slate"] a {
+  color: #748cab !important;
+}
+
+[data-md-color-scheme="slate"] a:hover {
+  color: #3e5c76 !important;
+}
+
+/* ---------- Dark Mode: Navigation Links ---------- */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #f0ebd8 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #748cab !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #748cab !important;
+}
+
+/* ---------- Dark Mode: Footer Links ---------- */
+[data-md-color-scheme="slate"] .md-footer a {
+  color: #748cab !important;
+}
+
+
+/* ================================================================================
+   CUSTOM STYLES
+   Add any additional custom styles below this section
+   ================================================================================ */
