@@ -119,10 +119,11 @@ EL = PD * LGD * EAD
 where EAD is Exposure at Default.
 
 ### Credit VaR
-Unexpected loss due to credit events, typically calculated as:
+Unexpected loss due to credit events:
 ```
-Credit VaR = UL = √(EL² + Variance of loss)
+Credit VaR = Unexpected Loss = √(Variance of loss)
 ```
+Note: Total credit loss = Expected Loss (EL) + Unexpected Loss (UL)
 
 ## Market Risk
 

@@ -103,7 +103,7 @@ Ensemble of decision trees:
 ### Gradient Boosting
 Sequential ensemble learning:
 - XGBoost, LightGBM, CatBoost
-- State-of-art performance
+- State-of-the-art performance
 - Applications: Return prediction, risk modeling
 
 ## Neural Networks

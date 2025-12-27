@@ -173,7 +173,7 @@ Can be exercised at any time before expiration.
 - Finite difference methods
 - Least-squares Monte Carlo (Longstaff-Schwartz)
 
-**Early exercise boundary**: American call on non-dividend stock has same value as European.
+**Early exercise**: American calls on non-dividend-paying stocks should never be exercised early, thus having the same value as European calls. However, American calls on dividend-paying stocks and American puts may have early exercise value.
 
 ## Exotic Options
 
