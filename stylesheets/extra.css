@@ -36,6 +36,12 @@
   /* Code blocks */
   --md-code-bg-color: #7a7265;           /* Code background - DARK GREY/BROWN */
   --md-code-fg-color: #c0b7b1;           /* Code text - LIGHT BEIGE */
+  
+  /* Math highlighting colors - optimized for light backgrounds */
+  --math-highlight-1: #c62828;           /* Dark red for emphasis */
+  --math-highlight-2: #1565c0;           /* Dark blue for secondary */
+  --math-highlight-3: #139200;           /* Dark green for tertiary */
+  --math-highlight-4: #e65100;           /* Dark orange for quaternary */
 }
 
 /* ---------- Light Mode: Header & Navigation Overrides ---------- */
@@ -124,6 +130,12 @@
   /* Code blocks */
   --md-code-bg-color: #1d2d44;           /* Code background - DARK BLUE */
   --md-code-fg-color: #f0ebd8;           /* Code text - LIGHTEST */
+  
+  /* Math highlighting colors - optimized for dark backgrounds */
+  --math-highlight-1: #ff6b6b;           /* Bright red for emphasis */
+  --math-highlight-2: #64b5f6;           /* Bright blue for secondary */
+  --math-highlight-3: #2bc433;           /* Bright green for tertiary */
+  --math-highlight-4: #ffb74d;           /* Bright orange for quaternary */
 }
 
 /* ---------- Dark Mode: Link Styling ---------- */

@@ -1,0 +1,2169 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="../">
+      
+      
+        <link rel="next" href="../../../../model_validation/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../../../../favicon.ico">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Vasicek Model - Quȧntero</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#affine-bond-pricing-vasicek-model" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../../../../.." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Quȧntero
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Vasicek Model
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../../../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../../portfolio_management/" class="md-tabs__link">
+          
+  
+  
+    
+  
+  Topics
+
+        </a>
+      </li>
+    
+  
+
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../../../../.." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Quȧntero
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+        
+        
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Topics
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Topics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../portfolio_management/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio Management
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1" id="__nav_2_1_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Portfolio Management
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../portfolio_management/portfolio_optimization/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio Models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_1_2" id="__nav_2_1_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_1_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_1_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Portfolio Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portfolio_management/portfolio_optimization/mean_variance/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mean Variance Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../market_risk/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Risk Analytics
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Market Risk Analytics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing Models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pricing Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Interest Rate Models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Interest Rate Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../vasicek_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vasicek Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_3" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Bond Affine Ansatz Models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3_2_3" id="__nav_2_3_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Bond Affine Ansatz Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vasicek Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Vasicek Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-bond-pricing-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Bond Pricing Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-affine-ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Affine Ansatz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Affine Ansatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deriving-the-pricing-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving the Pricing PDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-for-bt-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(B(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-for-at-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(A(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-bond-pricing-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Bond Pricing Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-curve-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield Curve Implications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instantanous-forward-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantanous Forward Rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../volatility_surfaces" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Volatility Surfaces
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../model_validation/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Model Validation
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Validation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../../numerical_methods" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Numerical Methods
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../statistics_and_probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics and Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics and Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Gaussian Integral
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../statistics_and_probability/expected_value/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expected Value
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../../stochastic_calculus/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Stochastic calculus
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic calculus
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stochastic_calculus/brownian_motion/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brownian Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../stochastic_calculus/itos_isometry/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Ito's Isometry
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-bond-pricing-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Bond Pricing Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-affine-ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Affine Ansatz
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Affine Ansatz">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deriving-the-pricing-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving the Pricing PDE
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-for-bt-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(B(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#solving-for-at-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(A(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#complete-bond-pricing-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Bond Pricing Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-curve-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield Curve Implications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#instantanous-forward-rates" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Instantanous Forward Rates
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="affine-bond-pricing-vasicek-model">Affine Bond Pricing: Vasicek Model</h1>
+<p>One of the most elegant features of the Vasicek model is that we can derive closed-form solutions for zero-coupon bond prices. This is made possible by the model's <strong>affine structure</strong>, where bond prices take an exponential-affine form in the short rate. This makes the Vasicek model a cornerstone example for understanding affine term structure models.</p>
+<p>Before diving in, make sure you're familiar with the <a href="../../vasicek_model/">Vasicek model fundamentals</a>, including the SDE solution and distribution properties.</p>
+<hr />
+<h2 id="the-bond-pricing-problem">The Bond Pricing Problem</h2>
+<p>We're looking for the price at time <span class="arithmatex">\(t\)</span> of a zero-coupon bond maturing at time <span class="arithmatex">\(T\)</span>, denoted <span class="arithmatex">\(P(t, T)\)</span>. Under the risk-neutral pricing framework, this is given by:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right],
+\label{eq:bond_price_expectation}
+\end{equation}
+\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\mathbb{E}^{\mathbb{Q}}\)</span> denotes expectation under the risk-neutral measure</li>
+<li><span class="arithmatex">\(\mathcal{F}_t\)</span> is the information available at time <span class="arithmatex">\(t\)</span></li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Vasicek Dynamics</p>
+<p>The <span class="arithmatex">\(r(s)\)</span> process follows the Vasicek dynamics under the risk-neutral measure:</p>
+<div class="arithmatex">\[dr(s) = a(b - r(s))ds + \sigma dW(s)\]</div>
+<p>Parameters are described in table below.</p>
+<table>
+<thead>
+<tr>
+<th>Parameter</th>
+<th>Symbol</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean reversion</td>
+<td><span class="arithmatex">\(a\)</span></td>
+<td>Speed of reversion to mean (must be positive)</td>
+</tr>
+<tr>
+<td>Long-run mean</td>
+<td><span class="arithmatex">\(b\)</span></td>
+<td>Equilibrium level of short rate</td>
+</tr>
+<tr>
+<td>Volatility</td>
+<td><span class="arithmatex">\(\sigma\)</span></td>
+<td>Magnitude of rate fluctuations (must be positive)</td>
+</tr>
+<tr>
+<td>Brownian increment</td>
+<td><span class="arithmatex">\(dW(s)\)</span></td>
+<td>Standard Brownian motion increment</td>
+</tr>
+</tbody>
+</table>
+</div>
+<p>Computing this expectation directly is non-trivial because we need to integrate a random process. This is where the affine ansatz comes to the rescue.</p>
+<hr />
+<h2 id="the-affine-ansatz">The Affine Ansatz</h2>
+<p>We conjecture that the bond price has the exponential-affine form:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(t, T) = A(t, T)e^{-B(t, T)r(t)}
+\label{eq:affine_ansatz}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(A(t, T) &gt; 0\)</span> and <span class="arithmatex">\(B(t, T) \geq 0\)</span> are deterministic functions to be determined. This form makes intuitive sense:</p>
+<ul>
+<li>The bond price decreases exponentially with the current short rate (higher rates → lower bond prices)</li>
+<li><span class="arithmatex">\(B(t, T)\)</span> measures the sensitivity to rate changes (related to duration)</li>
+<li><span class="arithmatex">\(A(t, T)\)</span> captures the average effect of future expected rates</li>
+</ul>
+<div class="admonition danger">
+<p class="admonition-title">Boundary Conditions</p>
+<p>The boundary condition at maturity is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
+\label{eq:boundary_conditions}
+\end{equation}
+\]</div>
+</div>
+<hr />
+<h3 id="deriving-the-pricing-pde">Deriving the Pricing PDE</h3>
+<p>Under the risk-neutral measure, the bond price must satisfy the <strong>fundamental pricing equation</strong>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial P}{\partial t} + a(b - r)\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0.
+\label{eq:pricing_pde}
+\end{equation}
+\]</div>
+<details class="tip">
+<summary>Where is <span class="arithmatex">\(\ref{eq:pricing_pde}\)</span> comming from?</summary>
+<p>The equation that satisfies the fundamental pricing equation above, is derived from Ito's formula, when we make <span class="arithmatex">\(P(t,T) = f(t,r)\)</span>. Recalling the fundamentals of Ito's formula, we can define the variation of function <span class="arithmatex">\(f\)</span> using its derivatives (Taylor series expansion of order 2).</p>
+<div class="arithmatex">\[df=\frac{\partial f}{\partial t}dt+\frac{\partial f}{\partial r}dr+\frac{1}{2}\frac{\partial^2 f}{\partial r^2}(dr)^2\]</div>
+<p>We need to replace then <span class="arithmatex">\(r\)</span> with <strong>Vasicek model</strong>, then grouping terms with <span class="arithmatex">\(dt\)</span> and <span class="arithmatex">\(dW\)</span> we reorganize abovementioned equation to</p>
+<div class="arithmatex">\[
+    df=
+    \frac{\partial f}{\partial t}dt+\frac{\partial f}{\partial r} (a(b - r_t)dt + \sigma dW_t)+\frac{1}{2}\frac{\partial^2 f}{\partial r^2}\style{color: var(--math-highlight-4)}{(a(b - r_t) dt + \sigma dW_t)^2}
+\]</div>
+<p>Additionally, we know that the 2-nd power of Vasicek model, recalling <span class="arithmatex">\(dt \cdot dW_t = 0\)</span> and <span class="arithmatex">\(dt \cdot dt = 0\)</span> <em>because of quadratic variation</em>, that:</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-4)}{(a(b - r_t)d_t + \sigma dW_t)^2} = 
+[a(b-r_t)dt]^2 + 2a(b-r_t)\sigma dt dW_t + [\sigma dW_t]^2 =
+\style{color: var(--math-highlight-4)}{\sigma^2 dt}
+\]</div>
+<div class="arithmatex">\[
+    df=
+    \frac{\partial f}{\partial t}dt+\frac{\partial f}{\partial r} (a(b - r_t)dt + \sigma dW_t)+\frac{1}{2}\frac{\partial^2 f}{\partial r^2} \style{color: var(--math-highlight-4)}{\sigma^2 dt}
+\]</div>
+<p>Hence,</p>
+<div class="arithmatex">\[
+    df=
+    \left[
+    \style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t}+\frac{\partial f}{\partial r} (a(b - r_t))+\frac{1}{2}\frac{\partial^2 f}{\partial r^2} \sigma^2}
+    \right] dt
+     + \frac{\partial f}{\partial r} \sigma dW_t
+\]</div>
+<p>Now, recall that under risk-neutral definitions, the stochastic process lacks of any <span style="color: var(--math-highlight-2);">drift component</span>. As a result, and also recalling that the <strong>risk-neutral</strong> framework makes indifferent a risky asset from a risk-free asset, we make it equal to <span class="arithmatex">\(\style{color: var(--math-highlight-3)}{r_t \cdot P}\)</span>, which is the price of the bond multiplied by the interest rate <span class="arithmatex">\(r_t\)</span>, resulting in</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t}+\frac{\partial f}{\partial r} (a(b - r_t))+\frac{1}{2}\frac{\partial^2 f}{\partial r^2} \sigma^2} -
+\style{color: var(--math-highlight-3)}{r_t \cdot P} = 0
+\]</div>
+<p>As last a step, recall that at the beginning of this note we started with making <span class="arithmatex">\(P(t,T) = f(t,r)\)</span>, so you can get back to derive <span class="arithmatex">\(\ref{eq:pricing_pde}\)</span></p>
+</details>
+<p>Next step requires to remember the goal, the affine ansatz equation for a bond which uses Vasicek interest rate model as its dynamics. Let's compute the required partial derivatives using the ansatz equation <span class="arithmatex">\(\ref{eq:affine_ansatz}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\begin{aligned}
+\frac{\partial P}{\partial t} &amp;= \left(\frac{\partial A}{\partial t} - A r \frac{\partial B}{\partial t}\right) e^{-B r} =\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P, \\
+\frac{\partial P}{\partial r} &amp;= -BP, \\
+\frac{\partial^2 P}{\partial r^2} &amp;= B^2P.
+\end{aligned}
+\label{eq:partial_derivatives}
+\end{equation}
+\]</div>
+<p>Then we can substitute the derivatives of affine anzats model, in order to start shaping the equations that help us to solve both <span class="arithmatex">\(A(t,T)\)</span> and <span class="arithmatex">\(B(t,T)\)</span>. Plugging <span class="arithmatex">\(\ref{eq:partial_derivatives}\)</span> into equation <span class="arithmatex">\(\ref{eq:pricing_pde}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P - a(b - r)BP + \frac{1}{2}\sigma^2 B^2P - rP = 0.
+\label{eq:pde_substituted}
+\end{equation}
+\]</div>
+<p>As all the terms are multiplied by P we can divide by <span class="arithmatex">\(P\)</span> and rearrange the terms by powers of <span class="arithmatex">\(r\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial \ln A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - abB + r\left(aB - \frac{\partial B}{\partial t} - 1\right) = 0.
+\label{eq:pde_rearranged}
+\end{equation}
+\]</div>
+<p>For this equation to hold for all values of <span class="arithmatex">\(r\)</span>, the coefficient of <span class="arithmatex">\(r\)</span> must vanish, and the constant term must also be zero. <strong>This gives us two ODEs!</strong> as the terms <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span> are considered as given from Vasicek calibration. The constant term refers to coefficient of <span class="arithmatex">\(r^0\)</span>, meanwhile, linear term refers to the coefficient of <span class="arithmatex">\(r^1\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Term Type</th>
+<th>Expression</th>
+<th>Resulting ODE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Constant term</strong></td>
+<td><span class="arithmatex">\(\frac{1}{A}\frac{\partial A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - abB = 0\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial \ln A}{\partial t} - abB + \frac{1}{2}\sigma^2 B^2 = 0\)</span></td>
+</tr>
+<tr>
+<td><strong>Linear term</strong></td>
+<td><span class="arithmatex">\(aB - \frac{\partial B}{\partial t} - 1 = 0\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial B}{\partial t} - aB = -1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The constant term ODE determines <span class="arithmatex">\(A(t, T)\)</span>, while the linear term ODE determines <span class="arithmatex">\(B(t, T)\)</span>.</p>
+<hr />
+<h3 id="solving-for-bt-t">Solving for <span class="arithmatex">\(B(t, T)\)</span></h3>
+<p>The coefficient multiplying the term <span class="arithmatex">\(r\)</span> gives us the following, with boundary condition <span class="arithmatex">\(B(T, T) = 0\)</span>.</p>
+<div class="arithmatex">\[
+\begin{equation}
+-\frac{\partial B}{\partial t} + aB - 1 = 0,
+\label{eq:B_ode}
+\end{equation}
+\]</div>
+<p>This is a first-order linear ODE. The general solution is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
+\label{eq:B_solution}
+\end{equation}
+\]</div>
+<details class="tip">
+<summary>Where is <span class="arithmatex">\(\ref{eq:B_solution}\)</span> comming from?</summary>
+<p>We know that <span class="arithmatex">\(\ref{eq:B_ode}\)</span> is equal to say</p>
+<div class="arithmatex">\[
+\frac{\partial B}{\partial t} - aB = - 1
+\]</div>
+<p>Then solving the ODE requires a trick, that is quite popular even to deduct <a href="../../vasicek_model/">Vasicek formula</a>. It is to multiply in both sides by <span class="arithmatex">\(\style{color: var(--math-highlight-4)}{e^{-at}}\)</span> to make the left hand equation a derivative of multiplication. Let's see it below.</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-4)}{e^{-at}} \frac{\partial B}{\partial t} - \style{color: var(--math-highlight-4)}{e^{-at}} a B = - \style{color: var(--math-highlight-4)}{e^{-at}}
+\]</div>
+<p>Now we can identify that the left hand is the same to the derivative of a multiplication.</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-4)}{e^{-at}} \frac{\partial B}{\partial t} - \style{color: var(--math-highlight-4)}{e^{-at}} a B = \style{color: var(--math-highlight-2)}{\frac{d}{d t}[e^{-at} B]}
+\]</div>
+<p>Therefore, </p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-2)}{\frac{d}{dt}[e^{-at} B]} = - \style{color: var(--math-highlight-4)}{e^{-at}}
+\]</div>
+<p>Now, let's see what happens if we integrate in both sides, of course with the respective differencials.</p>
+<div class="arithmatex">\[
+\int_t^T d[e^{-as} B(s,T)] = \int_t^T - e^{-as} ds
+\]</div>
+<div class="arithmatex">\[
+\left[e^{-as} B(s,T)\right]_t^T = \int_t^T - e^{-as} ds 
+\]</div>
+<div class="arithmatex">\[
+e^{-aT} B(T,T) - e^{-at} B(t,T) = - \int_t^T e^{-as} ds 
+\]</div>
+<p>Now recall again the terminal condition <span class="arithmatex">\(B(T,T) = 0\)</span>, to then reorganize to obtain</p>
+<div class="arithmatex">\[
+e^{-at} B(t,T) = \int_t^T e^{-as} ds
+\]</div>
+<div class="arithmatex">\[
+e^{-at} B(t,T) =  \left.\frac{e^{-as}}{-a}\right|_t^T = -\frac{e^{-aT}}{a} + \frac{e^{-at}}{a}
+\]</div>
+<p>Eventually we may find <span class="arithmatex">\(B(t,T)\)</span> by dividing in both sides by <span class="arithmatex">\(e^{-at}\)</span>, resulting in:</p>
+<div class="arithmatex">\[
+B(t,T) = \frac{e^{-at}-e^{-aTs}}{e^{-at} \cdot a} = \frac{1 - e^{-a(T-t)}}{a}
+\]</div>
+</details>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>As <span class="arithmatex">\(T - t \to 0\)</span> (approaching maturity), <span class="arithmatex">\(B(t, T) \to 0\)</span>, meaning that short-dated bonds are insensitive to rates.</li>
+<li>Higher mean reversion <span class="arithmatex">\(a\)</span> leads to lower sensitivity for long maturities.</li>
+</ul>
+<hr />
+<h3 id="solving-for-at-t">Solving for <span class="arithmatex">\(A(t, T)\)</span></h3>
+<p>The constant term gives us the following, with boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial \ln A}{\partial t} - abB(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0,
+\label{eq:A_ode}
+\end{equation}
+\]</div>
+<p>Integrating from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\ln A(t, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du.
+\label{eq:ln_A_integral}
+\end{equation}
+\]</div>
+<p>After computing these integrals (which involves some algebra with the exponential form of <span class="arithmatex">\(B\)</span>), we get:</p>
+<div class="arithmatex">\[
+\begin{equation}
+A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right).
+\label{eq:A_solution}
+\end{equation}
+\]</div>
+<details class="info">
+<summary>Where is <span class="arithmatex">\(\ref{eq:A_solution}\)</span> coming from?</summary>
+<p>We need to integrate <span class="arithmatex">\(\ref{eq:A_ode}\)</span> from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>. Starting with:</p>
+<div class="arithmatex">\[
+\frac{\partial \ln A}{\partial t} = abB(t, T) - \frac{1}{2}\sigma^2 B(t, T)^2
+\]</div>
+<p>Integrating both sides from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
+<div class="arithmatex">\[
+\ln A(t, T) - \ln A(T, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
+\]</div>
+<p>Using the boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>, so <span class="arithmatex">\(\ln A(T, T) = 0\)</span>:</p>
+<div class="arithmatex">\[
+\ln A(t, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
+\]</div>
+<p>Now we substitute <span class="arithmatex">\(B(u, T) = \frac{1 - e^{-a(T-u)}}{a}\)</span> (from <span class="arithmatex">\(\ref{eq:B_solution}\)</span>) and compute each integral separately.</p>
+<hr />
+<p><strong>First integral:</strong> <span class="arithmatex">\(\int_t^T abB(u, T)du\)</span></p>
+<div class="arithmatex">\[
+\int_t^T ab \cdot \frac{1 - e^{-a(T-u)}}{a}du = b\int_t^T (1 - e^{-a(T-u)})du
+\]</div>
+<div class="arithmatex">\[
+= b\left[u + \frac{1}{a}e^{-a(T-u)}\right]_t^T = b\left[ T + \frac{1}{a} e^{-a(T-T)} - t - \frac{1}{a}e^{-a(T-t)}\right]
+\]</div>
+<div class="arithmatex">\[
+= b\left[ (T-t) + \frac{e^{-a(T-T)}-e^{-a(T-t)}}{a}\right] = b\left[ (T-t) + \frac{1-e^{-a(T-t)}}{a}\right]
+\]</div>
+<div class="arithmatex">\[
+= b(T - t) + bB(t,T)
+\]</div>
+<hr />
+<p><strong>Second integral:</strong> <span class="arithmatex">\(\int_t^T \frac{1}{2}\sigma^2 B(u, T)^2 du\)</span></p>
+<div class="arithmatex">\[
+\int_t^T \frac{1}{2}\sigma^2 \left(\frac{1 - e^{-a(T-u)}}{a}\right)^2 du = \frac{\sigma^2}{2a^2}\int_t^T (1 - e^{-a(T-u)})^2 du
+\]</div>
+<p>Expanding <span class="arithmatex">\((1 - e^{-a(T-u)})^2 = 1 - 2e^{-a(T-u)} + e^{-2a(T-u)}\)</span>:</p>
+<div class="arithmatex">\[
+= \frac{\sigma^2}{2a^2}\int_t^T \left(1 - 2e^{-a(T-u)} + e^{-2a(T-u)}\right)du
+\]</div>
+<div class="arithmatex">\[
+= \frac{\sigma^2}{2a^2}\left[u + \frac{2}{a}e^{-a(T-u)} - \frac{1}{2a}e^{-2a(T-u)}\right]_t^T
+\]</div>
+<div class="arithmatex">\[
+= \frac{\sigma^2}{2a^2}\left[\left(T + \frac{2}{a}e^{0} - \frac{1}{2a}e^{0}\right) - \left(t + \frac{2}{a}e^{-a(T-t)} - \frac{1}{2a}e^{-2a(T-t)}\right)\right]
+\]</div>
+<div class="arithmatex">\[
+= \frac{\sigma^2}{2a^2}\left[(T-t) + \left(\frac{2}{a} - \frac{1}{2a}\right) - \frac{2}{a}e^{-a(T-t)} + \frac{1}{2a}e^{-2a(T-t)}\right]
+\]</div>
+<div class="arithmatex">\[
+= \frac{\sigma^2}{2a^2}\left[(T-t) + \frac{3}{2a} - \frac{2}{a}e^{-a(T-t)} + \frac{1}{2a}e^{-2a(T-t)}\right]
+\]</div>
+<hr />
+<p><strong>Combining the integrals:</strong></p>
+<div class="arithmatex">\[
+\ln A(t, T) = b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3}e^{-a(T-t)} - \frac{\sigma^2}{4a^3}e^{-2a(T-t)}
+\]</div>
+<p>Now, recall that <span class="arithmatex">\(B(t, T) = \frac{1 - e^{-a(T-t)}}{a}\)</span>, so:</p>
+<ul>
+<li><span class="arithmatex">\(e^{-a(T-t)} = 1 - aB(t, T)\)</span></li>
+<li><span class="arithmatex">\(e^{-2a(T-t)} = (1 - aB(t, T))^2 = 1 - 2aB(t, T) + a^2B(t, T)^2\)</span></li>
+</ul>
+<p>Substituting these relationships and simplifying the exponential terms:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\ln A(t, T) &amp;= b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) \\
+&amp;\quad - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3}(1 - aB(t,T)) - \frac{\sigma^2}{4a^3}(1 - 2aB(t, T) + a^2B(t,T)^2) \\
+&amp;= b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) \\
+&amp;\quad - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3} - \frac{\sigma^2}{a^2}B(t,T) - \frac{\sigma^2}{4a^3} + \frac{\sigma^2}{2a^2}B(t,T) - \frac{\sigma^2}{4a}B(t,T)^2
+\end{aligned}
+\]</div>
+<p>Collecting constant terms, and making them equal to zero (recall we're working in the solution of the ODE of the <strong>constant term</strong> of <span class="arithmatex">\(dP\)</span>-drift).</p>
+<div class="arithmatex">\[
+-\frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3} - \frac{\sigma^2}{4a^3} = 0
+\]</div>
+<p>Collecting <span class="arithmatex">\(B(t,T)\)</span> terms:</p>
+<div class="arithmatex">\[
+bB(t,T) - \frac{\sigma^2}{a^2}B(t,T) + \frac{\sigma^2}{2a^2}B(t,T) = bB(t,T) - \frac{\sigma^2}{2a^2}B(t,T)
+\]</div>
+<p>Therefore:</p>
+<div class="arithmatex">\[
+\ln A(t, T) = \left(b - \frac{\sigma^2}{2a^2}\right)(T-t) + \left(b - \frac{\sigma^2}{2a^2}\right)B(t,T) - \frac{\sigma^2}{4a}B(t,T)^2
+\]</div>
+<div class="arithmatex">\[
+= \left(b - \frac{\sigma^2}{2a^2}\right)(B(t,T) + (T-t)) - \frac{\sigma^2}{4a}B(t,T)^2
+\]</div>
+<p>Therefore:</p>
+<div class="arithmatex">\[
+A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right)
+\]</div>
+</details>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>The term involving <span class="arithmatex">\(b\)</span> represents the average level of future rates</li>
+<li>These adjustments ensure that bond prices correctly account for volatility</li>
+</ul>
+<hr />
+<h3 id="complete-bond-pricing-formula">Complete Bond Pricing Formula</h3>
+<p>Putting everything together, the zero-coupon bond price under the Vasicek model is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right),
+\label{eq:vasicek_bond_complete}
+\end{equation}
+\]</div>
+<p>where:</p>
+<div class="arithmatex">\[
+\begin{equation}
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a},
+\label{eq:B_final}
+\end{equation}
+\]</div>
+<div class="arithmatex">\[
+\begin{equation}
+A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right).
+\label{eq:A_final}
+\end{equation}
+\]</div>
+<p>This is a <strong>closed-form solution</strong>, thereby no numerical integration or Monte Carlo simulation is needed.</p>
+<hr />
+<h2 id="yield-curve-implications">Yield Curve Implications</h2>
+<p>The continuously compounded yield <span class="arithmatex">\(y(t, T)\)</span> is defined as:</p>
+<div class="arithmatex">\[
+\begin{equation}
+y(t, T) = -\frac{\ln P(t, T)}{T - t}.
+\label{eq:yield_definition}
+\end{equation}
+\]</div>
+<p>Substituting our affine bond price formula:</p>
+<div class="arithmatex">\[
+\begin{equation}
+y(t, T) = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T)}{T - t}r(t).
+\label{eq:vasicek_yield}
+\end{equation}
+\]</div>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>Yields are <strong>affine (linear)</strong> in the current short rate <span class="arithmatex">\(r(t)\)</span></li>
+<li>The slope of the term structure depends on whether <span class="arithmatex">\(r(t)\)</span> is above or below the long-run mean</li>
+<li>The model can generate upward-sloping, downward-sloping, and humped yield curves</li>
+<li>The term <span class="arithmatex">\(-\frac{\ln A(t, T)}{T - t}\)</span> represents the average forward rate absent current rate effects</li>
+</ul>
+<hr />
+<h2 id="instantanous-forward-rates">Instantanous Forward Rates</h2>
+<p>The instantaneous forward rate <span class="arithmatex">\(f(t, T)\)</span> is given by:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(t, T) = -\frac{\partial \ln P(t, T)}{\partial T}.
+\label{eq:forward_rate_definition}
+\end{equation}
+\]</div>
+<p>Computing this derivative:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(t, T) = -\frac{\partial \ln A(t, T)}{\partial T} + r(t)\frac{\partial B(t, T)}{\partial T}.
+\label{eq:forward_rate_vasicek}
+\end{equation}
+\]</div>
+<p>Since <span class="arithmatex">\(\frac{\partial B(t, T)}{\partial T} = e^{-a(T-t)}\)</span>, forward rates are also affine in <span class="arithmatex">\(r(t)\)</span>.</p>
+<hr />
+<h2 id="references">References</h2>
+<p><strong>Brigo, D., &amp; Mercurio, F.</strong> (2006). <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3" target="_blank"><em>Interest Rate Models - Theory and Practice: With Smile, Inflation and Credit</em></a> (2nd ed.). Springer.</p>
+<ul>
+<li><strong>Chapter 3.2.4</strong> - The affine term structure.</li>
+</ul>
+<p><strong>Andersen, L., &amp; Piterbarg, V.</strong> (2010). <em>Interest Rate Modeling</em> (Vol. 1-3). Atlantic Financial Press.</p>
+<ul>
+<li><strong>Chapter 12.2</strong> - The affine model.</li>
+</ul>
+<hr />
+<p><em>Building confidence through rigorous validation</em></p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
+        <div class="md-consent__overlay"></div>
+        <aside class="md-consent__inner">
+          <form class="md-consent__form md-grid md-typeset" name="consent">
+            
+
+
+
+<h4>Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" type="checkbox" id="__settings" >
+<div class="md-consent__settings">
+  <ul class="task-list">
+    
+    
+      
+    
+    
+      
+    
+    
+  </ul>
+</div>
+<div class="md-consent__controls">
+  
+    
+      <button class="md-button md-button--primary">Accept</button>
+    
+    
+    
+  
+    
+    
+      <button type="reset" class="md-button md-button--primary">Reject</button>
+    
+    
+  
+    
+    
+    
+      <label class="md-button" for="__settings">Manage settings</label>
+    
+  
+</div>
+          </form>
+        </aside>
+      </div>
+      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+        <script src="../../../../../javascripts/consent-mode.js"></script>
+      
+        <script src="../../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+    
+  </body>
+</html>
