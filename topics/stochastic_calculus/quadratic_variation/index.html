@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/statistics_and_probability/gaussian_integral/">
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/stochastic_calculus/quadratic_variation/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../brownian_motion/">
       
       
-        <link rel="next" href="../expected_value/">
+        <link rel="next" href="../brownian_integral/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Gaussian Integral - Quȧntero</title>
+        <title>Quadratic Variation - Quȧntero</title>
       
     
     
@@ -63,9 +63,9 @@
     
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Gaussian Integral">
+  <meta property="og:title" content="Quadratic Variation">
   <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/statistics_and_probability/gaussian_integral/">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/stochastic_calculus/quadratic_variation/">
   <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#derivation-of-the-gaussian-integral" class="md-skip">
+        <a href="#variation-and-quadratic-variation-of-functions" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gaussian Integral
+              Quadratic Variation
             
           </span>
         </div>
@@ -1061,8 +1061,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1083,15 +1081,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../statistics_and_probability/" class="md-nav__link ">
               
   
   
@@ -1115,7 +1113,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1132,37 +1130,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gaussian Integral
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
         
   
   
@@ -1178,137 +1149,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#defining-the-integral-without-variance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Defining the integral without variance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#squaring-the-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Squaring the integral
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#converting-to-polar-coordinates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Converting to polar coordinates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Converting to polar coordinates">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#evaluating-the-radial-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluating the radial integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluating the radial integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-does-the-integral-equal-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why does the integral equal 1?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluating-the-angular-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluating the angular integral
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generalizing-to-arbitrary-variance-sigma2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generalizing to arbitrary variance \(\sigma^2\)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-a-shift-in-the-mean" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What about a shift in the mean?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-making-the-result-equal-to-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What about making the result equal to 1?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1321,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expected_value/" class="md-nav__link">
+      <a href="../../statistics_and_probability/expected_value/" class="md-nav__link">
         
   
   
@@ -1354,6 +1194,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1378,15 +1220,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../stochastic_calculus/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1410,7 +1252,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1430,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/brownian_motion/" class="md-nav__link">
+      <a href="../brownian_motion/" class="md-nav__link">
         
   
   
@@ -1455,10 +1297,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../stochastic_calculus/quadratic_variation/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quadratic Variation
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1474,6 +1343,282 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-variation-of-a-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is Variation of a Function?
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="What is Variation of a Function?">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#informal-motivation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Informal Motivation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#first-order-total-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        First-Order (Total) Variation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order (Total) Variation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monotone-increasing-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monotone Increasing Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiable-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiable Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brownian-motion-infinite-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brownian Motion - Infinite Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quadratic Variation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quadratic Variation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smooth-function-zero-quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smooth Function - Zero Quadratic Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formal-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formal Notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary and Key Insights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary and Key Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-variation-vs-quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Variation vs. Quadratic Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fundamental-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamental Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-covariation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization: Covariation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1486,7 +1631,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/brownian_integral/" class="md-nav__link">
+      <a href="../brownian_integral/" class="md-nav__link">
         
   
   
@@ -1514,7 +1659,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/itos_isometry/" class="md-nav__link">
+      <a href="../itos_isometry/" class="md-nav__link">
         
   
   
@@ -1577,72 +1722,22 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-integral-without-variance" class="md-nav__link">
+  <a href="#what-is-variation-of-a-function" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining the integral without variance
+        What is Variation of a Function?
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#squaring-the-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Squaring the integral
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#converting-to-polar-coordinates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Converting to polar coordinates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Converting to polar coordinates">
+    <nav class="md-nav" aria-label="What is Variation of a Function?">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#evaluating-the-radial-integral" class="md-nav__link">
+  <a href="#informal-motivation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluating the radial integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluating the radial integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-does-the-integral-equal-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why does the integral equal 1?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluating-the-angular-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluating the angular integral
+        Informal Motivation
       
     </span>
   </a>
@@ -1655,35 +1750,230 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generalizing-to-arbitrary-variance-sigma2" class="md-nav__link">
+  <a href="#first-order-total-variation" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generalizing to arbitrary variance \(\sigma^2\)
+        First-Order (Total) Variation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="First-Order (Total) Variation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-a-shift-in-the-mean" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#properties" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What about a shift in the mean?
+        Properties
       
     </span>
   </a>
   
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-making-the-result-equal-to-1" class="md-nav__link">
+        
+          <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What about making the result equal to 1?
+        Examples
       
     </span>
   </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#monotone-increasing-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Monotone Increasing Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#differentiable-function" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Differentiable Function
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#brownian-motion-infinite-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brownian Motion - Infinite Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quadratic Variation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quadratic Variation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#definition_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Definition
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#properties_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Properties
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Example">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#smooth-function-zero-quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Smooth Function - Zero Quadratic Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#formal-notation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Formal Notation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-and-key-insights" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary and Key Insights
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Summary and Key Insights">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#total-variation-vs-quadratic-variation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Total Variation vs. Quadratic Variation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fundamental-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fundamental Formula
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-covariation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization: Covariation
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
   
 </li>
       
@@ -1704,184 +1994,354 @@
 
 
 
-<h1 id="derivation-of-the-gaussian-integral">Derivation of the Gaussian Integral</h1>
-<p>If you've ever worked with normal distributions, you've probably encountered the Gaussian integral. Understanding how it's derived is super useful, especially when you're dealing with things like the <strong>Jensen Inequality</strong> or validating statistical models. In this post, we'll walk through the derivation step by step, starting with our goal: computing <span class="arithmatex">\(\ref{eq:integral_result}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/2}\,dx = \sqrt{2\pi},
-\label{eq:integral_result}
-\end{equation}
-\]</div>
-<p>Once we nail this down, we'll extend it to the general form with variance <span class="arithmatex">\(\sigma^2\)</span>.</p>
+<h1 id="variation-and-quadratic-variation-of-functions">Variation and Quadratic Variation of Functions</h1>
+<p>In classical calculus, smooth functions have <strong>bounded variation</strong>, which allows us to define integration using Riemann-Stieltjes theory. However, stochastic processes like <strong>Brownian motion</strong> behave very differently — they have <strong>unbounded variation</strong> but <strong>finite quadratic variation</strong>. This fundamental property is what makes stochastic calculus distinct from ordinary calculus and is the foundation of <strong>Itô calculus</strong>.</p>
+<p>This document provides a rigorous treatment of variation concepts, building from basic definitions to the remarkable properties of Brownian motion's quadratic variation.</p>
 <hr />
-<h2 id="defining-the-integral-without-variance">Defining the integral without variance</h2>
-<p>Let's start simple by assuming unit variance (i.e., <span class="arithmatex">\(\sigma^2 = 1\)</span>). This makes the integral easier to work with initially.</p>
+<h2 id="what-is-variation-of-a-function">What is Variation of a Function?</h2>
+<p>The <strong>variation</strong> of a function measures how much the function "moves up and down" over an interval. Intuitively, it quantifies the total distance traveled by the function, accounting for all direction changes.</p>
+<h3 id="informal-motivation">Informal Motivation</h3>
+<p>Consider a function <span class="arithmatex">\(f: [a, b] \to \mathbb{R}\)</span> and a partition of the interval:</p>
 <div class="arithmatex">\[
 \begin{equation}
-I := \int_{-\infty}^{\infty} e^{-x^2/2}\,dx.
-\label{eq:I_definition}
+a = t_0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_n = b
+\label{eq:basic_partition}
 \end{equation}
 \]</div>
+<p>As we move from <span class="arithmatex">\(t_i\)</span> to <span class="arithmatex">\(t_{i+1}\)</span>, the function changes by <span class="arithmatex">\(f(t_{i+1}) - f(t_i)\)</span>. The <strong>total variation</strong> accumulates all these changes (in absolute value), while the <strong>quadratic variation</strong> accumulates the <em>squares</em> of these changes.</p>
+<details class="question" open="open">
+<summary>Why Study Variation?</summary>
+<p>Variation characterizes the "roughness" or "irregularity" of a function:</p>
+<ul>
+<li><strong>Smooth functions</strong>: Bounded variation, zero quadratic variation</li>
+<li><strong>Functions with jumps</strong>: Finite variation, finite quadratic variation at jumps</li>
+<li><strong>Brownian motion</strong>: Infinite variation, finite quadratic variation</li>
+</ul>
+<p>Understanding variation is essential for determining what type of calculus applies to a given process.</p>
+</details>
 <hr />
-<h2 id="squaring-the-integral">Squaring the integral</h2>
-<p>Here's the clever trick: we can't solve <span class="arithmatex">\(\ref{eq:I_definition}\)</span> directly using standard integration techniques. So instead, we'll square it! By introducing a second independent variable <span class="arithmatex">\(y\)</span>, we get <span class="arithmatex">\(\ref{eq:I_squared}\)</span>.</p>
+<h2 id="first-order-total-variation">First-Order (Total) Variation</h2>
+<h3 id="definition">Definition</h3>
+<p>The <strong>(total) variation</strong> of a function <span class="arithmatex">\(f: [a, b] \to \mathbb{R}\)</span> is defined as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-I^2
-= \left( \int_{-\infty}^{\infty} e^{-x^2/2}\,dx \right)
-  \left( \int_{-\infty}^{\infty} e^{-y^2/2}\,dy \right).
-\label{eq:I_squared}
+V_a^b(f) = \sup_{\Pi} \sum_{i=0}^{n-1} |f(t_{i+1}) - f(t_i)|
+\label{eq:total_variation_definition}
 \end{equation}
 \]</div>
+<p>where the supremum is taken over all partitions <span class="arithmatex">\(\Pi: a = t_0 &lt; t_1 &lt; \cdots &lt; t_n = b\)</span> of the interval <span class="arithmatex">\([a, b]\)</span>.</p>
+<details class="info" open="open">
+<summary>Interpretation</summary>
+<p>The total variation <span class="arithmatex">\(V_a^b(f)\)</span> represents the <strong>total distance</strong> traveled by the function along the vertical axis as the input moves from <span class="arithmatex">\(a\)</span> to <span class="arithmatex">\(b\)</span>. If you imagine walking along the graph of <span class="arithmatex">\(f(t)\)</span>, the total variation measures the cumulative vertical displacement.</p>
+</details>
+<h3 id="properties">Properties</h3>
+<p>A function <span class="arithmatex">\(f\)</span> is said to have <strong>bounded variation</strong> if <span class="arithmatex">\(V_a^b(f) &lt; \infty\)</span>.</p>
+<p><strong>Key properties of functions with bounded variation:</strong></p>
+<ol>
+<li><strong>Decomposition</strong>: Any function of bounded variation can be written as the difference of two monotone increasing functions:</li>
+</ol>
 <div class="arithmatex">\[
 \begin{equation}
-I^2
-= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-e^{-(x^2+y^2)/2}\,dx\,dy.
-\label{eq:double_integral}
+f(t) = f_1(t) - f_2(t)
+\label{eq:jordan_decomposition}
 \end{equation}
 \]</div>
-<p>This transformation is legit thanks to <a href="https://tutorial.math.lamar.edu/classes/calciii/IteratedIntegrals.aspx" target="_blank">Fubini's theorem</a> as our integrand is non-negative and integrable, so we're good to go.</p>
+<ol>
+<li>
+<p><strong>Differentiability</strong>: Functions of bounded variation are differentiable <strong>almost everywhere</strong> (Lebesgue's theorem)</p>
+</li>
+<li>
+<p><strong>Integration</strong>: If <span class="arithmatex">\(f\)</span> has bounded variation, the Riemann-Stieltjes integral <span class="arithmatex">\(\int g(t)\,df(t)\)</span> is well-defined for continuous <span class="arithmatex">\(g\)</span></p>
+</li>
+</ol>
 <hr />
-<h2 id="converting-to-polar-coordinates">Converting to polar coordinates</h2>
-<p>After squaring the integral in <span class="arithmatex">\(\ref{eq:double_integral}\)</span>, we can see the power of the exponent <span class="arithmatex">\((x^2+y^2)\)</span> seems to be pretty similar to the radial distance in polar coordinates <span class="arithmatex">\(r^2\)</span>. Thus, slet's make that substitution:</p>
+<h3 id="examples">Examples</h3>
+<h4 id="monotone-increasing-function">Monotone Increasing Function</h4>
+<p>Let <span class="arithmatex">\(f(t) = t\)</span> on <span class="arithmatex">\([0, 1]\)</span>.</p>
+<p>Consider an arbitrary partition</p>
 <div class="arithmatex">\[
 \begin{equation}
-x = r\cos\theta, \qquad y = r\sin\theta.
-\label{eq:polar_coords}
+0 = t_0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_n = 1
+\label{eq:monotone_partition}
 \end{equation}
 \]</div>
-<p>Then</p>
+<p>Then, compute the variation sum. Since <span class="arithmatex">\(f\)</span> is increasing, <span class="arithmatex">\(f(t_{i+1}) - f(t_i) &gt; 0\)</span>, so:</p>
 <div class="arithmatex">\[
 \begin{equation}
-x^2 + y^2 = r^2,
-\qquad
-dx\,dy = r\,dr\,d\theta.
-\label{eq:polar_properties}
+\sum_{i=0}^{n-1} |f(t_{i+1}) - f(t_i)| = \sum_{i=0}^{n-1} (f(t_{i+1}) - f(t_i)) = f(1) - f(0) = 1
+\label{eq:monotone_variation_sum}
 \end{equation}
 \]</div>
-<p>Since we're covering the entire <span class="arithmatex">\(\mathbb{R}^2\)</span> plane, our new bounds in polar coordinates are:</p>
+<p>This is a <strong>telescoping sum</strong> that collapses to the total change. Then taking the <em>supremum</em>, and since this equals 1 for <strong>every</strong> partition:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r \in [0,\infty), \qquad \theta \in [0,2\pi).
-\label{eq:polar_domain}
+V_0^1(f) = 1 &lt; \infty
+\label{eq:monotone_total_variation}
 \end{equation}
 \]</div>
-<p>Putting it all together, our double integral becomes:</p>
-<div class="arithmatex">\[
-\begin{equation}
-I^2
-= \int_0^{2\pi} \int_0^\infty
-e^{-r^2/2}\, r \, dr \, d\theta.
-\label{eq:polar_integral}
-\end{equation}
-\]</div>
+<details class="success" open="open">
+<summary>Result: Bounded Variation</summary>
+<p>Monotone functions have <strong>bounded variation</strong> equal to the total change <span class="arithmatex">\(|f(b) - f(a)|\)</span>.</p>
+</details>
 <hr />
-<h3 id="evaluating-the-radial-integral">Evaluating the radial integral</h3>
-<p>Now let's tackle the radial part where we need to compute:</p>
+<h4 id="differentiable-function">Differentiable Function</h4>
+<p>Let <span class="arithmatex">\(f(t) = \sin(t)\)</span> on <span class="arithmatex">\([0, 2\pi]\)</span>. For a continuously differentiable function:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_0^\infty r e^{-r^2/2}\,dr.
-\label{eq:radial_integral}
+V_a^b(f) = \int_a^b |f'(t)|\,dt
+\label{eq:smooth_variation_formula}
 \end{equation}
 \]</div>
-<p>A quick u-substitution does the trick:</p>
+<p>After this, apply to sine</p>
 <div class="arithmatex">\[
 \begin{equation}
-u = \frac{r^2}{2}, \qquad du = r\,dr.
-\label{eq:u_substitution}
+V_0^{2\pi}(\sin) = \int_0^{2\pi} |\cos(t)|\,dt
+\label{eq:sine_variation}
 \end{equation}
 \]</div>
-<p>And guess what, <strong>voilà!!</strong>:</p>
+<p>Eventually, evaluate the integral breaking into regions where <span class="arithmatex">\(\cos(t)\)</span> has constant sign:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_0^\infty r e^{-r^2/2}\,dr
-= \int_0^\infty e^{-u}\,du
-= 1.
-\label{eq:radial_result}
+\int_0^{2\pi} |\cos(t)|\,dt = \int_0^{\pi/2} \cos(t)\,dt - \int_{\pi/2}^{3\pi/2} \cos(t)\,dt + \int_{3\pi/2}^{2\pi} \cos(t)\,dt = 1 + 2 + 1 = 4
+\label{eq:sine_variation_result}
 \end{equation}
 \]</div>
-<h4 id="why-does-the-integral-equal-1">Why does the integral equal 1?</h4>
-<p>The function <span class="arithmatex">\(e^{-u}\)</span> <em>does</em> have an elementary antiderivative:</p>
-<div class="arithmatex">\[
-\int e^{-u}\,du = -e^{-u}.
-\]</div>
-<p>Evaluating at the bounds,</p>
-<div class="arithmatex">\[
-\int_0^\infty e^{-u}\,du
-= \lim_{b\to\infty} \left[ -e^{-u} \right]_0^b
-= \lim_{b\to\infty} \left( -e^{-b} + e^{0} \right)
-= 1.
-\]</div>
-<p>This result also has a probabilistic interpretation: it is the total mass of an exponential distribution with rate <span class="arithmatex">\(1\)</span>.</p>
+<details class="success" open="open">
+<summary>Result: Finite Variation</summary>
+<p>Continuously differentiable functions have <strong>bounded variation</strong> given by the integral of <span class="arithmatex">\(|f'(t)|\)</span>.</p>
+</details>
 <hr />
-<h3 id="evaluating-the-angular-integral">Evaluating the angular integral</h3>
-<p>The angular part is straightforward:</p>
+<h4 id="brownian-motion-infinite-variation">Brownian Motion - Infinite Variation</h4>
+<p>Let <span class="arithmatex">\(W(t)\)</span> be a standard Brownian motion on <span class="arithmatex">\([0, T]\)</span>.</p>
+<p>We will show that <span class="arithmatex">\(W(t)\)</span> has <strong>unbounded variation</strong> almost surely, i.e., <span class="arithmatex">\(V_0^T(W) = \infty\)</span> a.s.</p>
+<p>Consider a uniform partition, by dividing <span class="arithmatex">\([0, T]\)</span> into <span class="arithmatex">\(n\)</span> equal subintervals:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_0^{2\pi} d\theta = 2\pi.
-\label{eq:angular_integral}
+t_i = \frac{iT}{n}, \quad i = 0, 1, \ldots, n
+\label{eq:uniform_partition_brownian}
 \end{equation}
 \]</div>
-<p>Multiplying these together gives us:</p>
+<p>Then, compute the expected variation sum</p>
 <div class="arithmatex">\[
 \begin{equation}
-I^2 = 2\pi,
-\qquad
-I = \sqrt{2\pi}.
-\label{eq:I_result}
+\mathbb{E}\left[\sum_{i=0}^{n-1} |W(t_{i+1}) - W(t_i)|\right]
+\label{eq:expected_variation_sum}
 \end{equation}
 \]</div>
-<p>We take the positive root since our integrand is always positive. And there we have it, the famous <span class="arithmatex">\(\sqrt{2\pi}\)</span>!</p>
+<p>Last but not least, use properties of Brownian increments in which each increment <span class="arithmatex">\(W(t_{i+1}) - W(t_i) \sim \mathcal{N}(0, T/n)\)</span>, whereas a standard normal variable <span class="arithmatex">\(Z \sim \mathcal{N}(0, \sigma^2)\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}[|Z|] = \sigma\sqrt{\frac{2}{\pi}}
+\label{eq:absolute_normal_expectation}
+\end{equation}
+\]</div>
+<p>Therefore:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}[|W(t_{i+1}) - W(t_i)|] = \sqrt{\frac{T}{n}} \cdot \sqrt{\frac{2}{\pi}} = \sqrt{\frac{2T}{\pi n}}
+\label{eq:brownian_increment_expectation}
+\end{equation}
+\]</div>
+<p>that aggregated, and taking into account the sum us a linear operator on expectations, the sum over all increments is depicted by:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\sum_{i=0}^{n-1} |W(t_{i+1}) - W(t_i)|\right] = n \cdot \sqrt{\frac{2T}{\pi n}} = \sqrt{\frac{2Tn}{\pi}}
+\label{eq:total_expected_variation}
+\end{equation}
+\]</div>
+<p>Last, taking the limit as <span class="arithmatex">\(n \to \infty\)</span> we see it is infinite.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\lim_{n \to \infty} \sqrt{\frac{2Tn}{\pi}} = \infty
+\label{eq:infinite_variation_limit}
+\end{equation}
+\]</div>
+<details class="warning" open="open">
+<summary>Critical Result: Unbounded Variation</summary>
+<p>Brownian motion has <strong>unbounded (infinite) variation</strong> on any non-trivial interval. This is why:</p>
+<ul>
+<li>Classical Riemann-Stieltjes integration <strong>fails</strong> for Brownian motion</li>
+<li>We cannot use ordinary calculus: <span class="arithmatex">\(dW(t)/dt\)</span> does not exist</li>
+<li>A new theory (stochastic calculus) is required</li>
+</ul>
+<p>This infinite variation property distinguishes stochastic processes from smooth functions.</p>
+</details>
 <hr />
-<h2 id="generalizing-to-arbitrary-variance-sigma2">Generalizing to arbitrary variance <span class="arithmatex">\(\sigma^2\)</span></h2>
-<p>What if our variance isn't 1? No problem! Let's tackle the more general case:</p>
+<h2 id="quadratic-variation">Quadratic Variation</h2>
+<p>Since Brownian motion has infinite variation, we need a different measure of its "roughness." The <strong>quadratic variation</strong> turns out to be the right concept.</p>
+<h3 id="definition_1">Definition</h3>
+<p>The <strong>quadratic variation</strong> of a function <span class="arithmatex">\(f: [a, b] \to \mathbb{R}\)</span> over the interval <span class="arithmatex">\([a, b]\)</span> is defined as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/(2\sigma^2)}\,dx.
-\label{eq:variance_integral}
+[f, f]_a^b = \lim_{|\Pi| \to 0} \sum_{i=0}^{n-1} (f(t_{i+1}) - f(t_i))^2
+\label{eq:quadratic_variation_definition}
 \end{equation}
 \]</div>
-<p>We'll use a simple substitution:</p>
+<p>where <span class="arithmatex">\(|\Pi| = \max_i(t_{i+1} - t_i)\)</span> is the <strong>mesh size</strong> of the partition, and the limit is taken as the mesh size goes to zero.</p>
+<p>For stochastic processes, this limit is typically understood in the <strong>probability</strong> or <strong>mean-square</strong> sense.</p>
+<details class="info" open="open">
+<summary>Why Quadratic?</summary>
+<p>Instead of summing <span class="arithmatex">\(|f(t_{i+1}) - f(t_i)|\)</span> (first-order variation), we sum <strong>squares</strong> <span class="arithmatex">\((f(t_{i+1}) - f(t_i))^2\)</span>. This seemingly minor change has profound consequences for stochastic processes.</p>
+</details>
+<h3 id="notation">Notation</h3>
+<p>Common notations for quadratic variation include:</p>
+<ul>
+<li><span class="arithmatex">\([f, f]_a^b\)</span> or <span class="arithmatex">\([f]_a^b\)</span>: Interval notation</li>
+<li><span class="arithmatex">\(\langle f \rangle_t\)</span> or <span class="arithmatex">\([f]_t\)</span>: Process notation (quadratic variation up to time <span class="arithmatex">\(t\)</span>)</li>
+</ul>
+<h3 id="properties_1">Properties</h3>
+<ul>
+<li><strong>For smooth functions</strong>: If <span class="arithmatex">\(f\)</span> is continuously differentiable, then:</li>
+</ul>
 <div class="arithmatex">\[
 \begin{equation}
-u = \frac{x}{\sigma}, \qquad dx = \sigma\,du.
-\label{eq:variance_substitution}
+[f, f]_a^b = 0
+\label{eq:smooth_quadratic_variation_zero}
 \end{equation}
 \]</div>
-<p>Substituting this in:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/(2\sigma^2)}\,dx
-= \sigma \int_{-\infty}^{\infty} e^{-u^2/2}\,du
-= \sigma \sqrt{2\pi}
-= \sqrt{2\pi\sigma^2}.
-\label{eq:variance_result}
-\end{equation}
-\]</div>
+<ul>
+<li><strong>For jump processes</strong>: Quadratic variation accumulates only at jump points</li>
+<li><strong>For continuous martingales</strong>: Quadratic variation is a key characteristic measuring the "randomness"</li>
+</ul>
 <hr />
-<h2 id="what-about-a-shift-in-the-mean">What about a shift in the mean?</h2>
-<p>Finally, what happens if we shift the distribution by some mean <span class="arithmatex">\(\mu\)</span>? Turns out, it doesn't change the result at all!</p>
+<h3 id="example">Example</h3>
+<h4 id="smooth-function-zero-quadratic-variation">Smooth Function - Zero Quadratic Variation</h4>
+<p>Let <span class="arithmatex">\(f(t) = t^2\)</span> on <span class="arithmatex">\([0, 1]\)</span>. Consider a partition with mesh size <span class="arithmatex">\(|\Pi|\)</span>.</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_{-\infty}^{\infty}
-e^{-(x-\mu)^2/(2\sigma^2)}\,dx
-= \sqrt{2\pi\sigma^2}.
-\label{eq:shifted_integral}
+0 = t_0 &lt; t_1 &lt; \cdots &lt; t_n = 1, \quad |\Pi| = \max_i(t_{i+1} - t_i)
+\label{eq:smooth_partition}
 \end{equation}
 \]</div>
-<p>This makes intuitive sense — we're just sliding the entire bell curve over, but we're still integrating over the whole real line. The substitution <span class="arithmatex">\(u = x - \mu\)</span> makes this rigorous, leaving our integration limits unchanged.</p>
-<hr />
-<h2 id="what-about-making-the-result-equal-to-1">What about making the result equal to 1?</h2>
-<p>This equation demonstrates a fundamental property of the normal distribution. By setting the result of <span class="arithmatex">\(\ref{eq:shifted_integral}\)</span> equal to 1, we obtain precisely the cumulative distribution function (CDF) of a normal distribution. The CDF represents the probability that a normally distributed random variable takes on a value less than or equal to a given threshold. This normalization condition ensures that the integral of the probability density function over the entire real line equals unity, which is a requirement for any valid probability distribution. Thus, the shifted integral formulation directly connects to the probabilistic interpretation of the normal distribution through its cumulative distribution function.</p>
+<p>Then, compute the quadratic variation sum</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{1}{\sqrt{2\pi\sigma^2}} \times \int_{-\infty}^{\infty}
-e^{-(x-\mu)^2/(2\sigma^2)}\,dx
-= 1.
-\label{eq:normal_distro_cdf}
+\sum_{i=0}^{n-1} (f(t_{i+1}) - f(t_i))^2 = \sum_{i=0}^{n-1} (t_{i+1}^2 - t_i^2)^2
+\label{eq:quadratic_sum_smooth}
 \end{equation}
 \]</div>
+<p>By the mean value theorem, there exists <span class="arithmatex">\(\xi_i \in (t_i, t_{i+1})\)</span>, then square and bound, such that:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(t_{i+1}) - f(t_i) = f'(\xi_i)(t_{i+1} - t_i) = 2\xi_i(t_{i+1} - t_i)
+\label{eq:mean_value_application}
+\end{equation}
+\]</div>
+<div class="arithmatex">\[
+\begin{equation}
+(f(t_{i+1}) - f(t_i))^2 = 4\xi_i^2(t_{i+1} - t_i)^2 \leq 4(t_{i+1} - t_i)^2 \leq 4|\Pi|(t_{i+1} - t_i)
+\label{eq:squared_increment_bound}
+\end{equation}
+\]</div>
+<p>since <span class="arithmatex">\(\xi_i \in [0, 1]\)</span> and <span class="arithmatex">\((t_{i+1} - t_i) \leq |\Pi|\)</span>. Eventually, sum and take limit.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\sum_{i=0}^{n-1} (f(t_{i+1}) - f(t_i))^2 \leq 4|\Pi| \sum_{i=0}^{n-1} (t_{i+1} - t_i) = 4|\Pi| \cdot 1 \to 0
+\label{eq:quadratic_variation_limit_smooth}
+\end{equation}
+\]</div>
+<p>as <span class="arithmatex">\(|\Pi| \to 0\)</span>.</p>
+<details class="success" open="open">
+<summary>Result: Zero Quadratic Variation</summary>
+<p>For smooth functions (continuously differentiable), the quadratic variation is <strong>zero</strong>. The key is that squared increments decay like <span class="arithmatex">\(O(|\Pi|^2)\)</span>, which vanishes as the mesh size decreases.</p>
+</details>
+<h3 id="formal-notation">Formal Notation</h3>
+<p>In differential notation:</p>
+<div class="arithmatex">\[
+\begin{equation}
+d[W]_t = dt \quad \Rightarrow \quad (dW(t))^2 = dt
+\label{eq:differential_quadratic_variation}
+\end{equation}
+\]</div>
+<p>This is often written symbolically as:</p>
+<div class="arithmatex">\[
+\begin{equation}
+dW \cdot dW = dt
+\label{eq:symbolic_quadratic_variation}
+\end{equation}
+\]</div>
+<p>This is the foundation of <strong>Itô's calculus</strong> multiplication rules.</p>
+<h2 id="summary-and-key-insights">Summary and Key Insights</h2>
+<h3 id="total-variation-vs-quadratic-variation">Total Variation vs. Quadratic Variation</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Smooth Functions</th>
+<th>Brownian Motion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>First-order variation</td>
+<td>Finite</td>
+<td><strong>Infinite</strong></td>
+</tr>
+<tr>
+<td>Quadratic variation</td>
+<td><strong>Zero</strong></td>
+<td>Finite (<span class="arithmatex">\(= t\)</span>)</td>
+</tr>
+<tr>
+<td>Calculus type</td>
+<td>Classical</td>
+<td>Stochastic (Itô)</td>
+</tr>
+<tr>
+<td>Integration</td>
+<td>Riemann-Stieltjes</td>
+<td>Itô integral</td>
+</tr>
+<tr>
+<td>Chain rule correction</td>
+<td>No second-order term</td>
+<td><span class="arithmatex">\(\frac{1}{2}f''\sigma^2\,dt\)</span> term</td>
+</tr>
+</tbody>
+</table>
+<h3 id="fundamental-formula">Fundamental Formula</h3>
+<p>The single most important formula in stochastic calculus:</p>
+<div class="arithmatex">\[
+\begin{equation}
+(dW(t))^2 = dt
+\label{eq:fundamental_quadratic_variation}
+\end{equation}
+\]</div>
+<p>This is <strong>not</strong> an approximation — it's an exact statement about the quadratic variation of Brownian motion, and it's the foundation of all stochastic calculus.</p>
+<details class="success" open="open">
+<summary>Bottom Line</summary>
+<p><strong>Quadratic variation is the key that unlocks stochastic calculus.</strong></p>
+<p>Without it:
+- We couldn't distinguish between smooth and rough processes
+- Itô's formula would reduce to the classical chain rule
+- Stochastic integrals would behave like ordinary integrals
+- We couldn't model genuine randomness in continuous time</p>
+</details>
+<h3 id="generalization-covariation">Generalization: Covariation</h3>
+<p>For two processes <span class="arithmatex">\(X(t)\)</span> and <span class="arithmatex">\(Y(t)\)</span>, the <strong>quadratic covariation</strong> is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+[X, Y]_t = \lim_{|\Pi| \to 0} \sum_{i=0}^{n-1} (X(t_{i+1}) - X(t_i))(Y(t_{i+1}) - Y(t_i))
+\label{eq:quadratic_covariation}
+\end{equation}
+\]</div>
+<p>This extends the concept to <strong>correlation</strong> between stochastic processes.</p>
+<!-- ---
+
+## References
+
+**Øksendal, B.** (2013). [*Stochastic Differential Equations: An Introduction with Applications*](https://link.springer.com/book/10.1007/978-3-642-14394-6){:target="_blank"} (6th ed.). Springer.
+
+- **Chapter 3** - Quadratic Variation and Itô Integrals
+
+**Karatzas, I., & Shreve, S. E.** (1991). *Brownian Motion and Stochastic Calculus* (2nd ed.). Springer.
+
+- **Chapter 1** - Martingales and Quadratic Variation
+
+**Revuz, D., & Yor, M.** (1999). [*Continuous Martingales and Brownian Motion*](https://link.springer.com/book/10.1007/978-3-662-06400-9){:target="_blank"} (3rd ed.). Springer.
+
+- **Chapter IV** - Quadratic Variation and Stochastic Integration -->
+
 <hr />
 <p><em>Building confidence through rigorous validation</em></p>
 

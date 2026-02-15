@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/statistics_and_probability/gaussian_integral/">
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/stochastic_calculus/brownian_integral/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../quadratic_variation/">
       
       
-        <link rel="next" href="../expected_value/">
+        <link rel="next" href="../itos_isometry/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Gaussian Integral - Quȧntero</title>
+        <title>Brownian Integral - Quȧntero</title>
       
     
     
@@ -63,9 +63,9 @@
     
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Gaussian Integral">
+  <meta property="og:title" content="Brownian Integral">
   <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/statistics_and_probability/gaussian_integral/">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/stochastic_calculus/brownian_integral/">
   <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#derivation-of-the-gaussian-integral" class="md-skip">
+        <a href="#ito-integrals-with-respect-to-brownian-motion" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Gaussian Integral
+              Brownian Integral
             
           </span>
         </div>
@@ -1061,8 +1061,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1083,15 +1081,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../statistics_and_probability/" class="md-nav__link ">
               
   
   
@@ -1115,7 +1113,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_6">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1132,37 +1130,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Gaussian Integral
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
         
   
   
@@ -1178,137 +1149,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#defining-the-integral-without-variance" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Defining the integral without variance
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#squaring-the-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Squaring the integral
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#converting-to-polar-coordinates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Converting to polar coordinates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Converting to polar coordinates">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#evaluating-the-radial-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluating the radial integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluating the radial integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-does-the-integral-equal-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why does the integral equal 1?
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-        
-          <li class="md-nav__item">
-  <a href="#evaluating-the-angular-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Evaluating the angular integral
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#generalizing-to-arbitrary-variance-sigma2" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Generalizing to arbitrary variance \(\sigma^2\)
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-a-shift-in-the-mean" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What about a shift in the mean?
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#what-about-making-the-result-equal-to-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        What about making the result equal to 1?
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1321,7 +1161,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../expected_value/" class="md-nav__link">
+      <a href="../../statistics_and_probability/expected_value/" class="md-nav__link">
         
   
   
@@ -1354,6 +1194,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1378,15 +1220,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../stochastic_calculus/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1410,7 +1252,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1430,7 +1272,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/brownian_motion/" class="md-nav__link">
+      <a href="../brownian_motion/" class="md-nav__link">
         
   
   
@@ -1458,7 +1300,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/quadratic_variation/" class="md-nav__link">
+      <a href="../quadratic_variation/" class="md-nav__link">
         
   
   
@@ -1483,10 +1325,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../stochastic_calculus/brownian_integral/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brownian Integral
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1502,6 +1371,220 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-ito-integral-construction-and-definition" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Itô Integral: Construction and Definition
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Itô Integral: Construction and Definition">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#mathematical-framework" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mathematical Framework
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#construction-via-partition-and-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction via Partition and Approximation
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#integrability-conditions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Integrability Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-exponential-integrand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exponential Integrand
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#expected-value-the-martingale-property" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Expected Value: The Martingale Property
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Value: The Martingale Property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-proof-for-deterministic-integrands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Proof for Deterministic Integrands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-to-arbitrary-integrands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization to Arbitrary Integrands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variance-itos-isometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance: Itô's Isometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variance: Itô&#39;s Isometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itos-isometry-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Itô's Isometry Theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-sketch-for-itos-isometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof Sketch for Itô's Isometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-exponential-integrand_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exponential Integrand
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-distributional-characterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Distributional Characterization
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-to-other-results" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection to Other Results
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1514,7 +1597,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../stochastic_calculus/itos_isometry/" class="md-nav__link">
+      <a href="../itos_isometry/" class="md-nav__link">
         
   
   
@@ -1577,72 +1660,55 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#defining-the-integral-without-variance" class="md-nav__link">
+  <a href="#the-ito-integral-construction-and-definition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Defining the integral without variance
+        The Itô Integral: Construction and Definition
       
     </span>
   </a>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#squaring-the-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Squaring the integral
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#converting-to-polar-coordinates" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Converting to polar coordinates
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Converting to polar coordinates">
+    <nav class="md-nav" aria-label="The Itô Integral: Construction and Definition">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#evaluating-the-radial-integral" class="md-nav__link">
+  <a href="#mathematical-framework" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluating the radial integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Evaluating the radial integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#why-does-the-integral-equal-1" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Why does the integral equal 1?
+        Mathematical Framework
       
     </span>
   </a>
   
 </li>
         
-      </ul>
-    </nav>
+          <li class="md-nav__item">
+  <a href="#construction-via-partition-and-approximation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Construction via Partition and Approximation
+      
+    </span>
+  </a>
   
 </li>
         
           <li class="md-nav__item">
-  <a href="#evaluating-the-angular-integral" class="md-nav__link">
+  <a href="#integrability-conditions" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Evaluating the angular integral
+        Integrability Conditions
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-exponential-integrand" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exponential Integrand
       
     </span>
   </a>
@@ -1655,10 +1721,110 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#generalizing-to-arbitrary-variance-sigma2" class="md-nav__link">
+  <a href="#expected-value-the-martingale-property" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Generalizing to arbitrary variance \(\sigma^2\)
+        Expected Value: The Martingale Property
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Expected Value: The Martingale Property">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#statement" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Statement
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-by-step-proof-for-deterministic-integrands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step-by-Step Proof for Deterministic Integrands
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generalization-to-arbitrary-integrands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generalization to Arbitrary Integrands
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#variance-itos-isometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Variance: Itô's Isometry
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Variance: Itô&#39;s Isometry">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#itos-isometry-theorem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Itô's Isometry Theorem
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#proof-sketch-for-itos-isometry" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Proof Sketch for Itô's Isometry
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#example-exponential-integrand_1" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Example: Exponential Integrand
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-distributional-characterization" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Distributional Characterization
       
     </span>
   </a>
@@ -1666,10 +1832,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-about-a-shift-in-the-mean" class="md-nav__link">
+  <a href="#connection-to-other-results" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What about a shift in the mean?
+        Connection to Other Results
       
     </span>
   </a>
@@ -1677,10 +1843,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#what-about-making-the-result-equal-to-1" class="md-nav__link">
+  <a href="#references" class="md-nav__link">
     <span class="md-ellipsis">
       
-        What about making the result equal to 1?
+        References
       
     </span>
   </a>
@@ -1704,186 +1870,348 @@
 
 
 
-<h1 id="derivation-of-the-gaussian-integral">Derivation of the Gaussian Integral</h1>
-<p>If you've ever worked with normal distributions, you've probably encountered the Gaussian integral. Understanding how it's derived is super useful, especially when you're dealing with things like the <strong>Jensen Inequality</strong> or validating statistical models. In this post, we'll walk through the derivation step by step, starting with our goal: computing <span class="arithmatex">\(\ref{eq:integral_result}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/2}\,dx = \sqrt{2\pi},
-\label{eq:integral_result}
-\end{equation}
-\]</div>
-<p>Once we nail this down, we'll extend it to the general form with variance <span class="arithmatex">\(\sigma^2\)</span>.</p>
+<h1 id="ito-integrals-with-respect-to-brownian-motion">Itô Integrals with Respect to Brownian Motion</h1>
+<p>Stochastic integrals with respect to Brownian motion are fundamental objects in stochastic calculus, enabling the rigorous treatment of stochastic differential equations and random processes in continuous time. Unlike ordinary calculus, where integration is performed with respect to smooth functions, stochastic integration involves integrating with respect to <strong>Brownian motion</strong>, a process with infinite variation (but finite quadratic variation) and nowhere-differentiable paths.</p>
+<p>Again as any other posts, this one is for recalling the step-by-step process to deal with Itô integrals.</p>
 <hr />
-<h2 id="defining-the-integral-without-variance">Defining the integral without variance</h2>
-<p>Let's start simple by assuming unit variance (i.e., <span class="arithmatex">\(\sigma^2 = 1\)</span>). This makes the integral easier to work with initially.</p>
+<h2 id="the-ito-integral-construction-and-definition">The Itô Integral: Construction and Definition</h2>
+<h3 id="mathematical-framework">Mathematical Framework</h3>
+<p>Let <span class="arithmatex">\(W(t)\)</span> be a standard Brownian motion defined on a filtered probability space <span class="arithmatex">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \geq 0}, \mathbb{P})\)</span>. We're looking for how to solve/analyze the integral:</p>
 <div class="arithmatex">\[
 \begin{equation}
-I := \int_{-\infty}^{\infty} e^{-x^2/2}\,dx.
-\label{eq:I_definition}
+\int_s^t f(u)\,dW(u)
+\label{eq:ito_integral_notation}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(f(u)\)</span> is either a <strong>deterministic function</strong> of time or an <strong>adapted stochastic process</strong> (i.e., <span class="arithmatex">\(f(u)\)</span> is <span class="arithmatex">\(\mathcal{F}_u\)</span>-measurable for each <span class="arithmatex">\(u\)</span>).</p>
+<details class="quote" open="open">
+<summary>Why Not Riemann-Stieltjes Integration?</summary>
+<p>Brownian motion has <strong>unbounded variation</strong> on any interval <span class="arithmatex">\([s, t]\)</span>, meaning:</p>
+<div class="arithmatex">\[
+\sum_{i=0}^{n-1} |W(t_{i+1}) - W(t_i)| \to \infty \quad \text{as } n \to \infty
+\]</div>
+<p>This makes classical Riemann-Stieltjes integration impossible. We need a different approach based on <strong>mean-square convergence</strong> rather than pathwise convergence (Quadratic variation).</p>
+</details>
+<h3 id="construction-via-partition-and-approximation">Construction via Partition and Approximation</h3>
+<p>The Itô integral is defined as the limit of Riemann-like sums constructed through partitioning. Divide the interval <span class="arithmatex">\([s, t]\)</span> into <span class="arithmatex">\(n\)</span> subintervals:</p>
+<div class="arithmatex">\[
+\begin{equation}
+s = t_0 &lt; t_1 &lt; t_2 &lt; \cdots &lt; t_n = t
+\label{eq:partition}
+\end{equation}
+\]</div>
+<p>with mesh size <span class="arithmatex">\(\Delta t_i = t_{i+1} - t_i\)</span> for <span class="arithmatex">\(i = 0, 1, \ldots, n-1\)</span>. Then, the Itô integral is approximated by:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\int_s^t f(u)\,dW(u) = \lim_{n \to \infty} \sum_{i=0}^{n-1} f(t_i)\left(W(t_{i+1}) - W(t_i)\right)
+\label{eq:riemann_sum_approximation}
+\end{equation}
+\]</div>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(f(t_i)\)</span> is the value of the integrand at the <strong>left endpoint</strong> of the interval <span class="arithmatex">\([t_i, t_{i+1}]\)</span></li>
+<li><span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> is the Brownian motion increment over that interval</li>
+<li>The limit is taken in the <strong>mean-square sense</strong> as the mesh size <span class="arithmatex">\(\max_i \Delta t_i \to 0\)</span></li>
+</ul>
+<details class="warning" open="open">
+<summary>Left-Endpoint Evaluation: The Itô Convention</summary>
+<p>In the Itô integral, we evaluate the integrand at the <strong>left endpoint</strong> of each subinterval. This is crucial for two reasons:</p>
+<ol>
+<li><strong>Causality</strong>: <span class="arithmatex">\(f(t_i)\)</span> is <strong>known</strong> (or measurable with respect to <span class="arithmatex">\(\mathcal{F}_{t_i}\)</span>) at time <span class="arithmatex">\(t_i\)</span>, before the random increment <span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> occurs</li>
+<li><strong>Martingale Property</strong>: This non-anticipating property ensures that Itô integrals are martingales with zero drift</li>
+</ol>
+<p>Alternative conventions (e.g., Stratonovich integration) use midpoint evaluation and yield different calculus rules.</p>
+</details>
+<h3 id="integrability-conditions">Integrability Conditions</h3>
+<p>For the integral <span class="arithmatex">\(\ref{eq:riemann_sum_approximation}\)</span> to be well-defined, some conditions are required, like:</p>
+<table>
+<thead>
+<tr>
+<th>Integrability Type</th>
+<th>Condition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Deterministic</td>
+<td><span class="arithmatex">\(\int_s^t f(u)^2\,du &lt; \infty\)</span></td>
+</tr>
+<tr>
+<td>Stochastic</td>
+<td><span class="arithmatex">\(\mathbb{E}\left[\int_s^t H(u)^2\,du\right] &lt; \infty\)</span></td>
+</tr>
+</tbody>
+</table>
+<details class="info" open="open">
+<summary>Adapted Process Requirement</summary>
+<p>For stochastic integrands <span class="arithmatex">\(H(u)\)</span>, we require that <span class="arithmatex">\(H(u)\)</span> is <strong>adapted</strong> to the filtration <span class="arithmatex">\((\mathcal{F}_u)\)</span>, meaning <span class="arithmatex">\(H(u)\)</span> only depends on information available up to time <span class="arithmatex">\(u\)</span>. This ensures:</p>
+<ul>
+<li><strong>Non-anticipation</strong>: The integrand cannot "look into the future"</li>
+<li><strong>Martingale property</strong>: The integral remains a martingale with zero drift</li>
+<li><strong>Well-definedness</strong>: The mean-square limit exists</li>
+</ul>
+</details>
+<p>The square-integrability condition in stochastic integrability requirement, ensures that the mean-square limit in <span class="arithmatex">\(\ref{eq:riemann_sum_approximation}\)</span> exists. This is weaker than requiring pathwise convergence and is the natural framework for stochastic integration.</p>
+<h3 id="example-exponential-integrand">Example: Exponential Integrand</h3>
+<p>For the specific case <span class="arithmatex">\(f(u) = e^{au}\)</span> where <span class="arithmatex">\(a\)</span> is a constant:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\int_s^t e^{au}\,dW(u) = \lim_{n \to \infty} \sum_{i=0}^{n-1} e^{at_i}\left(W(t_{i+1}) - W(t_i)\right)
+\label{eq:exponential_ito_integral_construction}
+\end{equation}
+\]</div>
+<p>This integral appears frequently in the solutions to linear stochastic differential equations, including the <a href="../../pricing/interest_rates/vasicek_model/" target="_blank">Vasicek model</a>.</p>
+<hr />
+<h2 id="expected-value-the-martingale-property">Expected Value: The Martingale Property</h2>
+<h3 id="statement">Statement</h3>
+<p>One of the most important properties of Itô integrals is that they are <strong>martingales</strong> with zero conditional expectation:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\int_s^t f(u)\,dW(u) \mid \mathcal{F}_s\right] = 0
+\label{eq:ito_integral_zero_expectation}
+\end{equation}
+\]</div>
+<p>for all <span class="arithmatex">\(0 \leq s &lt; t\)</span> and any adapted integrand <span class="arithmatex">\(f(u)\)</span> satisfying the integrability conditions. This fundamental result tells us that <strong>stochastic integrals represent pure randomness with no systematic drift</strong>, as they average to zero when conditioned on past information.</p>
+<h3 id="step-by-step-proof-for-deterministic-integrands">Step-by-Step Proof for Deterministic Integrands</h3>
+<p>We will prove equation <span class="arithmatex">\(\ref{eq:ito_integral_zero_expectation}\)</span> for the exponential case:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\int_s^t e^{au}\,dW(u) \mid \mathcal{F}_s\right] = 0
+\label{eq:exponential_ito_integral}
+\end{equation}
+\]</div>
+<p>We compute the conditional expectation of the approximating sum as explained above in <span class="arithmatex">\(\ref{eq:riemann_sum_approximation}\)</span>.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\sum_{i=0}^{n-1} e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right]
+\label{eq:conditional_expectation_sum}
+\end{equation}
+\]</div>
+<p>Using the linearity of conditional expectation, we can say that</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\sum_{i=0}^{n-1} e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right] = \sum_{i=0}^{n-1} \mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right]
+\label{eq:linearity_of_expectation}
+\end{equation}
+\]</div>
+<details class="warning" open="open">
+<summary>Critical Insight</summary>
+<p>Consider a single term:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right]
+\label{eq:single_term}
+\end{equation}
+\]</div>
+<p>Since we integrate from <span class="arithmatex">\(s\)</span> to <span class="arithmatex">\(t\)</span>, we have <span class="arithmatex">\(t_i \geq s\)</span> for all terms in the sum. The increment <span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> occurs <strong>in the future</strong> relative to time <span class="arithmatex">\(s\)</span>.</p>
+<p>The key to understanding why this expectation is zero lies in recognizing <strong>when</strong> information becomes available and <strong>when</strong> randomness occurs.</p>
+</details>
+<p>Subsequently, we can apply the tower property (law of iterated expectations):</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right] = \mathbb{E}\left[\style{color: var(--math-highlight-4)}{\mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_{t_i}\right]} \mid \mathcal{F}_s\right]
+\label{eq:tower_property}
+\end{equation}
+\]</div>
+<details class="info">
+<summary>Tower Property</summary>
+<p>The tower property (also called the law of iterated expectations) states that for any <span class="arithmatex">\(s \leq t_i\)</span>:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[X \mid \mathcal{F}_s\right] = \mathbb{E}\left[\mathbb{E}\left[X \mid \mathcal{F}_{t_i}\right] \mid \mathcal{F}_s\right]
+\]</div>
+<p>This allows us to "condition down" to a finer filtration first, then condition up to the coarser filtration.</p>
+<p><strong>Why This is Crucial for Computing Itô Integrals:</strong></p>
+<p>When we want to find <span class="arithmatex">\(\mathbb{E}\left[\int_s^t f(u)\,dW(u) \mid \mathcal{F}_s\right]\)</span>, we face a challenge: the integral involves increments <span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> that occur at times <span class="arithmatex">\(t_i \geq s\)</span>, which are in the <em>future</em> relative to time <span class="arithmatex">\(s\)</span>.</p>
+<p>The tower property lets us break this into two steps:</p>
+<ol>
+<li><strong>First</strong>, condition on the intermediate time <span class="arithmatex">\(\mathcal{F}_{t_i}\)</span> where we can use the fact that <span class="arithmatex">\(e^{at_i}\)</span> is known and the future increment <span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> is independent of <span class="arithmatex">\(\mathcal{F}_{t_i}\)</span></li>
+<li><strong>Then</strong>, average this result back down to the original filtration <span class="arithmatex">\(\mathcal{F}_s\)</span></li>
+</ol>
+<p>Without this property, we couldn't separate the "known" part (<span class="arithmatex">\(e^{at_i}\)</span>) from the "random" part (<span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span>) and exploit the independent increments property of Brownian motion.</p>
+</details>
+<p>Now, since <span class="arithmatex">\(e^{at_i}\)</span> is deterministic (depends only on time, not randomness) and <span class="arithmatex">\(t_i\)</span> is known at time <span class="arithmatex">\(t_i\)</span>, we can factor it out of the inner expectation:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\style{color: var(--math-highlight-4)}{\mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_{t_i}\right]} = e^{at_i} \style{color: var(--math-highlight-2)}{\mathbb{E}\left[W(t_{i+1}) - W(t_i) \mid \mathcal{F}_{t_i}\right]}
+\label{eq:factor_out_deterministic}
+\end{equation}
+\]</div>
+<p>The key property of Brownian motion is that <strong>increments are independent of the past</strong>. The increment <span class="arithmatex">\(W(t_{i+1}) - W(t_i)\)</span> is:</p>
+<ul>
+<li>Independent of all information available at time <span class="arithmatex">\(t_i\)</span> (i.e., independent of <span class="arithmatex">\(\mathcal{F}_{t_i}\)</span>)</li>
+<li>Normally distributed: <span class="arithmatex">\(W(t_{i+1}) - W(t_i) \sim \mathcal{N}(0, t_{i+1} - t_i)\)</span></li>
+</ul>
+<p>Therefore:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\style{color: var(--math-highlight-2)}{\mathbb{E}\left[W(t_{i+1}) - W(t_i) \mid \mathcal{F}_{t_i}\right]} = \mathbb{E}\left[W(t_{i+1}) - W(t_i)\right] = 0
+\label{eq:brownian_increment_expectation}
+\end{equation}
+\]</div>
+<details class="success">
+<summary>Why Zero?</summary>
+<p>Brownian motion increments have <strong>zero mean</strong>:</p>
+<div class="arithmatex">\[
+W(t_{i+1}) - W(t_i) \sim \mathcal{N}(0, t_{i+1} - t_i)
+\]</div>
+<p>The mean of a <span class="arithmatex">\(\mathcal{N}(0, \sigma^2)\)</span> distribution is always 0, regardless of the variance.</p>
+</details>
+<p>Eventually, and substituting back:</p>
+<div class="arithmatex">\[
+\begin{equation}
+e^{at_i} \times 0 = 0
+\label{eq:term_conclusion}
+\end{equation}
+\]</div>
+<p>Since every term in the sum <span class="arithmatex">\(\ref{eq:linearity_of_expectation}\)</span> equals zero:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\sum_{i=0}^{n-1} \mathbb{E}\left[e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right] = \sum_{i=0}^{n-1} 0 = 0
+\label{eq:sum_of_zeros}
+\end{equation}
+\]</div>
+<p>As the partition becomes finer (mesh size <span class="arithmatex">\(\to 0\)</span>), the Riemann sum converges to the Itô integral:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\int_s^t e^{au}\,dW(u) \mid \mathcal{F}_s\right] = \lim_{n \to \infty} \mathbb{E}\left[\sum_{i=0}^{n-1} e^{at_i}\left(W(t_{i+1}) - W(t_i)\right) \mid \mathcal{F}_s\right] = 0
+\label{eq:limit_conclusion}
+\end{equation}
+\]</div>
+<h3 id="generalization-to-arbitrary-integrands">Generalization to Arbitrary Integrands</h3>
+<p>The proof above generalizes to any deterministic function <span class="arithmatex">\(f(u)\)</span> satisfying the integrability condition:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\int_s^t f(u)\,dW(u) \mid \mathcal{F}_s\right] = 0
+\label{eq:general_deterministic_integrand}
+\end{equation}
+\]</div>
+<p>Moreover, for <strong>adapted stochastic processes</strong> <span class="arithmatex">\(H(u)\)</span> (where <span class="arithmatex">\(H(u)\)</span> is <span class="arithmatex">\(\mathcal{F}_u\)</span>-measurable for each <span class="arithmatex">\(u\)</span>), the same result holds under the square-integrability condition:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\int_s^t H(u)\,dW(u) \mid \mathcal{F}_s\right] = 0
+\label{eq:general_adapted_integrand}
 \end{equation}
 \]</div>
 <hr />
-<h2 id="squaring-the-integral">Squaring the integral</h2>
-<p>Here's the clever trick: we can't solve <span class="arithmatex">\(\ref{eq:I_definition}\)</span> directly using standard integration techniques. So instead, we'll square it! By introducing a second independent variable <span class="arithmatex">\(y\)</span>, we get <span class="arithmatex">\(\ref{eq:I_squared}\)</span>.</p>
+<h2 id="variance-itos-isometry">Variance: Itô's Isometry</h2>
+<p>While the martingale property tells us that the <strong>mean</strong> of an Itô integral is zero, we also need to characterize its <strong>variance</strong> to fully understand the distribution of stochastic integrals.</p>
+<h3 id="itos-isometry-theorem">Itô's Isometry Theorem</h3>
+<p>For any deterministic function <span class="arithmatex">\(f(u)\)</span> satisfying <span class="arithmatex">\(\int_s^t f(u)^2\,du &lt; \infty\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-I^2
-= \left( \int_{-\infty}^{\infty} e^{-x^2/2}\,dx \right)
-  \left( \int_{-\infty}^{\infty} e^{-y^2/2}\,dy \right).
-\label{eq:I_squared}
+\mathbb{E}\left[\left(\int_s^t f(u)\,dW(u)\right)^2\right] = \int_s^t f(u)^2\,du
+\label{eq:ito_isometry}
 \end{equation}
 \]</div>
+<p>More generally, for the conditional variance <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-I^2
-= \int_{-\infty}^{\infty} \int_{-\infty}^{\infty}
-e^{-(x^2+y^2)/2}\,dx\,dy.
-\label{eq:double_integral}
+\begin{aligned}
+\text{Var}\left[\int_s^t f(u)\,dW(u) \mid \mathcal{F}_s\right] &amp;= \mathbb{E}\left[\left(\int_s^t f(u)\,dW(u)\right)^2 \mid \mathcal{F}_s\right]\\
+&amp;= \int_s^t f(u)^2\,du
+\end{aligned}
+\label{eq:ito_isometry_variance}
 \end{equation}
 \]</div>
-<p>This transformation is legit thanks to <a href="https://tutorial.math.lamar.edu/classes/calciii/IteratedIntegrals.aspx" target="_blank">Fubini's theorem</a> as our integrand is non-negative and integrable, so we're good to go.</p>
+<h3 id="proof-sketch-for-itos-isometry">Proof Sketch for Itô's Isometry</h3>
+<p>First, let's take the approximation using riemman sum.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\left(\int_s^t f(u)\,dW(u)\right)^2 \approx \left(\sum_{i=0}^{n-1} f(t_i)\left(W(t_{i+1}) - W(t_i)\right)\right)^2
+\label{eq:squared_riemann_sum}
+\end{equation}
+\]</div>
+<p>that, when expanding the 2nd-power we get where <span class="arithmatex">\(\Delta W_i = W(t_{i+1}) - W(t_i)\)</span>.</p>
+<div class="arithmatex">\[
+\begin{equation}
+\left(\sum_{i=0}^{n-1} f(t_i)\Delta W_i\right)^2 = \sum_{i=0}^{n-1} f(t_i)^2 (\style{color: var(--math-highlight-2)}{\Delta W_i})^2 + 2\sum_{i&lt;j} f(t_i)f(t_j)\style{color: var(--math-highlight-4)}{\Delta W_i \Delta W_j}
+\label{eq:expansion}
+\end{equation}
+\]</div>
+<p>The <strong>cross terms</strong> vanish because increments at different times are independent:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}[\style{color: var(--math-highlight-4)}{\Delta W_i \Delta W_j}] = \mathbb{E}[\Delta W_i]\mathbb{E}[\Delta W_j] = 0 \quad \text{for } i &lt; j
+\label{eq:cross_terms_zero}
+\end{equation}
+\]</div>
+<p>Then, remaining terms are called <strong>diagonal terms</strong>, contribute with <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}[(\style{color: var(--math-highlight-2)}{\Delta W_i})^2] = \text{Var}(\Delta W_i) = t_{i+1} - t_i = \Delta t_i
+\label{eq:diagonal_variance}
+\end{equation}
+\]</div>
+<p>Then summing up and using the limit, we can say</p>
+<div class="arithmatex">\[
+\begin{equation}
+\mathbb{E}\left[\left(\sum_{i=0}^{n-1} f(t_i)\Delta W_i\right)^2\right] = \sum_{i=0}^{n-1} f(t_i)^2 \Delta t_i \to \int_s^t f(u)^2\,du
+\label{eq:isometry_limit}
+\end{equation}
+\]</div>
+<p>as the mesh size goes to zero.</p>
+<h3 id="example-exponential-integrand_1">Example: Exponential Integrand</h3>
+<p><a id="exponential-variance"></a></p>
+<p>For <span class="arithmatex">\(f(u) = e^{au}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\text{Var}\left[\int_s^t e^{au}\,dW(u) \mid \mathcal{F}_s\right] = \int_s^t e^{2au}\,du = \frac{e^{2at} - e^{2as}}{2a}
+\label{eq:exponential_variance}
+\end{equation}
+\]</div>
+<p>This variance formula in <span class="arithmatex">\(\ref{eq:exponential_variance}\)</span> is crucial for computing the variance of the short rate in the <a href="../../pricing/interest_rates/vasicek_model/">Vasicek model</a>.</p>
+<h2 id="complete-distributional-characterization">Complete Distributional Characterization</h2>
+<p>Combining the <strong>zero mean</strong> property <span class="arithmatex">\(\ref{eq:ito_integral_zero_expectation}\)</span> with the <strong>variance formula</strong> <span class="arithmatex">\(\ref{eq:ito_isometry_variance}\)</span>, when <span class="arithmatex">\(f(u)\)</span> is deterministic:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\int_s^t f(u)\,dW(u) \mid \mathcal{F}_s \sim \mathcal{N}\left(0, \int_s^t f(u)^2\,du\right)
+\label{eq:ito_integral_distribution}
+\end{equation}
+\]</div>
+<p>This Gaussian distribution is <strong>fundamental</strong> to stochastic calculus:</p>
+<ul>
+<li>The integral is <strong>normally distributed</strong></li>
+<li>Mean is <strong>zero</strong></li>
+<li>Variance is the <strong>integral of the squared integrand</strong></li>
+</ul>
+<details class="success" open="open">
+<summary>Key Insight</summary>
+<p>The pair (mean, variance) = <span class="arithmatex">\(\left(0, \int_s^t f(u)^2\,du\right)\)</span> completely characterizes the distribution of Itô integrals with deterministic integrands.</p>
+</details>
 <hr />
-<h2 id="converting-to-polar-coordinates">Converting to polar coordinates</h2>
-<p>After squaring the integral in <span class="arithmatex">\(\ref{eq:double_integral}\)</span>, we can see the power of the exponent <span class="arithmatex">\((x^2+y^2)\)</span> seems to be pretty similar to the radial distance in polar coordinates <span class="arithmatex">\(r^2\)</span>. Thus, slet's make that substitution:</p>
-<div class="arithmatex">\[
-\begin{equation}
-x = r\cos\theta, \qquad y = r\sin\theta.
-\label{eq:polar_coords}
-\end{equation}
-\]</div>
-<p>Then</p>
-<div class="arithmatex">\[
-\begin{equation}
-x^2 + y^2 = r^2,
-\qquad
-dx\,dy = r\,dr\,d\theta.
-\label{eq:polar_properties}
-\end{equation}
-\]</div>
-<p>Since we're covering the entire <span class="arithmatex">\(\mathbb{R}^2\)</span> plane, our new bounds in polar coordinates are:</p>
-<div class="arithmatex">\[
-\begin{equation}
-r \in [0,\infty), \qquad \theta \in [0,2\pi).
-\label{eq:polar_domain}
-\end{equation}
-\]</div>
-<p>Putting it all together, our double integral becomes:</p>
-<div class="arithmatex">\[
-\begin{equation}
-I^2
-= \int_0^{2\pi} \int_0^\infty
-e^{-r^2/2}\, r \, dr \, d\theta.
-\label{eq:polar_integral}
-\end{equation}
-\]</div>
+<h2 id="connection-to-other-results">Connection to Other Results</h2>
+<ul>
+<li>
+<p><strong><a href="../brownian_motion/">Brownian Motion</a></strong>: The integrator in Itô integrals; its independent increments and zero mean properties are essential</p>
+</li>
+<li>
+<p><strong><a href="../itos_isometry/">Itô's Isometry (Full Treatment)</a></strong>: A more detailed exposition of the variance formula and its applications</p>
+</li>
+<li>
+<p><strong><a href="../../pricing/interest_rates/vasicek_model/">Vasicek Model</a></strong>: Practical application showing how to compute both mean and variance using these properties</p>
+</li>
+</ul>
 <hr />
-<h3 id="evaluating-the-radial-integral">Evaluating the radial integral</h3>
-<p>Now let's tackle the radial part where we need to compute:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_0^\infty r e^{-r^2/2}\,dr.
-\label{eq:radial_integral}
-\end{equation}
-\]</div>
-<p>A quick u-substitution does the trick:</p>
-<div class="arithmatex">\[
-\begin{equation}
-u = \frac{r^2}{2}, \qquad du = r\,dr.
-\label{eq:u_substitution}
-\end{equation}
-\]</div>
-<p>And guess what, <strong>voilà!!</strong>:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_0^\infty r e^{-r^2/2}\,dr
-= \int_0^\infty e^{-u}\,du
-= 1.
-\label{eq:radial_result}
-\end{equation}
-\]</div>
-<h4 id="why-does-the-integral-equal-1">Why does the integral equal 1?</h4>
-<p>The function <span class="arithmatex">\(e^{-u}\)</span> <em>does</em> have an elementary antiderivative:</p>
-<div class="arithmatex">\[
-\int e^{-u}\,du = -e^{-u}.
-\]</div>
-<p>Evaluating at the bounds,</p>
-<div class="arithmatex">\[
-\int_0^\infty e^{-u}\,du
-= \lim_{b\to\infty} \left[ -e^{-u} \right]_0^b
-= \lim_{b\to\infty} \left( -e^{-b} + e^{0} \right)
-= 1.
-\]</div>
-<p>This result also has a probabilistic interpretation: it is the total mass of an exponential distribution with rate <span class="arithmatex">\(1\)</span>.</p>
+<h2 id="references">References</h2>
+<p><strong>Øksendal, B.</strong> (2013). <a href="https://link.springer.com/book/10.1007/978-3-642-14394-6" target="_blank"><em>Stochastic Differential Equations: An Introduction with Applications</em></a> (6th ed.). Springer.</p>
+<ul>
+<li><strong>Chapter 3</strong> - Itô Integrals and the Martingale Property</li>
+</ul>
+<p><strong>Karatzas, I., &amp; Shreve, S. E.</strong> (1991). <em>Brownian Motion and Stochastic Calculus</em> (2nd ed.). Springer.</p>
+<ul>
+<li><strong>Chapter 3</strong> - Stochastic Integration</li>
+</ul>
+<div class="footnote">
 <hr />
-<h3 id="evaluating-the-angular-integral">Evaluating the angular integral</h3>
-<p>The angular part is straightforward:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_0^{2\pi} d\theta = 2\pi.
-\label{eq:angular_integral}
-\end{equation}
-\]</div>
-<p>Multiplying these together gives us:</p>
-<div class="arithmatex">\[
-\begin{equation}
-I^2 = 2\pi,
-\qquad
-I = \sqrt{2\pi}.
-\label{eq:I_result}
-\end{equation}
-\]</div>
-<p>We take the positive root since our integrand is always positive. And there we have it, the famous <span class="arithmatex">\(\sqrt{2\pi}\)</span>!</p>
-<hr />
-<h2 id="generalizing-to-arbitrary-variance-sigma2">Generalizing to arbitrary variance <span class="arithmatex">\(\sigma^2\)</span></h2>
-<p>What if our variance isn't 1? No problem! Let's tackle the more general case:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/(2\sigma^2)}\,dx.
-\label{eq:variance_integral}
-\end{equation}
-\]</div>
-<p>We'll use a simple substitution:</p>
-<div class="arithmatex">\[
-\begin{equation}
-u = \frac{x}{\sigma}, \qquad dx = \sigma\,du.
-\label{eq:variance_substitution}
-\end{equation}
-\]</div>
-<p>Substituting this in:</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty} e^{-x^2/(2\sigma^2)}\,dx
-= \sigma \int_{-\infty}^{\infty} e^{-u^2/2}\,du
-= \sigma \sqrt{2\pi}
-= \sqrt{2\pi\sigma^2}.
-\label{eq:variance_result}
-\end{equation}
-\]</div>
-<hr />
-<h2 id="what-about-a-shift-in-the-mean">What about a shift in the mean?</h2>
-<p>Finally, what happens if we shift the distribution by some mean <span class="arithmatex">\(\mu\)</span>? Turns out, it doesn't change the result at all!</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_{-\infty}^{\infty}
-e^{-(x-\mu)^2/(2\sigma^2)}\,dx
-= \sqrt{2\pi\sigma^2}.
-\label{eq:shifted_integral}
-\end{equation}
-\]</div>
-<p>This makes intuitive sense — we're just sliding the entire bell curve over, but we're still integrating over the whole real line. The substitution <span class="arithmatex">\(u = x - \mu\)</span> makes this rigorous, leaving our integration limits unchanged.</p>
-<hr />
-<h2 id="what-about-making-the-result-equal-to-1">What about making the result equal to 1?</h2>
-<p>This equation demonstrates a fundamental property of the normal distribution. By setting the result of <span class="arithmatex">\(\ref{eq:shifted_integral}\)</span> equal to 1, we obtain precisely the cumulative distribution function (CDF) of a normal distribution. The CDF represents the probability that a normally distributed random variable takes on a value less than or equal to a given threshold. This normalization condition ensures that the integral of the probability density function over the entire real line equals unity, which is a requirement for any valid probability distribution. Thus, the shifted integral formulation directly connects to the probabilistic interpretation of the normal distribution through its cumulative distribution function.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\frac{1}{\sqrt{2\pi\sigma^2}} \times \int_{-\infty}^{\infty}
-e^{-(x-\mu)^2/(2\sigma^2)}\,dx
-= 1.
-\label{eq:normal_distro_cdf}
-\end{equation}
-\]</div>
-<hr />
-<p><em>Building confidence through rigorous validation</em></p>
+<ol>
+<li id="fn:1">
+<p>See <a href="../itos_isometry/" target="_blank">Itô's Isometry</a>.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:2">
+<p>See <a href="../brownian_motion/" target="_blank">Brownian Motion</a>, section associated with Brownian differences properties.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 

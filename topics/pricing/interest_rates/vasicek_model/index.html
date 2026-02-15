@@ -1429,6 +1429,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1496,6 +1500,62 @@
     
   
     Brownian Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stochastic_calculus/quadratic_variation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quadratic Variation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../stochastic_calculus/brownian_integral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brownian Integral
   
 
     
@@ -1794,25 +1854,33 @@ dr(t) + ar(t)dt = ab\,dt + \sigma dW(t).
 \label{eq:vasicek_rearranged}
 \end{equation}
 \]</div>
-<p>Multiply both sides by the integrating factor <span class="arithmatex">\(e^{at}\)</span>:</p>
+<p>Multiply both sides by the integrating factor <span class="arithmatex">\(\style{color: var(--math-highlight-4)}{e^{at}}\)</span>:</p>
+<details class="success" open="open">
+<summary>The trick for Vasicek and Hull-White</summary>
+<p>The first trick to solve these SDEs is to add the <span class="arithmatex">\(e^{at}\)</span> factor in both sides of the equation. This allows to transform the following expression into the derivative of a multiplication, like:</p>
+<div class="arithmatex">\[e^{at}dr(t) + ae^{at}r(t)dt = \style{color: var(--math-highlight-2)}{d\left(e^{at}r(t)\right)}\]</div>
+</details>
 <div class="arithmatex">\[
 \begin{equation}
-e^{at}dr(t) + ae^{at}r(t)dt = abe^{at}dt + \sigma e^{at}dW(t).
+\style{color: var(--math-highlight-4)}{e^{at}}dr(t) + a\style{color: var(--math-highlight-4)}{e^{at}}r(t)dt = ab\style{color: var(--math-highlight-4)}{e^{at}}dt + \sigma \style{color: var(--math-highlight-4)}{e^{at}}dW(t).
 \label{eq:integrating_factor}
 \end{equation}
 \]</div>
-<p>Notice that the left-hand side is the differential of <span class="arithmatex">\(e^{at}r(t)\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-d\left(e^{at}r(t)\right) = abe^{at}dt + \sigma e^{at}dW(t).
+\style{color: var(--math-highlight-2)}{d\left(e^{at}r(t)\right)} = abe^{at}dt + \sigma e^{at}dW(t).
 \label{eq:differential_form}
 \end{equation}
 \]</div>
-<p>Integrating from initial time <span class="arithmatex">\(s\)</span> to time <span class="arithmatex">\(t\)</span>:</p>
+<p>Then, by integrating from initial time <span class="arithmatex">\(s\)</span> to time <span class="arithmatex">\(t\)</span> we obtain:</p>
 <div class="arithmatex">\[
 \begin{equation}
-e^{at}r(t) - e^{as}r(s) = ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u).
-\label{eq:integrated_form}
+\begin{aligned}
+\int_s^t d\left(e^{au}r(u)\right) &amp;= \int_s^t abe^{au}du + \int_s^t\sigma e^{au}dW(u) \\
+\left.e^{au}r(u)\right|_s^t &amp;= \int_s^t abe^{au}du + \int_s^t\sigma e^{au}dW(u) \\
+e^{at}r(t) - e^{as}r(s) &amp;= ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u).
+\end{aligned}
+\label{eq:integrated_form_original}
 \end{equation}
 \]</div>
 <p>Computing the deterministic integral:</p>
@@ -1822,10 +1890,30 @@ e^{at}r(t) - e^{as}r(s) = ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u).
 \label{eq:deterministic_integral}
 \end{equation}
 \]</div>
+<details class="tip">
+<summary>Solving the deterministic integral step by step</summary>
+<p>We need to evaluate:</p>
+<div class="arithmatex">\[\int_s^t e^{au}du\]</div>
+<p><strong>Step 1: Find the antiderivative</strong></p>
+<p>The antiderivative of <span class="arithmatex">\(e^{au}\)</span> with respect to <span class="arithmatex">\(u\)</span> is:</p>
+<div class="arithmatex">\[\int e^{au}du = \frac{e^{au}}{a} + C\]</div>
+<p>This follows from the chain rule: if <span class="arithmatex">\(f(u) = \frac{e^{au}}{a}\)</span>, then <span class="arithmatex">\(f'(u) = \frac{a \cdot e^{au}}{a} = e^{au}\)</span>.</p>
+<p><strong>Step 2: Apply the Fundamental Theorem of Calculus</strong></p>
+<p>Evaluate the antiderivative at the bounds:</p>
+<div class="arithmatex">\[\int_s^t e^{au}du = \left[\frac{e^{au}}{a}\right]_s^t = \frac{e^{at}}{a} - \frac{e^{as}}{a}\]</div>
+<p><strong>Step 3: Factor out the common denominator</strong></p>
+<div class="arithmatex">\[\int_s^t e^{au}du = \frac{e^{at} - e^{as}}{a}\]</div>
+</details>
 <p>Substituting back and solving for <span class="arithmatex">\(r(t)\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t e^{au}dW(u).
+\begin{aligned}
+e^{at}r(t) - e^{as}r(s) &amp;= ab\frac{e^{at} - e^{as}}{a} + \sigma\int_s^t e^{au}dW(u) \\
+e^{at}r(t) - e^{as}r(s) &amp;= b(e^{at} - e^{as}) + \sigma\int_s^t e^{au}dW(u) \\
+e^{at}r(t) &amp;= e^{as}r(s) + b(e^{at} - e^{as}) + \sigma\int_s^t e^{au}dW(u) \\
+r(t) &amp;= \left[e^{as}r(s) + b(e^{at} - e^{as}) + \sigma\int_s^t e^{au}dW(u) \right]e^{-at} \\
+r(t) &amp;= r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t e^{au}dW(u)
+\end{aligned}
 \label{eq:vasicek_solution}
 \end{equation}
 \]</div>
@@ -1844,6 +1932,85 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 \label{eq:vasicek_expectation}
 \end{equation}
 \]</div>
+<details class="tip" open="open">
+<summary>Deriving the Expected Value</summary>
+<p>We start from the closed-form solution <span class="arithmatex">\(\ref{eq:vasicek_solution}\)</span>:</p>
+<div class="arithmatex">\[
+r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t e^{au}dW(u)
+\]</div>
+<p><strong>Step 1: Identify the stochastic component</strong></p>
+<p>Yes, a table would work well here. Here's the rewritten content:</p>
+<table>
+<thead>
+<tr>
+<th>Component</th>
+<th>Expression</th>
+<th>Type</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Term 1</td>
+<td><span class="arithmatex">\(r(s)e^{-a(t-s)}\)</span></td>
+<td>Deterministic</td>
+</tr>
+<tr>
+<td>Term 2</td>
+<td><span class="arithmatex">\(b\left(1 - e^{-a(t-s)}\right)\)</span></td>
+<td>Deterministic</td>
+</tr>
+<tr>
+<td>Term 3</td>
+<td><span class="arithmatex">\(\sigma e^{-at}\int_s^t e^{au}dW(u)\)</span></td>
+<td>Stochastic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Step 2: Apply the expectation operator</strong></p>
+<p>Taking the conditional expectation given <span class="arithmatex">\(\mathcal{F}_s\)</span> (information available at time <span class="arithmatex">\(s\)</span>), since the expectation is a linear operator:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = \mathbb{E}\left[r(s)e^{-a(t-s)} \mid \mathcal{F}_s\right] + \mathbb{E}\left[b\left(1 - e^{-a(t-s)}\right) \mid \mathcal{F}_s\right] + \mathbb{E}\left[\sigma e^{-at}\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right]
+\]</div>
+<p>Let's stop for a second, to thing about the third term, which vanishes due to a fundamental property of Itô integrals:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\sigma e^{-at}\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right] = 0
+\]</div>
+<p><strong>Step 2.1: Factor out constants</strong></p>
+<p>Since <span class="arithmatex">\(\sigma\)</span> and <span class="arithmatex">\(e^{-at}\)</span> are deterministic (known at time <span class="arithmatex">\(s\)</span>), we can pull them outside the expectation:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\sigma e^{-at}\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right] = \sigma e^{-at} \mathbb{E}\left[\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right]
+\]</div>
+<p><strong>Step 2.2: Apply the Itô integral martingale property</strong></p>
+<p>The key insight is that <strong>Itô integrals are martingales with respect to the filtration generated by the Brownian motion</strong>. This means they have zero expectation when conditioned on past information:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right] = 0
+\]</div>
+<p><strong>Step 3: Interpret the martingale property</strong></p>
+<p>This holds because:
+- The integrand <span class="arithmatex">\(e^{au}\)</span> is deterministic (depends only on time, not on randomness)
+- Brownian motion increments <span class="arithmatex">\(dW(u)\)</span> for <span class="arithmatex">\(u &gt; s\)</span> are <strong>independent</strong> of all information available at time <span class="arithmatex">\(s\)</span> (captured by <span class="arithmatex">\(\mathcal{F}_s\)</span>)
+- Therefore, future shocks have zero expected impact on any quantity known today</p>
+<p><strong>Step 4: Conclude</strong></p>
+<div class="arithmatex">\[
+\sigma e^{-at} \cdot 0 = 0
+\]</div>
+<p><strong>Step 3: Evaluate each term</strong></p>
+<ul>
+<li><strong>First term</strong>: <span class="arithmatex">\(\mathbb{E}\left[r(s)e^{-a(t-s)} \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)}\)</span> (deterministic, known at <span class="arithmatex">\(s\)</span>)</li>
+<li><strong>Second term</strong>: <span class="arithmatex">\(\mathbb{E}\left[b\left(1 - e^{-a(t-s)}\right) \mid \mathcal{F}_s\right] = b\left(1 - e^{-a(t-s)}\right)\)</span> (deterministic constant)</li>
+<li><strong>Third term</strong>: <span class="arithmatex">\(\mathbb{E}\left[\sigma e^{-at}\int_s^t e^{au}dW(u) \mid \mathcal{F}_s\right] = 0\)</span> (Itô integral property)</li>
+</ul>
+<p><strong>Step 4: Use the Itô integral property</strong></p>
+<p>The key insight is that <strong>all Itô integrals have zero expectation</strong>:</p>
+<div class="arithmatex">\[
+\mathbb{E}\left[\int_s^t e^{au}dW(u)\right] = 0
+\]</div>
+<p>This holds because increments of Brownian motion are independent of the past and have mean zero.</p>
+<p><strong>Step 5: Combine results</strong></p>
+<div class="arithmatex">\[
+\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + 0
+\]</div>
+</details>
 <p>This follows from the fact that the stochastic integral has zero expectation. We can also write this as:</p>
 <div class="arithmatex">\[
 \begin{equation}
@@ -1867,7 +2034,7 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 \label{eq:variance_setup}
 \end{equation}
 \]</div>
-<p>Using Itô's isometry:</p>
+<p>Using Itô's isometry <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="arithmatex">\[
 \begin{equation}
 \mathbb{E}\left[\left(\int_s^t e^{au}dW(u)\right)^2\right] = \int_s^t e^{2au}du = \frac{e^{2at} - e^{2as}}{2a}.
@@ -2307,8 +2474,18 @@ y_t^{(i)} = -\frac{\ln A(t, T_i)}{T_i - t} + \frac{B(t, T_i)}{T_i - t}r_t + \eps
 <li><strong>Chapter 3.2</strong> - The Vasicek Model.</li>
 </ul>
 <p><strong>Vašíček, O.</strong> (1977). <a href="https://doi.org/10.1016/0304-405X(77)90016-2" target="_blank">An equilibrium characterization of the term structure</a>. <em>Journal of Financial Economics</em>, 5(2), 177-188.</p>
+<p><strong>Brockwell, P. J., &amp; Davis, R. A.</strong> (2016). <a href="https://link.springer.com/book/10.1007/978-3-319-29854-2" target="_blank"><em>Introduction to Time Series and Forecasting</em></a> (3rd ed.). Springer.</p>
+<ul>
+<li><strong>Chapter 5.1.1</strong> - Yule-Walker Estimation.</li>
+</ul>
+<div class="footnote">
 <hr />
-<p><em>Building confidence through rigorous validation</em></p>
+<ol>
+<li id="fn:1">
+<p>See the <a href="../../../stochastic_calculus/brownian_integral/#exponential-variance" target="_blank">exponential variance formula</a> in Brownian Integral&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
@@ -2448,6 +2625,8 @@ y_t^{(i)} = -\frac{\ln A(t, T_i)}{T_i - t} + \frac{B(t, T_i)}{T_i - t}r_t + \eps
         <script src="../../../../javascripts/consent-mode.js"></script>
       
         <script src="../../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       

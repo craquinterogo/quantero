@@ -13,7 +13,7 @@
         <link rel="canonical" href="https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/">
       
       
-        <link rel="prev" href="../brownian_motion/">
+        <link rel="prev" href="../brownian_integral/">
       
       
       
@@ -1207,6 +1207,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -1274,6 +1278,62 @@
     
   
     Brownian Motion
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../quadratic_variation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quadratic Variation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../brownian_integral/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Brownian Integral
   
 
     
@@ -1630,6 +1690,14 @@ Rather than being a computational trick, it reflects the orthogonality and varia
 \label{eq:ito_isometry}
 \end{equation}
 \]</div>
+<details class="info">
+<summary>Why 'Isometry'?</summary>
+<p>The term "isometry" comes from the fact that this formula preserves the <span class="arithmatex">\(L^2\)</span> norm — the stochastic integral operator maps <span class="arithmatex">\(L^2([s,t])\)</span> to <span class="arithmatex">\(L^2(\Omega)\)</span> <strong>isometrically</strong>, meaning:</p>
+<div class="arithmatex">\[
+\left\|\int_s^t f(u)\,dW(u)\right\|_{L^2(\Omega)} = \|f\|_{L^2([s,t])}
+\]</div>
+<p>This is analogous to how rotations in Euclidean space preserve lengths.</p>
+</details>
 <hr />
 <h2 id="reduction-to-simple-adapted-processes">Reduction to simple adapted processes</h2>
 <p>The construction of the Itô integral begins with simple adapted processes of the form in <span class="arithmatex">\(\ref{eq:simple_process}\)</span>.</p>
@@ -1926,6 +1994,8 @@ Brownian motion plays the role of an orthogonal noise source, transforming time 
         <script src="../../../javascripts/consent-mode.js"></script>
       
         <script src="../../../javascripts/mathjax.js"></script>
+      
+        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
       
