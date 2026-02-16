@@ -16,7 +16,7 @@
         <link rel="prev" href="../">
       
       
-        <link rel="next" href="../bond_affine_ansatz_models/">
+        <link rel="next" href="../hull_white_model/">
       
       
         
@@ -560,6 +560,8 @@
       
         
       
+        
+      
     
     
     
@@ -838,21 +840,38 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hull_white_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -873,6 +892,8 @@
       
         
       
+        
+      
     
     
     
@@ -884,7 +905,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -906,14 +927,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2_2_3" id="__nav_2_2_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -940,6 +961,34 @@
     
   
     Vasicek Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bond_affine_ansatz_models/hull_white/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
   
 
     
@@ -1798,17 +1847,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
@@ -1827,7 +1865,8 @@
 
 
 <h1 id="the-vasicek-model">The Vasicek Model</h1>
-<p>The Vasicek model is one of the first and most influential models for the term structure of interest rates. Introduced by Oldřich Vašíček in 1977, it captures the mean-reverting behavior of interest rates while maintaining analytical tractability — a rare and valuable combination in finance.</p>
+<p>The Vasicek model is one of the first and most influential models for the term structure of interest rates. Introduced by Oldřich Vašíček <sup id="fnref:vasicek1977"><a class="footnote-ref" href="#fn:vasicek1977">2</a></sup> in 1977, it captures the mean-reverting behavior of interest rates while maintaining analytical tractability.</p>
+<p>This post is inspired by the standard references in the field, especially the treatment of the Vasicek model in Brigo and Mercurio (Chapter 3.2) <sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">3</a></sup>, the original paper by Vašíček, and the Yule-Walker estimation discussion in Brockwell and Davis (Chapter 5.1.1) <sup id="fnref:brockwell_davis"><a class="footnote-ref" href="#fn:brockwell_davis">4</a></sup>.</p>
 <h2 id="model-specification">Model Specification</h2>
 <p>The Vasicek model describes the short rate dynamics under the risk-neutral measure as:</p>
 <div class="arithmatex">\[
@@ -1932,7 +1971,7 @@ r(t) &amp;= r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int
 \label{eq:vasicek_expectation}
 \end{equation}
 \]</div>
-<details class="tip" open="open">
+<details class="tip">
 <summary>Deriving the Expected Value</summary>
 <p>We start from the closed-form solution <span class="arithmatex">\(\ref{eq:vasicek_solution}\)</span>:</p>
 <div class="arithmatex">\[
@@ -2018,13 +2057,7 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 \label{eq:vasicek_expectation_alt}
 \end{equation}
 \]</div>
-<p><strong>Key insights:</strong></p>
-<ul>
-<li>As <span class="arithmatex">\(t \to \infty\)</span>, we have <span class="arithmatex">\(\mathbb{E}[r(t)] \to b\)</span> regardless of the starting point — rates converge to the long-term mean</li>
-<li>The speed of convergence is governed by <span class="arithmatex">\(a\)</span></li>
-<li>If <span class="arithmatex">\(r(s) &gt; b\)</span>, the expected rate decreases over time</li>
-<li>If <span class="arithmatex">\(r(s) &lt; b\)</span>, the expected rate increases over time</li>
-</ul>
+<p>The expectation converges to the long-term mean <span class="arithmatex">\(b\)</span> as <span class="arithmatex">\(t \to \infty\)</span>, regardless of the initial level, and the rate of that convergence is governed by the mean reversion parameter <span class="arithmatex">\(a\)</span>. When the current rate is above <span class="arithmatex">\(b\)</span>, the expected path trends downward toward the mean, and when it is below <span class="arithmatex">\(b\)</span>, the expected path trends upward toward the mean. These behaviors are the direct expression of mean reversion in the Vasicek model.</p>
 <hr />
 <h2 id="variance">Variance</h2>
 <p>The variance of <span class="arithmatex">\(r(t)\)</span> given information at time <span class="arithmatex">\(s\)</span> is:</p>
@@ -2048,13 +2081,7 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 \label{eq:vasicek_variance}
 \end{equation}
 \]</div>
-<p><strong>Key insights:</strong></p>
-<ul>
-<li>As <span class="arithmatex">\(t - s \to \infty\)</span>, the variance approaches the <strong>stationary variance</strong> <span class="arithmatex">\(\frac{\sigma^2}{2a}\)</span></li>
-<li>Higher mean reversion <span class="arithmatex">\(a\)</span> leads to lower long-run variance</li>
-<li>The variance is independent of the current rate level — a limitation of the model</li>
-<li>The short rate is <strong>normally distributed</strong> conditional on <span class="arithmatex">\(\mathcal{F}_s\)</span></li>
-</ul>
+<p>As the horizon grows, the variance approaches the stationary value <span class="arithmatex">\(\frac{\sigma^2}{2a}\)</span>, and stronger mean reversion (larger <span class="arithmatex">\(a\)</span>) reduces that long-run variability. The variance does not depend on the current rate level, which is a limitation of the Gaussian structure, and together with the mean result this implies the conditional distribution of <span class="arithmatex">\(r(t)\)</span> given <span class="arithmatex">\(\mathcal{F}_s\)</span> is normal.</p>
 <hr />
 <h2 id="distribution-of-the-short-rate">Distribution of the Short Rate</h2>
 <p>Combining our results, the conditional distribution is:</p>
@@ -2071,20 +2098,8 @@ r(t) \mid \mathcal{F}_s \sim \mathcal{N}\left(r(s)e^{-a(t-s)} + b\left(1 - e^{-a
 <p>For the derivation of bond prices under the Vasicek model using the affine ansatz approach, see <strong><a href="../bond_affine_ansatz_models/vasicek/">Affine Bond Pricing Models</a></strong>.</p>
 <hr />
 <h2 id="key-properties">Key Properties</h2>
-<p><strong>Advantages:</strong></p>
-<ul>
-<li><strong>Analytical tractability</strong>: Closed-form SDE solution and bond pricing formulas</li>
-<li><strong>Mean reversion</strong>: Captures realistic behavior where rates don't drift to infinity</li>
-<li><strong>Gaussian structure</strong>: Simplifies calibration and risk calculations</li>
-<li><strong>Well-understood</strong>: Extensive literature and practical experience</li>
-</ul>
-<p><strong>Limitations:</strong></p>
-<ul>
-<li><strong>Negative rates</strong>: The model allows <span class="arithmatex">\(r(t) &lt; 0\)</span> with positive probability</li>
-<li><strong>Constant volatility</strong>: Volatility doesn't depend on the rate level (no heteroskedasticity)</li>
-<li><strong>Single factor</strong>: May not capture all term structure dynamics</li>
-<li><strong>Limited shapes</strong>: Can't fit all observed yield curve configurations</li>
-</ul>
+<p><strong>Advantages:</strong> The Vasicek model is analytically tractable, with closed-form solutions for the SDE and bond prices, and its mean-reverting structure captures the realistic tendency of rates to drift back toward a long-run level rather than diverge. The Gaussian setup simplifies calibration and risk calculations, and the model is well understood thanks to decades of theoretical and practical use.</p>
+<p><strong>Limitations:</strong> The same Gaussian structure allows negative rates with positive probability, and the volatility is constant rather than state-dependent, so it cannot capture heteroskedasticity. As a single-factor model it may miss important term-structure dynamics, and its rigid functional form cannot fit all observed yield curve shapes.</p>
 <p>Despite these limitations, the Vasicek model remains a cornerstone of interest rate theory and an excellent starting point for understanding more complex models like Hull-White, CIR, and multi-factor extensions.</p>
 <h2 id="model-calibration">Model Calibration</h2>
 <p>Calibrating the Vasicek model involves estimating three parameters: the mean reversion speed <span class="arithmatex">\(a\)</span>, the long-term mean <span class="arithmatex">\(b\)</span>, and the volatility <span class="arithmatex">\(\sigma\)</span>. The choice of calibration method depends on the available data and the intended use of the model.</p>
@@ -2467,22 +2482,20 @@ y_t^{(i)} = -\frac{\ln A(t, T_i)}{T_i - t} + \frac{B(t, T_i)}{T_i - t}r_t + \eps
 <li>Requires stationarity assumption</li>
 <li>May not match higher moments well</li>
 </ul>
-<hr />
-<h2 id="references">References</h2>
-<p><strong>Brigo, D., &amp; Mercurio, F.</strong> (2006). <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3" target="_blank"><em>Interest Rate Models - Theory and Practice: With Smile, Inflation and Credit</em></a> (2nd ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 3.2</strong> - The Vasicek Model.</li>
-</ul>
-<p><strong>Vašíček, O.</strong> (1977). <a href="https://doi.org/10.1016/0304-405X(77)90016-2" target="_blank">An equilibrium characterization of the term structure</a>. <em>Journal of Financial Economics</em>, 5(2), 177-188.</p>
-<p><strong>Brockwell, P. J., &amp; Davis, R. A.</strong> (2016). <a href="https://link.springer.com/book/10.1007/978-3-319-29854-2" target="_blank"><em>Introduction to Time Series and Forecasting</em></a> (3rd ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 5.1.1</strong> - Yule-Walker Estimation.</li>
-</ul>
 <div class="footnote">
 <hr />
 <ol>
 <li id="fn:1">
 <p>See the <a href="../../../stochastic_calculus/brownian_integral/#exponential-variance" target="_blank">exponential variance formula</a> in Brownian Integral&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:vasicek1977">
+<p>Oldřich Vašíček. An equilibrium characterization of the term structure. <em>Journal of Financial Economics</em>, 5(2):177–188, 1977. <a href="https://doi.org/10.1016/0304-405X(77)90016-2">doi:10.1016/0304-405X(77)90016-2</a>.&#160;<a class="footnote-backref" href="#fnref:vasicek1977" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>.&#160;<a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+</li>
+<li id="fn:brockwell_davis">
+<p>Peter J. Brockwell and Richard A. Davis. <em>Introduction to Time Series and Forecasting</em>. Springer, 3rd edition, 2016. URL: <a href="https://link.springer.com/book/10.1007/978-3-319-29854-2">https://link.springer.com/book/10.1007/978-3-319-29854-2</a>.&#160;<a class="footnote-backref" href="#fnref:brockwell_davis" title="Jump back to footnote 4 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

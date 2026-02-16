@@ -10,29 +10,31 @@
       
       
       
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/">
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
       
       
-        <link rel="prev" href="../brownian_integral/">
+        <link rel="prev" href="../vasicek/">
       
+      
+        <link rel="next" href="../../../../model_validation/">
       
       
         
       
       
-      <link rel="icon" href="../../../favicon.ico">
+      <link rel="icon" href="../../../../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Ito's Isometry - Quȧntero</title>
+        <title>Hull-White Model - Quȧntero</title>
       
     
     
-      <link rel="stylesheet" href="../../../assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="../../../assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -51,9 +53,9 @@
       
     
     
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -61,9 +63,9 @@
     
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Ito's Isometry">
+  <meta property="og:title" content="Hull-White Model">
   <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
   <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -87,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#itos-isometry-an-attempt-for-derivation" class="md-skip">
+        <a href="#affine-bond-pricing-hull-white-model" class="md-skip">
           Skip to content
         </a>
       
@@ -101,9 +103,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../../.." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+    <a href="../../../../.." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -120,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Ito's Isometry
+              Hull-White Model
             
           </span>
         </div>
@@ -221,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="../../.." class="md-tabs__link">
+      <a href="../../../../.." class="md-tabs__link">
         
   
   
@@ -253,7 +255,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../market_risk/" class="md-tabs__link">
+        <a href="../../../../market_risk/" class="md-tabs__link">
           
   
   
@@ -292,9 +294,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="../../.." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+    <a href="../../../../.." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
       
-  <img src="../../../assets/logo.png" alt="logo">
+  <img src="../../../../../assets/logo.png" alt="logo">
 
     </a>
     Quȧntero
@@ -309,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../.." class="md-nav__link">
+      <a href="../../../../.." class="md-nav__link">
         
   
   
@@ -428,7 +430,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../market_risk/" class="md-nav__link ">
+            <a href="../../../../market_risk/" class="md-nav__link ">
               
   
   
@@ -472,6 +474,8 @@
                 
   
   
+    
+  
   
   
     
@@ -492,15 +496,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../pricing/" class="md-nav__link ">
+            <a href="../../../" class="md-nav__link ">
               
   
   
@@ -524,7 +528,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -541,6 +545,8 @@
                 
   
   
+    
+  
   
   
     
@@ -563,15 +569,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../pricing/interest_rates/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -595,7 +601,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -615,7 +621,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pricing/interest_rates/vasicek_model/" class="md-nav__link">
+      <a href="../../vasicek_model/" class="md-nav__link">
         
   
   
@@ -643,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pricing/interest_rates/hull_white_model/" class="md-nav__link">
+      <a href="../../hull_white_model/" class="md-nav__link">
         
   
   
@@ -668,6 +674,8 @@
                 
   
   
+    
+  
   
   
     
@@ -688,15 +696,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../pricing/interest_rates/bond_affine_ansatz_models/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -720,7 +728,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_2_2_4">
             <span class="md-nav__icon md-icon"></span>
             
@@ -740,7 +748,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/" class="md-nav__link">
+      <a href="../vasicek/" class="md-nav__link">
         
   
   
@@ -765,10 +773,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -784,6 +819,180 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-bond-pricing-problem" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Bond Pricing Problem
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-affine-ansatz" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Affine Ansatz
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deriving-the-pricing-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deriving the Pricing PDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#substituting-into-the-pde" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Substituting into the PDE
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solving-for-bt-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(B(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solving-for-at-t" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solving for \(A(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-bond-pricing-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Bond Pricing Formula
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-curve-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield Curve Implications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-to-market-observables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection to Market Observables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-and-derivatives-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options and Derivatives Pricing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibration-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration in Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-vasicek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison with Vasicek
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -812,7 +1021,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../volatility_surfaces" class="md-nav__link">
+      <a href="../../../../../volatility_surfaces" class="md-nav__link">
         
   
   
@@ -869,7 +1078,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../model_validation/" class="md-nav__link ">
+            <a href="../../../../model_validation/" class="md-nav__link ">
               
   
   
@@ -939,7 +1148,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../portfolio_management/" class="md-nav__link ">
+            <a href="../../../../portfolio_management/" class="md-nav__link ">
               
   
   
@@ -1006,7 +1215,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../portfolio_management/portfolio_optimization/" class="md-nav__link ">
+            <a href="../../../../portfolio_management/portfolio_optimization/" class="md-nav__link ">
               
   
   
@@ -1050,7 +1259,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../portfolio_management/portfolio_optimization/mean_variance/" class="md-nav__link">
+      <a href="../../../../portfolio_management/portfolio_optimization/mean_variance/" class="md-nav__link">
         
   
   
@@ -1094,7 +1303,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../numerical_methods" class="md-nav__link">
+      <a href="../../../../../numerical_methods" class="md-nav__link">
         
   
   
@@ -1147,7 +1356,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../statistics_and_probability/" class="md-nav__link ">
+            <a href="../../../../statistics_and_probability/" class="md-nav__link ">
               
   
   
@@ -1191,7 +1400,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
+      <a href="../../../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
         
   
   
@@ -1219,7 +1428,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../statistics_and_probability/expected_value/" class="md-nav__link">
+      <a href="../../../../statistics_and_probability/expected_value/" class="md-nav__link">
         
   
   
@@ -1252,8 +1461,6 @@
                 
   
   
-    
-  
   
   
     
@@ -1278,15 +1485,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" checked>
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
+            <a href="../../../../stochastic_calculus/" class="md-nav__link ">
               
   
   
@@ -1310,7 +1517,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="true">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
           <label class="md-nav__title" for="__nav_2_7">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1330,7 +1537,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../brownian_motion/" class="md-nav__link">
+      <a href="../../../../stochastic_calculus/brownian_motion/" class="md-nav__link">
         
   
   
@@ -1358,7 +1565,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../quadratic_variation/" class="md-nav__link">
+      <a href="../../../../stochastic_calculus/quadratic_variation/" class="md-nav__link">
         
   
   
@@ -1386,7 +1593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../brownian_integral/" class="md-nav__link">
+      <a href="../../../../stochastic_calculus/brownian_integral/" class="md-nav__link">
         
   
   
@@ -1411,37 +1618,10 @@
                 
   
   
-    
   
   
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Ito's Isometry
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../stochastic_calculus/itos_isometry/" class="md-nav__link">
         
   
   
@@ -1457,120 +1637,6 @@
   
 
       </a>
-      
-        
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#framework-and-statement" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Framework and statement
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#reduction-to-simple-adapted-processes" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Reduction to simple adapted processes
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#second-moment-of-the-stochastic-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Second moment of the stochastic integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Second moment of the stochastic integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vanishing-of-cross-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vanishing of cross terms
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribution-of-diagonal-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contribution of diagonal terms
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#identification-with-a-time-integral" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Identification with a time integral
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#extension-to-general-integrands" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Extension to general integrands
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#interpretation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Interpretation
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
     </li>
   
 
@@ -1618,10 +1684,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#framework-and-statement" class="md-nav__link">
+  <a href="#the-bond-pricing-problem" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Framework and statement
+        The Bond Pricing Problem
       
     </span>
   </a>
@@ -1629,10 +1695,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#reduction-to-simple-adapted-processes" class="md-nav__link">
+  <a href="#the-affine-ansatz" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Reduction to simple adapted processes
+        The Affine Ansatz
       
     </span>
   </a>
@@ -1640,38 +1706,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#second-moment-of-the-stochastic-integral" class="md-nav__link">
+  <a href="#deriving-the-pricing-pde" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Second moment of the stochastic integral
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Second moment of the stochastic integral">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#vanishing-of-cross-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Vanishing of cross terms
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#contribution-of-diagonal-terms" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Contribution of diagonal terms
+        Deriving the Pricing PDE
       
     </span>
   </a>
@@ -1679,10 +1717,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#identification-with-a-time-integral" class="md-nav__link">
+  <a href="#substituting-into-the-pde" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Identification with a time integral
+        Substituting into the PDE
       
     </span>
   </a>
@@ -1690,10 +1728,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#extension-to-general-integrands" class="md-nav__link">
+  <a href="#solving-for-bt-t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Extension to general integrands
+        Solving for \(B(t, T)\)
       
     </span>
   </a>
@@ -1701,10 +1739,98 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#interpretation" class="md-nav__link">
+  <a href="#solving-for-at-t" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Interpretation
+        Solving for \(A(t, T)\)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#complete-bond-pricing-formula" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Complete Bond Pricing Formula
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#yield-curve-implications" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Yield Curve Implications
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#connection-to-market-observables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Connection to Market Observables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#options-and-derivatives-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Options and Derivatives Pricing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#calibration-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Calibration in Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#comparison-with-vasicek" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Comparison with Vasicek
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#extensions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Extensions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#references" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        References
       
     </span>
   </a>
@@ -1728,193 +1854,392 @@
 
 
 
-<h1 id="itos-isometry-an-attempt-for-derivation">Itô’s Isometry: an attempt for derivation</h1>
-<p>Itô’s isometry is the identity that allows stochastic integration with respect to Brownian motion to be understood as an <span class="arithmatex">\(L^2\)</span>-isometric operation.<br />
-Rather than being a computational trick, it reflects the orthogonality and variance structure of Brownian increments.</p>
+<h1 id="affine-bond-pricing-hull-white-model">Affine Bond Pricing: Hull-White Model</h1>
+<p>The Hull-White model extends the Vasicek framework with time-dependent parameters, particularly the drift function <span class="arithmatex">\(\theta(t)\)</span>, enabling perfect calibration to the current market yield curve. Remarkably, despite this time-dependence, we can still derive closed-form bond pricing formulas using the affine ansatz.</p>
+<p>Before proceeding, review the <a href="../../hull_white_model/">Hull-White model fundamentals</a>, including the time-varying drift, SDE solution, and yield curve fitting properties.</p>
 <hr />
-<h2 id="framework-and-statement">Framework and statement</h2>
-<p>Let <span class="arithmatex">\((W_t)_{t \ge 0}\)</span> be a standard Brownian motion defined on a filtered probability space<br />
-<span class="arithmatex">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \ge 0}, \mathbb{P})\)</span>. Furtheremore, let <span class="arithmatex">\(H_t\)</span> be an adapted process satisfying the square-integrability condition</p>
+<h2 id="the-bond-pricing-problem">The Bond Pricing Problem</h2>
+<p>We seek the price at time <span class="arithmatex">\(t\)</span> of a zero-coupon bond maturing at time <span class="arithmatex">\(T\)</span>, denoted <span class="arithmatex">\(P(t, T)\)</span>. Under the risk-neutral pricing framework:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right] &lt; \infty.
-\label{eq:square_integrability_condition}
+P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right],
+\label{eq:hw_bond_price_expectation}
 \end{equation}
 \]</div>
-<p>Then the Itô integral satisfies the identity</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right].
-\label{eq:ito_isometry}
-\end{equation}
-\]</div>
-<details class="info">
-<summary>Why 'Isometry'?</summary>
-<p>The term "isometry" comes from the fact that this formula preserves the <span class="arithmatex">\(L^2\)</span> norm — the stochastic integral operator maps <span class="arithmatex">\(L^2([s,t])\)</span> to <span class="arithmatex">\(L^2(\Omega)\)</span> <strong>isometrically</strong>, meaning:</p>
-<div class="arithmatex">\[
-\left\|\int_s^t f(u)\,dW(u)\right\|_{L^2(\Omega)} = \|f\|_{L^2([s,t])}
-\]</div>
-<p>This is analogous to how rotations in Euclidean space preserve lengths.</p>
-</details>
-<hr />
-<h2 id="reduction-to-simple-adapted-processes">Reduction to simple adapted processes</h2>
-<p>The construction of the Itô integral begins with simple adapted processes of the form in <span class="arithmatex">\(\ref{eq:simple_process}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-H_t
-=
-\sum_{k=0}^{n-1}
-H_k\,\mathbf{1}_{(t_k,t_{k+1}]}(t),
-\label{eq:simple_process}
-\end{equation}
-\]</div>
-<p>where</p>
+<p>where:</p>
 <ul>
-<li>partitions are <span class="arithmatex">\(0 = t_0 &lt; t_1 &lt; \dots &lt; t_n = T\)</span>, with <span class="arithmatex">\(n\)</span> the number of partitions.</li>
-<li>each coefficient <span class="arithmatex">\(H_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_k}\)</span>-measurable,</li>
-<li>and <span class="arithmatex">\(\mathbb{E}[H_k^2] &lt; \infty\)</span>.</li>
+<li><span class="arithmatex">\(\mathbb{E}^{\mathbb{Q}}\)</span> denotes expectation under the risk-neutral measure</li>
+<li><span class="arithmatex">\(\mathcal{F}_t\)</span> is the information available at time <span class="arithmatex">\(t\)</span></li>
+<li><span class="arithmatex">\(r(s)\)</span> follows Hull-White dynamics: <span class="arithmatex">\(dr(s) = [\theta(s) - ar(s)]ds + \sigma dW(s)\)</span></li>
 </ul>
-<p>For such processes, the Itô integral is <strong>defined</strong> by <span class="arithmatex">\(\ref{eq:ito_integral_definition}\)</span>, as an aggregation by partitions, where the partition in time <span class="arithmatex">\((t_{i+1}-t_i) \to 0\)</span>.</p>
+<p>The time-varying <span class="arithmatex">\(\theta(s)\)</span> is calibrated to match the initial market forward curve, ensuring the model is arbitrage-free relative to observed bond prices.</p>
+<hr />
+<h2 id="the-affine-ansatz">The Affine Ansatz</h2>
+<p>We expect to represent the bond price as an affine form, whereas it's derived using the Hull-White model to describe the underlying dynamics:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_0^T H_t\,dW_t
-:=
-\sum_{k=0}^{n-1}
-H_k\left(W_{t_{k+1}} - W_{t_k}\right).
-\label{eq:ito_integral_definition}
+P(t, T) = A(t, T)e^{-B(t, T)r(t)}
+\label{eq:hw_affine_ansatz}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(A(t, T) &gt; 0\)</span> and <span class="arithmatex">\(B(t, T) \geq 0\)</span> are deterministic functions.</p>
+<div class="admonition danger">
+<p class="admonition-title">Boundary Conditions</p>
+<p>The boundary condition at maturity is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
+\label{eq:boundary_conditions}
+\end{equation}
+\]</div>
+<p>Similar boundary conditions observed in Vasicek Affine Model</p>
+</div>
+<hr />
+<h2 id="deriving-the-pricing-pde">Deriving the Pricing PDE</h2>
+<p>Under the risk-neutral measure with time-dependent drift, the bond price satisfies:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial P}{\partial t} + [\theta(t) - ar]\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0.
+\label{eq:hw_pricing_pde}
+\end{equation}
+\]</div>
+<details class="tip" open="open">
+<summary>Where is <span class="arithmatex">\(\ref{eq:hw_pricing_pde}\)</span> coming from?</summary>
+<p>Let <span class="arithmatex">\(P(t,T)=f(t,r_t)\)</span> and recall the Hull-White dynamics under <span class="arithmatex">\(\mathbb{Q}\)</span>:</p>
+<div class="arithmatex">\[
+dr_t = \style{color: var(--math-highlight-2)}{[\theta(t)-ar_t]dt + \sigma dW_t}
+\]</div>
+<p>Applying Ito to <span class="arithmatex">\(f(t,r_t)\)</span> gives</p>
+<div class="arithmatex">\[
+df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial r}dr_t + \frac{1}{2}\frac{\partial^2 f}{\partial r^2}(dr_t)^2
+\]</div>
+<p>Substitute <span class="arithmatex">\(dr_t\)</span> and keep track of the quadratic variation:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial r}(\style{color: var(--math-highlight-2)}{[\theta(t)-ar_t]dt + \sigma dW_t})  + \frac{1}{2}\frac{\partial^2 f}{\partial r^2}(\style{color: var(--math-highlight-2)}{[\theta(t)-ar_t]dt + \sigma dW_t})^2
+\end{aligned}
+\]</div>
+<p>Using <span class="arithmatex">\(dt\cdot dt=0\)</span>, <span class="arithmatex">\(dt\cdot dW_t=0\)</span>, and <span class="arithmatex">\(dW_t^2=dt\)</span>, after solving the 2nd-power of <span class="arithmatex">\(dr_t\)</span>, we obtain:</p>
+<div class="arithmatex">\[
+\begin{aligned}
+\left(\style{color: var(--math-highlight-2)}{[\theta(t)-ar_t]dt + \sigma dW_t}\right)^2 &amp;= [\theta(t)-ar_t]^2(dt)^2 + 2[\theta(t)-ar_t]dt \cdot \sigma dW_t + \sigma^2(dW_t)^2 \\
+&amp;= 0 + 0 + \sigma^2 dt
+\end{aligned}
+\]</div>
+<p>where we use the Itô calculus rules <span class="arithmatex">\((dt)^2 = 0\)</span>, <span class="arithmatex">\(dt \cdot dW_t = 0\)</span>, and <span class="arithmatex">\((dW_t)^2 = dt\)</span>, coming from <a href="../../../../stochastic_calculus/quadratic_variation/" target="_blank">quadratic variation</a> definitions.</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-4)}{(dr_t)^2} = \style{color: var(--math-highlight-4)}{\sigma^2 dt}.
+\]</div>
+<div class="arithmatex">\[
+\begin{aligned}
+df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial r}(\style{color: var(--math-highlight-2)}{[\theta(t)-ar_t]dt + \sigma dW_t})  + \frac{1}{2}\frac{\partial^2 f}{\partial r^2}\style{color: var(--math-highlight-4)}{\sigma^2 dt}
+\end{aligned}
+\]</div>
+<p>So the differential simplifies to</p>
+<div class="arithmatex">\[
+df = \left[\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}}\right]dt + \sigma\frac{\partial f}{\partial r} dW_t.
+\]</div>
+<p>Now, recall that under risk-neutral definitions, the stochastic process lacks of any <span style="color: var(--math-highlight-2);">drift component</span>. As a result, and also recalling that the <strong>risk-neutral</strong> framework makes indifferent a risky asset from a risk-free asset, we make it equal to <span class="arithmatex">\(\style{color: var(--math-highlight-3)}{r_t \cdot P}\)</span>, which is the price of the bond multiplied by the interest rate <span class="arithmatex">\(r_t\)</span>, resulting in</p>
+<div class="arithmatex">\[
+\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}} - \style{color: var(--math-highlight-3)}{r_t \cdot P} = 0,
+\]</div>
+<p>which is exactly <span class="arithmatex">\(\ref{eq:hw_pricing_pde}\)</span>.</p>
+</details>
+<p>Computing the partial derivatives using our ansatz:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial P}{\partial t} = \left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P,
+\label{eq:hw_dP_dt}
+\end{equation}
+\]</div>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial P}{\partial r} = -BP
+\label{eq:hw_dP_dr}
+\end{equation}
+\]</div>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{\partial^2 P}{\partial r^2} = B^2P
+\label{eq:hw_d2P_dr2}
 \end{equation}
 \]</div>
 <hr />
-<h2 id="second-moment-of-the-stochastic-integral">Second moment of the stochastic integral</h2>
-<p>We now compute the second moment of the integral defined in <span class="arithmatex">\(\ref{eq:ito_integral_definition}\)</span>, by introducing the Brownian increments in <span class="arithmatex">\(\ref{eq:brownian_increment}\)</span> below.</p>
+<h2 id="substituting-into-the-pde">Substituting into the PDE</h2>
+<p>Plugging into equation <span class="arithmatex">\(\ref{eq:hw_pricing_pde}\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\Delta W_k := W_{t_{k+1}} - W_{t_k}.
-\label{eq:brownian_increment}
+\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P + [\theta(t) - ar](-B)P + \frac{1}{2}\sigma^2 B^2P - rP = 0
+\label{eq:hw_pde_substituted}
 \end{equation}
 \]</div>
-<p>Then, considering the continuous integral can be expressed as summatory when the lenght of partitions tend to zero, we have <span class="arithmatex">\(\ref{eq:second_moment_integral}\)</span> below.</p>
+<p>Dividing by <span class="arithmatex">\(P\)</span> and separating by powers of <span class="arithmatex">\(r\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)^2
-\right].
-\label{eq:second_moment_integral}
+\begin{aligned}
+\frac{1}{A}\frac{\partial A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - \theta(t)B + r\left(aB - \frac{\partial B}{\partial t} - 1\right) = 0 \\
+\frac{\partial \ln A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - \theta(t)B + r\left(aB - \frac{\partial B}{\partial t} - 1\right) = 0
+\end{aligned}
+\label{eq:hw_pde_rearranged}
 \end{equation}
 \]</div>
-<p>Thus, the right hand of <span class="arithmatex">\(\ref{eq:second_moment_integral}\)</span> can be also defined as in <span class="arithmatex">\(\ref{eq:second_moment_integral_II}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)^2
-\right]
-=
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)\times
-\left(
-\sum_{l=0}^{n-1} H_l \Delta W_l
-\right)
-\right].
-\label{eq:second_moment_integral_II}
-\end{equation}
-\]</div>
-<p>Then, we can expand the square, see <span class="arithmatex">\(\ref{eq:square_expansion}\)</span>, taking into consideration the commutative property of multiplication, giving rise to multiply twice when <span class="arithmatex">\(k &lt; l\)</span>. <strong>This allows to account for the double multiplication without need of double processing</strong>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-\sum_{k=0}^{n-1} H_k^2 (\Delta W_k)^2
-+
-2 \sum_{k&lt;\ell} H_k H_\ell \Delta W_k \Delta W_\ell
-\right].
-\label{eq:square_expansion}
-\end{equation}
-\]</div>
+<p>For this to hold for all <span class="arithmatex">\(r\)</span>, both coefficients must vanish independently. For this equation to hold for all values of <span class="arithmatex">\(r\)</span>, the coefficient of <span class="arithmatex">\(r\)</span> must vanish, and the constant term must also be zero. <strong>This gives us two ODEs!</strong> as the terms <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span> are considered as given from Vasicek calibration. The constant term refers to coefficient of <span class="arithmatex">\(r^0\)</span>, meanwhile, linear term refers to the coefficient of <span class="arithmatex">\(r^1\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th>Term Type</th>
+<th>Expression</th>
+<th>Resulting ODE</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Constant term</strong></td>
+<td><span class="arithmatex">\(\frac{1}{A}\frac{\partial A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - \theta(t)B = 0\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial \ln A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - \theta(t)B = 0\)</span></td>
+</tr>
+<tr>
+<td><strong>Linear term</strong></td>
+<td><span class="arithmatex">\(aB - \frac{\partial B}{\partial t} - 1 = 0\)</span></td>
+<td><span class="arithmatex">\(\frac{\partial B}{\partial t} - aB = -1\)</span></td>
+</tr>
+</tbody>
+</table>
 <hr />
-<h3 id="vanishing-of-cross-terms">Vanishing of cross terms</h3>
-<p>For indices <span class="arithmatex">\(k &lt; \ell\)</span>, the random variable <span class="arithmatex">\(H_k \Delta W_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_{k+1}}\)</span>-measurable, while <span class="arithmatex">\(\Delta W_\ell\)</span> is independent of <span class="arithmatex">\(\mathcal{F}_{t_{k+1}}\)</span> and has zero mean. Therefore,</p>
+<h2 id="solving-for-bt-t">Solving for <span class="arithmatex">\(B(t, T)\)</span></h2>
+<p>The coefficient of <span class="arithmatex">\(r\)</span> gives:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[
-H_k H_\ell \Delta W_k \Delta W_\ell
-\right]
-=
-0.
-\label{eq:cross_terms_vanish}
+\frac{\partial B}{\partial t} + aB - 1 = 0,
+\label{eq:hw_B_ode}
 \end{equation}
 \]</div>
-<p>All mixed terms vanish, reflecting the <strong>orthogonality</strong> of disjoint Brownian increments.</p>
+<p>with boundary condition <span class="arithmatex">\(B(T, T) = 0\)</span>. <strong>This is identical to the <a href="../vasicek/#solving-B_t_T" target="_blank">Vasicek equation</a>!</strong> The time-varying <span class="arithmatex">\(\theta(t)\)</span> doesn't affect <span class="arithmatex">\(B(t,T)\)</span>. The solution is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
+\label{eq:hw_B_solution}
+\end{equation}
+\]</div>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>The rate sensitivity is the same as in Vasicek</li>
+<li>Only the drift <span class="arithmatex">\(\theta(t)\)</span> varies with time, not the mean reversion strength</li>
+<li>This makes <span class="arithmatex">\(B(t,T)\)</span> particularly easy to compute and interpret</li>
+</ul>
 <hr />
-<h2 id="contribution-of-diagonal-terms">Contribution of diagonal terms</h2>
-<p>Brownian motion has independent increments with variance proportional to time, so</p>
+<h2 id="solving-for-at-t">Solving for <span class="arithmatex">\(A(t, T)\)</span></h2>
+<p>The constant term gives:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[(\Delta W_k)^2\right]
-=
-t_{k+1} - t_k.
-\label{eq:increment_variance}
+\frac{\partial \ln A}{\partial t} - \theta(t)B(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0,
+\label{eq:hw_A_ode}
 \end{equation}
 \]</div>
-<p>Since <span class="arithmatex">\(H_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_k}\)</span>-measurable and independent of <span class="arithmatex">\(\Delta W_k\)</span>,</p>
+<p>with boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>. Integrating from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[
-H_k^2 (\Delta W_k)^2
-\right]
-=
-\mathbb{E}\left[H_k^2\right]
-\left(t_{k+1} - t_k\right).
-\label{eq:diagonal_terms}
+\ln A(t, T) = -\int_t^T \left[\theta(u)B(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right]du.
+\label{eq:hw_ln_A_integral}
 \end{equation}
 \]</div>
-<p>Summing over all intervals gives</p>
+<p>The volatility term can be computed analytically:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\sum_{k=0}^{n-1}
-\mathbb{E}\left[H_k^2\right]
-\left(t_{k+1} - t_k\right).
-\label{eq:sum_representation}
+\int_t^T B(u, T)^2 du = \frac{1}{a^2}\left[(T-t) + \frac{1}{2a}(e^{-2a(T-t)} - 1) - \frac{2}{a}(e^{-a(T-t)} - 1)\right].
+\label{eq:hw_B_squared_integral}
 \end{equation}
 \]</div>
+<details class="info" open="open">
+<summary>Computing <span class="arithmatex">\(\int_t^T B(u, T)^2 du\)</span></summary>
+<p>Use <span class="arithmatex">\(B(u,T)=\frac{1-e^{-a(T-u)}}{a}\)</span> and set <span class="arithmatex">\(x=T-u\)</span>:</p>
+<div class="arithmatex">\[
+\int_t^T B(u,T)^2 du
+= \frac{1}{a^2}\int_0^{T-t} (1-e^{-ax})^2 dx.
+\]</div>
+<p>Expand and integrate term-by-term:</p>
+<div class="arithmatex">\[
+\int_0^{T-t} (1-e^{-ax})^2 dx
+= \left[x + \frac{e^{-2ax}-1}{2a} - \frac{2(e^{-ax}-1)}{a}\right]_0^{T-t},
+\]</div>
+<p>which yields <span class="arithmatex">\(\ref{eq:hw_B_squared_integral}\)</span>.</p>
+</details>
+<p>The <span class="arithmatex">\(\theta(u)\)</span> term requires knowledge of the market forward curve, but can be expressed as:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\int_t^T \theta(u)B(u, T)du = \ln\frac{P^M(0,T)}{P^M(0,t)} + B(t,T)f^M(0,t) - \frac{\sigma^2}{2a^2}\left[(T-t) - B(t,T) - \frac{B(t,T)^2a}{2}\right],
+\label{eq:hw_theta_integral}
+\end{equation}
+\]</div>
+<details class="info" open="open">
+<summary>Where does <span class="arithmatex">\(\ref{eq:hw_theta_integral}\)</span> come from?</summary>
+<p>The exact-fit condition <span class="arithmatex">\(P(0,T)=P^M(0,T)\)</span> implies a relation between <span class="arithmatex">\(\theta(t)\)</span> and the market forward curve <span class="arithmatex">\(f^M(0,t)\)</span>. Integrating <span class="arithmatex">\(\theta(u)B(u,T)\)</span> by parts and substituting <span class="arithmatex">\(B(u,T)\)</span> leads to the log ratio <span class="arithmatex">\(\ln\frac{P^M(0,T)}{P^M(0,t)}\)</span> plus the forward-rate term <span class="arithmatex">\(B(t,T)f^M(0,t)\)</span> and the volatility adjustment shown in <span class="arithmatex">\(\ref{eq:hw_theta_integral}\)</span>.</p>
+</details>
+<p>where <span class="arithmatex">\(P^M(0,T)\)</span> is the market bond price at time 0 and <span class="arithmatex">\(f^M(0,t)\)</span> is the market instantaneous forward rate.</p>
 <hr />
-<h2 id="identification-with-a-time-integral">Identification with a time integral</h2>
-<p>The right-hand side can be written as</p>
+<h2 id="complete-bond-pricing-formula">Complete Bond Pricing Formula</h2>
+<p>The zero-coupon bond price under Hull-White is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[
-\int_0^T H_t^2\,dt
-\right],
-\label{eq:time_integral_representation}
+P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right),
+\label{eq:hw_bond_complete}
 \end{equation}
 \]</div>
-<p>which follows directly from the definition of <span class="arithmatex">\(H_t\)</span> as a simple process. Thus, for simple adapted processes,</p>
+<p>where:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right].
-\label{eq:ito_isometry_simple}
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a},
+\label{eq:hw_B_final}
 \end{equation}
 \]</div>
+<div class="arithmatex">\[
+\begin{equation}
+A(t, T) = \frac{P^M(0,T)}{P^M(0,t)}\exp\left[B(t,T)f^M(0,t) - \frac{\sigma^2}{4a}B(t,T)^2(1-e^{-2at})\right].
+\label{eq:hw_A_final}
+\end{equation}
+\]</div>
+<p><strong>Key property:</strong> At time <span class="arithmatex">\(t=0\)</span>, we have <span class="arithmatex">\(P(0,T) = P^M(0,T)\)</span> — the model <strong>exactly reproduces</strong> the market yield curve!</p>
 <hr />
-<h2 id="extension-to-general-integrands">Extension to general integrands</h2>
-<p>Simple adapted processes are dense in <span class="arithmatex">\(L^2(\Omega \times [0,T])\)</span>.  The Itô integral is extended to all processes satisfying <span class="arithmatex">\(\eqref{eq:square_integrability_condition}\)</span> by continuity.</p>
-<p>Since the identity holds for a dense subclass and both sides are continuous in <span class="arithmatex">\(L^2\)</span>, it extends uniquely to all admissible integrands, yielding Itô’s isometry <span class="arithmatex">\(\eqref{eq:ito_isometry}\)</span>.</p>
+<h2 id="yield-curve-implications">Yield Curve Implications</h2>
+<p>The continuously compounded yield is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+y(t, T) = -\frac{\ln P(t, T)}{T - t} = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T)}{T - t}r(t).
+\label{eq:hw_yield}
+\end{equation}
+\]</div>
+<p><strong>Advantages over Vasicek:</strong></p>
+<ul>
+<li>At <span class="arithmatex">\(t=0\)</span>, yields match market exactly: <span class="arithmatex">\(y(0,T) = y^M(0,T)\)</span></li>
+<li>Future yield curves evolve consistently with current market information</li>
+<li>Arbitrage-free by construction relative to liquid bonds</li>
+<li>Only the <strong>deviations</strong> from the fitted curve are modeled stochastically</li>
+</ul>
 <hr />
-<h2 id="interpretation">Interpretation</h2>
-<p>Itô’s isometry shows that the stochastic integral preserves <span class="arithmatex">\(L^2\)</span>-norms in expectation.<br />
-Brownian motion plays the role of an orthogonal noise source, transforming time into variance and enabling stochastic calculus to mirror Hilbert-space geometry.</p>
+<h2 id="connection-to-market-observables">Connection to Market Observables</h2>
+<p>The Hull-White model can be expressed in terms of market-observable quantities. Define:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\alpha(t) = f^M(0,t) + af^M(0,t) + \frac{\partial f^M(0,t)}{\partial t},
+\label{eq:alpha_function}
+\end{equation}
+\]</div>
+<p>Then the short rate dynamics can be written as:</p>
+<div class="arithmatex">\[
+\begin{equation}
+dr(t) = [\alpha(t) - ar(t)]dt + \sigma dW(t),
+\label{eq:hw_market_form}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(\alpha(t)\)</span> is directly calibrated from the market forward curve <span class="arithmatex">\(f^M(0,t)\)</span>.</p>
+<hr />
+<h2 id="options-and-derivatives-pricing">Options and Derivatives Pricing</h2>
+<p>One of Hull-White's greatest strengths is that many interest rate derivatives have closed-form or semi-analytical formulas:</p>
+<p><strong>European options on zero-coupon bonds:</strong></p>
+<div class="arithmatex">\[
+\begin{equation}
+\text{Call}(t, T, S, K) = P(t,S)\Phi(d_1) - KP(t,T)\Phi(d_2),
+\label{eq:hw_bond_option}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(\Phi\)</span> is the standard normal CDF and:</p>
+<div class="arithmatex">\[
+\begin{equation}
+d_1 = \frac{1}{\sigma_P}\ln\frac{P(t,S)}{KP(t,T)} + \frac{\sigma_P}{2}, \quad d_2 = d_1 - \sigma_P,
+\label{eq:hw_d1_d2}
+\end{equation}
+\]</div>
+<div class="arithmatex">\[
+\begin{equation}
+\sigma_P = \frac{\sigma}{a}(1-e^{-a(S-t)})\sqrt{\frac{1-e^{-2a(T-t)}}{2a}}.
+\label{eq:hw_sigma_P}
+\end{equation}
+\]</div>
+<p>This is a <strong>Black-Scholes-like formula</strong> for bond options!</p>
+<hr />
+<h2 id="calibration-in-practice">Calibration in Practice</h2>
+<p>Practical Hull-White calibration involves:</p>
+<ol>
+<li><strong>Extract market forward curve</strong> <span class="arithmatex">\(f^M(0,t)\)</span> from liquid bonds</li>
+<li><strong>Compute <span class="arithmatex">\(\theta(t)\)</span></strong> from the forward curve using equation <span class="arithmatex">\(\ref{eq:theta_calibration}\)</span></li>
+<li><strong>Calibrate <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span></strong> to match caps, floors, or swaptions prices</li>
+<li><strong>Validate</strong> against out-of-sample derivatives</li>
+</ol>
+<p>The two-parameter calibration is tractable and stable, making Hull-White the industry workhorse for:</p>
+<ul>
+<li>CVA/DVA calculations</li>
+<li>Counterparty credit risk</li>
+<li>Callable bonds and structured products</li>
+<li>XVA adjustments</li>
+</ul>
+<hr />
+<h2 id="comparison-with-vasicek">Comparison with Vasicek</h2>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>Vasicek</th>
+<th>Hull-White</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Drift</td>
+<td>Constant <span class="arithmatex">\(ab\)</span></td>
+<td>Time-varying <span class="arithmatex">\(\theta(t)\)</span></td>
+</tr>
+<tr>
+<td><span class="arithmatex">\(B(t,T)\)</span></td>
+<td>Same formula</td>
+<td>Same formula</td>
+</tr>
+<tr>
+<td>Initial fit</td>
+<td>Approximate</td>
+<td>Exact</td>
+</tr>
+<tr>
+<td>Calibration</td>
+<td>3 parameters</td>
+<td>2 parameters (+ curve)</td>
+</tr>
+<tr>
+<td>Derivatives</td>
+<td>Closed forms</td>
+<td>Closed forms</td>
+</tr>
+<tr>
+<td>Complexity</td>
+<td>Simpler</td>
+<td>More flexible</td>
+</tr>
+</tbody>
+</table>
+<p>Hull-White is essentially "Vasicek with perfect yield curve fit."</p>
+<hr />
+<h2 id="extensions">Extensions</h2>
+<p>The Hull-White framework extends to:</p>
+<ul>
+<li><strong>Two-factor Hull-White (G2++)</strong>: Adding a second correlated factor for richer dynamics</li>
+<li><strong>Time-dependent <span class="arithmatex">\(\sigma(t)\)</span></strong>: Matching volatility term structure</li>
+<li><strong>Time-dependent <span class="arithmatex">\(a(t)\)</span></strong>: More flexible mean reversion</li>
+<li><strong>Multi-currency</strong>: Modeling FX and interest rate risk jointly</li>
+<li><strong>Hybrid models</strong>: Combining with equity or credit models</li>
+</ul>
+<p>The analytical tractability of Hull-White makes it the foundation for multi-asset modeling in practice.</p>
+<hr />
+<h2 id="references">References</h2>
+<p><strong>Brigo, D., &amp; Mercurio, F.</strong> (2006). <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3" target="_blank"><em>Interest Rate Models - Theory and Practice: With Smile, Inflation and Credit</em></a> (2nd ed.). Springer.</p>
+<ul>
+<li><strong>Chapter 3.4</strong> - Bond pricing and derivatives under Hull-White.</li>
+</ul>
+<p><strong>Andersen, L., &amp; Piterbarg, V.</strong> (2010). <em>Interest Rate Modeling</em> (Vol. 1-3). Atlantic Financial Press.</p>
+<ul>
+<li><strong>Chapter 5</strong> - Calibration to market term structures and bond option pricing.</li>
+</ul>
+<p><strong>Hull, J., &amp; White, A.</strong> (1990). <a href="https://doi.org/10.1093/rfs/3.4.573" target="_blank">Pricing interest-rate-derivative securities</a>. <em>The Review of Financial Studies</em>, 3(4), 573-592.</p>
+<hr />
+<p><em>Building confidence through rigorous validation</em></p>
 
 
 
@@ -2046,14 +2371,14 @@ Brownian motion plays the role of an orthogonal noise source, transforming time 
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="../../../javascripts/consent-mode.js"></script>
+        <script src="../../../../../javascripts/consent-mode.js"></script>
       
-        <script src="../../../javascripts/mathjax.js"></script>
+        <script src="../../../../../javascripts/mathjax.js"></script>
       
         <script src="https://tikzjax.com/v1/tikzjax.js"></script>
       

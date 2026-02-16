@@ -556,6 +556,8 @@
       
         
       
+        
+      
     
     
     
@@ -642,11 +644,41 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../pricing/interest_rates/hull_white_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
     
     
       
         
           
+        
+      
         
       
         
@@ -662,7 +694,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -684,14 +716,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2_2_3" id="__nav_2_2_2_3_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2_3">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_2_2_4">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -718,6 +750,34 @@
     
   
     Vasicek Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
   
 
     
@@ -1705,7 +1765,7 @@
 
 
 <h1 id="derivation-of-the-gaussian-integral">Derivation of the Gaussian Integral</h1>
-<p>If you've ever worked with normal distributions, you've probably encountered the Gaussian integral. Understanding how it's derived is super useful, especially when you're dealing with things like the <strong>Jensen Inequality</strong> or validating statistical models. In this post, we'll walk through the derivation step by step, starting with our goal: computing <span class="arithmatex">\(\ref{eq:integral_result}\)</span>.</p>
+<p>If you've ever worked with normal distributions, you've probably encountered the Gaussian integral. Understanding how it's derived is super useful, especially when you're dealing with things like the <strong>Jensen Inequality</strong> <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup> or validating statistical models. In this post, we'll walk through the derivation step by step, starting with our goal: computing <span class="arithmatex">\(\ref{eq:integral_result}\)</span>.</p>
 <div class="arithmatex">\[
 \begin{equation}
 \int_{-\infty}^{\infty} e^{-x^2/2}\,dx = \sqrt{2\pi},
@@ -1882,8 +1942,17 @@ e^{-(x-\mu)^2/(2\sigma^2)}\,dx
 \label{eq:normal_distro_cdf}
 \end{equation}
 \]</div>
+<div class="footnote">
 <hr />
-<p><em>Building confidence through rigorous validation</em></p>
+<ol>
+<li id="fn:1">
+<p>For instance see chapter 9.3.1 in Rebonato (2018) <sup id="fnref:rebonato2018"><a class="footnote-ref" href="#fn:rebonato2018">2</a></sup>, where he assesses the convexity adjustment in special case when gaussian random variables.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rebonato2018">
+<p>Riccardo Rebonato. <em>Bond Pricing and Yield Curve</em>. Cambridge University Press, 2018. <a href="https://doi.org/10.1017/9781316694169">doi:10.1017/9781316694169</a>.&#160;<a class="footnote-backref" href="#fnref:rebonato2018" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
