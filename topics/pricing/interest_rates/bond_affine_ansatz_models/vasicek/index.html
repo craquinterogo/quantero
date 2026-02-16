@@ -831,6 +831,34 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brigo-and-mercurio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brigo and Mercurio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#riccardo-rebonato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riccardo Rebonato
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Riccardo Rebonato">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#complete-bond-pricing-formula" class="md-nav__link">
     <span class="md-ellipsis">
@@ -863,17 +891,6 @@
     <span class="md-ellipsis">
       
         Instantanous Forward Rates
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
       
     </span>
   </a>
@@ -1630,6 +1647,34 @@
   
 </li>
         
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#brigo-and-mercurio" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Brigo and Mercurio
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#riccardo-rebonato" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Riccardo Rebonato
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Riccardo Rebonato">
+      <ul class="md-nav__list">
+        
           <li class="md-nav__item">
   <a href="#complete-bond-pricing-formula" class="md-nav__link">
     <span class="md-ellipsis">
@@ -1662,17 +1707,6 @@
     <span class="md-ellipsis">
       
         Instantanous Forward Rates
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
       
     </span>
   </a>
@@ -1824,8 +1858,8 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 \begin{equation}
 \begin{aligned}
 \frac{\partial P}{\partial t} &amp;= \left(\frac{\partial A}{\partial t} - A r \frac{\partial B}{\partial t}\right) e^{-B r} =\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P, \\
-\frac{\partial P}{\partial r} &amp;= -BP, \\
-\frac{\partial^2 P}{\partial r^2} &amp;= B^2P.
+\frac{\partial P}{\partial r} &amp;= -B A e^{-B r} = -BP, \\
+\frac{\partial^2 P}{\partial r^2} &amp;= B^2 A e^{-B r} = B^2P.
 \end{aligned}
 \label{eq:partial_derivatives}
 \end{equation}
@@ -1868,11 +1902,12 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 </table>
 <p>The constant term ODE determines <span class="arithmatex">\(A(t, T)\)</span>, while the linear term ODE determines <span class="arithmatex">\(B(t, T)\)</span>.</p>
 <hr />
+<p><a id="solving-B_t_T"></a></p>
 <h3 id="solving-for-bt-t">Solving for <span class="arithmatex">\(B(t, T)\)</span></h3>
 <p>The coefficient multiplying the term <span class="arithmatex">\(r\)</span> gives us the following, with boundary condition <span class="arithmatex">\(B(T, T) = 0\)</span>.</p>
 <div class="arithmatex">\[
 \begin{equation}
--\frac{\partial B}{\partial t} + aB - 1 = 0,
+\frac{\partial B}{\partial t} - aB + 1 = 0,
 \label{eq:B_ode}
 \end{equation}
 \]</div>
@@ -1887,11 +1922,11 @@ B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
 <summary>Where is <span class="arithmatex">\(\ref{eq:B_solution}\)</span> comming from?</summary>
 <p>We know that <span class="arithmatex">\(\ref{eq:B_ode}\)</span> is equal to say</p>
 <div class="arithmatex">\[
-\frac{\partial B}{\partial t} - aB = - 1
+\frac{\partial B}{\partial t} - aB = -1
 \]</div>
 <p>Then solving the ODE requires a trick, that is quite popular even to deduct <a href="../../vasicek_model/">Vasicek formula</a>. It is to multiply in both sides by <span class="arithmatex">\(\style{color: var(--math-highlight-4)}{e^{-at}}\)</span> to make the left hand equation a derivative of multiplication. Let's see it below.</p>
 <div class="arithmatex">\[
-\style{color: var(--math-highlight-4)}{e^{-at}} \frac{\partial B}{\partial t} - \style{color: var(--math-highlight-4)}{e^{-at}} a B = - \style{color: var(--math-highlight-4)}{e^{-at}}
+\style{color: var(--math-highlight-4)}{e^{-at}} \frac{\partial B}{\partial t} - \style{color: var(--math-highlight-4)}{e^{-at}} a B = -\style{color: var(--math-highlight-4)}{e^{-at}}
 \]</div>
 <p>Now we can identify that the left hand is the same to the derivative of a multiplication.</p>
 <div class="arithmatex">\[
@@ -1899,28 +1934,28 @@ B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
 \]</div>
 <p>Therefore, </p>
 <div class="arithmatex">\[
-\style{color: var(--math-highlight-2)}{\frac{d}{dt}[e^{-at} B]} = - \style{color: var(--math-highlight-4)}{e^{-at}}
+\style{color: var(--math-highlight-2)}{\frac{d}{dt}[e^{-at} B]} = -\style{color: var(--math-highlight-4)}{e^{-at}}
 \]</div>
-<p>Now, let's see what happens if we integrate in both sides, of course with the respective differencials.</p>
+<p>Now, let's see what happens if we integrate in both sides, of course with the respective differentials.</p>
 <div class="arithmatex">\[
-\int_t^T d[e^{-as} B(s,T)] = \int_t^T - e^{-as} ds
-\]</div>
-<div class="arithmatex">\[
-\left[e^{-as} B(s,T)\right]_t^T = \int_t^T - e^{-as} ds 
+\int_t^T d[e^{-as} B(s,T)] = \int_t^T -e^{-as} ds
 \]</div>
 <div class="arithmatex">\[
-e^{-aT} B(T,T) - e^{-at} B(t,T) = - \int_t^T e^{-as} ds 
+\left[e^{-as} B(s,T)\right]_t^T = -\int_t^T e^{-as} ds 
+\]</div>
+<div class="arithmatex">\[
+e^{-aT} B(T,T) - e^{-at} B(t,T) = -\int_t^T e^{-as} ds 
 \]</div>
 <p>Now recall again the terminal condition <span class="arithmatex">\(B(T,T) = 0\)</span>, to then reorganize to obtain</p>
 <div class="arithmatex">\[
-e^{-at} B(t,T) = \int_t^T e^{-as} ds
+- e^{-at} B(t,T) = -\int_t^T e^{-as} ds
 \]</div>
 <div class="arithmatex">\[
-e^{-at} B(t,T) =  \left.\frac{e^{-as}}{-a}\right|_t^T = -\frac{e^{-aT}}{a} + \frac{e^{-at}}{a}
+e^{-at} B(t,T) = \int_t^T e^{-as} ds = \left.\frac{e^{-as}}{-a}\right|_t^T = -\frac{e^{-aT}}{a} + \frac{e^{-at}}{a}
 \]</div>
 <p>Eventually we may find <span class="arithmatex">\(B(t,T)\)</span> by dividing in both sides by <span class="arithmatex">\(e^{-at}\)</span>, resulting in:</p>
 <div class="arithmatex">\[
-B(t,T) = \frac{e^{-at}-e^{-aTs}}{e^{-at} \cdot a} = \frac{1 - e^{-a(T-t)}}{a}
+B(t,T) = -\frac{e^{-aT}}{ae^{-at}} + \frac{1}{a} = \frac{1 - e^{-a(T-t)}}{a}
 \]</div>
 </details>
 <p><strong>Interpretation:</strong></p>
@@ -1940,14 +1975,14 @@ B(t,T) = \frac{e^{-at}-e^{-aTs}}{e^{-at} \cdot a} = \frac{1 - e^{-a(T-t)}}{a}
 <p>Integrating from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\ln A(t, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du.
+\ln A(t, T) = -\int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du.
 \label{eq:ln_A_integral}
 \end{equation}
 \]</div>
 <p>After computing these integrals (which involves some algebra with the exponential form of <span class="arithmatex">\(B\)</span>), we get:</p>
 <div class="arithmatex">\[
 \begin{equation}
-A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right).
+A(t, T) = \exp\left(-\left(b - \frac{\sigma^2}{2a^2}\right)((T-t)+B(t, T)) + \frac{\sigma^2 B(t, T)^2}{4a}\right).
 \label{eq:A_solution}
 \end{equation}
 \]</div>
@@ -1959,11 +1994,11 @@ A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \f
 \]</div>
 <p>Integrating both sides from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
 <div class="arithmatex">\[
-\ln A(t, T) - \ln A(T, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
+\ln A(T, T) - \ln A(t, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
 \]</div>
 <p>Using the boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>, so <span class="arithmatex">\(\ln A(T, T) = 0\)</span>:</p>
 <div class="arithmatex">\[
-\ln A(t, T) = \int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
+\ln A(t, T) = -\int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
 \]</div>
 <p>Now we substitute <span class="arithmatex">\(B(u, T) = \frac{1 - e^{-a(T-u)}}{a}\)</span> (from <span class="arithmatex">\(\ref{eq:B_solution}\)</span>) and compute each integral separately.</p>
 <hr />
@@ -2004,7 +2039,10 @@ A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \f
 <hr />
 <p><strong>Combining the integrals:</strong></p>
 <div class="arithmatex">\[
-\ln A(t, T) = b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3}e^{-a(T-t)} - \frac{\sigma^2}{4a^3}e^{-2a(T-t)}
+\ln A(t, T) = -\left[b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3}e^{-a(T-t)} - \frac{\sigma^2}{4a^3}e^{-2a(T-t)}\right]
+\]</div>
+<div class="arithmatex">\[
+\ln A(t, T) = -b(T - t) - bB(t,T) + \frac{\sigma^2}{2a^2}(T-t) + \frac{3\sigma^2}{4a^3} - \frac{\sigma^2}{a^3}e^{-a(T-t)} + \frac{\sigma^2}{4a^3}e^{-2a(T-t)}
 \]</div>
 <p>Now, recall that <span class="arithmatex">\(B(t, T) = \frac{1 - e^{-a(T-t)}}{a}\)</span>, so:</p>
 <ul>
@@ -2014,31 +2052,50 @@ A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \f
 <p>Substituting these relationships and simplifying the exponential terms:</p>
 <div class="arithmatex">\[
 \begin{aligned}
-\ln A(t, T) &amp;= b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) \\
-&amp;\quad - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3}(1 - aB(t,T)) - \frac{\sigma^2}{4a^3}(1 - 2aB(t, T) + a^2B(t,T)^2) \\
-&amp;= b(T - t) + bB(t,T) - \frac{\sigma^2}{2a^2}(T-t) \\
-&amp;\quad - \frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3} - \frac{\sigma^2}{a^2}B(t,T) - \frac{\sigma^2}{4a^3} + \frac{\sigma^2}{2a^2}B(t,T) - \frac{\sigma^2}{4a}B(t,T)^2
+\ln A(t, T) &amp;= -b(T - t) - bB(t,T) + \frac{\sigma^2}{2a^2}(T-t) + \frac{3\sigma^2}{4a^3} \\
+&amp;\quad- \frac{\sigma^2}{a^3}(1 - aB(t, T)) \\
+&amp;\quad+ \frac{\sigma^2}{4a^3}(1 - 2aB(t, T) + a^2B(t, T)^2) \\
+\ln A(t, T) &amp;= -b(T - t) - bB(t,T) + \frac{\sigma^2}{2a^2}(T-t) + \frac{3\sigma^2}{4a^3} \\
+&amp;\quad- \frac{\sigma^2}{a^3} + \frac{\sigma^2}{a^3}aB(t, T) \\
+&amp;\quad+ \frac{\sigma^2}{4a^3} - \frac{\sigma^2}{2a^3}aB(t, T) + \frac{\sigma^2}{4a^3}a^2B(t, T)^2
 \end{aligned}
 \]</div>
-<p>Collecting constant terms, and making them equal to zero (recall we're working in the solution of the ODE of the <strong>constant term</strong> of <span class="arithmatex">\(dP\)</span>-drift).</p>
+<p>Collecting constant terms (they cancel):</p>
 <div class="arithmatex">\[
--\frac{3\sigma^2}{4a^3} + \frac{\sigma^2}{a^3} - \frac{\sigma^2}{4a^3} = 0
+\frac{3\sigma^2}{4a^3} - \frac{\sigma^2}{a^3} + \frac{\sigma^2}{4a^3} = 0
+\]</div>
+<p>Collecting <span class="arithmatex">\((T-t)\)</span> terms:</p>
+<div class="arithmatex">\[
+-b(T-t) + \frac{\sigma^2}{2a^2}(T-t) = -\left(b - \frac{\sigma^2}{2a^2}\right)(T-t)
 \]</div>
 <p>Collecting <span class="arithmatex">\(B(t,T)\)</span> terms:</p>
 <div class="arithmatex">\[
-bB(t,T) - \frac{\sigma^2}{a^2}B(t,T) + \frac{\sigma^2}{2a^2}B(t,T) = bB(t,T) - \frac{\sigma^2}{2a^2}B(t,T)
+-bB(t,T) + \frac{\sigma^2}{a^2}B(t,T) - \frac{\sigma^2}{2a^2}B(t,T) = -\left(b - \frac{\sigma^2}{2a^2}\right)B(t,T)
 \]</div>
-<p>Therefore:</p>
+<p>Combining all three groups of terms:</p>
 <div class="arithmatex">\[
-\ln A(t, T) = \left(b - \frac{\sigma^2}{2a^2}\right)(T-t) + \left(b - \frac{\sigma^2}{2a^2}\right)B(t,T) - \frac{\sigma^2}{4a}B(t,T)^2
+\ln A(t, T) = -\left(b - \frac{\sigma^2}{2a^2}\right)(T-t) -\left(b - \frac{\sigma^2}{2a^2}\right)B(t,T) + \frac{\sigma^2}{4a}B(t,T)^2
 \]</div>
+<p>Factoring out the common term from the first two components:</p>
 <div class="arithmatex">\[
-= \left(b - \frac{\sigma^2}{2a^2}\right)(B(t,T) + (T-t)) - \frac{\sigma^2}{4a}B(t,T)^2
+\ln A(t, T) = -\left(b - \frac{\sigma^2}{2a^2}\right)\left[(T-t) + B(t,T)\right] + \frac{\sigma^2}{4a}B(t,T)^2
 \]</div>
-<p>Therefore:</p>
+<p>Therefore, exponentiating both sides:</p>
 <div class="arithmatex">\[
-A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right)
+A(t, T) = \exp\left( -\left(b - \frac{\sigma^2}{2a^2}\right)\left[(T-t) + B(t,T)\right] + \frac{\sigma^2}{4a}B(t,T)^2 \right)
 \]</div>
+</details>
+<details class="warning" open="open">
+<summary>Why does <span class="arithmatex">\(\ref{eq:A_solution}\)</span> look different from other derivations?</summary>
+<p>Note that the expression for <span class="arithmatex">\(A(t, T)\)</span> presented here shows the <strong>raw form</strong> derived directly from the differential equation. In popular textbooks, this term is often rewritten in alternative forms that are mathematically equivalent but more compact. The reformulation depends on how one groups and simplifies the exponential terms. Both forms are correct; this derivation emphasizes the intermediate steps for pedagogical clarity.</p>
+<h2 id="brigo-and-mercurio">Brigo and Mercurio</h2>
+<p>For instance these authors (e.g., Rebonato, Brigo &amp; Mercurio <sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">1</a></sup>, Chapter 3.2.4) make a clarification on this regard, when stating</p>
+<div class="arithmatex">\[R(t,T) = \alpha(t,T)+\beta(t,T)r(t)\]</div>
+<p>where</p>
+<div class="arithmatex">\[\alpha(t,T) = -\frac{\ln A(t,T)}{T-t};\quad \beta=\frac{B(t,T)}{T-t}\]</div>
+<p>This makes the exponent appears as negative in <span class="arithmatex">\(\ref{eq:A_solution}\)</span> instead of positive.</p>
+<h2 id="riccardo-rebonato">Riccardo Rebonato</h2>
+<p>Similarly, Rebonnato <sup id="fnref:rebonato2018"><a class="footnote-ref" href="#fn:rebonato2018">2</a></sup>, in Chapter 16, developes the model with similar differences, due to the affine model is represented to as <span class="arithmatex">\(P(t,T)=\exp^{A(t,T)+B(t,T)r}\)</span>. Beforementioned affine model makes the <span class="arithmatex">\(B\)</span>-factor positive, different from our derivation that beggins from an affine ansatz model <span class="arithmatex">\(P(t,T) = A(t,T) \exp^{-B(t,T) r}\)</span>.</p>
 </details>
 <p><strong>Interpretation:</strong></p>
 <ul>
@@ -2057,13 +2114,13 @@ P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right),
 <p>where:</p>
 <div class="arithmatex">\[
 \begin{equation}
-B(t, T) = \frac{1 - e^{-a(T-t)}}{a},
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}
 \label{eq:B_final}
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-A(t, T) = \exp\left(\left(b - \frac{\sigma^2}{2a^2}\right)(B(t, T) - (T-t)) - \frac{\sigma^2 B(t, T)^2}{4a}\right).
+A(t, T) = \exp\left(-\left(b - \frac{\sigma^2}{2a^2}\right)((T-t)+B(t, T)) + \frac{\sigma^2 B(t, T)^2}{4a}\right)
 \label{eq:A_final}
 \end{equation}
 \]</div>
@@ -2080,17 +2137,11 @@ y(t, T) = -\frac{\ln P(t, T)}{T - t}.
 <p>Substituting our affine bond price formula:</p>
 <div class="arithmatex">\[
 \begin{equation}
-y(t, T) = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T)}{T - t}r(t).
+y(t, T) = -\frac{\ln A(t, T)-B(t, T)r(t)}{T - t}
 \label{eq:vasicek_yield}
 \end{equation}
 \]</div>
-<p><strong>Key insights:</strong></p>
-<ul>
-<li>Yields are <strong>affine (linear)</strong> in the current short rate <span class="arithmatex">\(r(t)\)</span></li>
-<li>The slope of the term structure depends on whether <span class="arithmatex">\(r(t)\)</span> is above or below the long-run mean</li>
-<li>The model can generate upward-sloping, downward-sloping, and humped yield curves</li>
-<li>The term <span class="arithmatex">\(-\frac{\ln A(t, T)}{T - t}\)</span> represents the average forward rate absent current rate effects</li>
-</ul>
+<p>Yields exhibit an <strong>affine (linear) relationship</strong> with the current short rate <span class="arithmatex">\(r(t)\)</span>, meaning bond yields move proportionally with changes in interest rates. The slope of the term structure is determined by whether <span class="arithmatex">\(r(t)\)</span> is above or below the long-run mean, allowing the model to generate a rich variety of yield curve shapes. Specifically, the Vasicek model can produce upward-sloping, downward-sloping, and humped yield curves depending on the current level of rates relative to the equilibrium level. The term <span class="arithmatex">\(-\frac{\ln A(t, T)}{T - t}\)</span> captures the average forward rate in the absence of current rate effects, representing the structural component of the yield curve independent of present conditions.</p>
 <hr />
 <h2 id="instantanous-forward-rates">Instantanous Forward Rates</h2>
 <p>The instantaneous forward rate <span class="arithmatex">\(f(t, T)\)</span> is given by:</p>
@@ -2108,18 +2159,17 @@ f(t, T) = -\frac{\partial \ln A(t, T)}{\partial T} + r(t)\frac{\partial B(t, T)}
 \end{equation}
 \]</div>
 <p>Since <span class="arithmatex">\(\frac{\partial B(t, T)}{\partial T} = e^{-a(T-t)}\)</span>, forward rates are also affine in <span class="arithmatex">\(r(t)\)</span>.</p>
+<div class="footnote">
 <hr />
-<h2 id="references">References</h2>
-<p><strong>Brigo, D., &amp; Mercurio, F.</strong> (2006). <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3" target="_blank"><em>Interest Rate Models - Theory and Practice: With Smile, Inflation and Credit</em></a> (2nd ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 3.2.4</strong> - The affine term structure.</li>
-</ul>
-<p><strong>Andersen, L., &amp; Piterbarg, V.</strong> (2010). <em>Interest Rate Modeling</em> (Vol. 1-3). Atlantic Financial Press.</p>
-<ul>
-<li><strong>Chapter 12.2</strong> - The affine model.</li>
-</ul>
-<hr />
-<p><em>Building confidence through rigorous validation</em></p>
+<ol>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>.&#160;<a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+</li>
+<li id="fn:rebonato2018">
+<p>Riccardo Rebonato. <em>Bond Pricing and Yield Curve</em>. Cambridge University Press, 2018. <a href="https://doi.org/10.1017/9781316694169">doi:10.1017/9781316694169</a>.&#160;<a class="footnote-backref" href="#fnref:rebonato2018" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+</ol>
+</div>
 
 
 
