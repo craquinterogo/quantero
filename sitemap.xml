@@ -41,10 +41,6 @@
          <lastmod>2026-02-19</lastmod>
     </url>
     <url>
-         <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/cir/</loc>
-         <lastmod>2026-02-19</lastmod>
-    </url>
-    <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/</loc>
          <lastmod>2026-02-19</lastmod>
     </url>
@@ -106,6 +102,10 @@
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/brownian_motion/</loc>
+         <lastmod>2026-02-19</lastmod>
+    </url>
+    <url>
+         <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/ito_product_rule/</loc>
          <lastmod>2026-02-19</lastmod>
     </url>
     <url>

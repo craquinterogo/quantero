@@ -1,229 +1,118 @@
 
-<!doctype html>
-<html lang="en" class="no-js">
-  <head>
-    
-      <meta charset="utf-8">
-      <meta name="viewport" content="width=device-width,initial-scale=1">
-      
-        <meta name="description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-      
-      
-      
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/model_validation/">
-      
-      
-        <link rel="prev" href="../..">
-      
-      
-        <link rel="next" href="../risk_management/">
-      
-      
-        
-      
-      
-      <link rel="icon" href="../../favicon.ico">
-      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
-    
-    
-      
-        <title>Overview - Quȧntero</title>
-      
-    
-    
-      <link rel="stylesheet" href="../../assets/stylesheets/main.484c7ddc.min.css">
-      
-        
-        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
-      
-      
+<!DOCTYPE html>
 
-
-    
-    
-      
-    
-    
-      
-        
-        
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-      
-    
-    
-      <link rel="stylesheet" href="../../stylesheets/extra.css">
-    
-    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
-    
-      
-
-    
-    
-  <!-- Open Graph / Social Media Preview -->
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Overview">
-  <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/model_validation/">
-  <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-
-  </head>
-  
-  
-    
-    
-      
-    
-    
-    
-    
-    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom">
-  
-    
-    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
-    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
-    <label class="md-overlay" for="__drawer"></label>
-    <div data-md-component="skip">
-      
-        
-        <a href="#model-validation" class="md-skip">
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
+<link href="https://quantero.kruk-ai.com/topics/model_validation/" rel="canonical"/>
+<link href="../.." rel="prev"/>
+<link href="../risk_management/" rel="next"/>
+<link href="../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
+<title>Overview - Quȧntero</title>
+<link href="../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<!-- Open Graph / Social Media Preview -->
+<meta content="website" property="og:type"/>
+<meta content="Overview" property="og:title"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
+<meta content="https://quantero.kruk-ai.com/topics/model_validation/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#model-validation">
           Skip to content
         </a>
-      
-    </div>
-    <div data-md-component="announce">
-      
-    </div>
-    
-    
-      
-
+</div>
+<div data-md-component="announce">
+</div>
 <header class="md-header" data-md-component="header">
-  <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="../.." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
-    <label class="md-header__button md-icon" for="__drawer">
-      
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
-    </label>
-    <div class="md-header__title" data-md-component="header-title">
-      <div class="md-header__ellipsis">
-        <div class="md-header__topic">
-          <span class="md-ellipsis">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../.." title="Quȧntero">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
             Quȧntero
           </span>
-        </div>
-        <div class="md-header__topic" data-md-component="header-topic">
-          <span class="md-ellipsis">
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
             
               Overview
             
           </span>
-        </div>
-      </div>
-    </div>
-    
-      
-        <form class="md-header__option" data-md-component="palette">
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
-    
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="custom" data-md-color-accent="custom"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
-      </label>
-    
-  
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
 </form>
-      
-    
-    
-      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
-    
-    
-    
-      
-      
-        <label class="md-header__button md-icon" for="__search">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        </label>
-        <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
-        </button>
-      </nav>
-      
-        <div class="md-search__suggest" data-md-component="search-suggest"></div>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
             Initializing search
           </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
+<ol class="md-search-result__list" role="presentation"></ol>
 </div>
-      
-    
-    
-  </nav>
-  
+</div>
+</div>
+</div>
+</div>
+</nav>
 </header>
-    
-    <div class="md-container" data-md-component="container">
-      
-      
-        
-          
-            
-<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
-  <div class="md-grid">
-    <ul class="md-tabs__list">
-      
-        
-  
-  
-  
-  
-    <li class="md-tabs__item">
-      <a href="../.." class="md-tabs__link">
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../..">
         
   
   
@@ -232,30 +121,9 @@
   Home
 
       </a>
-    </li>
-  
-
-      
-        
-  
-  
-  
-    
-  
-  
-    
-    
-      
-  
-  
-  
-    
-  
-  
-    
-    
-      <li class="md-tabs__item md-tabs__item--active">
-        <a href="./" class="md-tabs__link">
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="./">
           
   
   
@@ -264,58 +132,26 @@
   Topics
 
         </a>
-      </li>
-    
-  
-
-    
-  
-
-      
-    </ul>
-  </div>
+</li>
+</ul>
+</div>
 </nav>
-          
-        
-      
-      <main class="md-main" data-md-component="main">
-        <div class="md-main__inner md-grid">
-          
-            
-              
-              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-
-  
-
-
-<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
-  <label class="md-nav__title" for="__drawer">
-    <a href="../.." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
-      
-  <img src="../../assets/logo.png" alt="logo">
-
-    </a>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../.." title="Quȧntero">
+<img alt="logo" src="../../assets/logo.png"/>
+</a>
     Quȧntero
   </label>
-  
-  <ul class="md-nav__list" data-md-scrollfix>
-    
-      
-      
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../.." class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../..">
+<span class="md-ellipsis">
     
   
     Home
@@ -323,65 +159,12 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-    
-      
-      
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-        
-        
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
-        
-          
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
-            
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
     
   
     Topics
@@ -389,58 +172,23 @@
 
     
   </span>
-  
-  
-
-            <span class="md-nav__icon md-icon"></span>
-          </label>
-        
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2">
-            <span class="md-nav__icon md-icon"></span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
             
   
     Topics
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_1" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="./" class="md-nav__link md-nav__link--active">
-              
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
     
   
     Model Validation
@@ -448,77 +196,26 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_1_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_1">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_1_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_1">
+<span class="md-nav__icon md-icon"></span>
             
   
     Model Validation
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../risk_management/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../risk_management/">
+<span class="md-ellipsis">
     
   
     Risk Management
@@ -526,43 +223,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
             
   
     Risk Management
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../market_risk" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../market_risk">
+<span class="md-ellipsis">
     
   
     Market Risk
@@ -570,27 +248,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../credit_risk" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../credit_risk">
+<span class="md-ellipsis">
     
   
     Credit Risk
@@ -598,27 +260,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../liquidity_risk" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../liquidity_risk">
+<span class="md-ellipsis">
     
   
     Liquidity Risk
@@ -626,27 +272,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../operational_risk" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../operational_risk">
+<span class="md-ellipsis">
     
   
     Operational Risk
@@ -654,27 +284,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../ai_risk" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../ai_risk">
+<span class="md-ellipsis">
     
   
     AI Risk
@@ -682,60 +296,16 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../pricing/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../pricing/">
+<span class="md-ellipsis">
     
   
     Pricing Models
@@ -743,72 +313,26 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
             
   
     Pricing Models
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../pricing/interest_rates/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../pricing/interest_rates/">
+<span class="md-ellipsis">
     
   
     Interest Rate Models
@@ -816,43 +340,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3_2">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
             
   
     Interest Rate Models
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/vasicek_model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pricing/interest_rates/vasicek_model/">
+<span class="md-ellipsis">
     
   
     Vasicek Model
@@ -860,27 +365,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/cir_model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pricing/interest_rates/cir_model/">
+<span class="md-ellipsis">
     
   
     Cox-Ingersoll-Ross Model
@@ -888,27 +377,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/hull_white_model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pricing/interest_rates/hull_white_model/">
+<span class="md-ellipsis">
     
   
     Hull-White Model
@@ -916,54 +389,13 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_5" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../pricing/interest_rates/bond_affine_ansatz_models/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../pricing/interest_rates/bond_affine_ansatz_models/">
+<span class="md-ellipsis">
     
   
     Bond Affine Ansatz Models
@@ -971,43 +403,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_5_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3_2_5">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_5">
+<span class="md-nav__icon md-icon"></span>
             
   
     Bond Affine Ansatz Models
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/bond_affine_ansatz_models/vasicek/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<span class="md-ellipsis">
     
   
     Vasicek Model
@@ -1015,27 +428,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/bond_affine_ansatz_models/cir/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../cir.md">
+<span class="md-ellipsis">
     
   
     Cox-Ingersoll-Ross Model
@@ -1043,27 +440,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<span class="md-ellipsis">
     
   
     Hull-White Model
@@ -1071,43 +452,17 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../volatility_surfaces" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../volatility_surfaces">
+<span class="md-ellipsis">
     
   
     Volatility Surfaces
@@ -1115,35 +470,14 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../algorithmic_trading" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algorithmic_trading">
+<span class="md-ellipsis">
     
   
     Algorithmic Trading
@@ -1151,27 +485,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../artificial_intelligence" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../artificial_intelligence">
+<span class="md-ellipsis">
     
   
     Artificial Intelligence
@@ -1179,27 +497,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../portfolio_management" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../portfolio_management">
+<span class="md-ellipsis">
     
   
     Portfolio Management
@@ -1207,27 +509,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../../numerical_methods" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../numerical_methods">
+<span class="md-ellipsis">
     
   
     Numerical Methods
@@ -1235,52 +521,13 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../statistics_and_probability/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../statistics_and_probability/">
+<span class="md-ellipsis">
     
   
     Statistics and Probability
@@ -1288,76 +535,26 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_8">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_8">
+<span class="md-nav__icon md-icon"></span>
             
   
     Statistics and Probability
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_2" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../statistics_and_probability/probability/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../statistics_and_probability/probability/">
+<span class="md-ellipsis">
     
   
     Probability
@@ -1365,43 +562,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_8_2">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_8_2">
+<span class="md-nav__icon md-icon"></span>
             
   
     Probability
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/expected_value/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/expected_value/">
+<span class="md-ellipsis">
     
   
     Expected Value
@@ -1409,27 +587,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/filtration/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/filtration/">
+<span class="md-ellipsis">
     
   
     Filtration
@@ -1437,27 +599,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/tower_property/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/tower_property/">
+<span class="md-ellipsis">
     
   
     Tower Property
@@ -1465,27 +611,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/gaussian_integral/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/gaussian_integral/">
+<span class="md-ellipsis">
     
   
     Gaussian Integral
@@ -1493,27 +623,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/jensen_inequality/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/jensen_inequality/">
+<span class="md-ellipsis">
     
   
     Jensen's Inequality
@@ -1521,27 +635,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/probability/momentum_generating_functions/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/probability/momentum_generating_functions/">
+<span class="md-ellipsis">
     
   
     Moment Generating Functions
@@ -1549,58 +647,16 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_3" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../statistics_and_probability/statistics/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_8_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../statistics_and_probability/statistics/">
+<span class="md-ellipsis">
     
   
     Statistics
@@ -1608,43 +664,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_8_3" id="__nav_2_8_3_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_8_3">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_8_3" id="__nav_2_8_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_8_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_8_3">
+<span class="md-nav__icon md-icon"></span>
             
   
     Statistics
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../statistics_and_probability/statistics/maximum_likelihood_estimation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<span class="md-ellipsis">
     
   
     Maximum Likelihood Estimation
@@ -1652,72 +689,19 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-        
-      
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../stochastic_calculus/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../stochastic_calculus/">
+<span class="md-ellipsis">
     
   
     Stochastic calculus
@@ -1725,43 +709,24 @@
 
     
   </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_9">
-            <span class="md-nav__icon md-icon"></span>
+</a>
+<label class="md-nav__link" for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_9_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_9">
+<span class="md-nav__icon md-icon"></span>
             
   
     Stochastic calculus
   
 
           </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../stochastic_calculus/brownian_motion/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_calculus/brownian_motion/">
+<span class="md-ellipsis">
     
   
     Brownian Motion
@@ -1769,27 +734,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../stochastic_calculus/quadratic_variation/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_calculus/quadratic_variation/">
+<span class="md-ellipsis">
     
   
     Quadratic Variation
@@ -1797,27 +746,11 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../stochastic_calculus/brownian_integral/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_calculus/brownian_integral/">
+<span class="md-ellipsis">
     
   
     Brownian Integral
@@ -1825,27 +758,23 @@
 
     
   </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_calculus/ito_product_rule/">
+<span class="md-ellipsis">
+    
   
+    Ito's Product Rule
   
 
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-  
-  
-    <li class="md-nav__item">
-      <a href="../stochastic_calculus/itos_isometry/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../stochastic_calculus/itos_isometry/">
+<span class="md-ellipsis">
     
   
     Ito's Isometry
@@ -1853,229 +782,161 @@
 
     
   </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-    
-  </ul>
+</a>
+</li>
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-            
-              
-              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
-                <div class="md-sidebar__scrollwrap">
-                  <div class="md-sidebar__inner">
-                    
-
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
-  
-  
-  
-    
-  
-  
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
       Table of contents
     </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#the-regulatory-landscape" class="md-nav__link">
-    <span class="md-ellipsis">
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-regulatory-landscape">
+<span class="md-ellipsis">
       
         The Regulatory Landscape
       
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="The Regulatory Landscape">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#united-states-perspective" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="The Regulatory Landscape" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#united-states-perspective">
+<span class="md-ellipsis">
       
         United States Perspective
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#european-regulatory-framework" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#european-regulatory-framework">
+<span class="md-ellipsis">
       
         European Regulatory Framework
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#core-validation-principles" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#core-validation-principles">
+<span class="md-ellipsis">
       
         Core Validation Principles
       
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Core Validation Principles">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#conceptual-soundness" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Core Validation Principles" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conceptual-soundness">
+<span class="md-ellipsis">
       
         Conceptual Soundness
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#ongoing-monitoring-and-backtesting" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#ongoing-monitoring-and-backtesting">
+<span class="md-ellipsis">
       
         Ongoing Monitoring and Backtesting
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#outcomes-analysis-and-performance-testing" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#outcomes-analysis-and-performance-testing">
+<span class="md-ellipsis">
       
         Outcomes Analysis and Performance Testing
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation-and-organizational-structure" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#implementation-and-organizational-structure">
+<span class="md-ellipsis">
       
         Implementation and Organizational Structure
       
     </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Implementation and Organizational Structure">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#three-lines-of-defense" class="md-nav__link">
-    <span class="md-ellipsis">
+</a>
+<nav aria-label="Implementation and Organizational Structure" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#three-lines-of-defense">
+<span class="md-ellipsis">
       
         Three Lines of Defense
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-          <li class="md-nav__item">
-  <a href="#validation-scope-and-documentation" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#validation-scope-and-documentation">
+<span class="md-ellipsis">
       
         Validation Scope and Documentation
       
     </span>
-  </a>
-  
+</a>
 </li>
-        
-      </ul>
-    </nav>
-  
+</ul>
+</nav>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#challenges-and-emerging-considerations" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#challenges-and-emerging-considerations">
+<span class="md-ellipsis">
       
         Challenges and Emerging Considerations
       
     </span>
-  </a>
-  
+</a>
 </li>
-      
-        <li class="md-nav__item">
-  <a href="#the-path-forward" class="md-nav__link">
-    <span class="md-ellipsis">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-path-forward">
+<span class="md-ellipsis">
       
         The Path Forward
       
     </span>
-  </a>
-  
+</a>
 </li>
-      
-    </ul>
-  
+</ul>
 </nav>
-                  </div>
-                </div>
-              </div>
-            
-          
-          
-            <div class="md-content" data-md-component="content">
-              
-              <article class="md-content__inner md-typeset">
-                
-                  
-
-
-
-<h1 id="model-validation">Model Validation</h1>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<article class="md-content__inner md-typeset">
+<h1 id="model-validation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Model Validation</h1>
 <p>Model validation has emerged as a cornerstone of modern financial risk management, driven by regulatory demands and the hard lessons learned from financial crises. At its core, model validation is the systematic process of evaluating whether quantitative models used in financial institutions perform as intended and produce reliable outputs for decision-making. This discipline sits at the critical intersection of mathematics, finance, regulation, and governance, ensuring that the sophisticated models underpinning everything from credit risk assessments to derivative pricing are fit for purpose.</p>
 <p>The importance of robust model validation cannot be overstated. Financial institutions rely on models for capital allocation, pricing complex instruments, measuring risk exposures, and making strategic decisions that can affect billions of dollars in assets. When these models fail or produce misleading results, the consequences can be catastrophic, as witnessed during the 2008 financial crisis when flawed assumptions in mortgage-backed securities models contributed to widespread market collapse.</p>
-<h2 id="the-regulatory-landscape">The Regulatory Landscape</h2>
+<h2 id="the-regulatory-landscape"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Regulatory Landscape</h2>
 <p>The regulatory framework governing model validation has evolved significantly over the past two decades, with both European and US authorities establishing comprehensive requirements that reflect the lessons of past crises. While these regulatory regimes share common principles, they exhibit distinct characteristics shaped by their respective financial systems and supervisory philosophies.</p>
-<h3 id="united-states-perspective">United States Perspective</h3>
+<h3 id="united-states-perspective"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.1</span> United States Perspective</h3>
 <p>The foundation of modern model validation in the United States was laid with the <strong>Federal Reserve's Supervisory Guidance SR 11-7</strong>, issued in 2011 <sup id="fnref:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">1</a></sup>. This landmark guidance established comprehensive standards for model risk management, defining a model as a quantitative method, system, or approach that applies statistical, economic, financial, or mathematical theories, techniques, and assumptions to process input data into quantitative estimates <sup id="fnref:morini2011"><a class="footnote-ref" href="#fn:morini2011">2</a></sup>. The guidance emphasized that model risk arises from the potential for adverse consequences from decisions based on incorrect or misused model outputs and reports.</p>
 <details class="tip" open="open">
 <summary>SR 11-7: The Foundation of US Model Risk Management</summary>
@@ -2089,7 +950,7 @@
 </details>
 <p>The <strong>Office of the Comptroller of the Currency (OCC)</strong> has reinforced these principles through its own guidance, particularly for banks under its supervision <sup id="fnref:occ2011"><a class="footnote-ref" href="#fn:occ2011">3</a></sup>. The OCC emphasizes that model validation must be commensurate with the level of model risk, recognizing that high-risk models used for regulatory capital calculations or strategic decisions require more rigorous validation than simpler operational models. This risk-based approach allows institutions to allocate validation resources efficiently while maintaining appropriate oversight of critical models.</p>
 <p>In the United States, the emphasis on independent validation is particularly strong. Regulators expect that validators possess sufficient expertise to challenge model assumptions critically and that they remain organizationally separate from profit-generating functions. This independence is viewed as essential to preventing conflicts of interest that could compromise the validation process. Furthermore, US regulators expect continuous monitoring of models in production, not merely one-time validation at implementation, reflecting an understanding that market conditions and data distributions evolve over time.</p>
-<h3 id="european-regulatory-framework">European Regulatory Framework</h3>
+<h3 id="european-regulatory-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.2</span> European Regulatory Framework</h3>
 <p>The European approach to model validation is shaped by multiple regulatory layers, reflecting the region's complex institutional structure. The <a href="https://www.eba.europa.eu/homepage" target="_blank">European Banking Authority (EBA)</a> and the <a href="https://www.ecb.europa.eu/home/html/index.en.html" target="_blank">European Central Bank (ECB)</a>, along with national competent authorities, work in concert to establish and enforce model standards across member states. This multi-tiered oversight creates both consistency through common frameworks and flexibility for national supervisors to address institution-specific risks.</p>
 <p>The Capital Requirements Regulation (CRR) and Capital Requirements Directive (CRD IV), which implement Basel III in the European Union, form the legal foundation for model validation requirements <sup id="fnref:eba2017"><a class="footnote-ref" href="#fn:eba2017">4</a></sup>. These regulations establish specific criteria for internal models used in calculating regulatory capital for credit risk (through the Internal Ratings-Based approach), market risk (through Internal Models Approach), and operational risk (through Advanced Measurement Approaches) <sup id="fnref:baesens2016"><a class="footnote-ref" href="#fn:baesens2016">5</a></sup>. Institutions seeking approval to use these internal models must demonstrate robust validation processes that satisfy supervisory expectations.</p>
 <details class="info" open="open">
@@ -2104,9 +965,9 @@
 <p>The ECB, through its <strong>Targeted Review of Internal Models (TRIM)</strong> program initiated in 2016, has taken an active role in harmonizing supervisory practices across the eurozone. TRIM investigations scrutinize internal models used by significant institutions, focusing on three key areas: the appropriateness of risk parameter estimates, the adequacy of data infrastructure, and the robustness of governance frameworks. These reviews have identified widespread inconsistencies in how institutions implement similar models, prompting supervisory actions to ensure comparability and accuracy.</p>
 <p>European regulations place particular emphasis on the concept of "use test," requiring that internal models are genuinely integrated into an institution's risk management practices rather than maintained solely for regulatory capital purposes. Validators must assess whether model outputs inform business decisions, risk appetite frameworks, and management reporting, ensuring that models represent the institution's actual risk profile rather than serving as mere compliance exercises.</p>
 <p>The Prudential Regulation Authority (PRA) in the United Kingdom, while now operating outside the EU framework, maintains similar standards rooted in Basel principles. The PRA's Supervisory Statement SS1/23 on model risk management emphasizes the importance of model tiering, where institutions classify models according to their materiality and potential impact, allowing proportionate validation efforts. This approach recognizes that not all models warrant the same level of scrutiny, enabling efficient resource allocation.</p>
-<h2 id="core-validation-principles">Core Validation Principles</h2>
+<h2 id="core-validation-principles"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Core Validation Principles</h2>
 <p>Regardless of jurisdiction, effective model validation rests on several universal principles that reflect best practices developed through decades of experience. These principles provide a conceptual framework for understanding what validation seeks to achieve and how it differs from mere testing or quality assurance.</p>
-<h3 id="conceptual-soundness">Conceptual Soundness</h3>
+<h3 id="conceptual-soundness"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Conceptual Soundness</h3>
 <p>A model's theoretical foundation must be rigorously evaluated to ensure it appropriately represents the phenomena it seeks to predict or explain. Validators examine whether the model's mathematical and statistical framework is appropriate for its intended purpose, whether key assumptions are reasonable given available evidence, and whether the model incorporates relevant 
 risk factors while excluding spurious variables. This assessment requires deep domain expertise, as validators must understand both the financial context and the technical implementation.</p>
 <p>Conceptual soundness review extends to examining how the model fits within the broader risk management ecosystem <sup id="fnref2:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">6</a></sup>. A credit risk model, for instance, must align with the institution's credit risk appetite, business strategy, and portfolio characteristics <sup id="fnref2:baesens2016"><a class="footnote-ref" href="#fn:baesens2016">5</a></sup>. Validators assess whether simplifications or approximations made for computational tractability compromise the model's ability to capture material risks, and whether the model's scope matches the range of exposures it will encounter in practice <sup id="fnref:derman2016"><a class="footnote-ref" href="#fn:derman2016">7</a></sup>.</p>
@@ -2114,18 +975,18 @@ risk factors while excluding spurious variables. This assessment requires deep d
 <summary>Theory Versus Practice in Model Design</summary>
 <p>While theoretical elegance is valuable, validators must recognize the tension between sophisticated modeling techniques and practical implementation constraints. Complex models may offer superior statistical properties in theory but prove difficult to explain to stakeholders, maintain over time, or validate comprehensively. The validation process must assess whether added complexity genuinely improves performance or merely introduces additional sources of model risk.</p>
 </details>
-<h3 id="ongoing-monitoring-and-backtesting">Ongoing Monitoring and Backtesting</h3>
+<h3 id="ongoing-monitoring-and-backtesting"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Ongoing Monitoring and Backtesting</h3>
 <p>Model validation is not a one-time activity conducted at implementation but rather a continuous process throughout the model's lifecycle. Ongoing monitoring involves tracking model performance metrics, comparing predictions against realized outcomes, and identifying signs of deterioration that may indicate changing market conditions or data quality issues. This dynamic approach recognizes that markets evolve, relationships shift, and models that performed well historically may become unreliable without active oversight.</p>
 <p>Backtesting forms a critical component of ongoing monitoring, particularly for models that generate probabilistic forecasts or risk measures. Validators examine whether the frequency and magnitude of observed outcomes align with model predictions, using statistical tests to detect systematic biases or calibration errors. For credit models, this might involve comparing predicted default rates against actual defaults across rating grades and time periods. For market risk models, backtesting evaluates whether Value-at-Risk predictions appropriately capture the distribution of trading losses.</p>
 <p>The challenge in ongoing monitoring lies in distinguishing between genuine model deterioration and natural statistical variation. Validators must design monitoring frameworks that are sensitive enough to detect meaningful changes but robust enough to avoid false alarms that could trigger unnecessary model redevelopment. This balance requires careful selection of performance metrics, appropriate statistical thresholds, and thoughtful interpretation of results in context.</p>
-<h3 id="outcomes-analysis-and-performance-testing">Outcomes Analysis and Performance Testing</h3>
+<h3 id="outcomes-analysis-and-performance-testing"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.3</span> Outcomes Analysis and Performance Testing</h3>
 <p>Beyond theoretical soundness and ongoing monitoring, validators must assess whether models perform well on empirical data, both historical and out-of-sample. This empirical validation examines discriminatory power, calibration quality, and stability across different market conditions and portfolio segments <sup id="fnref3:baesens2016"><a class="footnote-ref" href="#fn:baesens2016">5</a></sup>. Strong performance on historical data provides confidence but does not guarantee future reliability, so validators also conduct stress testing and scenario analysis to probe model behavior under conditions not well-represented in the development sample <sup id="fnref:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">8</a></sup>.</p>
 <p>For classification models, such as credit rating systems, validators examine measures like the Receiver Operating Characteristic (ROC) curve, which plots the true positive rate against the false positive rate across different decision thresholds. High discriminatory power indicates the model effectively separates good risks from bad, but this must be complemented by calibration analysis ensuring that predicted probabilities match observed frequencies. A model might rank-order risks correctly but systematically overestimate or underestimate actual default rates, creating problems for capital allocation.</p>
 <p>Regression-based models and time series forecasts require different validation approaches, focusing on metrics such as mean absolute error, root mean squared error, and directional accuracy. Validators examine residual patterns to detect heteroskedasticity, autocorrelation, or other signs of model misspecification. They also assess stability by comparing performance across different subperiods, market regimes, and portfolio segments, seeking evidence that the model generalizes beyond its original development context.</p>
-<h2 id="implementation-and-organizational-structure">Implementation and Organizational Structure</h2>
+<h2 id="implementation-and-organizational-structure"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Implementation and Organizational Structure</h2>
 <p>The effectiveness of model validation depends not only on technical rigor but also on how the validation function is organized within the institution and how it interacts with model developers, model users, and senior management. The "three lines of defense" framework, widely adopted in financial services risk management, provides a useful structure for understanding these relationships.</p>
-<h3 id="three-lines-of-defense">Three Lines of Defense</h3>
-<canvas id="three-lines-canvas" width="800" height="400" style="width:100%;max-width:800px;border:1px solid #666;border-radius:8px;margin:20px 0"></canvas>
+<h3 id="three-lines-of-defense"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Three Lines of Defense</h3>
+<canvas height="400" id="three-lines-canvas" style="width:100%;max-width:800px;border:1px solid #666;border-radius:8px;margin:20px 0" width="800"></canvas>
 <script>
 (function () {
   var canvas = document.getElementById("three-lines-canvas");
@@ -2268,7 +1129,6 @@ risk factors while excluding spurious variables. This assessment requires deep d
 
 })();
 </script>
-
 <p>The first line of defense consists of business units that develop and use models in their daily operations. These teams bear primary responsibility for ensuring models are appropriate for their intended purposes, are implemented correctly, and are used in accordance with documented limitations. While not independent validators, first-line personnel perform initial testing during development and maintain ongoing awareness of model performance, escalating concerns when issues arise.</p>
 <p>The second line of defense encompasses independent risk management and model validation units that provide objective challenge to first-line activities. These teams, typically reporting to the Chief Risk Officer or equivalent, conduct formal model validations, establish enterprise-wide model risk policies, maintain model inventories, and aggregate model risk exposures across the institution. Their independence from profit-generating activities is crucial, as it enables them to raise concerns without commercial pressure to approve marginal models.</p>
 <details class="tip" open="open">
@@ -2277,11 +1137,11 @@ risk factors while excluding spurious variables. This assessment requires deep d
 </details>
 <p>The third line of defense is internal audit, which provides assurance that first and second line functions operate effectively. Auditors review whether validations are conducted according to policy, whether validation findings lead to appropriate follow-up actions, and whether model risk management frameworks remain fit for purpose. They do not reperform technical validations but rather assess the overall control environment and governance processes.</p>
 <p>This structure creates checks and balances while clarifying accountability. When validation identifies issues, business units must address them or accept documented limitations on model use. Risk committees comprising senior executives review model risk reports and approve high-risk models, ensuring appropriate visibility and accountability at the top of the organization.</p>
-<h3 id="validation-scope-and-documentation">Validation Scope and Documentation</h3>
+<h3 id="validation-scope-and-documentation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Validation Scope and Documentation</h3>
 <p>Comprehensive model validation extends beyond mathematical correctness to encompass data quality, model implementation, control infrastructure, and documentation adequacy. Validators examine whether input data are accurate, complete, and appropriate for the model's purpose, recognizing that sophisticated algorithms cannot compensate for fundamentally flawed data. They verify that model code correctly implements the conceptual framework, often through independent replication or detailed code review.</p>
 <p>Documentation review forms another critical validation activity, as inadequate documentation hinders understanding, limits transparency, and complicates maintenance when personnel change. Validators assess whether model documentation clearly articulates the model's purpose, limitations, assumptions, development methodology, validation results, and approved uses. This documentation serves multiple audiences including model developers, validators, users, auditors, and regulators, each requiring different levels of technical detail.</p>
 <p>The validation report itself represents the culmination of these efforts, synthesizing findings into actionable recommendations. Effective validation reports clearly communicate the model's strengths and weaknesses, identify limitations that affect permissible uses, and provide risk ratings that help senior management understand aggregate model risk exposure. These reports also establish a historical record that supports ongoing monitoring and future revalidations.</p>
-<h2 id="challenges-and-emerging-considerations">Challenges and Emerging Considerations</h2>
+<h2 id="challenges-and-emerging-considerations"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Challenges and Emerging Considerations</h2>
 <p>Model validation faces persistent challenges that reflect both technical complexity and organizational dynamics. Machine learning models present particular difficulties, as their "black box" nature can obscure the reasoning behind predictions, complicating conceptual soundness review. Validators must develop new techniques for assessing these models, such as analyzing feature importance, examining decision boundaries, and testing robustness to adversarial inputs.</p>
 <p>Climate risk modeling represents another frontier, as institutions develop models for phenomena with limited historical data and uncertain future dynamics. Traditional backtesting becomes problematic when models attempt to predict unprecedented climate transitions, forcing validators to rely more heavily on scenario analysis, expert judgment, and forward-looking stress tests <sup id="fnref2:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">8</a></sup>. Regulatory expectations in this area continue to evolve as supervisors grapple with how to assess models for emerging risks.</p>
 <p>The increasing use of third-party models and vendor systems raises questions about validation responsibility and feasibility. While institutions cannot abdicate accountability for models they use, they may lack access to proprietary vendor code or detailed methodological documentation. Validators must develop alternative approaches, such as benchmarking vendor outputs against independent calculations, testing sensitivity to inputs, and assessing vendor governance and model change processes.</p>
@@ -2290,189 +1150,104 @@ risk factors while excluding spurious variables. This assessment requires deep d
 <p>When full white-box validation of vendor models is impractical, validators can employ several techniques: replicating results using simplified implementations, conducting extensive input-output testing to understand model behavior, requiring vendor validation reports that meet institutional standards, and engaging independent third parties to assess vendor governance. The key is ensuring sufficient understanding to use models appropriately despite limited transparency.</p>
 </details>
 <p>The validation capacity constraint presents ongoing challenges, particularly as model populations grow and regulatory expectations intensify. Many institutions struggle to maintain validation units with sufficient expertise across diverse model types while managing workload that includes new model validations, revalidations, ongoing monitoring, and special reviews. This resource pressure creates incentives to streamline validation processes, but such streamlining must not compromise quality or independence.</p>
-<h2 id="the-path-forward">The Path Forward</h2>
+<h2 id="the-path-forward"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> The Path Forward</h2>
 <p>As financial markets grow increasingly complex and quantitative techniques continue to advance, the importance of rigorous model validation will only increase. Regulators across jurisdictions show no signs of relaxing their expectations, recognizing that model risk represents a persistent threat to financial stability. Institutions that view validation as mere compliance overhead miss an opportunity to strengthen decision-making and cultivate productive tension that improves model quality.</p>
 <p>The most sophisticated institutions are evolving beyond traditional validation paradigms, implementing continuous validation frameworks that leverage automation and real-time monitoring. Rather than relying solely on annual revalidation cycles, these institutions maintain dashboards tracking dozens of performance metrics that alert validators to potential issues as they emerge. This proactive approach enables faster response to deteriorating model performance and reduces the risk that problematic models continue in use between formal validations.</p>
 <p>Cultural factors ultimately determine validation effectiveness as much as technical expertise. Organizations that foster constructive challenge, reward those who raise concerns, and view validation findings as opportunities for improvement rather than obstacles to overcome will maintain stronger model risk management over time. Senior leadership's commitment to this culture, demonstrated through resource allocation, tone from the top, and accountability for model risk events, shapes whether validation functions can operate with the independence and authority they require.</p>
 <p>The convergence of regulatory expectations across jurisdictions, driven by international standard-setting bodies like the Basel Committee, suggests that model validation practices will continue to harmonize globally. Institutions operating across multiple regions benefit from this consistency, which allows them to implement enterprise-wide validation frameworks that satisfy diverse supervisory requirements. Yet important differences remain, particularly regarding model approval processes and supervisory intervention in model methodology, requiring careful navigation of jurisdictional requirements.</p>
 <p>Model validation stands as a testament to the financial industry's recognition that sophisticated quantitative methods, while powerful, require equally sophisticated independent review to ensure their reliable application <sup id="fnref2:morini2011"><a class="footnote-ref" href="#fn:morini2011">2</a></sup>. As models become ever more central to financial decision-making, the validation profession must evolve in parallel, developing new techniques, attracting top talent, and maintaining the skeptical mindset that defines effective independent review.</p>
-<hr />
+<hr/>
 <p><em>Ensuring model reliability through rigorous independent review</em></p>
 <div class="footnote">
-<hr />
+<hr/>
 <ol>
 <li id="fn:sr11_7">
-<p>Board of Governors of the Federal Reserve System. Supervisory guidance on model risk management. SR Letter 11-7, Federal Reserve, 2011. URL: <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm">https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm</a>.&#160;<a class="footnote-backref" href="#fnref:sr11_7" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<p>Board of Governors of the Federal Reserve System. Supervisory guidance on model risk management. SR Letter 11-7, Federal Reserve, 2011. URL: <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm">https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm</a>. <a class="footnote-backref" href="#fnref:sr11_7" title="Jump back to footnote 1 in the text">↩</a></p>
 </li>
 <li id="fn:morini2011">
-<p>Massimo Morini. <em>Understanding and Managing Model Risk: A Practical Guide for Quants, Traders and Validators</em>. Wiley, 2011. ISBN 978-0-470-97788-8.&#160;<a class="footnote-backref" href="#fnref:morini2011" title="Jump back to footnote 2 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:morini2011" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<p>Massimo Morini. <em>Understanding and Managing Model Risk: A Practical Guide for Quants, Traders and Validators</em>. Wiley, 2011. ISBN 978-0-470-97788-8. <a class="footnote-backref" href="#fnref:morini2011" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:morini2011" title="Jump back to footnote 2 in the text">↩</a></p>
 </li>
 <li id="fn:occ2011">
-<p>Office of the Comptroller of the Currency. Supervisory guidance on model risk management. OCC Bulletin 2011-12, OCC, 2011. URL: <a href="https://www.occ.gov/news-issuances/bulletins/2011/bulletin-2011-12.html">https://www.occ.gov/news-issuances/bulletins/2011/bulletin-2011-12.html</a>.&#160;<a class="footnote-backref" href="#fnref:occ2011" title="Jump back to footnote 3 in the text">&#8617;</a></p>
+<p>Office of the Comptroller of the Currency. Supervisory guidance on model risk management. OCC Bulletin 2011-12, OCC, 2011. URL: <a href="https://www.occ.gov/news-issuances/bulletins/2011/bulletin-2011-12.html">https://www.occ.gov/news-issuances/bulletins/2011/bulletin-2011-12.html</a>. <a class="footnote-backref" href="#fnref:occ2011" title="Jump back to footnote 3 in the text">↩</a></p>
 </li>
 <li id="fn:eba2017">
-<p>European Banking Authority. Guidelines on pd estimation, lgd estimation and the treatment of defaulted exposures. EBA/GL/2017/16, EBA, 2017. URL: <a href="https://www.eba.europa.eu/regulation-and-policy/model-validation">https://www.eba.europa.eu/regulation-and-policy/model-validation</a>.&#160;<a class="footnote-backref" href="#fnref:eba2017" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<p>European Banking Authority. Guidelines on pd estimation, lgd estimation and the treatment of defaulted exposures. EBA/GL/2017/16, EBA, 2017. URL: <a href="https://www.eba.europa.eu/regulation-and-policy/model-validation">https://www.eba.europa.eu/regulation-and-policy/model-validation</a>. <a class="footnote-backref" href="#fnref:eba2017" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 <li id="fn:baesens2016">
-<p>Bart Baesens, Daniel Rösch, and Harald Scheule. <em>Credit Risk Analytics: Measurement Techniques, Applications, and Examples in SAS</em>. Wiley, 2016. ISBN 978-1-119-14387-3.&#160;<a class="footnote-backref" href="#fnref:baesens2016" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:baesens2016" title="Jump back to footnote 5 in the text">&#8617;</a><a class="footnote-backref" href="#fnref3:baesens2016" title="Jump back to footnote 5 in the text">&#8617;</a></p>
+<p>Bart Baesens, Daniel Rösch, and Harald Scheule. <em>Credit Risk Analytics: Measurement Techniques, Applications, and Examples in SAS</em>. Wiley, 2016. ISBN 978-1-119-14387-3. <a class="footnote-backref" href="#fnref:baesens2016" title="Jump back to footnote 5 in the text">↩</a><a class="footnote-backref" href="#fnref2:baesens2016" title="Jump back to footnote 5 in the text">↩</a><a class="footnote-backref" href="#fnref3:baesens2016" title="Jump back to footnote 5 in the text">↩</a></p>
 </li>
 <li id="fn:christoffersen2011">
-<p>Peter F. Christoffersen. <em>Elements of Financial Risk Management</em>. Academic Press, 2nd edition, 2011. ISBN 978-0-12-374448-7.&#160;<a class="footnote-backref" href="#fnref:christoffersen2011" title="Jump back to footnote 6 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:christoffersen2011" title="Jump back to footnote 6 in the text">&#8617;</a></p>
+<p>Peter F. Christoffersen. <em>Elements of Financial Risk Management</em>. Academic Press, 2nd edition, 2011. ISBN 978-0-12-374448-7. <a class="footnote-backref" href="#fnref:christoffersen2011" title="Jump back to footnote 6 in the text">↩</a><a class="footnote-backref" href="#fnref2:christoffersen2011" title="Jump back to footnote 6 in the text">↩</a></p>
 </li>
 <li id="fn:derman2016">
-<p>Emanuel Derman. <em>The Volatility Smile</em>. Wiley, 2016. ISBN 978-1-118-95945-9.&#160;<a class="footnote-backref" href="#fnref:derman2016" title="Jump back to footnote 7 in the text">&#8617;</a></p>
+<p>Emanuel Derman. <em>The Volatility Smile</em>. Wiley, 2016. ISBN 978-1-118-95945-9. <a class="footnote-backref" href="#fnref:derman2016" title="Jump back to footnote 7 in the text">↩</a></p>
 </li>
 <li id="fn:rebonato2010">
-<p>Riccardo Rebonato. <em>Coherent Stress Testing: A Bayesian Approach to the Analysis of Financial Stress</em>. Wiley, 2010. ISBN 978-0-470-66608-8.&#160;<a class="footnote-backref" href="#fnref:rebonato2010" title="Jump back to footnote 8 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:rebonato2010" title="Jump back to footnote 8 in the text">&#8617;</a></p>
+<p>Riccardo Rebonato. <em>Coherent Stress Testing: A Bayesian Approach to the Analysis of Financial Stress</em>. Wiley, 2010. ISBN 978-0-470-66608-8. <a class="footnote-backref" href="#fnref:rebonato2010" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref2:rebonato2010" title="Jump back to footnote 8 in the text">↩</a></p>
 </li>
 </ol>
 </div>
-
-
-
-
-
-
-
-
-
-
-
-
-                
-              </article>
-            </div>
-          
-          
+</article>
+</div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
-        </div>
-        
-          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
-  
-  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
   Back to top
 </button>
-        
-      </main>
-      
-        <footer class="md-footer">
-  
-  <div class="md-footer-meta md-typeset">
-    <div class="md-footer-meta__inner md-grid">
-      <div class="md-copyright">
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
   
   
     Made with
-    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
       Material for MkDocs
     </a>
-  
 </div>
-      
-        
 <div class="md-social">
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://github.com/yourusername" target="_blank" rel="noopener" title="github.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
-    </a>
-  
-    
-    
-    
-    
-      
-      
-    
-    <a href="https://linkedin.com/in/yourprofile" target="_blank" rel="noopener" title="linkedin.com" class="md-social__link">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"/></svg>
-    </a>
-  
+<a class="md-social__link" href="https://github.com/yourusername" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank" title="linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+</a>
 </div>
-      
-    </div>
-  </div>
+</div>
+</div>
 </footer>
-      
-    </div>
-    <div class="md-dialog" data-md-component="dialog">
-      <div class="md-dialog__inner md-typeset"></div>
-    </div>
-    
-    
-      <div class="md-consent" data-md-component="consent" id="__consent" hidden>
-        <div class="md-consent__overlay"></div>
-        <aside class="md-consent__inner">
-          <form class="md-consent__form md-grid md-typeset" name="consent">
-            
-
-
-
-<h4>Cookie consent</h4>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.0.1</span> Cookie consent</h4>
 <p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
-<input class="md-toggle" type="checkbox" id="__settings" >
+<input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
-  <ul class="task-list">
-    
-    
-      
-    
-    
-      
-    
-    
-  </ul>
+<ul class="task-list">
+</ul>
 </div>
 <div class="md-consent__controls">
-  
-    
-      <button class="md-button md-button--primary">Accept</button>
-    
-    
-    
-  
-    
-    
-      <button type="reset" class="md-button md-button--primary">Reject</button>
-    
-    
-  
-    
-    
-    
-      <label class="md-button" for="__settings">Manage settings</label>
-    
-  
+<button class="md-button md-button--primary">Accept</button>
+<button class="md-button md-button--primary" type="reset">Reject</button>
+<label class="md-button" for="__settings">Manage settings</label>
 </div>
-          </form>
-        </aside>
-      </div>
-      <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-    
-    
-      
-      
-      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-    
-    
-      <script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
-      
-        <script src="../../javascripts/consent-mode.js"></script>
-      
-        <script src="../../javascripts/mathjax.js"></script>
-      
-        <script src="https://tikzjax.com/v1/tikzjax.js"></script>
-      
-        <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
-      
-        <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
-      
-    
-  </body>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../javascripts/consent-mode.js"></script>
+<script src="../../javascripts/mathjax.js"></script>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
+</body>
 </html>
