@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/portfolio_management/portfolio_optimization/mean_variance/">
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/pricing/interest_rates/heath_jarrow_morton_framework/">
       
       
-        <link rel="prev" href="../">
+        <link rel="prev" href="../cir_model/">
       
       
-        <link rel="next" href="../../../statistics_and_probability/">
+        <link rel="next" href="../hull_white_model/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Mean Variance Model - Quȧntero</title>
+        <title>The Heath-Jarrow-Morton Framework - Quȧntero</title>
       
     
     
@@ -63,9 +63,9 @@
     
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Mean Variance Model">
+  <meta property="og:title" content="The Heath-Jarrow-Morton Framework">
   <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/portfolio_management/portfolio_optimization/mean_variance/">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/pricing/interest_rates/heath_jarrow_morton_framework/">
   <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#mean-variance-model" class="md-skip">
+        <a href="#the-heath-jarrow-morton-framework" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Mean Variance Model
+              The Heath-Jarrow-Morton Framework
             
           </span>
         </div>
@@ -255,7 +255,7 @@
     
     
       <li class="md-tabs__item md-tabs__item--active">
-        <a href="../../../market_risk/" class="md-tabs__link">
+        <a href="../../../model_validation/" class="md-tabs__link">
           
   
   
@@ -356,6 +356,10 @@
       
         
       
+        
+      
+        
+      
     
     
     
@@ -430,14 +434,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../market_risk/" class="md-nav__link ">
+            <a href="../../../model_validation/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Market Risk Analytics
+    Model Validation
   
 
     
@@ -454,7 +458,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Market Risk Analytics
+    Model Validation
   
 
           </label>
@@ -487,6 +491,12 @@
       
         
       
+        
+      
+        
+      
+        
+      
     
     
     
@@ -502,14 +512,14 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pricing/" class="md-nav__link ">
+            <a href="../../../risk_management/" class="md-nav__link ">
               
   
   
   <span class="md-ellipsis">
     
   
-    Pricing Models
+    Risk Management
   
 
     
@@ -531,7 +541,7 @@
             <span class="md-nav__icon md-icon"></span>
             
   
-    Pricing Models
+    Risk Management
   
 
           </label>
@@ -545,6 +555,156 @@
   
   
   
+    <li class="md-nav__item">
+      <a href="../../../../market_risk" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Market Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../credit_risk" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Credit Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../liquidity_risk" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Liquidity Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../operational_risk" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Operational Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../ai_risk" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Risk
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
     
     
       
@@ -556,8 +716,6 @@
       
         
       
-        
-      
     
     
     
@@ -565,15 +723,90 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pricing/interest_rates/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Pricing Models
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Pricing Models
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2" checked>
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -591,14 +824,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_2_2_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_3_2_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_2_3_2">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -617,7 +850,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pricing/interest_rates/vasicek_model/" class="md-nav__link">
+      <a href="../vasicek_model/" class="md-nav__link">
         
   
   
@@ -645,7 +878,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pricing/interest_rates/hull_white_model/" class="md-nav__link">
+      <a href="../cir_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cox-Ingersoll-Ross Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hull_white_model/" class="md-nav__link">
         
   
   
@@ -683,6 +944,8 @@
       
         
       
+        
+      
     
     
     
@@ -694,11 +957,11 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_2_2_4" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3_2_5" >
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/" class="md-nav__link ">
+            <a href="../bond_affine_ansatz_models/" class="md-nav__link ">
               
   
   
@@ -716,14 +979,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_2_2_4" id="__nav_2_2_2_4_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_3_2_5" id="__nav_2_3_2_5_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_2_2_4_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_2_2_4">
+        <nav class="md-nav" data-md-level="4" aria-labelledby="__nav_2_3_2_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_3_2_5">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -742,7 +1005,7 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/" class="md-nav__link">
+      <a href="../bond_affine_ansatz_models/vasicek/" class="md-nav__link">
         
   
   
@@ -770,7 +1033,35 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
+      <a href="../bond_affine_ansatz_models/cir/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cox-Ingersoll-Ross Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../bond_affine_ansatz_models/hull_white/" class="md-nav__link">
         
   
   
@@ -849,248 +1140,15 @@
   
   
   
-    
-    
-      
-        
-          
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_3" >
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../../model_validation/" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Model Validation
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_3_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_3">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Model Validation
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-          </ul>
-        </nav>
-      
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Portfolio Management
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_4" id="__nav_2_4_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_4_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_4">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Portfolio Management
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    
-    
-      
-        
-          
-        
-      
-        
-      
-    
-    
-    
-      
-      
-    
-    
-    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
-      
-        
-        
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_4_2" checked>
-        
-          
-          <div class="md-nav__link md-nav__container">
-            <a href="../" class="md-nav__link ">
-              
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Portfolio Models
-  
-
-    
-  </span>
-  
-  
-
-            </a>
-            
-              
-              <label class="md-nav__link " for="__nav_2_4_2" id="__nav_2_4_2_label" tabindex="0">
-                <span class="md-nav__icon md-icon"></span>
-              </label>
-            
-          </div>
-        
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_4_2_label" aria-expanded="true">
-          <label class="md-nav__title" for="__nav_2_4_2">
-            <span class="md-nav__icon md-icon"></span>
-            
-  
-    Portfolio Models
-  
-
-          </label>
-          <ul class="md-nav__list" data-md-scrollfix>
-            
-              
-            
-              
-                
-  
-  
-    
-  
-  
-  
-    <li class="md-nav__item md-nav__item--active">
-      
-      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
-      
-      
-        
-      
-      
-        <label class="md-nav__link md-nav__link--active" for="__toc">
-          
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Mean Variance Model
-  
-
-    
-  </span>
-  
-  
-
-          <span class="md-nav__icon md-icon"></span>
-        </label>
-      
-      <a href="./" class="md-nav__link md-nav__link--active">
+    <li class="md-nav__item">
+      <a href="../../../../algorithmic_trading" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Mean Variance Model
+    Algorithmic Trading
   
 
     
@@ -1099,103 +1157,62 @@
   
 
       </a>
-      
-        
+    </li>
+  
 
-<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+              
+            
+              
+                
   
   
   
+  
+    <li class="md-nav__item">
+      <a href="../../../../artificial_intelligence" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
     
   
+    Artificial Intelligence
   
-    <label class="md-nav__title" for="__toc">
-      <span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
-      
-        <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Overview
-      
-    </span>
-  </a>
+
+    
+  </span>
   
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#main-parameters" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Main parameters
-      
-    </span>
-  </a>
   
-    <nav class="md-nav" aria-label="Main parameters">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#portfolio-returns" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Portfolio Returns
-      
-    </span>
-  </a>
-  
-</li>
-        
-      </ul>
-    </nav>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Implementation
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
-    </ul>
-  
-</nav>
-      
+
+      </a>
     </li>
   
 
               
             
-          </ul>
-        </nav>
-      
-    </li>
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../../portfolio_management" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Portfolio Management
   
 
-              
-            
-          </ul>
-        </nav>
-      
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -1257,7 +1274,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_6" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1279,14 +1296,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_6" id="__nav_2_6_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_8" id="__nav_2_8_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_6_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_6">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1304,8 +1321,169 @@
   
   
   
+    
+    
+      
+        
+          
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_2" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../statistics_and_probability/probability/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8_2" id="__nav_2_8_2_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
     <li class="md-nav__item">
-      <a href="../../../statistics_and_probability/gaussian_integral/" class="md-nav__link">
+      <a href="../../../statistics_and_probability/probability/expected_value/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Expected Value
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistics_and_probability/probability/filtration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Filtration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistics_and_probability/probability/tower_property/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Tower Property
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistics_and_probability/probability/gaussian_integral/" class="md-nav__link">
         
   
   
@@ -1333,14 +1511,14 @@
   
   
     <li class="md-nav__item">
-      <a href="../../../statistics_and_probability/expected_value/" class="md-nav__link">
+      <a href="../../../statistics_and_probability/probability/jensen_inequality/" class="md-nav__link">
         
   
   
   <span class="md-ellipsis">
     
   
-    Expected Value
+    Jensen's Inequality
   
 
     
@@ -1349,6 +1527,145 @@
   
 
       </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistics_and_probability/probability/momentum_generating_functions/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moment Generating Functions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    
+    
+      
+        
+          
+        
+      
+        
+      
+    
+    
+    
+      
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_3" >
+        
+          
+          <div class="md-nav__link md-nav__container">
+            <a href="../../../statistics_and_probability/statistics/" class="md-nav__link ">
+              
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+  
+  
+
+            </a>
+            
+              
+              <label class="md-nav__link " for="__nav_2_8_3" id="__nav_2_8_3_label" tabindex="0">
+                <span class="md-nav__icon md-icon"></span>
+              </label>
+            
+          </div>
+        
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_8_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../../statistics_and_probability/statistics/maximum_likelihood_estimation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Maximum Likelihood Estimation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
     </li>
   
 
@@ -1394,7 +1711,7 @@
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_7" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_9" >
         
           
           <div class="md-nav__link md-nav__container">
@@ -1416,14 +1733,14 @@
             </a>
             
               
-              <label class="md-nav__link " for="__nav_2_7" id="__nav_2_7_label" tabindex="0">
+              <label class="md-nav__link " for="__nav_2_9" id="__nav_2_9_label" tabindex="0">
                 <span class="md-nav__icon md-icon"></span>
               </label>
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_7_label" aria-expanded="false">
-          <label class="md-nav__title" for="__nav_2_7">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2_9">
             <span class="md-nav__icon md-icon"></span>
             
   
@@ -1589,10 +1906,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#overview" class="md-nav__link">
+  <a href="#the-fundamental-insight" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Overview
+        The Fundamental Insight
       
     </span>
   </a>
@@ -1600,22 +1917,66 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#main-parameters" class="md-nav__link">
+  <a href="#forward-rates-and-bond-prices" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Main parameters
+        Forward Rates and Bond Prices
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Main parameters">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-hjm-framework-general-specification" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The HJM Framework: General Specification
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-no-arbitrage-drift-restriction" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The No-Arbitrage Drift Restriction
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-does-this-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Does This Work?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#one-factor-hjm-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        One-Factor HJM Models
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="One-Factor HJM Models">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#portfolio-returns" class="md-nav__link">
+  <a href="#gaussian-hjm-models" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Portfolio Returns
+        Gaussian HJM Models
       
     </span>
   </a>
@@ -1628,10 +1989,65 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#implementation" class="md-nav__link">
+  <a href="#connection-to-hull-white-model" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Implementation
+        Connection to Hull-White Model
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-deeper-relationship" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Deeper Relationship
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multi-factor-hjm-models" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multi-Factor HJM Models
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advantages-and-limitations-of-hjm" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advantages and Limitations of HJM
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#hjm-in-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        HJM in Practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#summary-hjm-and-hull-white" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary: HJM and Hull-White
       
     </span>
   </a>
@@ -1666,54 +2082,172 @@
 
 
 
-<h1 id="mean-variance-model">Mean Variance Model</h1>
-<h2 id="overview">Overview</h2>
-<p>The Mean-Variance optimization, developed by Harry Markowitz in 1952, is a foundational portfolio theory that helps investors construct efficient portfolios. Nonetheless, this model is widely used though, the result and modeling assumptions have been questioned by the industry over last decades. Let's see what is it about.</p>
-<p>Markowitz starts his <a href="https://onlinelibrary.wiley.com/doi/10.1111/j.1540-6261.1952.tb01525.x" target="_blank">article</a> pointing out two stages in porfolio selection:</p>
+<h1 id="the-heath-jarrow-morton-framework">The Heath-Jarrow-Morton Framework</h1>
+<p>The Heath-Jarrow-Morton (HJM) framework, introduced in 1992, takes a fundamentally different approach to modeling interest rate dynamics. Rather than specifying the evolution of the short rate (as in Vasicek or Hull-White), the HJM framework directly models the evolution of forward rates—the entire forward curve as a stochastic process. This framework provides a principled way to ensure no-arbitrage is built into the model by construction and has become the theoretical foundation for modern interest rate modeling.</p>
+<hr />
+<h2 id="the-fundamental-insight">The Fundamental Insight</h2>
+<p>Before HJM, interest rate models typically specified short-rate dynamics directly, and then bond prices were derived from these dynamics. The HJM framework inverts this perspective: it starts with the observed <strong>forward rate curve</strong> and specifies how this entire curve evolves through time. The key innovation is that the HJM framework imposes a <strong>drift restriction</strong>—known as the no-arbitrage condition—that links the deterministic and stochastic components of forward rate evolution. This restriction automatically eliminates arbitrage opportunities without requiring a specific parametric model form.</p>
+<p>The philosophical shift is profound. Instead of asking "what should the short rate do?", HJM asks "given the market's current expectations (encoded in the initial forward curve), what paths can the curve take without violating no-arbitrage?" This perspective is more aligned with how traders think about markets: they observe market prices and infer constraints on what paths are possible.</p>
+<hr />
+<h2 id="forward-rates-and-bond-prices">Forward Rates and Bond Prices</h2>
+<p>Before diving into the HJM framework, let's establish the relationship between forward rates and bond prices. The instantaneous forward rate <span class="arithmatex">\(f(t, T)\)</span> represents the rate at which the market agrees to lend or borrow at time <span class="arithmatex">\(t\)</span> for an infinitesimal period starting at time <span class="arithmatex">\(T\)</span>. The connection to zero-coupon bond prices is:</p>
+<div class="arithmatex">\[
+\begin{equation}
+P(t, T) = \exp\left(-\int_t^T f(t, u)du\right),
+\label{eq:bond_from_forward}
+\end{equation}
+\]</div>
+<p>Taking the partial derivative with respect to maturity <span class="arithmatex">\(T\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(t, T) = -\frac{\partial \ln P(t, T)}{\partial T}.
+\label{eq:forward_from_bond}
+\end{equation}
+\]</div>
+<p>The short rate <span class="arithmatex">\(r(t)\)</span> is the limiting case: <span class="arithmatex">\(r(t) = f(t, t)\)</span>, the forward rate for an infinitesimal borrowing period starting immediately.</p>
+<hr />
+<h2 id="the-hjm-framework-general-specification">The HJM Framework: General Specification</h2>
+<p>The HJM framework assumes that the forward rate curve evolves according to:</p>
+<div class="arithmatex">\[
+\begin{equation}
+df(t, T) = \alpha(t, T)dt + \sum_{i=1}^m \sigma_i(t, T)dW_i(t),
+\label{eq:hjm_forward_sde}
+\end{equation}
+\]</div>
+<p>where:</p>
 <ul>
-<li>The first one implies there is accessible information and <strong>there is an assumption of asset's future performance</strong> of available securities.</li>
-<li>Second stage assesses the future performance and ends up in picking up the portfolio set of assets.</li>
+<li><span class="arithmatex">\(f(t, T)\)</span> is the forward rate at time <span class="arithmatex">\(t\)</span> for maturity <span class="arithmatex">\(T\)</span></li>
+<li><span class="arithmatex">\(\alpha(t, T)\)</span> is the drift function (deterministic)</li>
+<li><span class="arithmatex">\(\sigma_i(t, T)\)</span> are the volatility functions for <span class="arithmatex">\(m\)</span> risk factors</li>
+<li><span class="arithmatex">\(W_i(t)\)</span> are independent standard Brownian motions</li>
 </ul>
-<h2 id="main-parameters">Main parameters</h2>
-<p>He is clear on highlighting his model is focused in the second one. Moreover, he supports his vision of portfolio selection by means geometrical relations between <strong>expected returns</strong> and <strong>variance of returns</strong>. These are is the backbone of this model. So, it's worth to mention the variance is the <strong>measure of risk</strong> in this framework. Not for nothing many people explain the model refering to them as tradeoff between <strong>risk-return</strong>.</p>
-<p>Besides, there is an apparent duality between expected returns and variance of returns, as you can fix only one of them whereas freeing the another one. This takes you to the fist selection, keeping an discounted value of future <em>returns</em> but freeing the <em>variance</em> thereof, or, holding a level of <em>risk</em> by means a fixed variance then freeing the return possibilities. Consequently, <strong>diversification</strong> turned a buzzword in finance, but it's worth recalling what Markowitz subtly highlights, which is <em>"... diversification is both observed and sensible;"</em>. This clearly makes echo with the perspective of John Burr Williams, in his book named <a href="https://ia601506.us.archive.org/18/items/in.ernet.dli.2015.225177/2015.225177.The-Theory.pdf" target="_blank">The Theory Of Investment Value</a>. Williams describes a fascinating treat of markets, and it is that <strong>".. Today's opinion will make today's price; tomorrow's opinion, tomorrow's price .. Thus marginal opinion will determine market price .."</strong>. <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup></p>
-<p>Now, having replicated Markowitz's idea, let's jumpt to the maths. The model construction is upon an analitical solution that assumess in the market there are <span class="arithmatex">\(N\)</span> securities, each identified with subindex <span class="arithmatex">\(i\)</span>.</p>
-<h3 id="portfolio-returns">Portfolio Returns</h3>
-<p>The portfolio's return is expressed as a weighted discounted return of assets that comprise the portfolio. <strong>This becomes clear once you read Markowitz's article directly. Many practitioners, are prone to using the non-discounted return.</strong>. Because of the latter, in my mind the first image I had was stochastic discount factors, that I'll talk about in another post. Now, let's represent each asset's return as <span class="arithmatex">\(r_{i,t}\)</span>, emphasizing the sub-index <span class="arithmatex">\((i,t)\)</span>, which means the return of asset <span class="arithmatex">\(i\)</span> expected in future time <span class="arithmatex">\(t\)</span>. Furtheremore, the discount factor applied to each return is depicted as <span class="arithmatex">\(d_{i,t}\)</span>, meaning is applied on each asset <span class="arithmatex">\(i\)</span> in the instant <span class="arithmatex">\(t\)</span>. It looks like ...</p>
+<p>The critical feature of HJM is what happens next: <strong>the no-arbitrage condition imposes a constraint on the drift <span class="arithmatex">\(\alpha(t, T)\)</span></strong>. It turns out that <span class="arithmatex">\(\alpha(t, T)\)</span> cannot be arbitrary—it must be related to the volatilities in a very specific way.</p>
+<hr />
+<h2 id="the-no-arbitrage-drift-restriction">The No-Arbitrage Drift Restriction</h2>
+<p>The no-arbitrage condition in HJM states that the drift of the forward rate is completely determined by its volatility structure:</p>
 <div class="arithmatex">\[
 \begin{equation}
-R_p=\sum_{t=1}^\infty \sum_{i=1}^N d_{i,t}r_{i,t}w_i
-\label{eq:markowitz_portfolio_return_orig}
+\alpha(t, T) = \sum_{i=1}^m \sigma_i(t, T)\left(\sum_{j=1}^m \rho_{ij}\int_t^T \sigma_j(t, u)du\right),
+\label{eq:hjm_drift_restriction}
 \end{equation}
 \]</div>
-<p>where <span class="arithmatex">\(w_i\)</span> is the relative amount invested in the asset <span class="arithmatex">\(i\)</span>, that Markowitz named as <span class="arithmatex">\(X\)</span> <sup id="fnref2:1"><a class="footnote-ref" href="#fn:1">1</a></sup>. In addition, Markowitz also adds a restriction on the weights by setting them as strictly possitive <span class="arithmatex">\(w_i \ge 0\)</span>, which means the model doesn't support <a href="https://www.investopedia.com/terms/s/short.asp" target="_blank"><strong>short positions</strong></a>. Similarlly, the sum of all positions must be equal to 1, which make sense if we consider the relative weight is with respect to the portfolio value, a metric that is distorsioned if short positions are allowed.</p>
-<p>Then, because of sum properties, it's possible to rewrite equation <span class="arithmatex">\(\eqref{eq:markowitz_portfolio_return_orig}\)</span> such that the time dependend variables can be replaced as shown in <span class="arithmatex">\(\eqref{eq:markowitz_portfolio_return}\)</span>, where <span class="arithmatex">\(R_i\)</span> corresponds to the discounted future return of asset <span class="arithmatex">\(i\)</span>.</p>
+<p>where <span class="arithmatex">\(\rho_{ij}\)</span> is the correlation between the <span class="arithmatex">\(i\)</span>-th and <span class="arithmatex">\(j-\)</span>th Brownian motions. When the Brownian motions are independent (<span class="arithmatex">\(\rho_{ij} = 0\)</span> for <span class="arithmatex">\(i \neq j\)</span>), this simplifies to:</p>
 <div class="arithmatex">\[
 \begin{equation}
-R_p= \sum_{i=1}^N w_i \left(\sum_{t=1}^\infty  d_{i,t}r_{i,t}\right) = \sum_{i=1}^N w_i R_i
-\label{eq:markowitz_portfolio_return}
+\alpha(t, T) = \sum_{i=1}^m \sigma_i(t, T)\int_t^T \sigma_i(t, u)du.
+\label{eq:hjm_drift_restriction_independent}
 \end{equation}
 \]</div>
-<p>Don't panic!, Markowitz also made the first version of the model even simpler. He changed the variable <span class="arithmatex">\(R_i\)</span> as discounted future return of the i-asset by something that he calls <em>"the flow of returns"</em>, depicted by <span class="arithmatex">\(r_i\)</span> <sup id="fnref:2"><a class="footnote-ref" href="#fn:2">2</a></sup>. This change makes easier the treatment of optimization as the portfolio return is now <span class="arithmatex">\(R_p=\sum w_i r_i\)</span>.</p>
-<blockquote>
-<p><strong>⚠️ Page Under Construction</strong></p>
-<p>This section is currently being developed. Please check back soon for updates and new content.</p>
-</blockquote>
-<h2 id="implementation">Implementation</h2>
-<p>Coming soon...</p>
+<p>This is a profound result. It says that you cannot independently choose both drift and volatility; once you specify the volatility functions <span class="arithmatex">\(\sigma_i(t, T)\)</span>, the drift is automatically determined. This is the <strong>no-arbitrage drift restriction</strong>, and it ensures that the entire model is consistent with the absence of arbitrage opportunities.</p>
+<hr />
+<h2 id="why-does-this-work">Why Does This Work?</h2>
+<p>The intuition behind the drift restriction comes from the theory of bond pricing under the risk-neutral measure. Under the risk-neutral measure, all bond prices must grow at the short-rate (the risk-free rate). This constrains how forward rates can evolve. The HJM drift restriction emerges as a consequence of this requirement: the drift in forward rates along the curve must be such that bond prices, when expressed in terms of forward rates, grow at the short rate exactly.</p>
+<p>Consider bonds of different maturities. Each has a risk-neutral drift equal to the short rate. Forward rates for different maturities are related through the bond pricing equation. If the forward rates evolve too quickly (or too slowly) at certain maturities, bond prices won't grow at the short rate as they should. The drift restriction ensures consistency across all maturities simultaneously.</p>
+<hr />
+<h2 id="one-factor-hjm-models">One-Factor HJM Models</h2>
+<p>When we restrict to a single stochastic factor (<span class="arithmatex">\(m=1\)</span>), the HJM framework becomes much more tractable. Many practical one-factor HJM models have been developed, and some of them are actually equivalent to well-known short-rate models we already know.</p>
+<h3 id="gaussian-hjm-models">Gaussian HJM Models</h3>
+<p>If we specify a deterministic volatility function <span class="arithmatex">\(\sigma(t, T)\)</span> and assume no jumps, we get a Gaussian HJM model. The entire forward curve evolves according to:</p>
+<div class="arithmatex">\[
+\begin{equation}
+df(t, T) = \sigma(t, T)\int_t^T \sigma(t, u)du\, dt + \sigma(t, T)dW(t).
+\label{eq:gaussian_hjm}
+\end{equation}
+\]</div>
+<p>Different choices of <span class="arithmatex">\(\sigma(t, T)\)</span> lead to different models. For instance, if we choose <span class="arithmatex">\(\sigma(t, T) = \sigma e^{-a(T-t)}\)</span> (exponential decay with maturity), the resulting short-rate dynamics become exactly the Hull-White model—establishing a direct connection between the HJM framework and the models we've seen before.</p>
+<hr />
+<h2 id="connection-to-hull-white-model">Connection to Hull-White Model</h2>
+<p>The Hull-White model emerges naturally as a one-factor Gaussian HJM model. To see this, consider the HJM framework with exponential volatility:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\sigma(t, T) = \sigma e^{-a(T-t)},
+\label{eq:hjm_exponential_volatility}
+\end{equation}
+\]</div>
+<p>Substituting into the no-arbitrage drift restriction:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\alpha(t, T) = \sigma e^{-a(T-t)} \int_t^T \sigma e^{-a(u-t)}du = \sigma^2 e^{-a(T-t)}\int_0^{T-t} e^{-as}ds = \frac{\sigma^2}{a}\left(1 - e^{-a(T-t)}\right)e^{-a(T-t)}.
+\label{eq:hjm_alpha_exponential}
+\end{equation}
+\]</div>
+<p>The forward rate dynamics become:</p>
+<div class="arithmatex">\[
+\begin{equation}
+df(t, T) = \frac{\sigma^2}{a}\left(1 - e^{-a(T-t)}\right)e^{-a(T-t)}dt + \sigma e^{-a(T-t)}dW(t).
+\label{eq:hjm_forward_dynamics}
+\end{equation}
+\]</div>
+<p>Now the key step: integrate this forward rate evolution to get the short-rate dynamics. The short rate is <span class="arithmatex">\(r(t) = f(t, t)\)</span>, so:</p>
+<div class="arithmatex">\[
+\begin{equation}
+dr(t) = df(t, t) = \frac{\sigma^2}{a}\left(1 - 1\right)e^{0}dt + \sigma e^{0}dW(t) = \sigma dW(t).
+\label{eq:hjm_to_shortrate_first}
+\end{equation}
+\]</div>
+<p>This doesn't immediately give us Hull-White. We need to apply Itô's lemma more carefully to the path of the forward curve. When we do this calculation properly (integrating the forward rate differential across the curve), we obtain:</p>
+<div class="arithmatex">\[
+\begin{equation}
+dr(t) = \left[\theta(t) - ar(t)\right]dt + \sigma dW(t),
+\label{eq:hull_white_from_hjm}
+\end{equation}
+\]</div>
+<p>where <span class="arithmatex">\(\theta(t)\)</span> is the drift function that must be calibrated to the market yield curve. This is exactly the Hull-White model! The function <span class="arithmatex">\(\theta(t)\)</span> in the Hull-White model encodes the initial forward curve from the HJM perspective—it ensures that the short-rate model, when evolved, will generate bond prices consistent with the market's current expectations.</p>
+<hr />
+<h2 id="the-deeper-relationship">The Deeper Relationship</h2>
+<p>The relationship between HJM and Hull-White reveals something fundamental about interest rate modeling:</p>
+<p><strong>Hull-White can be viewed as a short-rate model that is derived from an underlying HJM model.</strong> When we specify exponential volatility in the HJM framework, the model is completely determined (the drift is given by the no-arbitrage condition), and when we look at the implied short-rate dynamics, they follow Hull-White with <span class="arithmatex">\(\theta(t)\)</span> determined by the initial forward curve.</p>
+<p>Conversely, <strong>every Hull-White model is consistent with some HJM model.</strong> The parameters <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span> determine the shape of volatility across maturities. The function <span class="arithmatex">\(\theta(t)\)</span> is then derived from the market curve, ensuring the model is arbitrage-free.</p>
+<p>This duality reflects a deep principle in financial mathematics: there are multiple ways to parameterize the same market. The HJM framework is more general (it can incorporate many volatility structures), while the Hull-White model is more practical (it has closed-form formulas and is easier to implement). The Hull-White model represents the most natural choice within the HJM framework when we want analytical tractability and parsimony of parameters.</p>
+<hr />
+<h2 id="multi-factor-hjm-models">Multi-Factor HJM Models</h2>
+<p>The HJM framework shines when modeling multiple factors. For instance, a two-factor HJM model might specify:</p>
+<div class="arithmatex">\[
+\begin{equation}
+df(t, T) = \alpha(t, T)dt + \sigma_1(t, T)dW_1(t) + \sigma_2(t, T)dW_2(t),
+\label{eq:hjm_two_factor}
+\end{equation}
+\]</div>
+<p>The drift restriction now becomes:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\alpha(t, T) = \sigma_1(t, T)\int_t^T \sigma_1(t, u)du + \sigma_2(t, T)\int_t^T \sigma_2(t, u)du,
+\label{eq:hjm_drift_two_factor}
+\end{equation}
+\]</div>
+<p>assuming the two factors are independent. Two-factor models can capture both <strong>parallel shifts</strong> (level changes) and <strong>twists</strong> (slope changes) in the yield curve—something single-factor models cannot do. The cost is increased computational complexity; while one-factor HJM can sometimes admit closed-form bond prices, two-factor and higher models typically require numerical methods like Monte Carlo simulation.</p>
+<hr />
+<h2 id="advantages-and-limitations-of-hjm">Advantages and Limitations of HJM</h2>
+<p><strong>Strengths of the HJM Framework:</strong></p>
+<p>The HJM framework provides a theoretically pure foundation for interest rate modeling. By specifying forwards instead of short rates, the entire term structure evolution is intrinsically no-arbitrage by construction. The framework is flexible: you can incorporate multiple factors, time-varying parameters, and even jumps. It also provides a principled way to think about the term structure—the market's expectations about all future rates are encoded in the initial forward curve and its stochastic evolution.</p>
+<p><strong>Limitations of the HJM Framework:</strong></p>
+<p>Despite its theoretical elegance, the HJM framework has practical challenges. First, implementing a full HJM model typically requires Monte Carlo simulation because most multi-factor specifications don't have closed-form solutions for bond prices. This is computationally expensive compared to short-rate models like Hull-White. Second, many HJM implementations can generate unrealistic forward rate paths—for instance, very long-dated forward rates might become negative or exhibit explosive behavior if volatility is not carefully chosen. Finally, calibrating the volatility functions <span class="arithmatex">\(\sigma_i(t, T)\)</span> to market data is more difficult than calibrating a few parameters in a short-rate model; you must estimate an entire function, which requires rich data and careful statistical techniques.</p>
+<hr />
+<h2 id="hjm-in-practice">HJM in Practice</h2>
+<p>In practice, the HJM framework is often used in its most tractable forms. The one-factor Gaussian HJM model (which is equivalent to Hull-White) remains the industry standard for many applications because it balances flexibility and tractability. Some practitioners use specific HJM models, such as those with exponential volatility or piecewise-constant parameters, to achieve particular properties while maintaining some analytical power.</p>
+<p>For exotic derivatives and risk management, practitioners often work with the HJM framework conceptually—thinking about how the entire curve evolves—but implement it via a parsimonious short-rate model like Hull-White. This pragmatic approach leverages the theoretical insights of HJM while keeping computational costs manageable.</p>
+<hr />
+<h2 id="summary-hjm-and-hull-white">Summary: HJM and Hull-White</h2>
+<p>The relationship between HJM and Hull-White is not that Hull-White is derived from HJM, but rather that both are different perspectives on the same underlying reality. HJM provides a general framework for modeling the evolution of the entire forward curve while respecting no-arbitrage. When we impose specific forms of volatility and Gaussian dynamics within the HJM framework, we recover the Hull-White model as a natural special case. Conversely, every Hull-White model can be understood as implementing a specific HJM model with exponential volatility.</p>
+<p>In this sense, Hull-White represents the optimal balance within the HJM framework for practitioners seeking both market consistency and analytical tractability. The framework explains why Hull-White works so well: it embodies the no-arbitrage drift restriction in a simple, implementable form, allowing practitioners to focus on calibrating the few parameters (<span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span>) that truly matter while ensuring the entire model remains consistent with market prices and is free of arbitrage.</p>
+<hr />
 <h2 id="references">References</h2>
-<ul>
-<li>Markowitz, H. (1952). Portfolio Selection. The Journal of Finance, 7(1), 77-91.</li>
-<li>Williams, J.B. (1938). The Theory Of Investment Value, Harvard University Press.</li>
-</ul>
+<p><sup id="fnref:hull1990"><a class="footnote-ref" href="#fn:hull1990">1</a></sup> - The original paper introducing time-dependent parameters for yield curve fitting.</p>
+<p><sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">2</a></sup> - <strong>Chapter 3.5</strong>: The Heath-Jarrow-Morton framework and its connection to short-rate models.</p>
+<p><sup id="fnref:andersen2010"><a class="footnote-ref" href="#fn:andersen2010">3</a></sup> - <strong>Chapter 6</strong>: Detailed treatment of HJM models and market models.</p>
+<hr />
+<p><em>Building confidence through rigorous validation</em></p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:1">
-<p>For those that perhaps do not understand what this means, <span class="arithmatex">\(w_i\)</span> (or <span class="arithmatex">\(X\)</span>) is the proportion of your asset <span class="arithmatex">\(i\)</span> in your portfolio measured by the value, for instance if you have two stock with price $10 and the total value of your portfolio is $500, then the relative value of your stock is <span class="arithmatex">\(2\%=0.02=\frac{10}{500}\)</span>&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a><a class="footnote-backref" href="#fnref2:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn:hull1990">
+<p>John Hull and Alan White. Pricing interest-rate-derivative securities. <em>The Review of Financial Studies</em>, 3(4):573–592, 1990. <a href="https://doi.org/10.1093/rfs/3.4.573">doi:10.1093/rfs/3.4.573</a>.&#160;<a class="footnote-backref" href="#fnref:hull1990" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
-<li id="fn:2">
-<p>Notice the sub-index is different from the future return <span class="arithmatex">\(r_{i,t} \ne r_i\)</span>.&#160;<a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>.&#160;<a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 2 in the text">&#8617;</a></p>
+</li>
+<li id="fn:andersen2010">
+<p>Leif Andersen and Vladimir Piterbarg. <em>Interest Rate Modeling</em>. Volume 1-3. Atlantic Financial Press, 2010.&#160;<a class="footnote-backref" href="#fnref:andersen2010" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>
@@ -1860,6 +2394,8 @@ R_p= \sum_{i=1}^N w_i \left(\sum_{t=1}^\infty  d_{i,t}r_{i,t}\right) = \sum_{i=1
         <script src="https://tikzjax.com/v1/tikzjax.js"></script>
       
         <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+      
+        <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
       
     
   </body>

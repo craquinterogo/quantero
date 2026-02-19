@@ -10,13 +10,13 @@
       
       
       
-        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/pricing/interest_rates/hull_white_model/">
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/pricing/interest_rates/cir_model/">
       
       
-        <link rel="prev" href="../cir_model/">
+        <link rel="prev" href="../vasicek_model/">
       
       
-        <link rel="next" href="../bond_affine_ansatz_models/">
+        <link rel="next" href="../hull_white_model/">
       
       
         
@@ -27,7 +27,7 @@
     
     
       
-        <title>Hull-White Model - Quȧntero</title>
+        <title>Cox-Ingersoll-Ross Model - Quȧntero</title>
       
     
     
@@ -63,9 +63,9 @@
     
   <!-- Open Graph / Social Media Preview -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Hull-White Model">
+  <meta property="og:title" content="Cox-Ingersoll-Ross Model">
   <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
-  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/pricing/interest_rates/hull_white_model/">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/pricing/interest_rates/cir_model/">
   <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -89,7 +89,7 @@
     <div data-md-component="skip">
       
         
-        <a href="#the-hull-white-model" class="md-skip">
+        <a href="#the-cox-ingersoll-ross-cir-model" class="md-skip">
           Skip to content
         </a>
       
@@ -122,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Hull-White Model
+              Cox-Ingersoll-Ross Model
             
           </span>
         </div>
@@ -875,34 +875,6 @@
                 
   
   
-  
-  
-    <li class="md-nav__item">
-      <a href="../cir_model/" class="md-nav__link">
-        
-  
-  
-  <span class="md-ellipsis">
-    
-  
-    Cox-Ingersoll-Ross Model
-  
-
-    
-  </span>
-  
-  
-
-      </a>
-    </li>
-  
-
-              
-            
-              
-                
-  
-  
     
   
   
@@ -922,7 +894,7 @@
   <span class="md-ellipsis">
     
   
-    Hull-White Model
+    Cox-Ingersoll-Ross Model
   
 
     
@@ -940,7 +912,7 @@
   <span class="md-ellipsis">
     
   
-    Hull-White Model
+    Cox-Ingersoll-Ross Model
   
 
     
@@ -977,10 +949,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-key-innovation-fitting-the-yield-curve" class="md-nav__link">
+  <a href="#key-differences-from-vasicek" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Key Innovation: Fitting the Yield Curve
+        Key Differences from Vasicek
       
     </span>
   </a>
@@ -988,22 +960,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-of-the-sde" class="md-nav__link">
+  <a href="#the-feller-condition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Solution of the SDE
+        The Feller Condition
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Solution of the SDE">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Properties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution Properties">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decomposition-of-rt" class="md-nav__link">
+  <a href="#transition-density" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decomposition of \(r(t)\)
+        Transition Density
       
     </span>
   </a>
@@ -1038,10 +1021,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#distribution-of-the-short-rate" class="md-nav__link">
+  <a href="#stationary-distribution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distribution of the Short Rate
+        Stationary Distribution
       
     </span>
   </a>
@@ -1060,21 +1043,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-hull-white" class="md-nav__link">
+  <a href="#advantages-and-practical-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advantages of Hull-White
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Implementation
+        Advantages and Practical Considerations
       
     </span>
   </a>
@@ -1092,21 +1064,38 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
-      
-    </span>
-  </a>
-  
-</li>
-      
     </ul>
   
 </nav>
       
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../hull_white_model/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Hull-White Model
+  
+
+    
+  </span>
+  
+  
+
+      </a>
     </li>
   
 
@@ -2102,10 +2091,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#the-key-innovation-fitting-the-yield-curve" class="md-nav__link">
+  <a href="#key-differences-from-vasicek" class="md-nav__link">
     <span class="md-ellipsis">
       
-        The Key Innovation: Fitting the Yield Curve
+        Key Differences from Vasicek
       
     </span>
   </a>
@@ -2113,22 +2102,33 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#solution-of-the-sde" class="md-nav__link">
+  <a href="#the-feller-condition" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Solution of the SDE
+        The Feller Condition
       
     </span>
   </a>
   
-    <nav class="md-nav" aria-label="Solution of the SDE">
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#solution-properties" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Solution Properties
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Solution Properties">
       <ul class="md-nav__list">
         
           <li class="md-nav__item">
-  <a href="#decomposition-of-rt" class="md-nav__link">
+  <a href="#transition-density" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Decomposition of \(r(t)\)
+        Transition Density
       
     </span>
   </a>
@@ -2163,10 +2163,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#distribution-of-the-short-rate" class="md-nav__link">
+  <a href="#stationary-distribution" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Distribution of the Short Rate
+        Stationary Distribution
       
     </span>
   </a>
@@ -2185,21 +2185,10 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#advantages-of-hull-white" class="md-nav__link">
+  <a href="#advantages-and-practical-considerations" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Advantages of Hull-White
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#practical-implementation" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Practical Implementation
+        Advantages and Practical Considerations
       
     </span>
   </a>
@@ -2211,17 +2200,6 @@
     <span class="md-ellipsis">
       
         Relationship to Other Models
-      
-    </span>
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#references" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        References
       
     </span>
   </a>
@@ -2245,272 +2223,275 @@
 
 
 
-<h1 id="the-hull-white-model">The Hull-White Model</h1>
-<p>The Hull-White model, also known as the extended Vasicek model, is one of the most widely used interest rate models in practice. Introduced by John Hull and Alan White in 1990, it extends the Vasicek model by incorporating time-dependent parameters, enabling perfect calibration to the current term structure of interest rates.</p>
+<h1 id="the-cox-ingersoll-ross-cir-model">The Cox-Ingersoll-Ross (CIR) Model</h1>
+<p>The Cox-Ingersoll-Ross model, introduced in 1985, is a fundamental interest rate model that addresses one of the key limitations of the Vasicek model, as it ensures that interest rates remain non-negative. The CIR model achieves this through a square-root diffusion term, making it particularly appealing for modeling interest rates.</p>
+<p>This post is inspired by the standard references in the field, especially the treatment of the CIR model in Brigo and Mercurio (Chapter 3.3) <sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">1</a></sup>, the discussion of square-root processes in Andersen and Piterbarg (Chapter 4.4) <sup id="fnref:andersen2010"><a class="footnote-ref" href="#fn:andersen2010">2</a></sup>, and the original paper by Cox, Ingersoll, and Ross <sup id="fnref:cox1985"><a class="footnote-ref" href="#fn:cox1985">3</a></sup>.</p>
+<hr />
 <h2 id="model-specification">Model Specification</h2>
-<p>The Hull-White model describes the short rate dynamics under the risk-neutral measure as:</p>
+<p>The CIR model describes the short rate dynamics under the risk-neutral measure as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-dr(t) = \left[\theta(t) - a(t)r(t)\right]dt + \sigma(t)\,dW(t)
-\label{eq:hw_sde_general}
+dr(t) = a(b - r(t))dt + \sigma\sqrt{r(t)}\,dW(t),
+\label{eq:cir_sde}
 \end{equation}
 \]</div>
 <p>where:</p>
 <ul>
 <li><span class="arithmatex">\(r(t)\)</span> is the instantaneous short rate at time <span class="arithmatex">\(t\)</span></li>
-<li><span class="arithmatex">\(a(t) &gt; 0\)</span> is the time-dependent mean reversion speed</li>
-<li><span class="arithmatex">\(\theta(t)\)</span> is the time-dependent drift function</li>
-<li><span class="arithmatex">\(\sigma(t) &gt; 0\)</span> is the time-dependent volatility</li>
+<li><span class="arithmatex">\(a &gt; 0\)</span> is the mean reversion speed</li>
+<li><span class="arithmatex">\(b &gt; 0\)</span> is the long-term mean level</li>
+<li><span class="arithmatex">\(\sigma &gt; 0\)</span> is the volatility parameter</li>
 <li><span class="arithmatex">\(W(t)\)</span> is a standard Brownian motion under the risk-neutral measure <span class="arithmatex">\(\mathbb{Q}\)</span></li>
 </ul>
-<p>In practice, the most common specification uses <strong>constant mean reversion and volatility</strong>:</p>
-<div class="arithmatex">\[
-\begin{equation}
-dr(t) = \left[\theta(t) - ar(t)\right]dt + \sigma\,dW(t)
-\label{eq:hw_sde}
-\end{equation}
-\]</div>
-<p>with constant <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span>, but time-varying <span class="arithmatex">\(\theta(t)\)</span></p>
+<h2 id="key-differences-from-vasicek">Key Differences from Vasicek</h2>
+<p>The key difference from Vasicek is the <strong>square-root diffusion term</strong> <span class="arithmatex">\(\sigma\sqrt{r(t)}\)</span>. This ensures that when <span class="arithmatex">\(r(t) \approx 0\)</span>, the volatility vanishes, preventing the rate from going negative. Volatility increases with the rate level, capturing empirical heteroskedasticity. The model exhibits <strong>stochastic volatility</strong> in a natural way.</p>
 <hr />
-<h2 id="the-key-innovation-fitting-the-yield-curve">The Key Innovation: Fitting the Yield Curve</h2>
-<p>The function <span class="arithmatex">\(\theta(t)\)</span> is chosen to match the <strong>current observed market yield curve</strong> exactly. This is the defining innovation of the Hull-White model and what makes it such a powerful tool in practice. Unlike the Vasicek model, which uses a constant long-term mean <span class="arithmatex">\(b\)</span> that is estimated from historical data, Hull-White allows the entire drift function to be time-varying. This means the model can reproduce the initial term structure of interest rates perfectly, by construction.</p>
-<p>The economic intuition is compelling. The market's current yield curve encodes the collective expectations of all market participants about where interest rates will go in the future. The Vasicek model ignores this information and instead fits to just a long-term average. Hull-White respects the market's forward rate expectations by building them directly into the model. When <span class="arithmatex">\(\theta(t)\)</span> is calibrated to the market's forward curve, the model prices every zero-coupon bond at time <span class="arithmatex">\(t=0\)</span> exactly as the market does. This eliminates one major source of pricing error.</p>
-<p>The drift function <span class="arithmatex">\(\theta(t)\)</span> is determined from the initial forward curve <span class="arithmatex">\(f^M(0,t)\)</span> observed in the market through the formula:</p>
+<h2 id="the-feller-condition">The Feller Condition</h2>
+<p>For the CIR process to remain strictly positive, we need the <strong>Feller condition</strong>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\theta(t) = \frac{\partial f^M(0,t)}{\partial t} + af^M(0,t) + \frac{\sigma^2}{2a}\left(1 - e^{-2at}\right)
-\label{eq:theta_calibration}
+2ab \geq \sigma^2.
+\label{eq:feller_condition}
 \end{equation}
 \]</div>
-<p>This formula arises from ensuring that bond prices, when computed under the Hull-White dynamics, match market prices at the initial time. The first term captures how the market's forward curve is changing with maturity—the market's explicit expectation about rates. The remaining terms are adjustments that account for the mean reversion and volatility already specified in the model <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>.</p>
-<p>Once <span class="arithmatex">\(\theta(t)\)</span> is calibrated this way, only two parameters remain to be estimated: the mean reversion speed <span class="arithmatex">\(a\)</span> and the volatility <span class="arithmatex">\(\sigma\)</span>. These are calibrated to market prices of interest rate derivatives such as caps, floors, or swaptions. This two-stage calibration process is pragmatic and powerful. The first stage ensures consistency with the current term structure, and the second stage ensures consistency with the market's view of interest rate dynamics as revealed through derivatives prices.</p>
-<p>It is important to recognize that this approach to fitting the yield curve is intimately connected to the broader <strong>Heath-Jarrow-Morton (HJM) framework</strong>. In the HJM framework, the entire forward curve evolves as a stochastic process subject to a no-arbitrage drift restriction. When the HJM framework is specialized to have exponential volatility structure (as Hull and White chose), the resulting short-rate dynamics are exactly those of the Hull-White model, and the function <span class="arithmatex">\(\theta(t)\)</span> that ensures no-arbitrage in the HJM context is precisely the drift function we calibrate to the market yield curve here. In this sense, Hull-White can be viewed as the most practical implementation of the HJM framework—it retains the theoretical rigor of HJM while achieving analytical tractability and implementability. For a detailed exploration of the HJM framework and its connection to Hull-White, see <a href="../heath_jarrow_morton_framework/" target="_blank">The Heath-Jarrow-Morton Framework</a>.</p>
+<details class="info">
+<summary>Feller Condition Origin and Derivation</summary>
+<p>The Feller condition is a fundamental constraint in the CIR model that ensures the short rate remains strictly positive. It emerges from analyzing the boundary behavior at <span class="arithmatex">\(r = 0\)</span> using the theory of one-dimensional diffusions. But before jumping in, let's define <strong>Scale Density</strong> and <strong>Speed Density</strong> as fundamental tools from Feller's classification of boundaries for one-dimensional diffusion processes. They characterize how a diffusion process behaves near boundaries:</p>
+<p><strong>Scale Density and Speed Density</strong></p>
+<p>Consider a one-dimensional diffusion process defined by the stochastic differential equation:</p>
+<div class="arithmatex">\[dX(t) = \mu(X(t))\,dt + \sigma(X(t))\,dW(t),\]</div>
+<p>where <span class="arithmatex">\(\mu(x)\)</span> represents the drift and <span class="arithmatex">\(\sigma(x)\)</span> the diffusion coefficient.</p>
+<p>The <strong>scale density</strong> is defined as:</p>
+<div class="arithmatex">\[s'(x) = \exp\left(-\int^x \frac{2\mu(y)}{\sigma^2(y)}\,dy\right)\]</div>
+<p>This quantity determines the scale function of the diffusion and plays a central role in understanding how the drift and volatility interact. Intuitively, the scale density reflects the cumulative influence of the drift relative to the diffusion. When transformed into scale, the diffusion behaves locally like a process without drift, so the scale density captures how the original dynamics bias movement toward or away from certain regions. In boundary analysis, its behavior near an endpoint helps determine whether that boundary can be reached.</p>
+<p>The <strong>speed density</strong> is defined as:</p>
+<div class="arithmatex">\[m(x) = \frac{2}{\sigma^2(x)s'(x)}\]</div>
+<p>This function determines the speed measure of the diffusion and governs how much time the process tends to spend in different regions of the state space. Regions where the speed density is large correspond to areas where the process moves more slowly and accumulates more occupation time, whereas regions where it is small are traversed more quickly. In Feller’s classification of boundaries, the integrability of the speed density near a boundary plays a crucial role in determining whether the boundary is accessible, reflecting, absorbing, or unattainable.</p>
+<p><strong>Together, the scale density and speed density provide the analytical tools needed to classify boundary behavior for one-dimensional diffusions.</strong></p>
 <hr />
-<h2 id="solution-of-the-sde">Solution of the SDE</h2>
-<p>Despite the time-varying drift, we can still solve the Hull-White SDE explicitly. Using an integrating factor approach (similar to Vasicek):</p>
-<div class="arithmatex">\[
-\begin{equation}
-r(t) = r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du + \sigma\int_s^t e^{-a(t-u)}dW(u)
-\label{eq:hw_solution}
-\end{equation}
-\]</div>
-<details class="tip">
-<summary>Where does <span class="arithmatex">\(\ref{eq:hw_solution}\)</span> come from?</summary>
-<p>To solve the Hull-White SDE, we employ the same integrating factor technique used for the Vasicek model. We begin with the SDE in the form:</p>
-<div class="arithmatex">\[
-dr(t) = \left[\theta(t) - ar(t)\right]dt + \sigma\,dW(t)
-\]</div>
-<p>Rearranging to isolate the mean-reverting term:</p>
-<div class="arithmatex">\[
-dr(t) + ar(t)dt = \theta(t)dt + \sigma\,dW(t)
-\]</div>
-<p>We multiply both sides by the <strong>integrating factor</strong> <span class="arithmatex">\(\style{color: var(--math-highlight-4)}{e^{at}}\)</span>, which transforms the left-hand side into a perfect differential:</p>
-<div class="arithmatex">\[
-\style{color: var(--math-highlight-4)}{e^{at}}dr(t) + a\style{color: var(--math-highlight-4)}{e^{at}}r(t)dt = d\left(\style{color: var(--math-highlight-4)}{e^{at}}r(t)\right) = \style{color: var(--math-highlight-4)}{e^{at}}\theta(t)dt + \style{color: var(--math-highlight-4)}{e^{at}}\sigma\,dW(t).
-\]</div>
-<p>Now we integrate both sides from time <span class="arithmatex">\(s\)</span> to time <span class="arithmatex">\(t\)</span>:</p>
-<div class="arithmatex">\[
-\int_s^t d\left(e^{au}r(u)\right) = \int_s^t e^{au}\theta(u)du + \int_s^t e^{au}\sigma\,dW(u)
-\]</div>
-<p>Evaluating the left-hand side:</p>
-<div class="arithmatex">\[
-e^{at}r(t) - e^{as}r(s) = \int_s^t e^{au}\theta(u)du + \sigma\int_s^t e^{au}dW(u)
-\]</div>
-<p>Finally, multiply both sides by <span class="arithmatex">\(\style{color: var(--math-highlight-1)}{e^{-at}}\)</span> to isolate <span class="arithmatex">\(r(t)\)</span>, which is some how the tip to revert the <em>integrating factor</em>:</p>
-<div class="arithmatex">\[
-r(t) = e^{-a(\style{color: var(--math-highlight-1)}{t}-s)}r(s) + \style{color: var(--math-highlight-1)}{e^{-at}}\int_s^t e^{au}\theta(u)du + \style{color: var(--math-highlight-1)}{e^{-at}}\sigma\int_s^t e^{au}dW(u)
-\]</div>
-<p>Eventually, we get to the equation <span class="arithmatex">\(\ref{eq:hw_solution}\)</span></p>
-<div class="arithmatex">\[
-r(t) = r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du + \sigma\int_s^t e^{-a(t-u)}dW(u)
-\]</div>
+<p><strong>Feller's Boundary Classification</strong></p>
+<p>A boundary at <span class="arithmatex">\(x = 0\)</span> is <strong>unattainable</strong> (the process never reaches it) if at least one of these integrals diverges:</p>
+<div class="arithmatex">\[\int_{\varepsilon}^{c} s(x)dx = +\infty \quad \text{or} \quad \int_{\varepsilon}^{c} m(x)dx = +\infty\]</div>
+<p>for some <span class="arithmatex">\(c &gt; 0\)</span> and as <span class="arithmatex">\(\varepsilon \to 0^+\)</span>. If both integrals converge, the boundary is attainable.</p>
+<p><strong>Application to CIR Model</strong></p>
+<p>Now let's apply this machinery to the CIR process described in <span class="arithmatex">\(\ref{eq:cir_sde}\)</span>. For the CIR model, we have:</p>
+<div class="arithmatex">\[\mu(r) = a(b - r), \qquad \sigma^2(r) = \sigma^2 r\]</div>
+<p>The scale density near zero is:</p>
+<div class="arithmatex">\[s(r) = \exp\left(-\int_1^r \frac{2a(b - y)}{\sigma^2 y}dy\right)\]</div>
+<p>Computing the integral:</p>
+<div class="arithmatex">\[\int_1^r \frac{2a(b - y)}{\sigma^2 y}dy = \frac{2ab}{\sigma^2}\ln(r) - \frac{2a}{\sigma^2}\int_1^r dy = \frac{2ab}{\sigma^2}\ln(r) - \frac{2a}{\sigma^2}(r - 1)\]</div>
+<p>Therefore:</p>
+<div class="arithmatex">\[s(r) = \exp\left(-\frac{2ab}{\sigma^2}\ln(r) + \frac{2a}{\sigma^2}(r - 1)\right) = r^{-\frac{2ab}{\sigma^2}} \exp\left(\frac{2a}{\sigma^2}(r - 1)\right)\]</div>
+<p>Near <span class="arithmatex">\(r = 0\)</span>, the dominant term is <span class="arithmatex">\(r^{-\frac{2ab}{\sigma^2}}\)</span>, so:</p>
+<div class="arithmatex">\[s(r) \sim r^{-\frac{2ab}{\sigma^2}} \quad \text{as } r \to 0^+\]</div>
+<p><strong>The Critical Condition</strong></p>
+<p>Now examine the integral:</p>
+<div class="arithmatex">\[\int_{0}^{\varepsilon} s(r)dr \sim \int_{0}^{\varepsilon} r^{-\frac{2ab}{\sigma^2}}dr\]</div>
+<p>This integral converges (is finite) if and only if:</p>
+<div class="arithmatex">\[-\frac{2ab}{\sigma^2} + 1 &gt; 0 \quad \Longleftrightarrow \quad \frac{2ab}{\sigma^2} &lt; 1\]</div>
+<p>Wait, let me recalculate. The integral <span class="arithmatex">\(\int_{0}^{\varepsilon} r^{\alpha}dr\)</span> converges if <span class="arithmatex">\(\alpha &gt; -1\)</span>. So we need: <span class="arithmatex">\(-\frac{2ab}{\sigma^2} &gt; -1\)</span>, which gives <span class="arithmatex">\(\frac{2ab}{\sigma^2} &lt; 1\)</span>... that's not right. Actually, let me reconsider the speed density approach:</p>
+<div class="arithmatex">\[m(r) = \frac{1}{\sigma^2 r \cdot r^{-\frac{2ab}{\sigma^2}}} = \frac{r^{\frac{2ab}{\sigma^2} - 1}}{\sigma^2}\]</div>
+<p>The integral:</p>
+<div class="arithmatex">\[\int_{0}^{\varepsilon} m(r)dr \sim \int_{0}^{\varepsilon} r^{\frac{2ab}{\sigma^2} - 1}dr\]</div>
+<p>converges if and only if:</p>
+<div class="arithmatex">\[\frac{2ab}{\sigma^2} - 1 &gt; -1 \quad \Longleftrightarrow \quad \frac{2ab}{\sigma^2} &gt; 0\]</div>
+<p>which is always satisfied. So we need the other condition.</p>
+<p><strong>The Correct Analysis</strong></p>
+<p>Actually, the most direct approach is through <strong>Feller's test for explosions</strong>. The condition for the boundary at zero to be unattainable (entrance or natural) requires:</p>
+<div class="arithmatex">\[\int_{0^+}^{c} \frac{1}{\sigma^2(x)s(x)}dx = +\infty\]</div>
+<p>With <span class="arithmatex">\(m(r) \sim r^{\frac{2ab}{\sigma^2} - 1}\)</span>, the integral diverges (zero is unattainable) if:</p>
+<div class="arithmatex">\[\frac{2ab}{\sigma^2} - 1 \geq 0 \quad \Longleftrightarrow \quad 2ab \geq \sigma^2\]</div>
+<p>This is the <strong>Feller condition</strong>.</p>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>
+<p>If <span class="arithmatex">\(2ab \geq \sigma^2\)</span>: The drift term near zero is strong enough relative to the diffusion to prevent the process from reaching zero. The boundary is unattainable.</p>
+</li>
+<li>
+<p>If <span class="arithmatex">\(2ab &lt; \sigma^2\)</span>: The volatility dominates near zero, and the process can reach zero with positive probability (absorbing boundary).</p>
+</li>
+</ul>
+<p><strong>Intuition:</strong></p>
+<p>The condition <span class="arithmatex">\(2ab \geq \sigma^2\)</span> ensures that the "push" from mean reversion toward <span class="arithmatex">\(b &gt; 0\)</span> is strong enough compared to the volatility to keep rates strictly positive. The factor of 2 arises from the specific form of the square-root volatility and the second-order effects captured by Itô's lemma.</p>
 </details>
+<p><strong>Interpretation:</strong></p>
+<ul>
+<li>If <span class="arithmatex">\(2ab &gt; \sigma^2\)</span>: The process never reaches zero (strictly positive)</li>
+<li>If <span class="arithmatex">\(2ab = \sigma^2\)</span>: Zero is an instantaneously reflecting boundary</li>
+<li>If <span class="arithmatex">\(2ab &lt; \sigma^2\)</span>: The process can reach zero and get stuck there (absorbing boundary)</li>
+</ul>
+<p>In practice, we typically calibrate parameters to satisfy the strict inequality for realistic interest rate modeling.</p>
 <hr />
-<h3 id="decomposition-of-rt">Decomposition of <span class="arithmatex">\(r(t)\)</span></h3>
-<p>The solution <span class="arithmatex">\(\ref{eq:hw_solution}\)</span> reveals the structure of how the short rate evolves. It consists of three distinct contributions, each playing a different role in determining <span class="arithmatex">\(r(t)\)</span> at a future time <span class="arithmatex">\(t\)</span>, given its current value at time <span class="arithmatex">\(s\)</span>.</p>
-<p><strong>Initial Condition Component:</strong></p>
+<h2 id="solution-properties">Solution Properties</h2>
+<p>The CIR model has an explicit integral representation. Using similar techniques to Vasicek, we can write:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r_{\text{initial}}(t) = r(s)e^{-a(t-s)}
-\label{eq:hw_initial_component}
+r(t) = r(s)e^{-a(t-s)} + ab\int_s^t e^{-a(t-u)}du + \sigma\int_s^t e^{-a(t-u)}\sqrt{r(u)}\,dW(u),
+\label{eq:cir_solution}
 \end{equation}
 \]</div>
-<p>The initial short rate <span class="arithmatex">\(r(s)\)</span> decays exponentially as time progresses. The decay factor <span class="arithmatex">\(e^{-a(t-s)}\)</span> represents the mean-reverting pull of the process: the further we look into the future, the less the current rate influences the future rate. This is the deterministic memory of the initial condition, fading at a speed determined by the mean reversion coefficient <span class="arithmatex">\(a\)</span>. If <span class="arithmatex">\(a\)</span> is large, rates forget their initial value quickly. If <span class="arithmatex">\(a\)</span> is small, the initial condition persists longer into the future.</p>
-<p><strong>Drift Component:</strong></p>
+<p>which simplifies to:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r_{\text{drift}}(t) = \int_s^t \theta(u)e^{-a(t-u)}du
-\label{eq:hw_drift_component}
+r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma\int_s^t e^{-a(t-u)}\sqrt{r(u)}\,dW(u).
+\label{eq:cir_solution_simplified}
 \end{equation}
 \]</div>
-<p>The time-varying drift function <span class="arithmatex">\(\theta(t)\)</span> encodes the market's expectations about where interest rates should go. </p>
+<p>While this is a closed-form representation, the stochastic integral involving <span class="arithmatex">\(\sqrt{r(u)}\)</span> makes it more complex than Vasicek. The key difference is that the volatility term depends on the path of <span class="arithmatex">\(r(u)\)</span>, creating a <strong>non-linear feedback</strong> between the rate level and its volatility.</p>
+<p>For practical purposes, what matters most is that we can characterize the <strong>conditional distribution</strong> exactly, which enables both simulation and analytical pricing.</p>
+<h3 id="transition-density">Transition Density</h3>
+<p>The <strong>transition density</strong> (also called the conditional density or propagator) is the probability density function that describes how the short rate <span class="arithmatex">\(r(t)\)</span> evolves from an initial value <span class="arithmatex">\(r(s)\)</span> at time <span class="arithmatex">\(s\)</span> to a future value at time <span class="arithmatex">\(t &gt; s\)</span>. Formally, it gives us:</p>
+<div class="arithmatex">\[
+p(r(t) \mid r(s), t, s) = \text{probability density of } r(t) \text{ given } r(s)
+\]</div>
+<p><strong>Why is this important?</strong></p>
+<p>The transition density is fundamental for several reasons:</p>
+<ol>
+<li>
+<p><strong>Simulation</strong>: It tells us the exact distribution to sample from when simulating interest rate paths. Rather than relying on approximate discretization schemes, we can simulate the CIR process exactly at discrete time points by drawing from the known conditional distribution.</p>
+</li>
+<li>
+<p><strong>Pricing</strong>: Many derivative pricing problems require computing expectations of payoffs under the risk-neutral measure. Knowing the transition density allows us to evaluate these expectations either analytically (when possible) or numerically via integration.</p>
+</li>
+<li>
+<p><strong>Calibration</strong>: When fitting the model to market data, we can compute likelihood functions using the transition density, enabling maximum likelihood estimation and other statistical inference methods.</p>
+</li>
+<li>
+<p><strong>Validation</strong>: The known density allows us to verify that simulation schemes and numerical methods are working correctly by comparing empirical distributions to the theoretical one.</p>
+</li>
+</ol>
+<p><strong>The CIR Transition Density</strong></p>
+<p>For the CIR model, the conditional distribution of <span class="arithmatex">\(r(t)\)</span> given <span class="arithmatex">\(r(s)\)</span> is related to a <strong>non-central chi-squared distribution</strong>. Specifically, if we scale the rate appropriately:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\frac{4a}{\sigma^2(1 - e^{-a(t-s)})}r(t) \sim \chi^2\left(\nu, \lambda\right),
+\label{eq:cir_chi_squared}
+\end{equation}
+\]</div>
 <details class="warning" open="open">
-<summary>Caution!</summary>
-<p>This integral accumulates the effect of the drift over the time interval <span class="arithmatex">\([s, t]\)</span>, but with an important remark: each contribution <span class="arithmatex">\(\theta(u)\)</span> is weighted by an exponential factor <span class="arithmatex">\(e^{-a(t-u)}\)</span> that depends on when the drift acts. Shocks to the drift that occur closer to time <span class="arithmatex">\(t\)</span> are weighted more heavily <strong>because there is less time for mean reversion to absorb them</strong>. </p>
+<summary>Derivation of the Non-Central Chi-Squared Distribution</summary>
+<p>The CIR process can be transformed into a non-central chi-squared distribution through a change of variables. Here's the step-by-step derivation:</p>
+<p><strong>Scale the Process</strong></p>
+<p>Define the scaled process:
+$<span class="arithmatex">\(Z(t) = \frac{4a}{\sigma^2(1 - e^{-a(t-s)})}r(t)\)</span>$</p>
+<p>We want to show that <span class="arithmatex">\(Z(t) \sim \chi^2(\nu, \lambda)\)</span>.</p>
+<p><strong>Apply Itô's Lemma</strong></p>
+<p>Let <span class="arithmatex">\(Y(t) = e^{a(t-s)}\sqrt{r(t)}\)</span>. Applying Itô's lemma to <span class="arithmatex">\(Y(t)\)</span>:</p>
+<div class="arithmatex">\[dY(t) = ae^{a(t-s)}\sqrt{r(t)}\,dt + e^{a(t-s)}\frac{\sigma}{2}\,dt + e^{a(t-s)}\frac{\sigma}{2\sqrt{r(t)}}\,dW(t) - e^{a(t-s)}\frac{\sigma^2}{8r(t)}\,dt\]</div>
+<p>Simplifying:</p>
+<div class="arithmatex">\[dY(t) = \frac{\sigma}{2}e^{a(t-s)}\left(\sqrt{\frac{4ab}{\sigma^2}} - e^{a(t-s)}\sqrt{r(t)}\right)dt + \sigma e^{a(t-s)}\sqrt{r(t)}\,dW(t)\]</div>
+<p><strong>Recognize the Distribution</strong></p>
+<p>The process <span class="arithmatex">\(Y(t) = e^{a(t-s)}\sqrt{r(t)}\)</span> follows a squared Bessel process with dimension:</p>
+<div class="arithmatex">\[\delta = \frac{4ab}{\sigma^2}\]</div>
+<p>and rescaled time.</p>
+<p><strong>Transform Back</strong></p>
+<p>Since <span class="arithmatex">\(Y(t)^2 = e^{2a(t-s)}r(t)\)</span>, we have:</p>
+<div class="arithmatex">\[r(t) = e^{-2a(t-s)}Y(t)^2\]</div>
+<p>The scaled variable:</p>
+<div class="arithmatex">\[Z(t) = \frac{4a}{\sigma^2(1 - e^{-a(t-s)})}r(t) = \chi^2\left(\nu, \lambda\right)\]</div>
+<p>with degrees of freedom <span class="arithmatex">\(\nu = \frac{4ab}{\sigma^2}\)</span> and non-centrality parameter <span class="arithmatex">\(\lambda = \frac{4ar(s)e^{-a(t-s)}}{\sigma^2(1 - e^{-a(t-s)})}\)</span>.</p>
+<p><strong>Interpret the Result</strong></p>
+<p>The conditional distribution is non-central chi-squared because the initial condition <span class="arithmatex">\(r(s) &gt; 0\)</span> introduces a non-centrality parameter. As <span class="arithmatex">\(t \to \infty\)</span> with <span class="arithmatex">\(r(s)\)</span> fixed, the non-centrality parameter decays exponentially, and the distribution approaches a central chi-squared with <span class="arithmatex">\(\nu\)</span> degrees of freedom, consistent with the stationary gamma distribution.</p>
 </details>
-<p>Conversely, drift shocks far in the past are heavily discounted because mean reversion has had ample time to pull the rate back toward the mean. This weighting scheme captures the pragmatic insight that recent information about the market's expectations matters more than ancient history.</p>
-<p><strong>Stochastic Component:</strong></p>
-<div class="arithmatex">\[
-\begin{equation}
-r_{\text{stochastic}}(t) = \sigma\int_s^t e^{-a(t-u)}dW(u)
-\label{eq:hw_stochastic_component}
-\end{equation}
-\]</div>
-<p>The randomness in the model enters through the stochastic integral of Brownian increments. Each infinitesimal shock <span class="arithmatex">\(dW(u)\)</span> scaled by the volatility <span class="arithmatex">\(\sigma\)</span> contributes to the future short rate. Like the drift component, recent shocks have a larger impact because of the exponential weighting <span class="arithmatex">\(e^{-a(t-u)}\)</span>. </p>
-<details class="info" open="open">
-<summary>Effect of long-term shocks</summary>
-<p>A large shock in the recent past affects <span class="arithmatex">\(r(t)\)</span> substantially, but the same shock in the distant past has been mean-reverted away and barely influences the current rate. This structure reflects the economic  reality that interest rates are sticky—they do not instantaneously return to a mean but instead drift back gradually through mean reversion.</p>
-</details>
+<p>where:</p>
+<ul>
+<li><span class="arithmatex">\(\nu = \frac{4ab}{\sigma^2}\)</span> is the degrees of freedom</li>
+<li><span class="arithmatex">\(\lambda = \frac{4ar(s)e^{-a(t-s)}}{\sigma^2(1 - e^{-a(t-s)})}\)</span> is the non-centrality parameter</li>
+</ul>
+<p><strong>Interpretation:</strong></p>
+<p>The non-central chi-squared distribution arises naturally from the square-root structure of the CIR volatility. The key insights are:</p>
+<ul>
+<li>
+<p><strong>Degrees of freedom</strong> <span class="arithmatex">\(\nu\)</span> depend on the Feller condition parameter <span class="arithmatex">\(2ab/\sigma^2\)</span>. When the Feller condition is satisfied (<span class="arithmatex">\(\nu \geq 2\)</span>), the distribution has a well-defined mode away from zero, reinforcing the positivity of rates.</p>
+</li>
+<li>
+<p><strong>Non-centrality parameter</strong> <span class="arithmatex">\(\lambda\)</span> captures the memory of the initial condition <span class="arithmatex">\(r(s)\)</span>. As time progresses, <span class="arithmatex">\(\lambda\)</span> decays exponentially due to the <span class="arithmatex">\(e^{-a(t-s)}\)</span> term, meaning the influence of the starting rate fades with mean reversion speed <span class="arithmatex">\(a\)</span>.</p>
+</li>
+<li>
+<p><strong>Exact simulation</strong>: Because we know this distribution exactly, we can simulate CIR paths without discretization error by drawing from the non-central chi-squared distribution and rescaling appropriately. This is vastly superior to Euler or Milstein schemes, which can produce negative rates in discretized CIR models.</p>
+</li>
+<li>
+<p><strong>Asymptotic behavior</strong>: As <span class="arithmatex">\(t - s \to \infty\)</span>, the non-centrality parameter <span class="arithmatex">\(\lambda \to 0\)</span>, and the distribution converges to a central chi-squared (equivalently, a gamma distribution), which is consistent with the stationary distribution discussed later.</p>
+</li>
+</ul>
+<p>This closed-form characterization of the transition density is one of the CIR model's greatest strengths—it provides both theoretical insight and practical computational advantages.</p>
 <hr />
 <h2 id="expected-value">Expected Value</h2>
 <p>Given information at time <span class="arithmatex">\(s\)</span>, the expected value of <span class="arithmatex">\(r(t)\)</span> is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du
-\label{eq:hw_expectation}
+\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right).
+\label{eq:cir_expectation}
 \end{equation}
 \]</div>
 <details class="tip" open="open">
-<summary>Derivation of equation <span class="arithmatex">\(\ref{eq:hw_expectation}\)</span> here!</summary>
-<p>Starting from the solution of the Hull-White SDE:</p>
-<div class="arithmatex">\[
-r(t) = r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du + \sigma\int_s^t e^{-a(t-u)}dW(u)
-\]</div>
-<p>we take the conditional expectation given the filtration <span class="arithmatex">\(\mathcal{F}_s\)</span> at time <span class="arithmatex">\(s\)</span>. By the <a href="../../../statistics_and_probability/probability/tower_property/" target="_blank">tower property</a> of expectations:</p>
-<div class="arithmatex">\[
-\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = \mathbb{E}\left[r(s)e^{-a(t-s)} \mid \mathcal{F}_s\right] + \mathbb{E}\left[\int_s^t \theta(u)e^{-a(t-u)}du \mid \mathcal{F}_s\right] + \mathbb{E}\left[\sigma\int_s^t e^{-a(t-u)}dW(u) \mid \mathcal{F}_s\right]
-\]</div>
-<p>The first term is deterministic given <span class="arithmatex">\(\mathcal{F}_s\)</span>:</p>
-<div class="arithmatex">\[
-\mathbb{E}\left[r(s)e^{-a(t-s)} \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)}
-\]</div>
-<p>The second term is also deterministic (since <span class="arithmatex">\(\theta(u)\)</span> is a known function):</p>
-<div class="arithmatex">\[
-\mathbb{E}\left[\int_s^t \theta(u)e^{-a(t-u)}du \mid \mathcal{F}_s\right] = \int_s^t \theta(u)e^{-a(t-u)}du
-\]</div>
-<p>The third term—the stochastic integral of Brownian increments—has expectation zero under the risk-neutral measure:</p>
-<div class="arithmatex">\[
-\mathbb{E}\left[\sigma\int_s^t e^{-a(t-u)}dW(u) \mid \mathcal{F}_s\right] = 0
-\]</div>
-<p>Combining these three contributions yields the result.</p>
+<summary>Derivation of the Expectation</summary>
+<p>Taking the expectation of both sides of the CIR SDE:</p>
+<div class="arithmatex">\[\mathbb{E}[dr(t)] = a(b - \mathbb{E}[r(t)])dt\]</div>
+<p>This gives us the differential equation:</p>
+<div class="arithmatex">\[\frac{d}{dt}\mathbb{E}[r(t)] = a(b - \mathbb{E}[r(t)])\]</div>
+<p>The solution to this first-order linear ODE with initial condition <span class="arithmatex">\(\mathbb{E}[r(s)] = r(s)\)</span> is:</p>
+<div class="arithmatex">\[\mathbb{E}[r(t) \mid \mathcal{F}_s] = r(s)e^{-a(t-s)} + b(1 - e^{-a(t-s)})\]</div>
+<p>Note that this derivation is identical to the Vasicek model, since the expectation of the Brownian increment vanishes and only the drift term contributes.</p>
 </details>
-<p>This generalizes the Vasicek expectation to include time-varying drift. When <span class="arithmatex">\(\theta(t) = ab\)</span> (constant), we recover the Vasicek formula.</p>
+<p>This is <strong>identical to the Vasicek model</strong>! The mean reversion dynamics are the same; it's only the volatility structure that differs. Since the expected value is identical to Vasicek, the mean reversion dynamics work exactly the same way: as time progresses, the expected short rate converges to the long-term mean <span class="arithmatex">\(b\)</span>, with the speed of convergence governed by <span class="arithmatex">\(a\)</span>. Whether the current rate is above or below <span class="arithmatex">\(b\)</span>, the expected path drifts back toward <span class="arithmatex">\(b\)</span> over time.</p>
 <hr />
 <h2 id="variance">Variance</h2>
 <p>The variance of <span class="arithmatex">\(r(t)\)</span> given information at time <span class="arithmatex">\(s\)</span> is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)
-\label{eq:hw_variance}
+\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = r(s)\frac{\sigma^2}{a}\left(e^{-a(t-s)} - e^{-2a(t-s)}\right) + b\frac{\sigma^2}{2a}\left(1 - e^{-a(t-s)}\right)^2.
+\label{eq:cir_variance}
 \end{equation}
 \]</div>
-<details class="tip" open="open">
-<summary>Derivation of equation <span class="arithmatex">\(\ref{eq:hw_variance}\)</span> here!</summary>
-<p>Starting from the solution of the Hull-White SDE:</p>
-<div class="arithmatex">\[
-r(t) = r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du + \style{color: var(--math-highlight-4)}{\sigma\int_s^t e^{-a(t-u)}dW(u)}
-\]</div>
-<p>we compute the conditional variance given the filtration <span class="arithmatex">\(\mathcal{F}_s\)</span> at time <span class="arithmatex">\(s\)</span>. The first two terms are deterministic given <span class="arithmatex">\(\mathcal{F}_s\)</span>, so they contribute zero variance. Only the stochastic component varies:</p>
-<div class="arithmatex">\[
-\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \text{Var}\left[\style{color: var(--math-highlight-4)}{\sigma\int_s^t e^{-a(t-u)}dW(u)} \mid \mathcal{F}_s\right]
-\]</div>
-<p>Using the <a href="../../../stochastic_calculus/itos_isometry/" target="_blank">Itô isometry</a>, which states that <span class="arithmatex">\(\mathbb{E}\left[\left(\int_s^t f(u)dW(u)\right)^2\right] = \mathbb{E}\left[\int_s^t f(u)^2 du\right]\)</span>:</p>
-<div class="arithmatex">\[
-\text{Var}\left[\sigma\int_s^t e^{-a(t-u)}dW(u)\right] = \sigma^2 \style{color: var(--math-highlight-3)}{\int_s^t e^{-2a(t-u)}du}
-\]</div>
-<p>To evaluate the integral we can substitute <span class="arithmatex">\(v = t - u\)</span>, so <span class="arithmatex">\(du = -dv\)</span>. Furthermore:</p>
-<ul>
-<li>When <span class="arithmatex">\(u = s\)</span> then <span class="arithmatex">\(v = t - s\)</span></li>
-<li>and, when <span class="arithmatex">\(u = t\)</span> then <span class="arithmatex">\(v = 0\)</span>:</li>
-</ul>
-<div class="arithmatex">\[
-\begin{aligned}
-\style{color: var(--math-highlight-3)}{\int_s^t e^{-2a(t-u)}du} &amp;= \int_{t-s}^0 e^{-2av}(-dv) \\
-&amp;= \int_0^{t-s} e^{-2av}dv \\
-&amp;= \left[-\frac{1}{2a}e^{-2av}\right]_0^{t-s} \\
-&amp;= \frac{1}{2a}\left(1 - e^{-2a(t-s)}\right)
-\end{aligned}
-\]</div>
-<p>Therefore:</p>
-<div class="arithmatex">\[
-\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \sigma^2 \cdot \frac{1}{2a}\left(1 - e^{-2a(t-s)}\right) = \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)
-\]</div>
-</details>
-<p><strong>Key insight:</strong> The variance is <strong>identical to the Vasicek model</strong>! The time-varying drift <span class="arithmatex">\(\theta(t)\)</span> affects the mean but not the variance structure. This is because <span class="arithmatex">\(\theta(t)\)</span> is deterministic.</p>
+<p>Unlike Vasicek, the variance now <strong>depends on the current rate level</strong> <span class="arithmatex">\(r(s)\)</span>. The variance structure reveals the key difference from Vasicek: it now depends on the current rate level <span class="arithmatex">\(r(s)\)</span>, creating a stochastic volatility effect where higher rates lead to higher future variability. As time extends to infinity, the variance converges to the stationary level <span class="arithmatex">\(\frac{b\sigma^2}{2a}\)</span>, and importantly, the variance is always non-negative, consistent with the model's enforcement of positive interest rates.</p>
 <hr />
-<h2 id="distribution-of-the-short-rate">Distribution of the Short Rate</h2>
-<p>Combining our results, the conditional distribution is:</p>
+<h2 id="stationary-distribution">Stationary Distribution</h2>
+<p>When the Feller condition <span class="arithmatex">\(2ab \geq \sigma^2\)</span> holds, the CIR process has a stationary distribution that is a <strong>gamma distribution</strong>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r(t) \mid \mathcal{F}_s \sim \mathcal{N}\left(r(s)e^{-a(t-s)} + \int_s^t \theta(u)e^{-a(t-u)}du, \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)\right)
-\label{eq:hw_distribution}
+r(\infty) \sim \text{Gamma}\left(\alpha, \beta\right),
+\label{eq:cir_stationary}
 \end{equation}
 \]</div>
-<p>Like Vasicek, the Hull-White model is <strong>Gaussian</strong> and therefore allows negative rates (though less problematic when calibrated to positive market curves).</p>
+<p>where:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\alpha = \frac{2ab}{\sigma^2}, \qquad \beta = \frac{2a}{\sigma^2}.
+\label{eq:gamma_parameters}
+\end{equation}
+\]</div>
+<p>The stationary mean is <span class="arithmatex">\(\frac{\alpha}{\beta} = b\)</span> and the stationary variance is <span class="arithmatex">\(\frac{\alpha}{\beta^2} = \frac{b\sigma^2}{2a}\)</span>.</p>
 <hr />
 <h2 id="connection-to-bond-pricing">Connection to Bond Pricing</h2>
-<p>The Hull-White model maintains the <strong>affine structure</strong>, so zero-coupon bond prices still have an exponential-affine form. However, the functions <span class="arithmatex">\(A(t,T)\)</span> and <span class="arithmatex">\(B(t,T)\)</span> now incorporate the time-varying <span class="arithmatex">\(\theta(t)\)</span>.</p>
-<p>Remarkably, we can still derive closed-form bond pricing formulas, making Hull-White extremely practical for derivatives pricing and risk management.</p>
-<p>For the derivation of bond prices under the Hull-White model using the affine ansatz approach, see <strong><a href="../bond_affine_ansatz_models/hull_white/">Affine Bond Pricing: Hull-White Model</a></strong>.</p>
+<p>The CIR model, despite its non-linear diffusion term, still belongs to the <strong>affine class</strong> of models. This means zero-coupon bond prices have the exponential-affine form, and we can derive closed-form pricing formulas.</p>
+<p>The key difference from Vasicek is that the functions <span class="arithmatex">\(A(t,T)\)</span> and <span class="arithmatex">\(B(t,T)\)</span> take different forms due to the square-root volatility structure.</p>
+<p>For the derivation of bond prices under the CIR model using the affine ansatz approach, see <strong><a href="../bond_affine_ansatz_models/cir/">Affine Bond Pricing: CIR Model</a></strong>.</p>
 <hr />
-<h2 id="advantages-of-hull-white">Advantages of Hull-White</h2>
-<p><strong>Strengths:</strong></p>
-<ul>
-<li><strong>Perfect yield curve fit</strong>: Exactly matches the current market term structure</li>
-<li><strong>Analytical tractability</strong>: Closed-form bond prices and many derivative formulas</li>
-<li><strong>Practical calibration</strong>: Only need to fit <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span> to caps/swaptions</li>
-<li><strong>Industry standard</strong>: Widely used and understood in practice</li>
-<li><strong>Flexible extensions</strong>: Can incorporate jumps, multi-factors, or stochastic volatility</li>
-</ul>
-<p><strong>Limitations:</strong></p>
-<ul>
-<li><strong>Negative rates</strong>: Gaussian structure allows negative interest rates</li>
-<li><strong>Constant volatility</strong>: <span class="arithmatex">\(\sigma\)</span> doesn't depend on rate level (can be extended to <span class="arithmatex">\(\sigma(t)\)</span>)</li>
-<li><strong>Mean reversion</strong>: Single factor may not capture all curve dynamics</li>
-<li><strong>Recalibration</strong>: <span class="arithmatex">\(\theta(t)\)</span> changes as market curves evolve</li>
-</ul>
-<hr />
-<h2 id="practical-implementation">Practical Implementation</h2>
-<p>In practice, implementing Hull-White involves:</p>
-<ol>
-<li><strong>Bootstrapping <span class="arithmatex">\(\theta(t)\)</span></strong>: Extract from market forward curve using equation <span class="arithmatex">\(\ref{eq:theta_calibration}\)</span></li>
-<li><strong>Calibrating <span class="arithmatex">\(a\)</span> and <span class="arithmatex">\(\sigma\)</span></strong>: Fit to liquid caps, floors, or swaptions</li>
-<li><strong>Monte Carlo simulation</strong>: Generate rate paths for exotic derivatives</li>
-<li><strong>Risk management</strong>: Compute Greeks and hedge ratios analytically</li>
-</ol>
-<p>The model strikes an excellent balance between realism, tractability, and market consistency.</p>
+<h2 id="advantages-and-practical-considerations">Advantages and Practical Considerations</h2>
+<p><strong>Advantages:</strong> The CIR model ensures non-negative interest rates through its square-root diffusion, and its volatility naturally scales with the rate level, capturing the empirical phenomenon of stochastic volatility in a more realistic way than Vasicek's constant volatility. Despite the non-linearity, the model retains analytical tractability with closed-form bond pricing formulas, and its stationary gamma distribution is more realistic than the Gaussian distribution implied by Vasicek.</p>
+<p><strong>Practical Considerations:</strong> The non-linear volatility structure makes parameter estimation more challenging than in linear models, and simulation of CIR paths requires careful discretization schemes to preserve positivity. In environments with very low interest rates, the model's strong mean reversion can cause the process to hover near zero for extended periods due to the vanishing volatility at low rate levels.</p>
 <hr />
 <h2 id="relationship-to-other-models">Relationship to Other Models</h2>
-<p>The Hull-White model is central to the interest rate modeling landscape:</p>
+<p>The CIR model is a special case of the <strong>affine jump-diffusion</strong> framework and has inspired many extensions:</p>
 <ul>
-<li><strong>Vasicek</strong>: Special case with <span class="arithmatex">\(\theta(t) = ab\)</span> (constant)</li>
-<li><strong>Ho-Lee</strong>: Special case with <span class="arithmatex">\(a = 0\)</span> (no mean reversion)</li>
-<li><strong>Black-Karasinski</strong>: Log-normal extension preventing negative rates</li>
-<li><strong>Multi-factor Hull-White</strong>: Add independent factors for richer dynamics</li>
-<li><strong>G2++</strong>: Two-factor Gaussian model with cross-correlation</li>
+<li><strong>Multi-factor CIR</strong>: Multiple independent CIR processes for different term structure factors</li>
+<li><strong>CIR++</strong>: Adding a deterministic shift function (like Hull-White extension of Vasicek)</li>
+<li><strong>Heston model</strong>: Uses CIR dynamics for the variance process in equity modeling</li>
+<li><strong>Credit models</strong>: CIR dynamics often model default intensities in structural models</li>
 </ul>
-<p>Hull-White provides the foundation for understanding these extensions and remains the benchmark for one-factor Gaussian models.</p>
-<hr />
-<h2 id="references">References</h2>
-<p><sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">3</a></sup> - <strong>Chapter 3.4</strong>: The Hull-White Extended Vasicek Model.</p>
-<ul>
-<li><strong>Chapter 5</strong>: Time-dependent parameters and yield curve fitting.</li>
-</ul>
-<!-- [^hull1990] -->
+<p>The CIR model remains a cornerstone of both interest rate and credit risk modeling, balancing analytical tractability with realistic dynamics.</p>
 <div class="footnote">
 <hr />
 <ol>
-<li id="fn:1">
-<p>See <sup id="fnref:andersen2010"><a class="footnote-ref" href="#fn:andersen2010">2</a></sup>, <strong>Chapter 5</strong>: Time-dependent parameters and yield curve fitting.&#160;<a class="footnote-backref" href="#fnref:1" title="Jump back to footnote 1 in the text">&#8617;</a></p>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>.&#160;<a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 1 in the text">&#8617;</a></p>
 </li>
 <li id="fn:andersen2010">
 <p>Leif Andersen and Vladimir Piterbarg. <em>Interest Rate Modeling</em>. Volume 1-3. Atlantic Financial Press, 2010.&#160;<a class="footnote-backref" href="#fnref:andersen2010" title="Jump back to footnote 2 in the text">&#8617;</a></p>
 </li>
-<li id="fn:brigo2006">
-<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>.&#160;<a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 3 in the text">&#8617;</a></p>
-</li>
-<li id="fn:hull1990">
-<p>John Hull and Alan White. Pricing interest-rate-derivative securities. <em>The Review of Financial Studies</em>, 3(4):573–592, 1990. <a href="https://doi.org/10.1093/rfs/3.4.573">doi:10.1093/rfs/3.4.573</a>.&#160;<a class="footnote-backref" href="#fnref:hull1990" title="Jump back to footnote 4 in the text">&#8617;</a></p>
+<li id="fn:cox1985">
+<p>John C. Cox, Jonathan E. Ingersoll, and Stephen A. Ross. A theory of the term structure of interest rates. <em>Econometrica</em>, 53(2):385–407, 1985. <a href="https://doi.org/10.2307/1911242">doi:10.2307/1911242</a>.&#160;<a class="footnote-backref" href="#fnref:cox1985" title="Jump back to footnote 3 in the text">&#8617;</a></p>
 </li>
 </ol>
 </div>

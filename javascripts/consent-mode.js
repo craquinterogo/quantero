@@ -19,14 +19,20 @@ document$.subscribe(function() {
   var consent = __md_get("__consent");
   
   if (consent && consent.analytics) {
-    // User accepted analytics
+    // User accepted analytics - also grant ad consent
     gtag('consent', 'update', {
-      'analytics_storage': 'granted'
+      'analytics_storage': 'granted',
+      'ad_storage': 'granted',
+      'ad_user_data': 'granted',
+      'ad_personalization': 'granted'
     });
   } else if (consent && !consent.analytics) {
-    // User rejected analytics
+    // User rejected analytics - also deny ad consent
     gtag('consent', 'update', {
-      'analytics_storage': 'denied'
+      'analytics_storage': 'denied',
+      'ad_storage': 'denied',
+      'ad_user_data': 'denied',
+      'ad_personalization': 'denied'
     });
   }
 });

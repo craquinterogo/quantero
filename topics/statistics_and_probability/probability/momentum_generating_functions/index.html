@@ -10,25 +10,31 @@
       
       
       
+        <link rel="canonical" href="https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/momentum_generating_functions/">
       
+      
+        <link rel="prev" href="../jensen_inequality/">
+      
+      
+        <link rel="next" href="../../statistics/">
       
       
         
       
       
-      <link rel="icon" href="/favicon.ico">
+      <link rel="icon" href="../../../../favicon.ico">
       <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
     
     
       
-        <title>Quȧntero</title>
+        <title>Moment Generating Functions - Quȧntero</title>
       
     
     
-      <link rel="stylesheet" href="/assets/stylesheets/main.484c7ddc.min.css">
+      <link rel="stylesheet" href="../../../../assets/stylesheets/main.484c7ddc.min.css">
       
         
-        <link rel="stylesheet" href="/assets/stylesheets/palette.ab4e12ef.min.css">
+        <link rel="stylesheet" href="../../../../assets/stylesheets/palette.ab4e12ef.min.css">
       
       
 
@@ -47,14 +53,23 @@
       
     
     
-      <link rel="stylesheet" href="/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
     
     
+  <!-- Open Graph / Social Media Preview -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Moment Generating Functions">
+  <meta property="og:description" content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence">
+  <meta property="og:url" content="https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/momentum_generating_functions/">
+  <meta property="og:image" content="https://quantero.kruk-ai.com/assets/social-preview.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+
   </head>
   
   
@@ -73,6 +88,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#statistics-and-probability-moment-generating-functions" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -83,9 +103,9 @@
 
 <header class="md-header" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+    <a href="../../../.." title="Quȧntero" class="md-header__button md-logo" aria-label="Quȧntero" data-md-component="logo">
       
-  <img src="/assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     <label class="md-header__button md-icon" for="__drawer">
@@ -102,7 +122,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Moment Generating Functions
             
           </span>
         </div>
@@ -203,7 +223,7 @@
   
   
     <li class="md-tabs__item">
-      <a href="/." class="md-tabs__link">
+      <a href="../../../.." class="md-tabs__link">
         
   
   
@@ -220,6 +240,8 @@
   
   
   
+    
+  
   
     
     
@@ -227,11 +249,13 @@
   
   
   
+    
+  
   
     
     
-      <li class="md-tabs__item">
-        <a href="/topics/model_validation/" class="md-tabs__link">
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../../../model_validation/" class="md-tabs__link">
           
   
   
@@ -270,9 +294,9 @@
 
 <nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
+    <a href="../../../.." title="Quȧntero" class="md-nav__button md-logo" aria-label="Quȧntero" data-md-component="logo">
       
-  <img src="/assets/logo.png" alt="logo">
+  <img src="../../../../assets/logo.png" alt="logo">
 
     </a>
     Quȧntero
@@ -287,7 +311,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/." class="md-nav__link">
+      <a href="../../../.." class="md-nav__link">
         
   
   
@@ -311,8 +335,10 @@
       
   
   
+    
   
   
+  
     
     
       
@@ -338,17 +364,20 @@
     
     
       
+        
+        
+      
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" checked>
         
           
-          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
             
   
   
@@ -366,7 +395,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -405,7 +434,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/model_validation/" class="md-nav__link ">
+            <a href="../../../model_validation/" class="md-nav__link ">
               
   
   
@@ -483,7 +512,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/risk_management/" class="md-nav__link ">
+            <a href="../../../risk_management/" class="md-nav__link ">
               
   
   
@@ -527,7 +556,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/market_risk" class="md-nav__link">
+      <a href="../../../../market_risk" class="md-nav__link">
         
   
   
@@ -555,7 +584,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/credit_risk" class="md-nav__link">
+      <a href="../../../../credit_risk" class="md-nav__link">
         
   
   
@@ -583,7 +612,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/liquidity_risk" class="md-nav__link">
+      <a href="../../../../liquidity_risk" class="md-nav__link">
         
   
   
@@ -611,7 +640,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/operational_risk" class="md-nav__link">
+      <a href="../../../../operational_risk" class="md-nav__link">
         
   
   
@@ -639,7 +668,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/ai_risk" class="md-nav__link">
+      <a href="../../../../ai_risk" class="md-nav__link">
         
   
   
@@ -700,7 +729,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/pricing/" class="md-nav__link ">
+            <a href="../../../pricing/" class="md-nav__link ">
               
   
   
@@ -773,7 +802,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/pricing/interest_rates/" class="md-nav__link ">
+            <a href="../../../pricing/interest_rates/" class="md-nav__link ">
               
   
   
@@ -817,7 +846,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/vasicek_model/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/vasicek_model/" class="md-nav__link">
         
   
   
@@ -845,7 +874,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/cir_model/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/cir_model/" class="md-nav__link">
         
   
   
@@ -873,7 +902,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/hull_white_model/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/hull_white_model/" class="md-nav__link">
         
   
   
@@ -928,7 +957,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/pricing/interest_rates/bond_affine_ansatz_models/" class="md-nav__link ">
+            <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/" class="md-nav__link ">
               
   
   
@@ -972,7 +1001,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/bond_affine_ansatz_models/vasicek/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/" class="md-nav__link">
         
   
   
@@ -1000,7 +1029,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/bond_affine_ansatz_models/cir/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/cir/" class="md-nav__link">
         
   
   
@@ -1028,7 +1057,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
+      <a href="../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/" class="md-nav__link">
         
   
   
@@ -1072,7 +1101,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/volatility_surfaces" class="md-nav__link">
+      <a href="../../../../volatility_surfaces" class="md-nav__link">
         
   
   
@@ -1108,7 +1137,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/algorithmic_trading" class="md-nav__link">
+      <a href="../../../../algorithmic_trading" class="md-nav__link">
         
   
   
@@ -1136,7 +1165,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/artificial_intelligence" class="md-nav__link">
+      <a href="../../../../artificial_intelligence" class="md-nav__link">
         
   
   
@@ -1164,7 +1193,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/portfolio_management" class="md-nav__link">
+      <a href="../../../../portfolio_management" class="md-nav__link">
         
   
   
@@ -1192,7 +1221,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/numerical_methods" class="md-nav__link">
+      <a href="../../../../numerical_methods" class="md-nav__link">
         
   
   
@@ -1217,6 +1246,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1237,15 +1268,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/statistics_and_probability/" class="md-nav__link ">
+            <a href="../../" class="md-nav__link ">
               
   
   
@@ -1269,7 +1300,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_2_8_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_8">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1286,6 +1317,8 @@
                 
   
   
+    
+  
   
   
     
@@ -1314,15 +1347,15 @@
       
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2_8_2" checked>
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/statistics_and_probability/probability/" class="md-nav__link ">
+            <a href="../" class="md-nav__link ">
               
   
   
@@ -1346,7 +1379,7 @@
             
           </div>
         
-        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="3" aria-labelledby="__nav_2_8_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_2_8_2">
             <span class="md-nav__icon md-icon"></span>
             
@@ -1366,7 +1399,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/expected_value/" class="md-nav__link">
+      <a href="../expected_value/" class="md-nav__link">
         
   
   
@@ -1394,7 +1427,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/filtration/" class="md-nav__link">
+      <a href="../filtration/" class="md-nav__link">
         
   
   
@@ -1422,7 +1455,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/tower_property/" class="md-nav__link">
+      <a href="../tower_property/" class="md-nav__link">
         
   
   
@@ -1450,7 +1483,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/gaussian_integral/" class="md-nav__link">
+      <a href="../gaussian_integral/" class="md-nav__link">
         
   
   
@@ -1478,7 +1511,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/jensen_inequality/" class="md-nav__link">
+      <a href="../jensen_inequality/" class="md-nav__link">
         
   
   
@@ -1503,10 +1536,37 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/probability/momentum_generating_functions/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Moment Generating Functions
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   
@@ -1522,6 +1582,120 @@
   
 
       </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-mgf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an MGF?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-moments-appear-inside-the-mgf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How moments appear inside the MGF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bernoullip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bernoulli(\(p\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-nmusigma2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal \(N(\mu,\sigma^2)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sum-of-independent-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sum of independent variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-mgfs-are-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MGFs are useful
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-checklist-for-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick checklist for practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
     </li>
   
 
@@ -1565,7 +1739,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/statistics_and_probability/statistics/" class="md-nav__link ">
+            <a href="../../statistics/" class="md-nav__link ">
               
   
   
@@ -1609,7 +1783,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/statistics_and_probability/statistics/maximum_likelihood_estimation/" class="md-nav__link">
+      <a href="../../statistics/maximum_likelihood_estimation/" class="md-nav__link">
         
   
   
@@ -1682,7 +1856,7 @@
         
           
           <div class="md-nav__link md-nav__container">
-            <a href="/topics/stochastic_calculus/" class="md-nav__link ">
+            <a href="../../../stochastic_calculus/" class="md-nav__link ">
               
   
   
@@ -1726,7 +1900,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/stochastic_calculus/brownian_motion/" class="md-nav__link">
+      <a href="../../../stochastic_calculus/brownian_motion/" class="md-nav__link">
         
   
   
@@ -1754,7 +1928,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/stochastic_calculus/quadratic_variation/" class="md-nav__link">
+      <a href="../../../stochastic_calculus/quadratic_variation/" class="md-nav__link">
         
   
   
@@ -1782,7 +1956,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/stochastic_calculus/brownian_integral/" class="md-nav__link">
+      <a href="../../../stochastic_calculus/brownian_integral/" class="md-nav__link">
         
   
   
@@ -1810,7 +1984,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/topics/stochastic_calculus/itos_isometry/" class="md-nav__link">
+      <a href="../../../stochastic_calculus/itos_isometry/" class="md-nav__link">
         
   
   
@@ -1863,6 +2037,110 @@
   
   
   
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-an-mgf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is an MGF?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#how-moments-appear-inside-the-mgf" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How moments appear inside the MGF
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#examples" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Examples
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Examples">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#bernoullip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bernoulli(\(p\))
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#normal-nmusigma2" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Normal \(N(\mu,\sigma^2)\)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sum-of-independent-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Sum of independent variables
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-mgfs-are-useful" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why MGFs are useful
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quick-checklist-for-practice" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick checklist for practice
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
   
 </nav>
                   </div>
@@ -1875,34 +2153,192 @@
               
               <article class="md-content__inner md-typeset">
                 
-  <article class="md-content__inner md-typeset">
-    <h1>Private Content</h1>
+                  
 
-    <div style="text-align: center; padding: 3em 2em;">
-      <div style="font-size: 4em; margin-bottom: 0.5em;">🔒</div>
-      
-      <h2 style="color: var(--md-typeset-color); margin-bottom: 1em;">Access Restricted</h2>
-      
-      <p style="font-size: 1.2em; max-width: 600px; margin: 0 auto 2em;">
-        The content you're trying to reach is at the moment designed for private use only or the content is still under construction.
-      </p>
-      
-      <p style="max-width: 600px; margin: 0 auto 2em;">
-        If you would like to discuss this content or request access, please feel free to reach out to me via LinkedIn.
-      </p>
-      
-      <a href="https://www.linkedin.com/in/craquinterogo/" target="_blank" class="md-button md-button--primary" style="margin-top: 1em;">
-        Connect on LinkedIn
-      </a>
-    </div>
 
-    <hr>
 
-    <div style="text-align: center; margin-top: 3em; opacity: 0.7;">
-      <p><a href="https://quantero.kruk-ai.com/">← Return to Home</a></p>
-    </div>
-  </article>
+<h1 id="statistics-and-probability-moment-generating-functions">Statistics And Probability - Moment Generating Functions</h1>
+<p>This entry builds intuition and detailed derivations for Moment Generating Functions (MGFs). Since many statistical derivations rely on MGFs throughout the field, we present the concepts and steps in an explicit, accessible way so you (and me) can return to this reference whenever needed and quickly recall the essential techniques.</p>
+<hr />
+<h2 id="what-is-an-mgf">What is an MGF?</h2>
+<p>Let <span class="arithmatex">\(X\)</span> be a random variable. The <strong>moment generating function</strong> is defined as</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X(t)=\mathbb{E}\left[e^{tX}\right],\quad \text{for values of $t$ where the expectation exists.}
+\label{eq:mgf_definition}
+\end{equation}
+\]</div>
+<details class="info" open="open">
+<summary>Why this definition?</summary>
+<p>Because if you expand <span class="arithmatex">\(e^{tX}\)</span> into a series, you will see the moments of <span class="arithmatex">\(X\)</span> appear one by one. This property makes MGFs a powerful tool for deriving and manipulating moments without computing integrals or sums directly. By taking derivatives of <span class="arithmatex">\(M_X(t)\)</span> at <span class="arithmatex">\(t=0\)</span>, you can extract any moment of the distribution.</p>
+</details>
+<hr />
+<h2 id="how-moments-appear-inside-the-mgf">How moments appear inside the MGF</h2>
+<p>Start with the Taylor expansion of <span class="arithmatex">\(e^{tX}\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+\exp(tX)=\sum_{n=0}^{\infty}\frac{t^n X^n}{n!}
+\label{eq:mgf_taylor_expansion}
+\end{equation}
+\]</div>
+<details class="tip">
+<summary>How and Why of <span class="arithmatex">\(\ref{eq:mgf_taylor_expansion}\)</span></summary>
+<p><strong>The Taylor Series Foundation:</strong></p>
+<p>Here <span class="arithmatex">\(X\)</span> is a scalar random variable, and we use the standard Taylor series for the exponential function:</p>
+<div class="arithmatex">\[e^u = \sum_{n=0}^{\infty}\frac{u^n}{n!} = 1 + u + \frac{u^2}{2!} + \frac{u^3}{3!} + \cdots\]</div>
+<p><strong>Applying it to <span class="arithmatex">\(e^{tX}\)</span>:</strong></p>
+<p>When we set <span class="arithmatex">\(u = tX\)</span>, we get:</p>
+<div class="arithmatex">\[\exp(tX) = \sum_{n=0}^{\infty}\frac{(tX)^n}{n!} = \sum_{n=0}^{\infty}\frac{t^n X^n}{n!} = 1 + tX + \frac{t^2 X^2}{2!} + \frac{t^3 X^3}{3!} + \cdots\]</div>
+<ul>
+<li>When <span class="arithmatex">\(t=0\)</span>: <span class="arithmatex">\(\exp(0) = 1\)</span></li>
+<li>When <span class="arithmatex">\(X\)</span> is a random variable, each term <span class="arithmatex">\(X^n\)</span> is also a random variable</li>
+<li>Taking expectations term-by-term (assuming we can swap <span class="arithmatex">\(\mathbb{E}\)</span> and <span class="arithmatex">\(\sum\)</span>) gives us the moments of <span class="arithmatex">\(X\)</span></li>
+</ul>
+</details>
+<p>Take expectation on both sides:</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X(t)=\mathbb{E}\left[e^{tX}\right]=\sum_{n=0}^{\infty}\frac{t^n}{n!}\mathbb{E}\left[X^n\right]
+\label{eq:mgf_series_moments}
+\end{equation}
+\]</div>
+<details class="bug" open="open">
+<summary>Jensen could be really mad if you forget that ...</summary>
+<p>... the assumtion in <span class="arithmatex">\(\ref{eq:mgf_series_moments}\)</span> applies <strong>exclusively</strong> to linear functions. In another cases where the function is non-linear, the expression requires an adjustment given the <a href="../jensen_inequality/" target="_blank">Jensen's Inequality</a>.</p>
+</details>
+<p>That means the <strong>first derivative</strong> at <span class="arithmatex">\(t=0\)</span> gives the mean, while the <strong>second derivative</strong> at <span class="arithmatex">\(t=0\)</span> gives the second moment, and the same pattern continues for higher moments.</p>
+<p>Formally,</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X^{(n)}(0)=\mathbb{E}\left[X^n\right]
+\label{eq:mgf_derivatives_moments}
+\end{equation}
+\]</div>
+<hr />
+<h2 id="examples">Examples</h2>
+<p>The expected value <span class="arithmatex">\(\mathbb{E}[X]\)</span> is defined differently depending on whether <span class="arithmatex">\(X\)</span> is discrete or continuous, but the concept is the same: a weighted average of all possible values.</p>
+<p><strong>For discrete <span class="arithmatex">\(X\)</span>:</strong></p>
+<div class="arithmatex">\[\mathbb{E}[X]=\sum_{k} k \cdot \mathbb{P}(X=k)\]</div>
+<p>Each possible value <span class="arithmatex">\(k\)</span> is weighted by its probability <span class="arithmatex">\(\mathbb{P}(X=k)\)</span>. The sum accumulates these weighted contributions.</p>
+<p><strong>For continuous <span class="arithmatex">\(X\)</span>:</strong></p>
+<div class="arithmatex">\[\mathbb{E}[X]=\int_{-\infty}^{\infty} x \cdot f_X(x)\,dx\]</div>
+<p>Each infinitesimal value <span class="arithmatex">\(x\)</span> is weighted by its probability density <span class="arithmatex">\(f_X(x)\)</span>. The integral accumulates these weighted contributions over all real numbers.</p>
+<p><strong>The connection:</strong> Both operations, the sum and the integral. are computing a weighted average. The sum groups discrete outcomes; the integral groups infinitely many continuous outcomes. When you see <span class="arithmatex">\(\mathbb{E}[g(X)]\)</span>, replace the sum or integral with the same pattern: apply the function <span class="arithmatex">\(g\)</span> to each outcome, weight it by probability (or density), then sum or integrate.</p>
+<h3 id="bernoullip">Bernoulli(<span class="arithmatex">\(p\)</span>)</h3>
+<p>Let <span class="arithmatex">\(X\in\{0,1\}\)</span> with <span class="arithmatex">\(\mathbb{P}(X=1)=p\)</span> and <span class="arithmatex">\(\mathbb{P}(X=0)=1-p\)</span>.</p>
+<p>Compute the MGF directly from the definition:</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X(t)=\mathbb{E}\left[e^{tX}\right]=(1-p)\,e^{t\cdot 0}+p\,e^{t\cdot 1}=1-p+p\,e^{t}
+\label{eq:mgf_bernoulli}
+\end{equation}
+\]</div>
+<details class="info" open="open">
+<summary>Why this formula for <span class="arithmatex">\(\mathbb{E}[e^{tX}]\)</span>?</summary>
+<p>For a discrete random variable, the expected value is computed by summing the function values weighted by their probabilities. In general, <span class="arithmatex">\(\mathbb{E}[g(X)]=\sum_{k} g(k)\mathbb{P}(X=k)\)</span>. Here <span class="arithmatex">\(g(X)=e^{tX}\)</span>, and <span class="arithmatex">\(X\)</span> takes only two values: <span class="arithmatex">\(0\)</span> and <span class="arithmatex">\(1\)</span>. So we get</p>
+<div class="arithmatex">\[
+\mathbb{E}[e^{tX}]=e^{t\cdot 0}\mathbb{P}(X=0)+e^{t\cdot 1}\mathbb{P}(X=1)=(1-p)\,e^{0}+p\,e^{t}=1-p+p\,e^{t}.
+\]</div>
+<p>This is the definition of expected value for discrete distributions applied to the Bernoulli case.</p>
+</details>
+<p>Check the mean from the derivative:</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X'(t)=p\,e^{t}\quad\Rightarrow\quad M_X'(0)=p=\mathbb{E}[X]
+\label{eq:mgf_bernoulli_mean}
+\end{equation}
+\]</div>
+<details class="info">
+<summary>Why does <span class="arithmatex">\(M_X'(0)\)</span> equal the mean?</summary>
+<p>Recall from <span class="arithmatex">\(\ref{eq:mgf_series_moments}\)</span> that the MGF can be written as</p>
+<div class="arithmatex">\[
+M_X(t)=\mathbb{E}\left[X^0\right]+t\mathbb{E}\left[X^1\right]+\frac{t^2}{2!}\mathbb{E}\left[X^2\right]+\cdots
+\]</div>
+<p>When we take the derivative with respect to <span class="arithmatex">\(t\)</span>, we get</p>
+<div class="arithmatex">\[
+M_X'(t)=\mathbb{E}\left[X^1\right]+t\mathbb{E}\left[X^2\right]+\frac{t^2}{2!}\mathbb{E}\left[X^3\right]+\cdots
+\]</div>
+<p>Evaluating at <span class="arithmatex">\(t=0\)</span> makes all terms with <span class="arithmatex">\(t\)</span> vanish, leaving only <span class="arithmatex">\(M_X'(0)=\mathbb{E}[X]\)</span>, the first moment (mean).</p>
+<p>For the Bernoulli case specifically, we can verify this directly: <span class="arithmatex">\(\mathbb{E}[X]=0\cdot(1-p)+1\cdot p=p\)</span>, which matches <span class="arithmatex">\(M_X'(0)=p\)</span>.</p>
+</details>
+<hr />
+<h3 id="normal-nmusigma2">Normal <span class="arithmatex">\(N(\mu,\sigma^2)\)</span></h3>
+<p>Let <span class="arithmatex">\(X\sim N(\mu,\sigma^2)\)</span>. We compute</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X(t)=\mathbb{E}\left[e^{tX}\right]=\int_{-\infty}^{\infty} e^{tx}\,\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right)dx
+\label{eq:mgf_normal_integral}
+\end{equation}
+\]</div>
+<details class="info" open="open">
+<summary>Why this integral for <span class="arithmatex">\(\mathbb{E}[e^{tX}]\)</span>?</summary>
+<p>For a continuous random variable with probability density function (PDF) <span class="arithmatex">\(f_X(x)\)</span>, the expected value of any function <span class="arithmatex">\(g(X)\)</span> is computed by integrating the function times the PDF:</p>
+<div class="arithmatex">\[
+\mathbb{E}[g(X)]=\int_{-\infty}^{\infty}g(x)f_X(x)\,dx.
+\]</div>
+<p>In our case, <span class="arithmatex">\(g(X)=e^{tX}\)</span> and the PDF of <span class="arithmatex">\(X\sim N(\mu,\sigma^2)\)</span> is</p>
+<div class="arithmatex">\[
+f_X(x)=\frac{1}{\sqrt{2\pi\sigma^2}}\exp\left(-\frac{(x-\mu)^2}{2\sigma^2}\right).
+\]</div>
+<p>So the MGF becomes the integral shown below: we multiply <span class="arithmatex">\(e^{tx}\)</span> by the Gaussian PDF and integrate over all <span class="arithmatex">\(x\)</span>.</p>
+</details>
+<p>Combine the exponent terms and complete the square:</p>
+<div class="arithmatex">\[
+\begin{equation}
+-\frac{(x-\mu)^2}{2\sigma^2}+tx=-\frac{1}{2\sigma^2}\left(x-(\mu+\sigma^2 t)\right)^2+\mu t+\frac{1}{2}\sigma^2 t^2
+\label{eq:mgf_normal_complete_square}
+\end{equation}
+\]</div>
+<p>Now the integral becomes the integral of a normal PDF, which equals 1. So,</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_X(t)=\exp\left(\mu t+\frac{1}{2}\sigma^2 t^2\right)
+\label{eq:mgf_normal_result}
+\end{equation}
+\]</div>
+<details class="info">
+<summary>Extracting the mean from <span class="arithmatex">\(M_X(t)\)</span></summary>
+<p>We have <span class="arithmatex">\(M_X(t)=\exp\left(\mu t+\frac{1}{2}\sigma^2 t^2\right)\)</span>. To find the mean, take the derivative:</p>
+<div class="arithmatex">\[
+M_X'(t)=\left(\mu+\sigma^2 t\right)\exp\left(\mu t+\frac{1}{2}\sigma^2 t^2\right)
+\]</div>
+<p>Evaluating at <span class="arithmatex">\(t=0\)</span> gives</p>
+<div class="arithmatex">\[
+M_X'(0)=\mu\cdot\exp(0)=\mu
+\]</div>
+<p>This confirms that the first derivative at <span class="arithmatex">\(t=0\)</span> recovers the mean parameter <span class="arithmatex">\(\mu\)</span> of the normal distribution. This follows the general principle from <span class="arithmatex">\(\ref{eq:mgf_derivatives_moments}\)</span>: the first derivative at zero always gives <span class="arithmatex">\(\mathbb{E}[X]\)</span>.</p>
+</details>
+<hr />
+<h2 id="sum-of-independent-variables">Sum of independent variables</h2>
+<p>If <span class="arithmatex">\(X\)</span> and <span class="arithmatex">\(Y\)</span> are independent, then</p>
+<div class="arithmatex">\[
+\begin{equation}
+M_{X+Y}(t)=\mathbb{E}\left[e^{t(X+Y)}\right]=\mathbb{E}\left[e^{tX}\right]\mathbb{E}\left[e^{tY}\right]=M_X(t)\,M_Y(t)
+\label{eq:mgf_sum_independent}
+\end{equation}
+\]</div>
+<p>This is one of the most useful properties of MGFs. It lets you find the distribution of sums by multiplying MGFs.</p>
+<hr />
+<h2 id="why-mgfs-are-useful">Why MGFs are useful</h2>
+<p>MGFs encode all moments in a single function, which makes them a compact summary of the distribution. They also make sums easy to handle in the independent case, because multiplying MGFs corresponds to adding random variables. Finally, they can identify distributions: if two variables share the same MGF in a neighborhood of zero, they have the same distribution.</p>
+<hr />
+<h2 id="quick-checklist-for-practice">Quick checklist for practice</h2>
+<p>Try to compute <span class="arithmatex">\(M_X(t)\)</span> for a discrete variable using a sum and for a continuous variable using an integral, and then recover the mean and variance by differentiating <span class="arithmatex">\(M_X(t)\)</span> at <span class="arithmatex">\(t=0\)</span>. If you can do those three tasks, the core mechanics of MGFs will feel natural.</p>
+<hr />
+<p><em>Building confidence through rigorous validation</em></p>
 
+
+
+
+
+
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -2021,14 +2457,14 @@
     
       
       
-      <script id="__config" type="application/json">{"annotate": null, "base": "/", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "/assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+      <script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
     
     
-      <script src="/assets/javascripts/bundle.79ae519e.min.js"></script>
+      <script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
       
-        <script src="/javascripts/consent-mode.js"></script>
+        <script src="../../../../javascripts/consent-mode.js"></script>
       
-        <script src="/javascripts/mathjax.js"></script>
+        <script src="../../../../javascripts/mathjax.js"></script>
       
         <script src="https://tikzjax.com/v1/tikzjax.js"></script>
       
