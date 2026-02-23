@@ -639,8 +639,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -650,6 +652,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../portfolio_management">
@@ -1100,7 +1184,7 @@
 <p>The Vasicek model describes the short rate dynamics under the risk-neutral measure as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-dr(t) = a(b - r(t))dt + \sigma dW(t),
+dr(t) = a(b - r(t))dt + \sigma dW(t)
 \label{eq:vasicek_sde}
 \end{equation}
 \]</div>
@@ -1118,7 +1202,7 @@ dr(t) = a(b - r(t))dt + \sigma dW(t),
 <p>To solve <span class="arithmatex">\(\ref{eq:vasicek_sde}\)</span>, we use an integrating factor approach. Rewrite the SDE as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-dr(t) + ar(t)dt = ab\,dt + \sigma dW(t).
+dr(t) + ar(t)dt = ab\,dt + \sigma dW(t)
 \label{eq:vasicek_rearranged}
 \end{equation}
 \]</div>
@@ -1130,13 +1214,13 @@ dr(t) + ar(t)dt = ab\,dt + \sigma dW(t).
 </details>
 <div class="arithmatex">\[
 \begin{equation}
-\style{color: var(--math-highlight-4)}{e^{at}}dr(t) + a\style{color: var(--math-highlight-4)}{e^{at}}r(t)dt = ab\style{color: var(--math-highlight-4)}{e^{at}}dt + \sigma \style{color: var(--math-highlight-4)}{e^{at}}dW(t).
+\style{color: var(--math-highlight-4)}{e^{at}}dr(t) + a\style{color: var(--math-highlight-4)}{e^{at}}r(t)dt = ab\style{color: var(--math-highlight-4)}{e^{at}}dt + \sigma \style{color: var(--math-highlight-4)}{e^{at}}dW(t)
 \label{eq:integrating_factor}
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-\style{color: var(--math-highlight-2)}{d\left(e^{at}r(t)\right)} = abe^{at}dt + \sigma e^{at}dW(t).
+\style{color: var(--math-highlight-2)}{d\left(e^{at}r(t)\right)} = abe^{at}dt + \sigma e^{at}dW(t)
 \label{eq:differential_form}
 \end{equation}
 \]</div>
@@ -1146,7 +1230,7 @@ dr(t) + ar(t)dt = ab\,dt + \sigma dW(t).
 \begin{aligned}
 \int_s^t d\left(e^{au}r(u)\right) &amp;= \int_s^t abe^{au}du + \int_s^t\sigma e^{au}dW(u) \\
 \left.e^{au}r(u)\right|_s^t &amp;= \int_s^t abe^{au}du + \int_s^t\sigma e^{au}dW(u) \\
-e^{at}r(t) - e^{as}r(s) &amp;= ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u).
+e^{at}r(t) - e^{as}r(s) &amp;= ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u)
 \end{aligned}
 \label{eq:integrated_form_original}
 \end{equation}
@@ -1154,7 +1238,7 @@ e^{at}r(t) - e^{as}r(s) &amp;= ab\int_s^t e^{au}du + \sigma\int_s^t e^{au}dW(u).
 <p>Computing the deterministic integral:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_s^t e^{au}du = \frac{e^{at} - e^{as}}{a}.
+\int_s^t e^{au}du = \frac{e^{at} - e^{as}}{a}
 \label{eq:deterministic_integral}
 \end{equation}
 \]</div>
@@ -1196,7 +1280,7 @@ r(t) &amp;= r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int
 <p>Given information at time <span class="arithmatex">\(s\)</span>, the expected value of <span class="arithmatex">\(r(t)\)</span> is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right).
+\mathbb{E}\left[r(t) \mid \mathcal{F}_s\right] = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right)
 \label{eq:vasicek_expectation}
 \end{equation}
 \]</div>
@@ -1282,7 +1366,7 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 <p>This follows from the fact that the stochastic integral has zero expectation. We can also write this as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[r(t) \mid r(s)\right] = b + (r(s) - b)e^{-a(t-s)}.
+\mathbb{E}\left[r(t) \mid r(s)\right] = b + (r(s) - b)e^{-a(t-s)}
 \label{eq:vasicek_expectation_alt}
 \end{equation}
 \]</div>
@@ -1292,21 +1376,21 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 <p>The variance of <span class="arithmatex">\(r(t)\)</span> given information at time <span class="arithmatex">\(s\)</span> is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \mathbb{E}\left[\left(\sigma e^{-at}\int_s^t e^{au}dW(u)\right)^2\right].
+\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \mathbb{E}\left[\left(\sigma e^{-at}\int_s^t e^{au}dW(u)\right)^2\right]
 \label{eq:variance_setup}
 \end{equation}
 \]</div>
 <p>Using Itô's isometry <sup id="fnref:1"><a class="footnote-ref" href="#fn:1">1</a></sup>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\mathbb{E}\left[\left(\int_s^t e^{au}dW(u)\right)^2\right] = \int_s^t e^{2au}du = \frac{e^{2at} - e^{2as}}{2a}.
+\mathbb{E}\left[\left(\int_s^t e^{au}dW(u)\right)^2\right] = \int_s^t e^{2au}du = \frac{e^{2at} - e^{2as}}{2a}
 \label{eq:ito_isometry_variance}
 \end{equation}
 \]</div>
 <p>Therefore:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \sigma^2 e^{-2at} \cdot \frac{e^{2at} - e^{2as}}{2a} = \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right).
+\text{Var}\left[r(t) \mid \mathcal{F}_s\right] = \sigma^2 e^{-2at} \cdot \frac{e^{2at} - e^{2as}}{2a} = \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)
 \label{eq:vasicek_variance}
 \end{equation}
 \]</div>
@@ -1316,7 +1400,7 @@ r(t) = r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right) + \sigma e^{-at}\int_s^t 
 <p>Combining our results, the conditional distribution is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-r(t) \mid \mathcal{F}_s \sim \mathcal{N}\left(r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right), \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)\right).
+r(t) \mid \mathcal{F}_s \sim \mathcal{N}\left(r(s)e^{-a(t-s)} + b\left(1 - e^{-a(t-s)}\right), \frac{\sigma^2}{2a}\left(1 - e^{-2a(t-s)}\right)\right)
 \label{eq:vasicek_distribution}
 \end{equation}
 \]</div>

@@ -8,7 +8,7 @@
 <meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
 <link href="https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/" rel="canonical"/>
 <link href="../vasicek/" rel="prev"/>
-<link href="../../../../statistics_and_probability/" rel="next"/>
+<link href="../../../../artificial_intelligence/" rel="next"/>
 <link href="../../../../../favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
 <title>Hull-White Model - Quȧntero</title>
@@ -590,15 +590,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -635,8 +626,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -646,6 +639,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../../portfolio_management">
@@ -1069,15 +1144,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </div>
@@ -1086,14 +1152,15 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="affine-bond-pricing-hull-white-model"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Affine Bond Pricing: Hull-White Model</h1>
-<p>The Hull-White model extends the Vasicek framework with time-dependent parameters, particularly the drift function <span class="arithmatex">\(\theta(t)\)</span>, enabling perfect calibration to the current market yield curve. Remarkably, despite this time-dependence, we can still derive closed-form bond pricing formulas using the affine ansatz.</p>
+<p>The Hull-White model <sup id="fnref:hull1990"><a class="footnote-ref" href="#fn:hull1990">1</a></sup> extends the Vasicek framework with time-dependent parameters, particularly the drift function <span class="arithmatex">\(\theta(t)\)</span>, enabling perfect calibration to the current market yield curve. Remarkably, despite this time-dependence, we can still derive closed-form bond pricing formulas using the affine ansatz.</p>
+<p>This treatment follows the standard references in the field, especially Brigo and Mercurio (Chapter 3.4) <sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">2</a></sup> and Andersen and Piterbarg (Chapter 5) <sup id="fnref:andersen2010"><a class="footnote-ref" href="#fn:andersen2010">3</a></sup>.</p>
 <p>Before proceeding, review the <a href="../../hull_white_model/">Hull-White model fundamentals</a>, including the time-varying drift, SDE solution, and yield curve fitting properties.</p>
 <hr/>
 <h2 id="the-bond-pricing-problem"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Bond Pricing Problem</h2>
 <p>We seek the price at time <span class="arithmatex">\(t\)</span> of a zero-coupon bond maturing at time <span class="arithmatex">\(T\)</span>, denoted <span class="arithmatex">\(P(t, T)\)</span>. Under the risk-neutral pricing framework:</p>
 <div class="arithmatex">\[
 \begin{equation}
-P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right],
+P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right]
 \label{eq:hw_bond_price_expectation}
 \end{equation}
 \]</div>
@@ -1119,7 +1186,7 @@ P(t, T) = A(t, T)e^{-B(t, T)r(t)}
 <p>The boundary condition at maturity is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
+P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0
 \label{eq:boundary_conditions}
 \end{equation}
 \]</div>
@@ -1130,7 +1197,7 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 <p>Under the risk-neutral measure with time-dependent drift, the bond price satisfies:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial P}{\partial t} + [\theta(t) - ar]\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0.
+\frac{\partial P}{\partial t} + [\theta(t) - ar]\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0
 \label{eq:hw_pricing_pde}
 \end{equation}
 \]</div>
@@ -1159,7 +1226,7 @@ df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial r}(\style{colo
 \]</div>
 <p>where we use the Itô calculus rules <span class="arithmatex">\((dt)^2 = 0\)</span>, <span class="arithmatex">\(dt \cdot dW_t = 0\)</span>, and <span class="arithmatex">\((dW_t)^2 = dt\)</span>, coming from <a href="../../../../stochastic_calculus/quadratic_variation/" target="_blank">quadratic variation</a> definitions.</p>
 <div class="arithmatex">\[
-\style{color: var(--math-highlight-4)}{(dr_t)^2} = \style{color: var(--math-highlight-4)}{\sigma^2 dt}.
+\style{color: var(--math-highlight-4)}{(dr_t)^2} = \style{color: var(--math-highlight-4)}{\sigma^2 dt}
 \]</div>
 <div class="arithmatex">\[
 \begin{aligned}
@@ -1168,18 +1235,18 @@ df = \frac{\partial f}{\partial t}dt + \frac{\partial f}{\partial r}(\style{colo
 \]</div>
 <p>So the differential simplifies to</p>
 <div class="arithmatex">\[
-df = \left[\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}}\right]dt + \sigma\frac{\partial f}{\partial r} dW_t.
+df = \left[\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}}\right]dt + \sigma\frac{\partial f}{\partial r} dW_t
 \]</div>
 <p>Now, recall that under risk-neutral definitions, the stochastic process lacks of any <span style="color: var(--math-highlight-2);">drift component</span>. As a result, and also recalling that the <strong>risk-neutral</strong> framework makes indifferent a risky asset from a risk-free asset, we make it equal to <span class="arithmatex">\(\style{color: var(--math-highlight-3)}{r_t \cdot P}\)</span>, which is the price of the bond multiplied by the interest rate <span class="arithmatex">\(r_t\)</span>, resulting in</p>
 <div class="arithmatex">\[
-\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}} - \style{color: var(--math-highlight-3)}{r_t \cdot P} = 0,
+\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} + (\theta(t)-ar_t)\frac{\partial f}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 f}{\partial r^2}} - \style{color: var(--math-highlight-3)}{r_t \cdot P} = 0
 \]</div>
 <p>which is exactly <span class="arithmatex">\(\ref{eq:hw_pricing_pde}\)</span>.</p>
 </details>
 <p>Computing the partial derivatives using our ansatz:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial P}{\partial t} = \left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P,
+\frac{\partial P}{\partial t} = \left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P
 \label{eq:hw_dP_dt}
 \end{equation}
 \]</div>
@@ -1241,14 +1308,14 @@ df = \left[\style{color: var(--math-highlight-2)}{\frac{\partial f}{\partial t} 
 <p>The coefficient of <span class="arithmatex">\(r\)</span> gives:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial B}{\partial t} + aB - 1 = 0,
+\frac{\partial B}{\partial t} + aB - 1 = 0
 \label{eq:hw_B_ode}
 \end{equation}
 \]</div>
 <p>with boundary condition <span class="arithmatex">\(B(T, T) = 0\)</span>. <strong>This is identical to the <a href="../vasicek/#solving-B_t_T" target="_blank">Vasicek equation</a>!</strong> The time-varying <span class="arithmatex">\(\theta(t)\)</span> doesn't affect <span class="arithmatex">\(B(t,T)\)</span>. The solution is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}
 \label{eq:hw_B_solution}
 \end{equation}
 \]</div>
@@ -1263,21 +1330,21 @@ B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
 <p>The constant term gives:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial \ln A}{\partial t} - \theta(t)B(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0,
+\frac{\partial \ln A}{\partial t} - \theta(t)B(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0
 \label{eq:hw_A_ode}
 \end{equation}
 \]</div>
 <p>with boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>. Integrating from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\ln A(t, T) = -\int_t^T \left[\theta(u)B(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right]du.
+\ln A(t, T) = -\int_t^T \left[\theta(u)B(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right]du
 \label{eq:hw_ln_A_integral}
 \end{equation}
 \]</div>
 <p>The volatility term can be computed analytically:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_t^T B(u, T)^2 du = \frac{1}{a^2}\left[(T-t) + \frac{1}{2a}(e^{-2a(T-t)} - 1) - \frac{2}{a}(e^{-a(T-t)} - 1)\right].
+\int_t^T B(u, T)^2 du = \frac{1}{a^2}\left[(T-t) + \frac{1}{2a}(e^{-2a(T-t)} - 1) - \frac{2}{a}(e^{-a(T-t)} - 1)\right]
 \label{eq:hw_B_squared_integral}
 \end{equation}
 \]</div>
@@ -1286,19 +1353,23 @@ B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
 <p>Use <span class="arithmatex">\(B(u,T)=\frac{1-e^{-a(T-u)}}{a}\)</span> and set <span class="arithmatex">\(x=T-u\)</span>:</p>
 <div class="arithmatex">\[
 \int_t^T B(u,T)^2 du
-= \frac{1}{a^2}\int_0^{T-t} (1-e^{-ax})^2 dx.
+= \frac{1}{a^2}\int_0^{T-t} (1-e^{-ax})^2 dx
 \]</div>
 <p>Expand and integrate term-by-term:</p>
 <div class="arithmatex">\[
 \int_0^{T-t} (1-e^{-ax})^2 dx
-= \left[x + \frac{e^{-2ax}-1}{2a} - \frac{2(e^{-ax}-1)}{a}\right]_0^{T-t},
+= \left[x + \frac{e^{-2ax}-1}{2a} - \frac{2(e^{-ax}-1)}{a}\right]_0^{T-t}
 \]</div>
 <p>which yields <span class="arithmatex">\(\ref{eq:hw_B_squared_integral}\)</span>.</p>
 </details>
 <p>The <span class="arithmatex">\(\theta(u)\)</span> term requires knowledge of the market forward curve, but can be expressed as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\int_t^T \theta(u)B(u, T)du = \ln\frac{P^M(0,T)}{P^M(0,t)} + B(t,T)f^M(0,t) - \frac{\sigma^2}{2a^2}\left[(T-t) - B(t,T) - \frac{B(t,T)^2a}{2}\right],
+\begin{aligned}
+\int_t^T \theta(u)B(u, T)du &amp;= \ln\frac{P^M(0,T)}{P^M(0,t)} \\
+&amp;\quad+ B(t,T)f^M(0,t) \\
+&amp;\quad- \frac{\sigma^2}{2a^2}\left[(T-t) - B(t,T) - \frac{B(t,T)^2a}{2}\right]
+\end{aligned}
 \label{eq:hw_theta_integral}
 \end{equation}
 \]</div>
@@ -1312,20 +1383,20 @@ B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
 <p>The zero-coupon bond price under Hull-White is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right),
+P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right)
 \label{eq:hw_bond_complete}
 \end{equation}
 \]</div>
 <p>where:</p>
 <div class="arithmatex">\[
 \begin{equation}
-B(t, T) = \frac{1 - e^{-a(T-t)}}{a},
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}
 \label{eq:hw_B_final}
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-A(t, T) = \frac{P^M(0,T)}{P^M(0,t)}\exp\left[B(t,T)f^M(0,t) - \frac{\sigma^2}{4a}B(t,T)^2(1-e^{-2at})\right].
+A(t, T) = \frac{P^M(0,T)}{P^M(0,t)}\exp\left[B(t,T)f^M(0,t) - \frac{\sigma^2}{4a}B(t,T)^2(1-e^{-2at})\right]
 \label{eq:hw_A_final}
 \end{equation}
 \]</div>
@@ -1335,7 +1406,7 @@ A(t, T) = \frac{P^M(0,T)}{P^M(0,t)}\exp\left[B(t,T)f^M(0,t) - \frac{\sigma^2}{4a
 <p>The continuously compounded yield is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-y(t, T) = -\frac{\ln P(t, T)}{T - t} = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T)}{T - t}r(t).
+y(t, T) = -\frac{\ln P(t, T)}{T - t} = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T)}{T - t}r(t)
 \label{eq:hw_yield}
 \end{equation}
 \]</div>
@@ -1351,14 +1422,14 @@ y(t, T) = -\frac{\ln P(t, T)}{T - t} = -\frac{\ln A(t, T)}{T - t} + \frac{B(t, T
 <p>The Hull-White model can be expressed in terms of market-observable quantities. Define:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\alpha(t) = f^M(0,t) + af^M(0,t) + \frac{\partial f^M(0,t)}{\partial t},
+\alpha(t) = f^M(0,t) + af^M(0,t) + \frac{\partial f^M(0,t)}{\partial t}
 \label{eq:alpha_function}
 \end{equation}
 \]</div>
 <p>Then the short rate dynamics can be written as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-dr(t) = [\alpha(t) - ar(t)]dt + \sigma dW(t),
+dr(t) = [\alpha(t) - ar(t)]dt + \sigma dW(t)
 \label{eq:hw_market_form}
 \end{equation}
 \]</div>
@@ -1369,20 +1440,20 @@ dr(t) = [\alpha(t) - ar(t)]dt + \sigma dW(t),
 <p><strong>European options on zero-coupon bonds:</strong></p>
 <div class="arithmatex">\[
 \begin{equation}
-\text{Call}(t, T, S, K) = P(t,S)\Phi(d_1) - KP(t,T)\Phi(d_2),
+\text{Call}(t, T, S, K) = P(t,S)\Phi(d_1) - KP(t,T)\Phi(d_2)
 \label{eq:hw_bond_option}
 \end{equation}
 \]</div>
 <p>where <span class="arithmatex">\(\Phi\)</span> is the standard normal CDF and:</p>
 <div class="arithmatex">\[
 \begin{equation}
-d_1 = \frac{1}{\sigma_P}\ln\frac{P(t,S)}{KP(t,T)} + \frac{\sigma_P}{2}, \quad d_2 = d_1 - \sigma_P,
+d_1 = \frac{1}{\sigma_P}\ln\frac{P(t,S)}{KP(t,T)} + \frac{\sigma_P}{2}, \quad d_2 = d_1 - \sigma_P
 \label{eq:hw_d1_d2}
 \end{equation}
 \]</div>
 <div class="arithmatex">\[
 \begin{equation}
-\sigma_P = \frac{\sigma}{a}(1-e^{-a(S-t)})\sqrt{\frac{1-e^{-2a(T-t)}}{2a}}.
+\sigma_P = \frac{\sigma}{a}(1-e^{-a(S-t)})\sqrt{\frac{1-e^{-2a(T-t)}}{2a}}
 \label{eq:hw_sigma_P}
 \end{equation}
 \]</div>
@@ -1458,19 +1529,20 @@ d_1 = \frac{1}{\sigma_P}\ln\frac{P(t,S)}{KP(t,T)} + \frac{\sigma_P}{2}, \quad d_
 <li><strong>Hybrid models</strong>: Combining with equity or credit models</li>
 </ul>
 <p>The analytical tractability of Hull-White makes it the foundation for multi-asset modeling in practice.</p>
+<div class="footnote">
 <hr/>
-<h2 id="references"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14</span> References</h2>
-<p><strong>Brigo, D., &amp; Mercurio, F.</strong> (2006). <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3" target="_blank"><em>Interest Rate Models - Theory and Practice: With Smile, Inflation and Credit</em></a> (2nd ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 3.4</strong> - Bond pricing and derivatives under Hull-White.</li>
-</ul>
-<p><strong>Andersen, L., &amp; Piterbarg, V.</strong> (2010). <em>Interest Rate Modeling</em> (Vol. 1-3). Atlantic Financial Press.</p>
-<ul>
-<li><strong>Chapter 5</strong> - Calibration to market term structures and bond option pricing.</li>
-</ul>
-<p><strong>Hull, J., &amp; White, A.</strong> (1990). <a href="https://doi.org/10.1093/rfs/3.4.573" target="_blank">Pricing interest-rate-derivative securities</a>. <em>The Review of Financial Studies</em>, 3(4), 573-592.</p>
-<hr/>
-<p><em>Building confidence through rigorous validation</em></p>
+<ol>
+<li id="fn:hull1990">
+<p>John Hull and Alan White. Pricing interest-rate-derivative securities. <em>The Review of Financial Studies</em>, 3(4):573–592, 1990. <a href="https://doi.org/10.1093/rfs/3.4.573">doi:10.1093/rfs/3.4.573</a>. <a class="footnote-backref" href="#fnref:hull1990" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>. <a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:andersen2010">
+<p>Leif Andersen and Vladimir Piterbarg. <em>Interest Rate Modeling</em>. Volume 1-3. Atlantic Financial Press, 2010. <a class="footnote-backref" href="#fnref:andersen2010" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1510,7 +1582,7 @@ d_1 = \frac{1}{\sigma_P}\ln\frac{P(t,S)}{KP(t,T)} + \frac{\sigma_P}{2}, \quad d_
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
 <form class="md-consent__form md-grid md-typeset" name="consent">
-<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.14.0.1</span> Cookie consent</h4>
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13.0.1</span> Cookie consent</h4>
 <p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
 <input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">

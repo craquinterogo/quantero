@@ -489,8 +489,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -500,6 +502,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../portfolio_management">
@@ -1242,7 +1326,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="variation-and-quadratic-variation-of-functions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Variation and Quadratic Variation of Functions</h1>
-<p>In classical calculus, smooth functions have <strong>bounded variation</strong>, which allows us to define integration using Riemann-Stieltjes theory. However, stochastic processes like <strong>Brownian motion</strong> behave very differently — they have <strong>unbounded variation</strong> but <strong>finite quadratic variation</strong>. This fundamental property is what makes stochastic calculus distinct from ordinary calculus and is the foundation of <strong>Itô calculus</strong>.</p>
+<p>In classical calculus, smooth functions have <strong>bounded variation</strong>, which allows us to define integration using Riemann-Stieltjes theory. However, stochastic processes like <strong>Brownian motion</strong> behave very differently — they have <strong>unbounded variation</strong> but <strong>finite quadratic variation</strong>. This fundamental property is what makes stochastic calculus distinct from ordinary calculus and is the foundation of <strong>Itô calculus</strong> <sup id="fnref:oksendal2013"><a class="footnote-ref" href="#fn:oksendal2013">1</a></sup><sup id="fnref:karatzas1991"><a class="footnote-ref" href="#fn:karatzas1991">2</a></sup><sup id="fnref:revuz1999"><a class="footnote-ref" href="#fn:revuz1999">3</a></sup>.</p>
 <p>This document provides a rigorous treatment of variation concepts, building from basic definitions to the remarkable properties of Brownian motion's quadratic variation.</p>
 <hr/>
 <h2 id="what-is-variation-of-a-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> What is Variation of a Function?</h2>
@@ -1575,21 +1659,25 @@ dW \cdot dW = dt
 <p>This extends the concept to <strong>correlation</strong> between stochastic processes.</p>
 <!-- ---
 
-## References
 
-**Øksendal, B.** (2013). [*Stochastic Differential Equations: An Introduction with Applications*](https://link.springer.com/book/10.1007/978-3-642-14394-6){:target="_blank"} (6th ed.). Springer.
-
-- **Chapter 3** - Quadratic Variation and Itô Integrals
-
-**Karatzas, I., & Shreve, S. E.** (1991). *Brownian Motion and Stochastic Calculus* (2nd ed.). Springer.
-
-- **Chapter 1** - Martingales and Quadratic Variation
-
-**Revuz, D., & Yor, M.** (1999). [*Continuous Martingales and Brownian Motion*](https://link.springer.com/book/10.1007/978-3-662-06400-9){:target="_blank"} (3rd ed.). Springer.
 
 - **Chapter IV** - Quadratic Variation and Stochastic Integration -->
 <hr/>
 <p><em>Building confidence through rigorous validation</em></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:oksendal2013">
+<p>Bernt Øksendal. <em>Stochastic Differential Equations: An Introduction with Applications</em>. Springer, 6th edition, 2013. URL: <a href="https://link.springer.com/book/10.1007/978-3-642-14394-6">https://link.springer.com/book/10.1007/978-3-642-14394-6</a>. <a class="footnote-backref" href="#fnref:oksendal2013" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:karatzas1991">
+<p>Ioannis Karatzas and Steven E. Shreve. <em>Brownian Motion and Stochastic Calculus</em>. Springer, 2nd edition, 1991. <a class="footnote-backref" href="#fnref:karatzas1991" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:revuz1999">
+<p>Daniel Revuz and Marc Yor. <em>Continuous Martingales and Brownian Motion</em>. Springer, 3rd edition, 1999. URL: <a href="https://link.springer.com/book/10.1007/978-3-662-06400-9">https://link.springer.com/book/10.1007/978-3-662-06400-9</a>. <a class="footnote-backref" href="#fnref:revuz1999" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>

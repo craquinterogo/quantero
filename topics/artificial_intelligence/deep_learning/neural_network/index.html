@@ -6,25 +6,26 @@
 <meta charset="utf-8"/>
 <meta content="width=device-width,initial-scale=1" name="viewport"/>
 <meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
-<link href="https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/" rel="canonical"/>
-<link href="../ito_product_rule/" rel="prev"/>
-<link href="../../../favicon.ico" rel="icon"/>
+<link href="https://quantero.kruk-ai.com/topics/artificial_intelligence/deep_learning/neural_network/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="../../../statistics_and_probability/" rel="next"/>
+<link href="../../../../favicon.ico" rel="icon"/>
 <meta content="mkdocs-1.6.1, mkdocs-material-9.7.1" name="generator"/>
-<title>Ito's Isometry - Quȧntero</title>
-<link href="../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
-<link href="../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<title>Neural Network - Quȧntero</title>
+<link href="../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
 <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
 <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
-<link href="../../../stylesheets/extra.css" rel="stylesheet"/>
-<script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<link href="../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
 <script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-RSMTNXK402"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-RSMTNXK402",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-RSMTNXK402",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
 <script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
 <!-- Open Graph / Social Media Preview -->
 <meta content="website" property="og:type"/>
-<meta content="Ito's Isometry" property="og:title"/>
+<meta content="Neural Network" property="og:title"/>
 <meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
-<meta content="https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/topics/artificial_intelligence/deep_learning/neural_network/" property="og:url"/>
 <meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
 <meta content="1200" property="og:image:width"/>
 <meta content="630" property="og:image:height"/>
@@ -34,7 +35,7 @@
 <input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
 <label class="md-overlay" for="__drawer"></label>
 <div data-md-component="skip">
-<a class="md-skip" href="#itos-isometry-an-attempt-for-derivation">
+<a class="md-skip" href="#neural-networks">
           Skip to content
         </a>
 </div>
@@ -42,8 +43,8 @@
 </div>
 <header class="md-header" data-md-component="header">
 <nav aria-label="Header" class="md-header__inner md-grid">
-<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../.." title="Quȧntero">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../../.." title="Quȧntero">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
 <label class="md-header__button md-icon" for="__drawer">
 <svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
@@ -58,7 +59,7 @@
 <div class="md-header__topic" data-md-component="header-topic">
 <span class="md-ellipsis">
             
-              Ito's Isometry
+              Neural Network
             
           </span>
 </div>
@@ -113,7 +114,7 @@
 <div class="md-grid">
 <ul class="md-tabs__list">
 <li class="md-tabs__item">
-<a class="md-tabs__link" href="../../..">
+<a class="md-tabs__link" href="../../../..">
         
   
   
@@ -124,7 +125,7 @@
       </a>
 </li>
 <li class="md-tabs__item md-tabs__item--active">
-<a class="md-tabs__link" href="../../model_validation/">
+<a class="md-tabs__link" href="../../../model_validation/">
           
   
   
@@ -144,14 +145,14 @@
 <div class="md-sidebar__inner">
 <nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
 <label class="md-nav__title" for="__drawer">
-<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../.." title="Quȧntero">
-<img alt="logo" src="../../../assets/logo.png"/>
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../../.." title="Quȧntero">
+<img alt="logo" src="../../../../assets/logo.png"/>
 </a>
     Quȧntero
   </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../..">
+<a class="md-nav__link" href="../../../..">
 <span class="md-ellipsis">
     
   
@@ -188,7 +189,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_1" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../model_validation/">
+<a class="md-nav__link" href="../../../model_validation/">
 <span class="md-ellipsis">
     
   
@@ -215,7 +216,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../risk_management/">
+<a class="md-nav__link" href="../../../risk_management/">
 <span class="md-ellipsis">
     
   
@@ -240,7 +241,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../market_risk">
+<a class="md-nav__link" href="../../../../market_risk">
 <span class="md-ellipsis">
     
   
@@ -252,7 +253,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../credit_risk">
+<a class="md-nav__link" href="../../../../credit_risk">
 <span class="md-ellipsis">
     
   
@@ -264,7 +265,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../liquidity_risk">
+<a class="md-nav__link" href="../../../../liquidity_risk">
 <span class="md-ellipsis">
     
   
@@ -276,7 +277,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../operational_risk">
+<a class="md-nav__link" href="../../../../operational_risk">
 <span class="md-ellipsis">
     
   
@@ -288,7 +289,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../ai_risk">
+<a class="md-nav__link" href="../../../../ai_risk">
 <span class="md-ellipsis">
     
   
@@ -305,7 +306,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../pricing/">
+<a class="md-nav__link" href="../../../pricing/">
 <span class="md-ellipsis">
     
   
@@ -332,7 +333,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../pricing/interest_rates/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/">
 <span class="md-ellipsis">
     
   
@@ -357,7 +358,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pricing/interest_rates/vasicek_model/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/vasicek_model/">
 <span class="md-ellipsis">
     
   
@@ -369,7 +370,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pricing/interest_rates/cir_model/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/cir_model/">
 <span class="md-ellipsis">
     
   
@@ -381,7 +382,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pricing/interest_rates/hull_white_model/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/hull_white_model/">
 <span class="md-ellipsis">
     
   
@@ -395,7 +396,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_3_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/bond_affine_ansatz_models/">
 <span class="md-ellipsis">
     
   
@@ -420,7 +421,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
 <span class="md-ellipsis">
     
   
@@ -432,7 +433,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../cir.md">
+<a class="md-nav__link" href="../../../../cir.md">
 <span class="md-ellipsis">
     
   
@@ -444,7 +445,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<a class="md-nav__link" href="../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
 <span class="md-ellipsis">
     
   
@@ -462,7 +463,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../volatility_surfaces">
+<a class="md-nav__link" href="../../../../volatility_surfaces">
 <span class="md-ellipsis">
     
   
@@ -477,7 +478,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../algorithmic_trading">
+<a class="md-nav__link" href="../../../../algorithmic_trading">
 <span class="md-ellipsis">
     
   
@@ -488,10 +489,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../artificial_intelligence/">
+<a class="md-nav__link" href="../../">
 <span class="md-ellipsis">
     
   
@@ -505,7 +506,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="true" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_5">
 <span class="md-nav__icon md-icon"></span>
             
@@ -515,10 +516,10 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item md-nav__item--nested">
-<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/">
+<a class="md-nav__link" href="../">
 <span class="md-ellipsis">
     
   
@@ -532,7 +533,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<nav aria-expanded="true" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
 <label class="md-nav__title" for="__nav_2_5_2">
 <span class="md-nav__icon md-icon"></span>
             
@@ -542,8 +543,20 @@
 
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/neural_network/">
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
 <span class="md-ellipsis">
     
   
@@ -553,9 +566,26 @@
     
   </span>
 </a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#understanding-neural-networks-an-intuitive-yet-precise-introduction">
+<span class="md-ellipsis">
+      
+        Understanding Neural Networks: An Intuitive yet Precise Introduction
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../backpropagation_methodology.md">
+<a class="md-nav__link" href="../../../../backpropagation_methodology.md">
 <span class="md-ellipsis">
     
   
@@ -570,7 +600,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../reinforcement_learning">
+<a class="md-nav__link" href="../../../../reinforcement_learning">
 <span class="md-ellipsis">
     
   
@@ -585,7 +615,7 @@
 </nav>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../portfolio_management">
+<a class="md-nav__link" href="../../../../portfolio_management">
 <span class="md-ellipsis">
     
   
@@ -597,7 +627,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../../numerical_methods">
+<a class="md-nav__link" href="../../../../numerical_methods">
 <span class="md-ellipsis">
     
   
@@ -611,7 +641,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_8" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../statistics_and_probability/">
+<a class="md-nav__link" href="../../../statistics_and_probability/">
 <span class="md-ellipsis">
     
   
@@ -638,7 +668,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_8_2" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/">
 <span class="md-ellipsis">
     
   
@@ -663,7 +693,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/expected_value/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/expected_value/">
 <span class="md-ellipsis">
     
   
@@ -675,7 +705,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/filtration/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/filtration/">
 <span class="md-ellipsis">
     
   
@@ -687,7 +717,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/tower_property/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/tower_property/">
 <span class="md-ellipsis">
     
   
@@ -699,7 +729,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/gaussian_integral/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/gaussian_integral/">
 <span class="md-ellipsis">
     
   
@@ -711,7 +741,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/jensen_inequality/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/jensen_inequality/">
 <span class="md-ellipsis">
     
   
@@ -723,7 +753,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/probability/momentum_generating_functions/">
+<a class="md-nav__link" href="../../../statistics_and_probability/probability/momentum_generating_functions/">
 <span class="md-ellipsis">
     
   
@@ -740,7 +770,7 @@
 <li class="md-nav__item md-nav__item--nested">
 <input class="md-nav__toggle md-toggle" id="__nav_2_8_3" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../../statistics_and_probability/statistics/">
+<a class="md-nav__link" href="../../../statistics_and_probability/statistics/">
 <span class="md-ellipsis">
     
   
@@ -765,7 +795,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<a class="md-nav__link" href="../../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
 <span class="md-ellipsis">
     
   
@@ -782,10 +812,10 @@
 </ul>
 </nav>
 </li>
-<li class="md-nav__item md-nav__item--active md-nav__item--nested">
-<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox"/>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_9" type="checkbox"/>
 <div class="md-nav__link md-nav__container">
-<a class="md-nav__link" href="../">
+<a class="md-nav__link" href="../../../stochastic_calculus/">
 <span class="md-ellipsis">
     
   
@@ -799,7 +829,7 @@
 <span class="md-nav__icon md-icon"></span>
 </label>
 </div>
-<nav aria-expanded="true" aria-labelledby="__nav_2_9_label" class="md-nav" data-md-level="2">
+<nav aria-expanded="false" aria-labelledby="__nav_2_9_label" class="md-nav" data-md-level="2">
 <label class="md-nav__title" for="__nav_2_9">
 <span class="md-nav__icon md-icon"></span>
             
@@ -810,7 +840,7 @@
           </label>
 <ul class="md-nav__list" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="../brownian_motion/">
+<a class="md-nav__link" href="../../../stochastic_calculus/brownian_motion/">
 <span class="md-ellipsis">
     
   
@@ -822,7 +852,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../quadratic_variation/">
+<a class="md-nav__link" href="../../../stochastic_calculus/quadratic_variation/">
 <span class="md-ellipsis">
     
   
@@ -834,7 +864,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../brownian_integral/">
+<a class="md-nav__link" href="../../../stochastic_calculus/brownian_integral/">
 <span class="md-ellipsis">
     
   
@@ -846,7 +876,7 @@
 </a>
 </li>
 <li class="md-nav__item">
-<a class="md-nav__link" href="../ito_product_rule/">
+<a class="md-nav__link" href="../../../stochastic_calculus/ito_product_rule/">
 <span class="md-ellipsis">
     
   
@@ -857,20 +887,8 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item md-nav__item--active">
-<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
-<label class="md-nav__link md-nav__link--active" for="__toc">
-<span class="md-ellipsis">
-    
-  
-    Ito's Isometry
-  
-
-    
-  </span>
-<span class="md-nav__icon md-icon"></span>
-</label>
-<a class="md-nav__link md-nav__link--active" href="./">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../stochastic_calculus/itos_isometry/">
 <span class="md-ellipsis">
     
   
@@ -880,90 +898,6 @@
     
   </span>
 </a>
-<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
-<label class="md-nav__title" for="__toc">
-<span class="md-nav__icon md-icon"></span>
-      Table of contents
-    </label>
-<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#framework-and-statement">
-<span class="md-ellipsis">
-      
-        Framework and statement
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reduction-to-simple-adapted-processes">
-<span class="md-ellipsis">
-      
-        Reduction to simple adapted processes
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#second-moment-of-the-stochastic-integral">
-<span class="md-ellipsis">
-      
-        Second moment of the stochastic integral
-      
-    </span>
-</a>
-<nav aria-label="Second moment of the stochastic integral" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vanishing-of-cross-terms">
-<span class="md-ellipsis">
-      
-        Vanishing of cross terms
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contribution-of-diagonal-terms">
-<span class="md-ellipsis">
-      
-        Contribution of diagonal terms
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identification-with-a-time-integral">
-<span class="md-ellipsis">
-      
-        Identification with a time integral
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#extension-to-general-integrands">
-<span class="md-ellipsis">
-      
-        Extension to general integrands
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#interpretation">
-<span class="md-ellipsis">
-      
-        Interpretation
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
 </li>
 </ul>
 </nav>
@@ -986,77 +920,10 @@
     </label>
 <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
 <li class="md-nav__item">
-<a class="md-nav__link" href="#framework-and-statement">
+<a class="md-nav__link" href="#understanding-neural-networks-an-intuitive-yet-precise-introduction">
 <span class="md-ellipsis">
       
-        Framework and statement
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#reduction-to-simple-adapted-processes">
-<span class="md-ellipsis">
-      
-        Reduction to simple adapted processes
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#second-moment-of-the-stochastic-integral">
-<span class="md-ellipsis">
-      
-        Second moment of the stochastic integral
-      
-    </span>
-</a>
-<nav aria-label="Second moment of the stochastic integral" class="md-nav">
-<ul class="md-nav__list">
-<li class="md-nav__item">
-<a class="md-nav__link" href="#vanishing-of-cross-terms">
-<span class="md-ellipsis">
-      
-        Vanishing of cross terms
-      
-    </span>
-</a>
-</li>
-</ul>
-</nav>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#contribution-of-diagonal-terms">
-<span class="md-ellipsis">
-      
-        Contribution of diagonal terms
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#identification-with-a-time-integral">
-<span class="md-ellipsis">
-      
-        Identification with a time integral
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#extension-to-general-integrands">
-<span class="md-ellipsis">
-      
-        Extension to general integrands
-      
-    </span>
-</a>
-</li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#interpretation">
-<span class="md-ellipsis">
-      
-        Interpretation
+        Understanding Neural Networks: An Intuitive yet Precise Introduction
       
     </span>
 </a>
@@ -1068,193 +935,75 @@
 </div>
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
-<h1 id="itos-isometry-an-attempt-for-derivation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Itô’s Isometry: an attempt for derivation</h1>
-<p>Itô’s isometry is the identity that allows stochastic integration with respect to Brownian motion to be understood as an <span class="arithmatex">\(L^2\)</span>-isometric operation.<br/>
-Rather than being a computational trick, it reflects the orthogonality and variance structure of Brownian increments.</p>
+<h1 id="neural-networks"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Neural Networks</h1>
+<h2 id="understanding-neural-networks-an-intuitive-yet-precise-introduction"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Understanding Neural Networks: An Intuitive yet Precise Introduction</h2>
+<p>Neural networks have become a defining technology of modern artificial intelligence, powering everything from real-time translation systems to autonomous vehicles and financial forecasting engines. Despite their widespread use, these models often seem surrounded by an aura of mystery. In reality, neural networks are elegant mathematical constructs inspired by the way biological neurons process information. The goal of this article is to show a bit of neural networks by walking you through their structure and core ideas, while maintaining enough technical depth to appreciate how they truly work.</p>
+<p>At the heart of any neural network lies the notion of <em>a transformation</em>, defined to as the raw input data which is progressively converted into a meaningful output through layers of interconnected computational units. Each of these units, called neurons, performs a simple operation: it computes a weighted sum of its inputs and applies a nonlinear activation function. Although this operation is elementary on its own, stacking many such units together produces a powerful system capable of approximating highly complex relationships.</p>
+<p>To visualize a compact example, consider the diagram below. It shows a small feedforward network with three input neurons, a hidden layer of three neurons, and a single output neuron. Information flows from left to right through weighted connections. Each weight <span class="arithmatex">\(w_{i,j}\)</span> depicts the weight between node <span class="arithmatex">\(i\)</span> in previous layer and node <span class="arithmatex">\(j\)</span> in current layer.</p>
 <hr/>
-<h2 id="framework-and-statement"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Framework and statement</h2>
-<p>Let <span class="arithmatex">\((W_t)_{t \ge 0}\)</span> be a standard Brownian motion defined on a filtered probability space<br/>
-<span class="arithmatex">\((\Omega, \mathcal{F}, (\mathcal{F}_t)_{t \ge 0}, \mathbb{P})\)</span>. Furtheremore, let <span class="arithmatex">\(H_t\)</span> be an adapted process satisfying the square-integrability condition</p>
+<script type="text/tikz">
+\begin{tikzpicture}[scale=2.5]
+  % Colors that work in both light and dark modes
+  \definecolor{pathcolor}{rgb}{0.200, 0.400, 0.800}     % Medium blue
+  \definecolor{highlight}{rgb}{0.800, 0.200, 0.200}     % Medium red
+  \definecolor{axiscolor}{rgb}{0.400, 0.400, 0.400}     % Medium gray
+
+  % Input Layer
+  \foreach \i/\name in {1/x_1,2/x_2,3/x_3} {
+    \node[draw, fill=cyan!20, circle, minimum size=1cm] (I\i) at (0,-\i) {$\name$};
+  }
+  \node[axiscolor, above=0.2cm of I1] {Input Layer};
+
+    % Hidden Layer
+  \foreach \i/\eq/\b in {1/{w_{11}x_1+w_{12}x_2+w_{13}x_3+b_1}/b_1,2/{w_{21}x_1+w_{22}x_2+w_{23}x_3+b_2}/b_2,3/{w_{31}x_1+w_{32}x_2+w_{33}x_3+b_3}/b_3} {
+    \node[draw, fill=orange!20, circle, minimum size=1cm, anchor=north west] (H\i) at (2,-\i) {$h_{\i}$};
+    \node[highlight, right=0.1cm of H\i, anchor=north west] (H\i\eq) {\Large $z_{\i} = \eq$\\$\sigma(z_{\i})$};
+  }
+  \node[axiscolor, above=0.2cm of H1] {Hidden Layer};
+
+  % Output Layer
+  \node[draw, fill=green!20, circle, minimum size=1cm] (O) at (5.2,-2) {$y$};
+  \node[highlight, right=0.1cm of O, anchor=west] (OEq) {\Large $z = v_1h_1 + v_2h_2 + v_3h_3 + c$\\$\varphi(z)$};
+  \node[axiscolor, above=0.2cm of O] {Output Layer};
+
+
+  % Connections: Input to Hidden
+  \foreach \i in {1,2,3} {
+    \foreach \j in {1,2,3} {
+      \draw[axiscolor, ->] (I\i) -- (H\j);
+    }
+  }
+  % Connections: Hidden to Output
+  \foreach \i in {1,2,3} {
+    \draw[axiscolor, ->] (H\i) -- (O);
+  }
+\end{tikzpicture}
+</script>
+<hr/>
+<!-- ![Neural Network Diagram](sandbox:/mnt/data/nn_diagram.png) -->
+<p>The structure of a neural network is organized into layers. The input layer receives numerical features—values that encode whatever phenomena the model is meant to analyze. These values pass into the first hidden layer, where each neuron computes a quantity of the form</p>
 <div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right] &lt; \infty.
-\label{eq:square_integrability_condition}
-\end{equation}
+z = w_1 x_1 + w_2 x_2 + \dots + w_n x_n + b,
 \]</div>
-<p>Then the Itô integral satisfies the identity</p>
+<p>which represents a linear combination of inputs (x_i) with weights (w_i) and bias (b). The output (z) is then fed through a nonlinear activation function such as the sigmoid, hyperbolic tangent, or the ubiquitous rectified linear unit (ReLU). This nonlinearity is crucial: without it, no matter how many layers we stack, the model would collapse into a single linear transformation and lose all expressive power.</p>
+<details class="info" open="open">
+<summary>What's ReLU?</summary>
+<p>The ReLU activation is defined as</p>
 <div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right].
-\label{eq:ito_isometry}
-\end{equation}
+\text{ReLU}(z) = \max(0, z).
 \]</div>
-<details class="info">
-<summary>Why 'Isometry'?</summary>
-<p>The term "isometry" comes from the fact that this formula preserves the <span class="arithmatex">\(L^2\)</span> norm — the stochastic integral operator maps <span class="arithmatex">\(L^2([s,t])\)</span> to <span class="arithmatex">\(L^2(\Omega)\)</span> <strong>isometrically</strong>, meaning:</p>
-<div class="arithmatex">\[
-\left\|\int_s^t f(u)\,dW(u)\right\|_{L^2(\Omega)} = \|f\|_{L^2([s,t])}
-\]</div>
-<p>This is analogous to how rotations in Euclidean space preserve lengths.</p>
 </details>
+<p>While seemingly simple, its effect on training dynamics is profound. Because it avoids saturation for positive values, gradients propagate more efficiently, allowing deeper networks to converge more reliably.</p>
+<p>As information propagates forward across layers—hence the term <em>feedforward network</em>—each transformation progressively distills structure from the data. Early layers often capture general patterns, while deeper layers specialize in finer details. Ultimately, the final layer condenses all this processed information into an output: a decision, a prediction, or a continuous value depending on the task.</p>
+<p>Training a neural network means adjusting its weights so that its output becomes increasingly aligned with known examples. This optimization typically uses gradient-based methods such as stochastic gradient descent (SGD). The fundamental idea is to compute how a small change in each weight influences the network’s error, a procedure formalized by the backpropagation algorithm. By iteratively applying these updates across many data samples, the network learns an internal representation that captures the essential patterns underlying the input.</p>
+<details class="tip" open="open">
+<summary>Tip</summary>
+<p>Backpropagation is not a new algorithm; its mathematical foundation is simply an application of the chain rule from calculus. What makes it powerful is the way it systematically decomposes the network’s output error into contributions attributable to each parameter, enabling efficient optimization even in very deep architectures.</p>
+</details>
+<p>When viewed from a higher vantage point, neural networks are universal function approximators: they are capable of representing an astonishing range of input–output relationships with arbitrary precision, given enough capacity and training data. This flexibility explains why they have become foundational tools in natural language processing, computer vision, reinforcement learning, and numerous applied domains.</p>
+<p>Yet it is worth noting that neural networks are not magical black boxes. They are structured mathematical models whose mechanics are accessible and interpretable with the right conceptual framing. Although large-scale neural architectures—such as those used in modern generative AI—contain billions of parameters and require sophisticated training pipelines, the principles underpinning them remain the same as in the small network depicted earlier.</p>
+<p>Understanding those principles is the first step toward leveraging neural networks effectively, whether for academic research, practical engineering, or exploratory curiosity. Mastery begins with grasping these fundamentals, and from there, the possibilities expand dramatically.</p>
 <hr/>
-<h2 id="reduction-to-simple-adapted-processes"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Reduction to simple adapted processes</h2>
-<p>The construction of the Itô integral begins with simple adapted processes of the form in <span class="arithmatex">\(\ref{eq:simple_process}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-H_t
-=
-\sum_{k=0}^{n-1}
-H_k\,\mathbf{1}_{(t_k,t_{k+1}]}(t),
-\label{eq:simple_process}
-\end{equation}
-\]</div>
-<p>where</p>
-<ul>
-<li>partitions are <span class="arithmatex">\(0 = t_0 &lt; t_1 &lt; \dots &lt; t_n = T\)</span>, with <span class="arithmatex">\(n\)</span> the number of partitions.</li>
-<li>each coefficient <span class="arithmatex">\(H_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_k}\)</span>-measurable,</li>
-<li>and <span class="arithmatex">\(\mathbb{E}[H_k^2] &lt; \infty\)</span>.</li>
-</ul>
-<p>For such processes, the Itô integral is <strong>defined</strong> by <span class="arithmatex">\(\ref{eq:ito_integral_definition}\)</span>, as an aggregation by partitions, where the partition in time <span class="arithmatex">\((t_{i+1}-t_i) \to 0\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\int_0^T H_t\,dW_t
-:=
-\sum_{k=0}^{n-1}
-H_k\left(W_{t_{k+1}} - W_{t_k}\right).
-\label{eq:ito_integral_definition}
-\end{equation}
-\]</div>
-<hr/>
-<h2 id="second-moment-of-the-stochastic-integral"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Second moment of the stochastic integral</h2>
-<p>We now compute the second moment of the integral defined in <span class="arithmatex">\(\ref{eq:ito_integral_definition}\)</span>, by introducing the Brownian increments in <span class="arithmatex">\(\ref{eq:brownian_increment}\)</span> below.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\Delta W_k := W_{t_{k+1}} - W_{t_k}.
-\label{eq:brownian_increment}
-\end{equation}
-\]</div>
-<p>Then, considering the continuous integral can be expressed as summatory when the lenght of partitions tend to zero, we have <span class="arithmatex">\(\ref{eq:second_moment_integral}\)</span> below.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)^2
-\right].
-\label{eq:second_moment_integral}
-\end{equation}
-\]</div>
-<p>Thus, the right hand of <span class="arithmatex">\(\ref{eq:second_moment_integral}\)</span> can be also defined as in <span class="arithmatex">\(\ref{eq:second_moment_integral_II}\)</span>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)^2
-\right]
-=
-\mathbb{E}\left[
-\left(
-\sum_{k=0}^{n-1} H_k \Delta W_k
-\right)\times
-\left(
-\sum_{l=0}^{n-1} H_l \Delta W_l
-\right)
-\right].
-\label{eq:second_moment_integral_II}
-\end{equation}
-\]</div>
-<p>Then, we can expand the square, see <span class="arithmatex">\(\ref{eq:square_expansion}\)</span>, taking into consideration the commutative property of multiplication, giving rise to multiply twice when <span class="arithmatex">\(k &lt; l\)</span>. <strong>This allows to account for the double multiplication without need of double processing</strong>.</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-\sum_{k=0}^{n-1} H_k^2 (\Delta W_k)^2
-+
-2 \sum_{k&lt;\ell} H_k H_\ell \Delta W_k \Delta W_\ell
-\right].
-\label{eq:square_expansion}
-\end{equation}
-\]</div>
-<hr/>
-<h3 id="vanishing-of-cross-terms"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Vanishing of cross terms</h3>
-<p>For indices <span class="arithmatex">\(k &lt; \ell\)</span>, the random variable <span class="arithmatex">\(H_k \Delta W_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_{k+1}}\)</span>-measurable, while <span class="arithmatex">\(\Delta W_\ell\)</span> is independent of <span class="arithmatex">\(\mathcal{F}_{t_{k+1}}\)</span> and has zero mean. Therefore,</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-H_k H_\ell \Delta W_k \Delta W_\ell
-\right]
-=
-0.
-\label{eq:cross_terms_vanish}
-\end{equation}
-\]</div>
-<p>All mixed terms vanish, reflecting the <strong>orthogonality</strong> of disjoint Brownian increments.</p>
-<hr/>
-<h2 id="contribution-of-diagonal-terms"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Contribution of diagonal terms</h2>
-<p>Brownian motion has independent increments with variance proportional to time, so</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[(\Delta W_k)^2\right]
-=
-t_{k+1} - t_k.
-\label{eq:increment_variance}
-\end{equation}
-\]</div>
-<p>Since <span class="arithmatex">\(H_k\)</span> is <span class="arithmatex">\(\mathcal{F}_{t_k}\)</span>-measurable and independent of <span class="arithmatex">\(\Delta W_k\)</span>,</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-H_k^2 (\Delta W_k)^2
-\right]
-=
-\mathbb{E}\left[H_k^2\right]
-\left(t_{k+1} - t_k\right).
-\label{eq:diagonal_terms}
-\end{equation}
-\]</div>
-<p>Summing over all intervals gives</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\sum_{k=0}^{n-1}
-\mathbb{E}\left[H_k^2\right]
-\left(t_{k+1} - t_k\right).
-\label{eq:sum_representation}
-\end{equation}
-\]</div>
-<hr/>
-<h2 id="identification-with-a-time-integral"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Identification with a time integral</h2>
-<p>The right-hand side can be written as</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[
-\int_0^T H_t^2\,dt
-\right],
-\label{eq:time_integral_representation}
-\end{equation}
-\]</div>
-<p>which follows directly from the definition of <span class="arithmatex">\(H_t\)</span> as a simple process. Thus, for simple adapted processes,</p>
-<div class="arithmatex">\[
-\begin{equation}
-\mathbb{E}\left[\left(\int_0^T H_t\,dW_t\right)^2\right]
-=
-\mathbb{E}\left[\int_0^T H_t^2\,dt\right].
-\label{eq:ito_isometry_simple}
-\end{equation}
-\]</div>
-<hr/>
-<h2 id="extension-to-general-integrands"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Extension to general integrands</h2>
-<p>Simple adapted processes are dense in <span class="arithmatex">\(L^2(\Omega \times [0,T])\)</span>.  The Itô integral is extended to all processes satisfying <span class="arithmatex">\(\eqref{eq:square_integrability_condition}\)</span> by continuity.</p>
-<p>Since the identity holds for a dense subclass and both sides are continuous in <span class="arithmatex">\(L^2\)</span>, it extends uniquely to all admissible integrands, yielding Itô’s isometry <span class="arithmatex">\(\eqref{eq:ito_isometry}\)</span>.</p>
-<hr/>
-<h2 id="interpretation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Interpretation</h2>
-<p>Itô’s isometry shows that the stochastic integral preserves <span class="arithmatex">\(L^2\)</span>-norms in expectation.<br/>
-Brownian motion plays the role of an orthogonal noise source, transforming time into variance and enabling stochastic calculus to mirror Hilbert-space geometry.</p>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -1294,7 +1043,7 @@ Brownian motion plays the role of an orthogonal noise source, transforming time 
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
 <form class="md-consent__form md-grid md-typeset" name="consent">
-<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.0.1</span> Cookie consent</h4>
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1.0.1</span> Cookie consent</h4>
 <p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
 <input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">
@@ -1317,10 +1066,10 @@ Brownian motion plays the role of an orthogonal noise source, transforming time 
 </aside>
 </div>
 <script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
-<script id="__config" type="application/json">{"annotate": null, "base": "../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
-<script src="../../../assets/javascripts/bundle.79ae519e.min.js"></script>
-<script src="../../../javascripts/consent-mode.js"></script>
-<script src="../../../javascripts/mathjax.js"></script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../../javascripts/consent-mode.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
 <script src="https://tikzjax.com/v1/tikzjax.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
 <script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>

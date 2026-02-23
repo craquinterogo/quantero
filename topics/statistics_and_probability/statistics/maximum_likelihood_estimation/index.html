@@ -489,8 +489,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -500,6 +502,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../portfolio_management">
@@ -1119,15 +1203,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -1653,15 +1728,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </div>
@@ -1670,7 +1736,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="maximum-likelihood-estimation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Maximum Likelihood Estimation</h1>
-<p>Maximum Likelihood Estimation (MLE) is a fundamental statistical method for estimating the parameters of a probability distribution or statistical model. Introduced by Ronald Fisher in the 1920s, MLE provides a principled and widely applicable framework for parameter estimation with desirable theoretical properties.</p>
+<p>Maximum Likelihood Estimation (MLE) <sup id="fnref:casella2002"><a class="footnote-ref" href="#fn:casella2002">1</a></sup><sup id="fnref:wasserman2004"><a class="footnote-ref" href="#fn:wasserman2004">2</a></sup> is a fundamental statistical method for estimating the parameters of a probability distribution or statistical model. Introduced by Ronald Fisher in the 1920s, MLE provides a principled and widely applicable framework for parameter estimation with desirable theoretical properties.</p>
 <p>The core principle is elegant: <strong>choose parameter values that make the observed data most probable</strong>.</p>
 <hr/>
 <h2 id="the-likelihood-function"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Likelihood Function</h2>
@@ -2124,17 +2190,19 @@ S = \frac{\left[\frac{\partial \ell(\theta_0)}{\partial \theta}\right]^2}{I(\the
 </li>
 </ol>
 <hr/>
-<h2 id="references"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13</span> References</h2>
-<p><strong>Casella, G., &amp; Berger, R. L.</strong> (2002). <a href="https://www.cengage.com/c/statistical-inference-2e-casella/9780534243128/" target="_blank"><em>Statistical Inference</em></a> (2nd ed.). Duxbury Press.</p>
-<ul>
-<li><strong>Chapter 7</strong> - Point Estimation (includes MLE theory and examples)</li>
-</ul>
-<p><strong>Wasserman, L.</strong> (2004). <a href="https://doi.org/10.1007/978-0-387-21736-9" target="_blank"><em>All of Statistics: A Concise Course in Statistical Inference</em></a>. Springer.</p>
-<ul>
-<li><strong>Chapter 9</strong> - Parametric Inference (MLE properties and asymptotic theory)</li>
-</ul>
 <hr/>
 <p><em>Building confidence through rigorous validation</em></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:casella2002">
+<p>George Casella and Roger L. Berger. <em>Statistical Inference</em>. Duxbury Press, 2nd edition, 2002. URL: <a href="https://www.cengage.com/c/statistical-inference-2e-casella/9780534243128/">https://www.cengage.com/c/statistical-inference-2e-casella/9780534243128/</a>. <a class="footnote-backref" href="#fnref:casella2002" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:wasserman2004">
+<p>Larry Wasserman. <em>All of Statistics: A Concise Course in Statistical Inference</em>. Springer, 2004. <a href="https://doi.org/10.1007/978-0-387-21736-9">doi:10.1007/978-0-387-21736-9</a>. <a class="footnote-backref" href="#fnref:wasserman2004" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+</ol>
+</div>
 </article>
 </div>
 <script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
@@ -2174,7 +2242,7 @@ S = \frac{\left[\frac{\partial \ell(\theta_0)}{\partial \theta}\right]^2}{I(\the
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
 <form class="md-consent__form md-grid md-typeset" name="consent">
-<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.13.0.1</span> Cookie consent</h4>
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.12.0.1</span> Cookie consent</h4>
 <p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
 <input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">

@@ -607,8 +607,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -618,6 +620,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../../../portfolio_management">
@@ -1037,7 +1121,7 @@
 <p>We're looking for the price at time <span class="arithmatex">\(t\)</span> of a zero-coupon bond maturing at time <span class="arithmatex">\(T\)</span>, denoted <span class="arithmatex">\(P(t, T)\)</span>. Under the risk-neutral pricing framework, this is given by:</p>
 <div class="arithmatex">\[
 \begin{equation}
-P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right],
+P(t, T) = \mathbb{E}^{\mathbb{Q}}\left[\exp\left(-\int_t^T r(s)ds\right) \bigg| \mathcal{F}_t\right]
 \label{eq:bond_price_expectation}
 \end{equation}
 \]</div>
@@ -1114,7 +1198,7 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 <p>Under the risk-neutral measure, the bond price must satisfy the <strong>fundamental pricing equation</strong>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial P}{\partial t} + a(b - r)\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0.
+\frac{\partial P}{\partial t} + a(b - r)\frac{\partial P}{\partial r} + \frac{1}{2}\sigma^2\frac{\partial^2 P}{\partial r^2} - rP = 0
 \label{eq:pricing_pde}
 \end{equation}
 \]</div>
@@ -1156,9 +1240,9 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 <div class="arithmatex">\[
 \begin{equation}
 \begin{aligned}
-\frac{\partial P}{\partial t} &amp;= \left(\frac{\partial A}{\partial t} - A r \frac{\partial B}{\partial t}\right) e^{-B r} =\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P, \\
-\frac{\partial P}{\partial r} &amp;= -B A e^{-B r} = -BP, \\
-\frac{\partial^2 P}{\partial r^2} &amp;= B^2 A e^{-B r} = B^2P.
+\frac{\partial P}{\partial t} &amp;= \left(\frac{\partial A}{\partial t} - A r \frac{\partial B}{\partial t}\right) e^{-B r} =\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P \\
+\frac{\partial P}{\partial r} &amp;= -B A e^{-B r} = -BP \\
+\frac{\partial^2 P}{\partial r^2} &amp;= B^2 A e^{-B r} = B^2P
 \end{aligned}
 \label{eq:partial_derivatives}
 \end{equation}
@@ -1166,14 +1250,14 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 <p>Then we can substitute the derivatives of affine anzats model, in order to start shaping the equations that help us to solve both <span class="arithmatex">\(A(t,T)\)</span> and <span class="arithmatex">\(B(t,T)\)</span>. Plugging <span class="arithmatex">\(\ref{eq:partial_derivatives}\)</span> into equation <span class="arithmatex">\(\ref{eq:pricing_pde}\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P - a(b - r)BP + \frac{1}{2}\sigma^2 B^2P - rP = 0.
+\left(\frac{1}{A}\frac{\partial A}{\partial t} - r\frac{\partial B}{\partial t}\right)P - a(b - r)BP + \frac{1}{2}\sigma^2 B^2P - rP = 0
 \label{eq:pde_substituted}
 \end{equation}
 \]</div>
 <p>As all the terms are multiplied by P we can divide by <span class="arithmatex">\(P\)</span> and rearrange the terms by powers of <span class="arithmatex">\(r\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial \ln A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - abB + r\left(aB - \frac{\partial B}{\partial t} - 1\right) = 0.
+\frac{\partial \ln A}{\partial t} + \frac{1}{2}\sigma^2 B^2 - abB + r\left(aB - \frac{\partial B}{\partial t} - 1\right) = 0
 \label{eq:pde_rearranged}
 \end{equation}
 \]</div>
@@ -1206,14 +1290,14 @@ P(T, T) = 1 \quad \Rightarrow \quad A(T, T) = 1, \quad B(T, T) = 0.
 <p>The coefficient multiplying the term <span class="arithmatex">\(r\)</span> gives us the following, with boundary condition <span class="arithmatex">\(B(T, T) = 0\)</span>.</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial B}{\partial t} - aB + 1 = 0,
+\frac{\partial B}{\partial t} - aB + 1 = 0
 \label{eq:B_ode}
 \end{equation}
 \]</div>
 <p>This is a first-order linear ODE. The general solution is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-B(t, T) = \frac{1 - e^{-a(T-t)}}{a}.
+B(t, T) = \frac{1 - e^{-a(T-t)}}{a}
 \label{eq:B_solution}
 \end{equation}
 \]</div>
@@ -1267,21 +1351,21 @@ B(t,T) = -\frac{e^{-aT}}{ae^{-at}} + \frac{1}{a} = \frac{1 - e^{-a(T-t)}}{a}
 <p>The constant term gives us the following, with boundary condition <span class="arithmatex">\(A(T, T) = 1\)</span>.</p>
 <div class="arithmatex">\[
 \begin{equation}
-\frac{\partial \ln A}{\partial t} - abB(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0,
+\frac{\partial \ln A}{\partial t} - abB(t, T) + \frac{1}{2}\sigma^2 B(t, T)^2 = 0
 \label{eq:A_ode}
 \end{equation}
 \]</div>
 <p>Integrating from <span class="arithmatex">\(t\)</span> to <span class="arithmatex">\(T\)</span>:</p>
 <div class="arithmatex">\[
 \begin{equation}
-\ln A(t, T) = -\int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du.
+\ln A(t, T) = -\int_t^T \left(abB(u, T) - \frac{1}{2}\sigma^2 B(u, T)^2\right)du
 \label{eq:ln_A_integral}
 \end{equation}
 \]</div>
 <p>After computing these integrals (which involves some algebra with the exponential form of <span class="arithmatex">\(B\)</span>), we get:</p>
 <div class="arithmatex">\[
 \begin{equation}
-A(t, T) = \exp\left(-\left(b - \frac{\sigma^2}{2a^2}\right)((T-t)+B(t, T)) + \frac{\sigma^2 B(t, T)^2}{4a}\right).
+A(t, T) = \exp\left(-\left(b - \frac{\sigma^2}{2a^2}\right)((T-t)+B(t, T)) + \frac{\sigma^2 B(t, T)^2}{4a}\right)
 \label{eq:A_solution}
 \end{equation}
 \]</div>
@@ -1406,7 +1490,7 @@ A(t, T) = \exp\left( -\left(b - \frac{\sigma^2}{2a^2}\right)\left[(T-t) + B(t,T)
 <p>Putting everything together, the zero-coupon bond price under the Vasicek model is:</p>
 <div class="arithmatex">\[
 \begin{equation}
-P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right),
+P(t, T) = A(t, T)\exp\left(-B(t, T)r(t)\right)
 \label{eq:vasicek_bond_complete}
 \end{equation}
 \]</div>
@@ -1429,7 +1513,7 @@ A(t, T) = \exp\left(-\left(b - \frac{\sigma^2}{2a^2}\right)((T-t)+B(t, T)) + \fr
 <p>The continuously compounded yield <span class="arithmatex">\(y(t, T)\)</span> is defined as:</p>
 <div class="arithmatex">\[
 \begin{equation}
-y(t, T) = -\frac{\ln P(t, T)}{T - t}.
+y(t, T) = -\frac{\ln P(t, T)}{T - t}
 \label{eq:yield_definition}
 \end{equation}
 \]</div>
@@ -1446,14 +1530,14 @@ y(t, T) = -\frac{\ln A(t, T)-B(t, T)r(t)}{T - t}
 <p>The instantaneous forward rate <span class="arithmatex">\(f(t, T)\)</span> is given by:</p>
 <div class="arithmatex">\[
 \begin{equation}
-f(t, T) = -\frac{\partial \ln P(t, T)}{\partial T}.
+f(t, T) = -\frac{\partial \ln P(t, T)}{\partial T}
 \label{eq:forward_rate_definition}
 \end{equation}
 \]</div>
 <p>Computing this derivative:</p>
 <div class="arithmatex">\[
 \begin{equation}
-f(t, T) = -\frac{\partial \ln A(t, T)}{\partial T} + r(t)\frac{\partial B(t, T)}{\partial T}.
+f(t, T) = -\frac{\partial \ln A(t, T)}{\partial T} + r(t)\frac{\partial B(t, T)}{\partial T}
 \label{eq:forward_rate_vasicek}
 \end{equation}
 \]</div>

@@ -489,8 +489,10 @@
   </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="../../../artificial_intelligence">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/">
 <span class="md-ellipsis">
     
   
@@ -500,6 +502,88 @@
     
   </span>
 </a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Network
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../backpropagation_methodology.md">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../reinforcement_learning">
+<span class="md-ellipsis">
+    
+  
+    Reinforcement Learning
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
 </li>
 <li class="md-nav__item">
 <a class="md-nav__link" href="../../../portfolio_management">
@@ -926,15 +1010,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </li>
@@ -1129,15 +1204,6 @@
     </span>
 </a>
 </li>
-<li class="md-nav__item">
-<a class="md-nav__link" href="#references">
-<span class="md-ellipsis">
-      
-        References
-      
-    </span>
-</a>
-</li>
 </ul>
 </nav>
 </div>
@@ -1146,7 +1212,7 @@
 <div class="md-content" data-md-component="content">
 <article class="md-content__inner md-typeset">
 <h1 id="ito-integrals-with-respect-to-brownian-motion"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Itô Integrals with Respect to Brownian Motion</h1>
-<p>Stochastic integrals with respect to Brownian motion are fundamental objects in stochastic calculus, enabling the rigorous treatment of stochastic differential equations and random processes in continuous time. Unlike ordinary calculus, where integration is performed with respect to smooth functions, stochastic integration involves integrating with respect to <strong>Brownian motion</strong>, a process with infinite variation (but finite quadratic variation) and nowhere-differentiable paths.</p>
+<p>Stochastic integrals with respect to Brownian motion <sup id="fnref:oksendal2013"><a class="footnote-ref" href="#fn:oksendal2013">3</a></sup><sup id="fnref:karatzas1991"><a class="footnote-ref" href="#fn:karatzas1991">4</a></sup> are fundamental objects in stochastic calculus, enabling the rigorous treatment of stochastic differential equations and random processes in continuous time. Unlike ordinary calculus, where integration is performed with respect to smooth functions, stochastic integration involves integrating with respect to <strong>Brownian motion</strong>, a process with infinite variation (but finite quadratic variation) and nowhere-differentiable paths.</p>
 <p>Again as any other posts, this one is for recalling the step-by-step process to deal with Itô integrals.</p>
 <hr/>
 <h2 id="the-ito-integral-construction-and-definition"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Itô Integral: Construction and Definition</h2>
@@ -1467,15 +1533,6 @@ e^{at_i} \times 0 = 0
 </li>
 </ul>
 <hr/>
-<h2 id="references"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> References</h2>
-<p><strong>Øksendal, B.</strong> (2013). <a href="https://link.springer.com/book/10.1007/978-3-642-14394-6" target="_blank"><em>Stochastic Differential Equations: An Introduction with Applications</em></a> (6th ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 3</strong> - Itô Integrals and the Martingale Property</li>
-</ul>
-<p><strong>Karatzas, I., &amp; Shreve, S. E.</strong> (1991). <em>Brownian Motion and Stochastic Calculus</em> (2nd ed.). Springer.</p>
-<ul>
-<li><strong>Chapter 3</strong> - Stochastic Integration</li>
-</ul>
 <div class="footnote">
 <hr/>
 <ol>
@@ -1484,6 +1541,12 @@ e^{at_i} \times 0 = 0
 </li>
 <li id="fn:2">
 <p>See <a href="../brownian_motion/" target="_blank">Brownian Motion</a>, section associated with Brownian differences properties. <a class="footnote-backref" href="#fnref:2" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:oksendal2013">
+<p>Bernt Øksendal. <em>Stochastic Differential Equations: An Introduction with Applications</em>. Springer, 6th edition, 2013. URL: <a href="https://link.springer.com/book/10.1007/978-3-642-14394-6">https://link.springer.com/book/10.1007/978-3-642-14394-6</a>. <a class="footnote-backref" href="#fnref:oksendal2013" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:karatzas1991">
+<p>Ioannis Karatzas and Steven E. Shreve. <em>Brownian Motion and Stochastic Calculus</em>. Springer, 2nd edition, 1991. <a class="footnote-backref" href="#fnref:karatzas1991" title="Jump back to footnote 4 in the text">↩</a></p>
 </li>
 </ol>
 </div>
@@ -1526,7 +1589,7 @@ e^{at_i} \times 0 = 0
 <div class="md-consent__overlay"></div>
 <aside class="md-consent__inner">
 <form class="md-consent__form md-grid md-typeset" name="consent">
-<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.0.1</span> Cookie consent</h4>
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.0.1</span> Cookie consent</h4>
 <p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
 <input class="md-toggle" id="__settings" type="checkbox"/>
 <div class="md-consent__settings">

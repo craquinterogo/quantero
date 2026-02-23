@@ -2,118 +2,130 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://quantero.kruk-ai.com/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/private-content/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
+    </url>
+    <url>
+         <loc>https://quantero.kruk-ai.com/topics/artificial_intelligence/</loc>
+         <lastmod>2026-02-23</lastmod>
+    </url>
+    <url>
+         <loc>https://quantero.kruk-ai.com/topics/artificial_intelligence/deep_learning/</loc>
+         <lastmod>2026-02-23</lastmod>
+    </url>
+    <url>
+         <loc>https://quantero.kruk-ai.com/topics/artificial_intelligence/deep_learning/neural_network/</loc>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/model_validation/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/cir_model/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/heath_jarrow_morton_framework/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/hull_white_model/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/vasicek_model/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/hull_white/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/pricing/interest_rates/bond_affine_ansatz_models/vasicek/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/risk_management/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/expected_value/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/filtration/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/gaussian_integral/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/jensen_inequality/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/momentum_generating_functions/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/probability/tower_property/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/statistics/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/statistics_and_probability/statistics/maximum_likelihood_estimation/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/brownian_integral/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/brownian_motion/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/ito_product_rule/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/itos_isometry/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
     <url>
          <loc>https://quantero.kruk-ai.com/topics/stochastic_calculus/quadratic_variation/</loc>
-         <lastmod>2026-02-19</lastmod>
+         <lastmod>2026-02-23</lastmod>
     </url>
 </urlset>
