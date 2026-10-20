@@ -170,3 +170,16 @@
    CUSTOM STYLES
    Add any additional custom styles below this section
    ================================================================================ */
+
+.md-header__button.quantero-language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+}
+
+.quantero-language-selector__label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
