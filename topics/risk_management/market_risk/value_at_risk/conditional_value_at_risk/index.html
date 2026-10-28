@@ -1,0 +1,2525 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="en">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
+<link href="https://quantero.kruk-ai.com/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" rel="canonical"/>
+<link href="../value_at_risk/" rel="prev"/>
+<link href="../../../../model_validation/" rel="next"/>
+<link href="./" hreflang="en" rel="alternate"/>
+<link href="../../../../../es/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="es" rel="alternate"/>
+<link href="../../../../../pl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="pl" rel="alternate"/>
+<link href="../../../../../nl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="nl" rel="alternate"/>
+<link href="../../../../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Conditional Value at Risk - Quȧntero</title>
+<link href="../../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-RSMTNXK402"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-RSMTNXK402",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-RSMTNXK402",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+<!-- Open Graph / Social Media Preview -->
+<meta content="website" property="og:type"/>
+<meta content="Conditional Value at Risk" property="og:title"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
+<meta content="https://quantero.kruk-ai.com/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#conditional-value-at-risk">
+          Skip to content
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../../../.." title="Quȧntero">
+<img alt="logo" src="../../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Quȧntero
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Conditional Value at Risk
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Select language" class="md-header__button md-icon quantero-language-selector">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+<span aria-hidden="true" class="quantero-language-selector__label">
+        EN / ES / PL / NL
+      </span>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="en" lang="en">
+              English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../es/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="es" lang="es">
+              Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../pl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="pl" lang="pl">
+              Polski
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../nl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="nl" lang="nl">
+              Nederlands
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Search" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Search" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Search" class="md-search__options">
+<button aria-label="Clear" class="md-search__icon md-icon" tabindex="-1" title="Clear" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Initializing search
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../..">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../../finance/">
+          
+  
+  
+    
+  
+  Quantitative Finance
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../foundations/">
+          
+  
+  
+    
+  
+  Mathematical Foundations
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../computing/">
+          
+  
+  
+    
+  
+  AI &amp; Computing
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../economics/">
+          
+  
+  
+    
+  
+  Economics
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../">
+        
+  
+  
+    
+  
+  Browse all topics
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigation" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../../../.." title="Quȧntero">
+<img alt="logo" src="../../../../../assets/logo.png"/>
+</a>
+    Quȧntero
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../..">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Quantitative Finance
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../finance/">
+<span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/">
+<span class="md-ellipsis">
+    
+  
+    Pricing Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Pricing Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Interest Rate Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/vasicek_model/">
+<span class="md-ellipsis">
+    
+  
+    The Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/cir_model/">
+<span class="md-ellipsis">
+    
+  
+    The Cox-Ingersoll-Ross (CIR) Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/hull_white_model/">
+<span class="md-ellipsis">
+    
+  
+    The Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/">
+<span class="md-ellipsis">
+    
+  
+    Bond Affine Ansatz Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Bond Affine Ansatz Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/">
+<span class="md-ellipsis">
+    
+  
+    Options
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Options
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/black_scholes_equation/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/">
+<span class="md-ellipsis">
+    
+  
+    Volatility Surface Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3" id="__nav_2_2_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Volatility Surface Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Constant Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_2" id="__nav_2_2_3_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Constant Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/black_scholes_surface/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes and the Flat Volatility Surface
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Local Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_3" id="__nav_2_2_3_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_3_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Local Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/dupire_model/">
+<span class="md-ellipsis">
+    
+  
+    Dupire Local Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Stochastic Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_4" id="__nav_2_2_3_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/heston_model/">
+<span class="md-ellipsis">
+    
+  
+    Heston Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/sabr_model/">
+<span class="md-ellipsis">
+    
+  
+    SABR Stochastic Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../">
+<span class="md-ellipsis">
+    
+  
+    Risk Management
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Risk Management
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Market Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Market Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Value at Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Conditional Value at Risk
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Conditional Value at Risk
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mathematical-foundation-and-definition">
+<span class="md-ellipsis">
+      
+        Mathematical Foundation and Definition
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coherence-and-superior-theoretical-properties">
+<span class="md-ellipsis">
+      
+        Coherence and Superior Theoretical Properties
+      
+    </span>
+</a>
+<nav aria-label="Coherence and Superior Theoretical Properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-coherent-risk-measure-framework">
+<span class="md-ellipsis">
+      
+        The Coherent Risk Measure Framework
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convexity-and-optimization-applications">
+<span class="md-ellipsis">
+      
+        Convexity and Optimization Applications
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#calculation-methodologies">
+<span class="md-ellipsis">
+      
+        Calculation Methodologies
+      
+    </span>
+</a>
+<nav aria-label="Calculation Methodologies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#historical-cvar-estimation">
+<span class="md-ellipsis">
+      
+        Historical CVaR Estimation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parametric-cvar-under-normality">
+<span class="md-ellipsis">
+      
+        Parametric CVaR Under Normality
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monte-carlo-cvar-estimation">
+<span class="md-ellipsis">
+      
+        Monte Carlo CVaR Estimation
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tail-risk-contributions-and-decomposition">
+<span class="md-ellipsis">
+      
+        Tail Risk Contributions and Decomposition
+      
+    </span>
+</a>
+<nav aria-label="Tail Risk Contributions and Decomposition" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#component-cvar-analysis">
+<span class="md-ellipsis">
+      
+        Component CVaR Analysis
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marginal-cvar-and-incremental-risk">
+<span class="md-ellipsis">
+      
+        Marginal CVaR and Incremental Risk
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regulatory-adoption-and-the-fundamental-review-of-the-trading-book">
+<span class="md-ellipsis">
+      
+        Regulatory Adoption and the Fundamental Review of the Trading Book
+      
+    </span>
+</a>
+<nav aria-label="Regulatory Adoption and the Fundamental Review of the Trading Book" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migration-from-var-to-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Migration from VaR to Expected Shortfall
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backtesting-challenges-for-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Backtesting Challenges for Expected Shortfall
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practical-applications-beyond-regulatory-compliance">
+<span class="md-ellipsis">
+      
+        Practical Applications Beyond Regulatory Compliance
+      
+    </span>
+</a>
+<nav aria-label="Practical Applications Beyond Regulatory Compliance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portfolio-optimization-with-cvar-constraints">
+<span class="md-ellipsis">
+      
+        Portfolio Optimization with CVaR Constraints
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hedging-and-tail-risk-management">
+<span class="md-ellipsis">
+      
+        Hedging and Tail Risk Management
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion-cvars-role-in-modern-risk-management">
+<span class="md-ellipsis">
+      
+        Conclusion: CVaR's Role in Modern Risk Management
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../model_validation/">
+<span class="md-ellipsis">
+    
+  
+    Model Validation
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Model Validation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/">
+<span class="md-ellipsis">
+    
+  
+    Algorithmic Trading
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmic Trading
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/">
+<span class="md-ellipsis">
+    
+  
+    Exotic Charts
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Exotic Charts
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/point_and_figure/">
+<span class="md-ellipsis">
+    
+  
+    Point and Figure
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Mathematical Foundations
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Mathematical Foundations
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../foundations/">
+<span class="md-ellipsis">
+    
+  
+    Mathematical Foundations
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/">
+<span class="md-ellipsis">
+    
+  
+    Statistics and Probability
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics and Probability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/">
+<span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/expected_value/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Expected Value
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/filtration/">
+<span class="md-ellipsis">
+    
+  
+    Filtration: Information Over Time
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/tower_property/">
+<span class="md-ellipsis">
+    
+  
+    Tower Property of Conditional Expectation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/gaussian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Derivation of the Gaussian Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/jensen_inequality/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Jensen Inequality
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/momentum_generating_functions/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Moment Generating Functions
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/">
+<span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<span class="md-ellipsis">
+    
+  
+    Maximum Likelihood Estimation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../stochastic_calculus/">
+<span class="md-ellipsis">
+    
+  
+    Stochastic calculus
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic calculus
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_motion/">
+<span class="md-ellipsis">
+    
+  
+    Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/quadratic_variation/">
+<span class="md-ellipsis">
+    
+  
+    Variation and Quadratic Variation of Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Itô Integrals with Respect to Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/ito_product_rule/">
+<span class="md-ellipsis">
+    
+  
+    Itô's Product Rule
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/itos_isometry/">
+<span class="md-ellipsis">
+    
+  
+    Itô’s Isometry: an attempt for derivation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    AI &amp; Computing
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    AI &amp; Computing
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computing/">
+<span class="md-ellipsis">
+    
+  
+    AI &amp; Computing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/">
+<span class="md-ellipsis">
+    
+  
+    Artificial Intelligence
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Artificial Intelligence
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/supervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Supervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/unsupervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Unsupervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unsupervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Networks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/backpropagation_methodology/">
+<span class="md-ellipsis">
+    
+  
+    Backpropagation Methodology
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/">
+<span class="md-ellipsis">
+    
+  
+    Computer Science
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Computer Science
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/">
+<span class="md-ellipsis">
+    
+  
+    Algorithmic Design
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmic Design
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/">
+<span class="md-ellipsis">
+    
+  
+    Searching in Data Structures
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Searching in Data Structures
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/linear_search/">
+<span class="md-ellipsis">
+    
+  
+    Linear Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/binary_search/">
+<span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/">
+<span class="md-ellipsis">
+    
+  
+    Sorting Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_3" id="__nav_4_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sorting Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/merge_sort/">
+<span class="md-ellipsis">
+    
+  
+    Merge Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/quick_sort/">
+<span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/heap_sort/">
+<span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/">
+<span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_4" id="__nav_4_3_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Graph Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/bfs/">
+<span class="md-ellipsis">
+    
+  
+    Breadth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/dfs/">
+<span class="md-ellipsis">
+    
+  
+    Depth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/dijkstra/">
+<span class="md-ellipsis">
+    
+  
+    Dijkstra's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/kruskal/">
+<span class="md-ellipsis">
+    
+  
+    Kruskal's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/prim/">
+<span class="md-ellipsis">
+    
+  
+    Prim's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/">
+<span class="md-ellipsis">
+    
+  
+    Optimisation
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_5" id="__nav_4_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Optimisation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/interval_scheduling/">
+<span class="md-ellipsis">
+    
+  
+    Interval Scheduling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/knapsack/">
+<span class="md-ellipsis">
+    
+  
+    0/1 Knapsack
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/">
+<span class="md-ellipsis">
+    
+  
+    State-Space Search
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_6" id="__nav_4_3_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    State-Space Search
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/uniform_cost_search/">
+<span class="md-ellipsis">
+    
+  
+    Uniform-Cost Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/best_first_search/">
+<span class="md-ellipsis">
+    
+  
+    Best-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/a_star_search/">
+<span class="md-ellipsis">
+    
+  
+    A* Search Method
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/iterative_deepening/">
+<span class="md-ellipsis">
+    
+  
+    Iterative Deepening Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/">
+<span class="md-ellipsis">
+    
+  
+    Economics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Economics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/">
+<span class="md-ellipsis">
+    
+  
+    Macroeconomics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Macroeconomics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/interest_rate_parity/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Parity
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../">
+<span class="md-ellipsis">
+    
+  
+    Browse all topics
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Table of contents" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#mathematical-foundation-and-definition">
+<span class="md-ellipsis">
+      
+        Mathematical Foundation and Definition
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coherence-and-superior-theoretical-properties">
+<span class="md-ellipsis">
+      
+        Coherence and Superior Theoretical Properties
+      
+    </span>
+</a>
+<nav aria-label="Coherence and Superior Theoretical Properties" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-coherent-risk-measure-framework">
+<span class="md-ellipsis">
+      
+        The Coherent Risk Measure Framework
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convexity-and-optimization-applications">
+<span class="md-ellipsis">
+      
+        Convexity and Optimization Applications
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#calculation-methodologies">
+<span class="md-ellipsis">
+      
+        Calculation Methodologies
+      
+    </span>
+</a>
+<nav aria-label="Calculation Methodologies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#historical-cvar-estimation">
+<span class="md-ellipsis">
+      
+        Historical CVaR Estimation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parametric-cvar-under-normality">
+<span class="md-ellipsis">
+      
+        Parametric CVaR Under Normality
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monte-carlo-cvar-estimation">
+<span class="md-ellipsis">
+      
+        Monte Carlo CVaR Estimation
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#tail-risk-contributions-and-decomposition">
+<span class="md-ellipsis">
+      
+        Tail Risk Contributions and Decomposition
+      
+    </span>
+</a>
+<nav aria-label="Tail Risk Contributions and Decomposition" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#component-cvar-analysis">
+<span class="md-ellipsis">
+      
+        Component CVaR Analysis
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marginal-cvar-and-incremental-risk">
+<span class="md-ellipsis">
+      
+        Marginal CVaR and Incremental Risk
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regulatory-adoption-and-the-fundamental-review-of-the-trading-book">
+<span class="md-ellipsis">
+      
+        Regulatory Adoption and the Fundamental Review of the Trading Book
+      
+    </span>
+</a>
+<nav aria-label="Regulatory Adoption and the Fundamental Review of the Trading Book" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#migration-from-var-to-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Migration from VaR to Expected Shortfall
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backtesting-challenges-for-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Backtesting Challenges for Expected Shortfall
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practical-applications-beyond-regulatory-compliance">
+<span class="md-ellipsis">
+      
+        Practical Applications Beyond Regulatory Compliance
+      
+    </span>
+</a>
+<nav aria-label="Practical Applications Beyond Regulatory Compliance" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portfolio-optimization-with-cvar-constraints">
+<span class="md-ellipsis">
+      
+        Portfolio Optimization with CVaR Constraints
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hedging-and-tail-risk-management">
+<span class="md-ellipsis">
+      
+        Hedging and Tail Risk Management
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusion-cvars-role-in-modern-risk-management">
+<span class="md-ellipsis">
+      
+        Conclusion: CVaR's Role in Modern Risk Management
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<nav aria-label="Navigation" class="md-path">
+<ol class="md-path__list">
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../..">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../finance/">
+<span class="md-ellipsis">
+    Quantitative Finance
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../">
+<span class="md-ellipsis">
+    Risk Management
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../">
+<span class="md-ellipsis">
+    Market Risk
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../">
+<span class="md-ellipsis">
+    Value at Risk
+  </span>
+</a>
+</li>
+</ol>
+</nav>
+<article class="md-content__inner md-typeset">
+<h1 id="conditional-value-at-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Conditional Value at Risk</h1>
+<p>Conditional Value at Risk emerged as a response to the fundamental limitation of Value at Risk: its silence regarding the magnitude of losses beyond the VaR threshold <sup id="fnref:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. While VaR identifies a critical threshold that losses should not exceed with specified probability, it provides no information about how severe losses might be when that threshold is breached. During the 2008 financial crisis, institutions holding portfolios with seemingly modest VaR discovered that tail losses far exceeded expectations, as their risk measures failed to capture the severity dimension of extreme events. Conditional Value at Risk, also known as Expected Shortfall or Average Value at Risk, directly addresses this deficiency by measuring the average loss conditional on exceeding the VaR level.</p>
+<h2 id="mathematical-foundation-and-definition"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Mathematical Foundation and Definition</h2>
+<details class="info" open="open">
+<summary>Conditional Value at Risk Definition</summary>
+<p>Conditional Value at Risk at confidence level <span class="arithmatex">\((1-\alpha)\)</span> represents the expected loss given that the loss exceeds the Value at Risk threshold. For a loss random variable <span class="arithmatex">\(L\)</span> with probability density function <span class="arithmatex">\(f(l)\)</span>, CVaR is defined as:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \mathbb{E}[L \mid L &gt; \text{VaR}_\alpha] = \frac{1}{\alpha}\int_{\text{VaR}_\alpha}^{\infty} l \cdot f(l) \, dl
+\label{eq:cvar_definition}
+\end{aligned}\]</div>
+<p>This conditional expectation captures the average severity of losses in the <span class="arithmatex">\(\alpha\)</span> tail of the distribution, providing information that VaR alone cannot deliver.</p>
+</details>
+<p>The mathematical structure in equation \eqref{eq:cvar_definition} reveals CVaR as the mean of the tail distribution beyond the VaR cutoff, weighted by the tail probability <span class="arithmatex">\(\alpha\)</span>. For continuous loss distributions, CVaR always exceeds or equals VaR, with the gap between them indicating tail thickness. Distributions with heavy tails exhibit substantially larger CVaR relative to VaR, as the tail contains not just marginally worse outcomes but genuinely catastrophic scenarios. Consider a portfolio with 95% VaR of $10 million: if CVaR equals $12 million, the distribution has relatively thin tails, but if CVaR reaches $25 million, the tail carries concentrated risk demanding attention beyond what VaR alone reveals <sup id="fnref:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>.</p>
+<p>Alternative formulations express CVaR in terms that facilitate computation and theoretical analysis. One particularly useful representation avoids explicit conditioning:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \text{VaR}_\alpha + \frac{1}{\alpha}\mathbb{E}[\max(L - \text{VaR}_\alpha, 0)]
+\label{eq:cvar_alternative}
+\end{aligned}\]</div>
+<p>Equation \eqref{eq:cvar_alternative} decomposes CVaR into the VaR threshold plus the expected excess loss beyond that threshold, scaled by the tail probability. This formulation proves convenient for optimization applications, as it expresses CVaR through expectations rather than conditional quantities. The representation also clarifies that CVaR incorporates all VaR's information while adding tail magnitude data, making CVaR a strictly more informative risk measure.</p>
+<h2 id="coherence-and-superior-theoretical-properties"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Coherence and Superior Theoretical Properties</h2>
+<h3 id="the-coherent-risk-measure-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> The Coherent Risk Measure Framework</h3>
+<p>Artzner, Delbaen, Eber, and Heath established the axiomatic framework for coherent risk measures, identifying four properties that any sound risk metric should satisfy <sup id="fnref2:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. A risk measure <span class="arithmatex">\(\rho\)</span> qualifies as coherent if it satisfies:</p>
+<p><strong>Monotonicity</strong>: If portfolio <span class="arithmatex">\(X\)</span> always generates losses less than or equal to portfolio <span class="arithmatex">\(Y\)</span>, then <span class="arithmatex">\(\rho(X) \leq \rho(Y)\)</span>. This seemingly obvious property ensures that risk measures correctly order portfolios by their danger.</p>
+<p><strong>Translation Invariance</strong>: Adding a risk-free asset reduces measured risk by exactly the added amount: <span class="arithmatex">\(\rho(X + a) = \rho(X) - a\)</span>. This property ensures that holding cash genuinely reduces measured risk proportionally.</p>
+<p><strong>Homogeneity</strong>: Doubling portfolio size doubles measured risk: <span class="arithmatex">\(\rho(\lambda X) = \lambda \rho(X)\)</span> for <span class="arithmatex">\(\lambda &gt; 0\)</span>. Scaling positions should scale risk proportionally.</p>
+<p><strong>Subadditivity</strong>: Combining portfolios never increases total risk: <span class="arithmatex">\(\rho(X + Y) \leq \rho(X) + \rho(Y)\)</span>. This critical property ensures that diversification always helps, preventing perverse incentives to fragment portfolios.</p>
+<p>Value at Risk famously violates subadditivity, particularly for heavy-tailed distributions where merged portfolios can exhibit higher VaR than the sum of individual VaRs <sup id="fnref3:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Conditional Value at Risk, in contrast, satisfies all four coherence axioms. The subadditivity of CVaR follows from conditionality: the average of worst outcomes for a combined portfolio cannot exceed the sum of averages for separate worst outcomes, as diversification reduces the frequency and severity of extreme joint losses. This mathematical property translates to practical advantage, as capital allocated by CVaR properly credits diversification benefits and encourages risk reduction through portfolio construction rather than artificial separation.</p>
+<h3 id="convexity-and-optimization-applications"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Convexity and Optimization Applications</h3>
+<p>Beyond coherence, CVaR possesses the convexity property crucial for optimization applications <sup id="fnref2:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>. A risk measure <span class="arithmatex">\(\rho\)</span> is convex if:</p>
+<div class="arithmatex">\[\begin{aligned}
+\rho(\lambda X + (1-\lambda)Y) \leq \lambda \rho(X) + (1-\lambda)\rho(Y) \text{ for } \lambda \in [0,1]
+\label{eq:convexity}
+\end{aligned}\]</div>
+<p>Convexity in equation \eqref{eq:convexity} ensures that any mixture of portfolios has risk no worse than the weighted average of individual risks, providing strong theoretical foundations for portfolio optimization. CVaR minimization problems formulated as:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{w}} \text{CVaR}_\alpha(\mathbf{w}) \quad \text{subject to constraints}
+\label{eq:cvar_optimization}
+\end{aligned}\]</div>
+<p>become convex programming problems admitting efficient numerical solution through linear programming reformulations or specialized interior-point methods <sup id="fnref:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. This computational tractability distinguishes CVaR from VaR, where optimization proves non-convex and fraught with local minima. Portfolio managers seeking to construct minimum-risk portfolios or hedge existing exposures find CVaR optimization delivering superior results both theoretically and practically compared to VaR-based approaches.</p>
+<h2 id="calculation-methodologies"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Calculation Methodologies</h2>
+<h3 id="historical-cvar-estimation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Historical CVaR Estimation</h3>
+<p>The historical simulation approach to CVaR calculation follows naturally from historical VaR, extending the analysis from identifying the threshold to averaging tail outcomes <sup id="fnref4:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Given sorted historical returns <span class="arithmatex">\(r_{(1)} \leq r_{(2)} \leq \cdots \leq r_{(n)}\)</span>, the historical VaR at confidence level <span class="arithmatex">\((1-\alpha)\)</span> identifies the <span class="arithmatex">\(\lceil \alpha n \rceil\)</span>-th worst return. Historical CVaR then averages all returns worse than this threshold:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = -\frac{1}{\lceil \alpha n \rceil} \sum_{i=1}^{\lceil \alpha n \rceil} r_{(i)}
+\label{eq:historical_cvar}
+\end{aligned}\]</div>
+<p>For a 95% CVaR with 250 trading days of history, equation \eqref{eq:historical_cvar} averages the 13 worst realized returns, providing a direct empirical estimate of expected tail loss. This approach inherits historical simulation's advantages of capturing actual distributional features without parametric assumptions while avoiding modeling complexities. The estimation remains non-parametric and intuitive, simply replacing a single quantile with an average of tail observations.</p>
+<p>However, tail averaging exacerbates historical simulation's sample size challenges. While estimating VaR requires only identifying a percentile, CVaR demands accurate characterization of the entire tail, a region by definition containing few observations. With 250 days of history, 95% CVaR relies on only 13 observations, making estimates highly sensitive to individual extreme events. A single outlier from unusual historical circumstances can dominate the CVaR estimate for years until sufficient additional data dilutes its influence. This sample size issue motivates either collecting longer histories, accepting greater uncertainty in tail estimates, or employing parametric approaches that leverage distributional assumptions to compensate for data scarcity.</p>
+<h3 id="parametric-cvar-under-normality"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Parametric CVaR Under Normality</h3>
+<p>For portfolios whose returns approximately follow normal distributions, CVaR admits closed-form expressions analogous to parametric VaR <sup id="fnref5:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Under the assumption that portfolio return <span class="arithmatex">\(R \sim N(\mu, \sigma^2)\)</span>, the VaR at confidence level <span class="arithmatex">\((1-\alpha)\)</span> is:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{VaR}_\alpha = \mu + z_\alpha \sigma
+\label{eq:normal_var}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(z_\alpha\)</span> denotes the <span class="arithmatex">\((1-\alpha)\)</span> quantile of the standard normal distribution. The corresponding CVaR emerges from integrating the normal density over the tail region:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{\alpha}
+\label{eq:normal_cvar}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(\phi(\cdot)\)</span> represents the standard normal probability density function. The ratio <span class="arithmatex">\(\phi(z_\alpha)/\alpha\)</span> captures the mean of a truncated normal distribution beyond the <span class="arithmatex">\(z_\alpha\)</span> threshold. For 95% confidence, <span class="arithmatex">\(z_{0.95} = 1.645\)</span> and <span class="arithmatex">\(\phi(1.645) = 0.1031\)</span>, yielding <span class="arithmatex">\(\phi(z_{0.95})/0.05 = 2.063\)</span>. The 95% CVaR therefore equals the mean plus 2.063 standard deviations, compared to 1.645 standard deviations for VaR.</p>
+<p>For portfolios with weights <span class="arithmatex">\(\mathbf{w}\)</span> and covariance matrix <span class="arithmatex">\(\boldsymbol{\Sigma}\)</span>, the parametric CVaR becomes:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = z_\alpha \sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}} + \frac{\phi(z_\alpha)}{\alpha}\sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}}
+\label{eq:parametric_cvar}
+\end{aligned}\]</div>
+<p>This formulation in equation \eqref{eq:parametric_cvar} combines the VaR component with an additional term capturing expected excess loss, both scaled by portfolio volatility. The computational efficiency of parametric CVaR matches that of parametric VaR, enabling rapid risk calculations for large portfolios. However, the approach inherits all limitations of normality assumptions, underestimating tail risk for heavy-tailed distributions and missing asymmetry in returns exhibiting negative skewness. The gap between CVaR and VaR under normality is fixed at approximately 25% (for 95% confidence), whereas actual portfolio tail behavior often exhibits much thicker tails where CVaR substantially exceeds this relationship.</p>
+<h3 id="monte-carlo-cvar-estimation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Monte Carlo CVaR Estimation</h3>
+<p>Monte Carlo simulation provides maximum flexibility for CVaR calculation, naturally handling non-linear instruments, complex dependencies, and arbitrary distributional assumptions <sup id="fnref2:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. The methodology generates <span class="arithmatex">\(N\)</span> scenarios for risk factor evolution, reprices the portfolio under each scenario to obtain losses <span class="arithmatex">\(L_1, L_2, \ldots, L_N\)</span>, and estimates CVaR from the simulated distribution. After sorting the losses as <span class="arithmatex">\(L_{(1)} \leq L_{(2)} \leq \cdots \leq L_{(N)}\)</span>, the VaR estimate identifies the <span class="arithmatex">\(\lceil \alpha N \rceil\)</span>-th largest loss, and CVaR averages the tail beyond this threshold:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \frac{1}{\lceil \alpha N \rceil} \sum_{i=1}^{\lceil \alpha N \rceil} L_{(i)}
+\label{eq:monte_carlo_cvar}
+\end{aligned}\]</div>
+<p>The estimator in equation \eqref{eq:monte_carlo_cvar} converges to the true CVaR as the number of scenarios increases, with convergence rate governed by the square root of <span class="arithmatex">\(N\)</span> for well-behaved distributions. Achieving acceptable accuracy for CVaR requires substantially more scenarios than for VaR, as CVaR depends on the entire tail rather than a single quantile. While 10,000 scenarios might suffice for reasonable VaR estimates, CVaR often demands 50,000 or 100,000 scenarios to achieve comparable precision, particularly for high confidence levels where the tail becomes sparse.</p>
+<p>Variance reduction techniques become especially valuable for CVaR estimation, as the tail focus makes standard Monte Carlo inefficient <sup id="fnref3:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. Importance sampling that oversamples tail scenarios relative to their natural probabilities concentrates computational effort where CVaR is determined, dramatically improving estimation efficiency. Stratified sampling ensures adequate representation of tail regions by forcing scenarios into predetermined quantile ranges. Conditional Monte Carlo evaluates tail expectations analytically conditional on simulated risk factors when possible, reducing variance by eliminating one layer of simulation uncertainty. These advanced techniques demand sophisticated implementation but can reduce the computational burden of accurate CVaR estimation by an order of magnitude compared to naive Monte Carlo.</p>
+<h2 id="tail-risk-contributions-and-decomposition"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Tail Risk Contributions and Decomposition</h2>
+<h3 id="component-cvar-analysis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Component CVaR Analysis</h3>
+<p>Decomposing total portfolio CVaR into contributions from individual positions provides essential insights for risk management and capital allocation decisions <sup id="fnref6:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Unlike VaR, whose non-subadditivity complicates decomposition, CVaR's coherence ensures that component contributions sum to total portfolio risk, satisfying:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}(\text{Portfolio}) = \sum_{i=1}^{n} \text{CVaR}_i^{\text{component}}
+\label{eq:cvar_decomposition}
+\end{aligned}\]</div>
+<p>The component CVaR for asset <span class="arithmatex">\(i\)</span> measures its contribution to total tail risk through its correlation with portfolio losses in extreme scenarios. Positions that lose heavily precisely when the overall portfolio suffers worst outcomes contribute large component CVaRs, while positions providing tail hedging show negative contributions. The calculation employs the Euler allocation principle based on CVaR's homogeneity:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_i^{\text{component}} = w_i \times \mathbb{E}\left[\frac{\partial L}{\partial w_i} \bigg| L &gt; \text{VaR}_\alpha\right]
+\label{eq:component_cvar}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(w_i\)</span> denotes the portfolio weight of asset <span class="arithmatex">\(i\)</span> and the expectation conditions on tail events exceeding VaR. In equation \eqref{eq:component_cvar}, the marginal contribution <span class="arithmatex">\(\partial L/\partial w_i\)</span> represents how increasing position <span class="arithmatex">\(i\)</span> affects portfolio loss, averaged over tail scenarios. Assets with large losses during portfolio stress events exhibit high marginal contributions, generating substantial component CVaRs that signal concentrated tail risk.</p>
+<p>Practical computation of component CVaR for historical simulation or Monte Carlo approaches identifies tail scenarios, computes each asset's return during those scenarios, and averages weighted by the asset's portfolio weight. For parametric CVaR under normality, the component contribution simplifies to:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_i^{\text{component}} = \frac{\phi(z_\alpha)}{\alpha} w_i \sum_{j=1}^{n} w_j \sigma_{ij}
+\label{eq:parametric_component_cvar}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(\sigma_{ij}\)</span> represents the covariance between assets <span class="arithmatex">\(i\)</span> and <span class="arithmatex">\(j\)</span>. This formulation reveals that component CVaR depends on the asset's covariance with the entire portfolio, appropriately crediting diversifying positions that reduce tail risk through negative correlations with dominant portfolio exposures <sup id="fnref7:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h3 id="marginal-cvar-and-incremental-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Marginal CVaR and Incremental Risk</h3>
+<p>Marginal CVaR quantifies how small changes in position size affect total portfolio tail risk, providing guidance for optimal position sizing and hedge ratios <sup id="fnref8:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The marginal CVaR with respect to asset <span class="arithmatex">\(i\)</span> is defined as:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{MCVaR}_i = \frac{\partial \text{CVaR}(\mathbf{w})}{\partial w_i}
+\label{eq:marginal_cvar}
+\end{aligned}\]</div>
+<p>The derivative in equation \eqref{eq:marginal_cvar} indicates the instantaneous rate at which portfolio CVaR changes as the position in asset <span class="arithmatex">\(i\)</span> increases, holding other positions constant. Positive marginal CVaR indicates that increasing the position elevates tail risk, while negative values signal that the position provides tail hedging. The marginal contributions satisfy the homogeneity relationship:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}(\text{Portfolio}) = \sum_{i=1}^{n} w_i \times \text{MCVaR}_i
+\label{eq:euler_allocation}
+\end{aligned}\]</div>
+<p>verifying that the sum of weighted marginal contributions reconstructs total CVaR, a property following from CVaR's homogeneity.</p>
+<p>For discrete position changes, incremental CVaR measures the total effect on portfolio risk from adding or removing specific positions:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{ICVaR}_i = \text{CVaR}(\text{Portfolio} + \text{Asset } i) - \text{CVaR}(\text{Portfolio})
+\label{eq:incremental_cvar}
+\end{aligned}\]</div>
+<p>Incremental CVaR in equation \eqref{eq:incremental_cvar} captures non-linear effects and portfolio-specific interactions that marginal CVaR, being a derivative, approximates only locally. For large position changes or portfolios with significant option convexity, incremental CVaR provides more accurate assessment than scaling marginal contributions. The calculation requires recomputing full portfolio CVaR with and without the position, demanding greater computational effort but offering superior accuracy for hedge analysis and trading decisions <sup id="fnref9:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="regulatory-adoption-and-the-fundamental-review-of-the-trading-book"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Regulatory Adoption and the Fundamental Review of the Trading Book</h2>
+<h3 id="migration-from-var-to-expected-shortfall"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Migration from VaR to Expected Shortfall</h3>
+<p>The Basel Committee's Fundamental Review of the Trading Book (FRTB) represents the most significant regulatory shift toward CVaR-based capital requirements, mandating Expected Shortfall as the primary market risk measure for internal models <sup id="fnref10:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The decision reflects accumulated evidence that VaR's failure to capture tail loss severity contributed to undercapitalization of trading books during the 2008 financial crisis. Banks holding portfolios with modest 99% VaR discovered their actual tail losses far exceeded expectations, as positions exhibited highly non-linear losses or correlations shifted adversely during stress.</p>
+<p>Expected Shortfall under FRTB employs the 97.5% confidence level over a 10-day horizon, replacing the previous 99% VaR requirement:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{ES}_{0.975} = \mathbb{E}[L \mid L &gt; \text{VaR}_{0.975}]
+\label{eq:frtb_es}
+\end{aligned}\]</div>
+<p>The slight reduction in confidence level from 99% to 97.5% compensates partially for Expected Shortfall's tendency to exceed VaR, aiming to maintain comparable overall capital levels while improving risk sensitivity. The regulatory capital charge follows a similar structure to VaR-based capital, comparing daily Expected Shortfall to a 60-day average and applying multiplication factors based on backtesting performance:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{Capital}_{\text{ES}} = \max\left(\text{ES}_{t-1}, m_c \times \frac{1}{60}\sum_{i=1}^{60}\text{ES}_{t-i}\right)
+\label{eq:es_capital}
+\end{aligned}\]</div>
+<p>where the multiplication factor <span class="arithmatex">\(m_c\)</span> increases when backtesting reveals model inadequacy. The retention of stressed scenarios calculated using parameters from a 12-month stress period ensures that capital requirements remain prudent even when current market volatility appears subdued.</p>
+<h3 id="backtesting-challenges-for-expected-shortfall"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Backtesting Challenges for Expected Shortfall</h3>
+<p>While VaR backtesting through exception counting provides straightforward methodology, Expected Shortfall's conditional nature complicates validation <sup id="fnref11:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. One cannot directly observe whether the average tail loss matches forecasts, as the conditioning event occurs—by construction—only 2.5% of the time under FRTB's 97.5% Expected Shortfall. With 250 trading days per year, approximately six observations fall in the relevant tail annually, insufficient for robust statistical testing of whether average tail losses match predictions.</p>
+<p>FRTB addresses this challenge through alternative validation approaches. The profit and loss attribution test compares theoretical P&amp;L from risk models to actual trading desk results, identifying desks where models fail to capture risk factors driving outcomes. Persistent divergences between model-predicted and actual P&amp;L suggest that risk measures, whether VaR or Expected Shortfall, miss important exposures. The non-modellable risk factors framework identifies market variables lacking sufficient liquid price observations to support statistical modeling, calculating capital for these factors through stressed scenarios rather than Expected Shortfall. These indirect validation approaches acknowledge that tail risk measures cannot be backtested through simple exception counting, requiring more sophisticated evaluation of model quality and coverage <sup id="fnref12:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<details class="tip" open="open">
+<summary>Regulatory Implementation Timeline</summary>
+<p>The transition from VaR to Expected Shortfall under FRTB follows a phased implementation schedule providing banks time to develop necessary systems and methodologies:</p>
+<ul>
+<li><strong>2019-2022</strong>: Quantitative impact studies and industry consultation</li>
+<li><strong>2023</strong>: Final standards published with implementation dates</li>
+<li><strong>2025</strong>: Initial implementation for major international banks</li>
+<li><strong>2026-2028</strong>: Gradual adoption across smaller institutions</li>
+</ul>
+<p>The extended timeline recognizes that calculating Expected Shortfall, particularly with non-modellable risk factors treatment, demands substantial infrastructure investment and methodology development beyond existing VaR systems.</p>
+</details>
+<h2 id="practical-applications-beyond-regulatory-compliance"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Practical Applications Beyond Regulatory Compliance</h2>
+<h3 id="portfolio-optimization-with-cvar-constraints"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Portfolio Optimization with CVaR Constraints</h3>
+<p>Portfolio optimization incorporating CVaR constraints enables construction of portfolios that explicitly control tail risk while pursuing return objectives <sup id="fnref3:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>. The classic mean-variance framework optimizes expected return versus variance, implicitly assuming normality and treating all risk symmetrically. CVaR-based optimization recognizes asymmetry in returns and investor preferences, typically exhibiting greater concern about downside than equivalent upside volatility.</p>
+<p>A typical CVaR-constrained optimization problem takes the form:</p>
+<div class="arithmatex">\[\begin{aligned}
+\max_{\mathbf{w}} \quad &amp; \mathbb{E}[R(\mathbf{w})] \\
+\text{subject to} \quad &amp; \text{CVaR}_\alpha(\mathbf{w}) \leq C \\
+&amp; \sum_{i=1}^{n} w_i = 1 \\
+&amp; w_i \geq 0 \quad \forall i
+\label{eq:cvar_portfolio_opt}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(R(\mathbf{w})\)</span> represents portfolio return, <span class="arithmatex">\(C\)</span> denotes the maximum acceptable CVaR, and the constraints ensure full investment and no short selling <sup id="fnref4:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. The optimization in equation \eqref{eq:cvar_portfolio_opt} maximizes expected return while guaranteeing that expected tail losses remain within institutional risk tolerance. Unlike VaR constraints, which create non-convex optimization landscapes with poor numerical properties, CVaR constraints maintain convexity enabling efficient solution through linear programming reformulations or conic optimization techniques.</p>
+<p>Rockafellar and Uryasev developed particularly elegant CVaR optimization methods that avoid explicit tail probability calculations, instead minimizing an auxiliary function:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{w}, \beta} \quad \beta + \frac{1}{\alpha}\mathbb{E}[\max(L(\mathbf{w}) - \beta, 0)]
+\label{eq:rockafellar_cvar}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(\beta\)</span> emerges as the VaR level through optimization rather than requiring separate calculation. This formulation in equation \eqref{eq:rockafellar_cvar} admits reformulation as a linear program when using scenario-based loss representations, making CVaR optimization tractable even for portfolios containing hundreds of assets. The approach has found widespread adoption in institutional portfolio management, particularly for pension funds and endowments seeking to control downside risk while achieving return targets.</p>
+<h3 id="hedging-and-tail-risk-management"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> Hedging and Tail Risk Management</h3>
+<p>CVaR provides superior guidance for hedging decisions compared to VaR, as effective hedges reduce not just the probability of exceeding thresholds but the severity of losses when bad outcomes materialize <sup id="fnref13:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Consider a portfolio manager deciding between alternative hedging strategies: one reduces VaR by 10% through options that cap losses at moderate levels, another reduces VaR by only 5% but provides genuine catastrophic protection. VaR minimization favors the first strategy, while CVaR appropriately credits the second strategy's tail protection.</p>
+<p>Dynamic hedging programs increasingly employ CVaR as the optimization objective, solving:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{h}} \quad \text{CVaR}_\alpha(\mathbf{w} + \mathbf{h}) + \lambda \cdot \text{Cost}(\mathbf{h})
+\label{eq:cvar_hedging}
+\end{aligned}\]</div>
+<p>where <span class="arithmatex">\(\mathbf{w}\)</span> represents existing positions, <span class="arithmatex">\(\mathbf{h}\)</span> denotes hedge positions, and <span class="arithmatex">\(\lambda\)</span> balances tail risk reduction against hedging costs. The optimization in equation \eqref{eq:cvar_hedging} identifies hedge structures minimizing expected tail losses net of implementation costs, often recommending out-of-the-money put options or other instruments that specifically protect against catastrophic scenarios even if they appear expensive on a VaR-reduction-per-dollar basis <sup id="fnref5:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>Insurance companies employ CVaR extensively for catastrophe exposure management, where tail severity dominates frequency considerations. A portfolio with 99.5% CVaR of $100 million indicates that when catastrophic losses occur, they average $100 million, providing clearer guidance for reinsurance purchasing decisions than VaR alone. The industry has developed sophisticated CVaR-based capital allocation methods that distribute total company capital across business lines and geographic regions based on marginal contributions to tail risk, ensuring that pricing and resource allocation reflect true tail exposures rather than merely average volatility <sup id="fnref14:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="conclusion-cvars-role-in-modern-risk-management"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Conclusion: CVaR's Role in Modern Risk Management</h2>
+<p>Conditional Value at Risk has evolved from academic curiosity to practical necessity in contemporary risk management, driven by regulatory adoption under FRTB and growing recognition that tail loss severity matters as much as tail probability <sup id="fnref15:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The measure's coherence properties provide theoretical advantages, ensuring that portfolio optimization, capital allocation, and risk aggregation exercises produce sensible results that properly credit diversification. The convexity of CVaR enables efficient computation even for complex portfolios, making sophisticated risk management tractable rather than merely theoretically appealing.</p>
+<p>The transition from VaR to CVaR reflects maturation in risk management practice, moving beyond focusing solely on threshold exceedance frequencies toward understanding the economic consequences of tail events. This evolution mirrors broader developments in finance recognizing that Gaussian assumptions and symmetric risk treatment fail to capture the fundamental nature of financial risk, where downside and upside behave differently and extreme events dominate expected losses. While CVaR demands more data and computation than VaR, the additional information justifies these costs for portfolios where tail risk represents the genuine concern rather than day-to-day volatility <sup id="fnref4:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>.</p>
+<p>Looking forward, CVaR increasingly serves as the foundation for integrated risk frameworks addressing multiple risk types simultaneously. Banks calculate CVaR across market, credit, and operational risks, aggregating through copula-based models that capture tail dependencies inadequately treated by correlation matrices. Asset managers employ CVaR in client reporting, moving beyond Sharpe ratios to communicate downside protection more transparently. The measure's growing adoption reflects not regulatory compulsion alone but genuine recognition that understanding tail severity is essential for prudent risk management in financial markets characterized by fat tails and asymmetric returns <sup id="fnref16:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<hr/>
+<p><em>Measuring expected losses in portfolio tail events</em></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:christoffersen2011">
+<p>Peter F. Christoffersen. <em>Elements of Financial Risk Management</em>. Academic Press, 2nd edition, 2011. ISBN 978-0-12-374448-7. <a class="footnote-backref" href="#fnref:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref6:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref7:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref8:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref9:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref10:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref11:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref12:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref13:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref14:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref15:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref16:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:rebonato2010">
+<p>Riccardo Rebonato. <em>Coherent Stress Testing: A Bayesian Approach to the Analysis of Financial Stress</em>. Wiley, 2010. ISBN 978-0-470-66608-8. <a class="footnote-backref" href="#fnref:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref4:rebonato2010" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:glasserman2003">
+<p>Paul Glasserman. <em>Monte Carlo Methods in Financial Engineering</em>. Springer, 2003. <a href="https://doi.org/10.1007/978-0-387-21617-1">doi:10.1007/978-0-387-21617-1</a>. <a class="footnote-backref" href="#fnref:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref3:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref4:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref5:glasserman2003" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Back to top
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/yourusername" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank" title="linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.0.1</span> Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+</li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accept</button>
+<button class="md-button md-button--primary" type="reset">Reject</button>
+<label class="md-button" for="__settings">Manage settings</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+<script src="../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../../../javascripts/consent-mode.js"></script>
+<script src="../../../../../javascripts/home-parallax.js"></script>
+<script src="../../../../../javascripts/external-links.js"></script>
+<script src="../../../../../javascripts/mathjax.js"></script>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
+</body>
+</html>

@@ -1,0 +1,2493 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
+<link href="https://quantero.kruk-ai.com/pl/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" rel="canonical"/>
+<link href="../best_first_search/" rel="prev"/>
+<link href="../iterative_deepening/" rel="next"/>
+<link href="../../../../../../topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="en" rel="alternate"/>
+<link href="../../../../../../es/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="es" rel="alternate"/>
+<link href="./" hreflang="pl" rel="alternate"/>
+<link href="../../../../../../nl/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="nl" rel="alternate"/>
+<link href="../../../../../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>A* Search Method - Quȧntero</title>
+<link href="../../../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-RSMTNXK402"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-RSMTNXK402",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-RSMTNXK402",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+<!-- Open Graph / Social Media Preview -->
+<meta content="website" property="og:type"/>
+<meta content="A* Search Method" property="og:title"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
+<meta content="https://quantero.kruk-ai.com/pl/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#a-search-method">
+          Przejdź do treści
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Nagłówek" class="md-header__inner md-grid">
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../../../../" title="Quȧntero">
+<img alt="logo" src="../../../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Quȧntero
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              A* Search Method
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Wybierz język" class="md-header__button md-icon quantero-language-selector">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+<span aria-hidden="true" class="quantero-language-selector__label">
+        EN / ES / PL / NL
+      </span>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="en" lang="en">
+              English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../es/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="es" lang="es">
+              Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="pl" lang="pl">
+              Polski
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../nl/topics/computer_science/algorithmic_design/state_space_search/a_star_search/" hreflang="nl" lang="nl">
+              Nederlands
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Szukaj" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Szukaj" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Szukaj" class="md-search__options">
+<button aria-label="Wyczyść" class="md-search__icon md-icon" tabindex="-1" title="Wyczyść" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Zakładki" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../finance/">
+          
+  
+  
+    
+  
+  Finanse ilościowe
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../foundations/">
+          
+  
+  
+    
+  
+  Podstawy matematyczne
+
+        </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../../computing/">
+          
+  
+  
+    
+  
+  AI i informatyka
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../economics/">
+          
+  
+  
+    
+  
+  Ekonomia
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../">
+        
+  
+  
+    
+  
+  Wszystkie tematy
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Nawigacja" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../../../../" title="Quȧntero">
+<img alt="logo" src="../../../../../../assets/logo.png"/>
+</a>
+    Quȧntero
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Finanse ilościowe
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Finanse ilościowe
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../finance/">
+<span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/">
+<span class="md-ellipsis">
+    
+  
+    Modele wyceny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Modele wyceny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Interest Rate Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/vasicek_model/">
+<span class="md-ellipsis">
+    
+  
+    The Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/cir_model/">
+<span class="md-ellipsis">
+    
+  
+    The Cox-Ingersoll-Ross (CIR) Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/hull_white_model/">
+<span class="md-ellipsis">
+    
+  
+    The Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/">
+<span class="md-ellipsis">
+    
+  
+    Bond Affine Ansatz Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Bond Affine Ansatz Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/">
+<span class="md-ellipsis">
+    
+  
+    Options
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Options
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/black_scholes_equation/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/">
+<span class="md-ellipsis">
+    
+  
+    Volatility Surface Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3" id="__nav_2_2_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Volatility Surface Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Constant Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_2" id="__nav_2_2_3_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Constant Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/black_scholes_surface/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes and the Flat Volatility Surface
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Local Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_3" id="__nav_2_2_3_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_3_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Local Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/dupire_model/">
+<span class="md-ellipsis">
+    
+  
+    Dupire Local Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Stochastic Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_4" id="__nav_2_2_3_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/heston_model/">
+<span class="md-ellipsis">
+    
+  
+    Heston Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/sabr_model/">
+<span class="md-ellipsis">
+    
+  
+    SABR Stochastic Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../risk_management/">
+<span class="md-ellipsis">
+    
+  
+    Zarządzanie ryzykiem
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Zarządzanie ryzykiem
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../risk_management/market_risk/">
+<span class="md-ellipsis">
+    
+  
+    Market Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Market Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../risk_management/market_risk/value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Value at Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../risk_management/market_risk/value_at_risk/value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Wartość zagrożona (VaR)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../risk_management/market_risk/value_at_risk/conditional_value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Warunkowa wartość zagrożona (CVaR)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../model_validation/">
+<span class="md-ellipsis">
+    
+  
+    Walidacja modeli
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Walidacja modeli
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/">
+<span class="md-ellipsis">
+    
+  
+    Handel algorytmiczny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Handel algorytmiczny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/">
+<span class="md-ellipsis">
+    
+  
+    Wykresy niestandardowe
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Wykresy niestandardowe
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/point_and_figure/">
+<span class="md-ellipsis">
+    
+  
+    Wykres punktowo-symboliczny
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Podstawy matematyczne
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Podstawy matematyczne
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../foundations/">
+<span class="md-ellipsis">
+    
+  
+    Mathematical Foundations
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/">
+<span class="md-ellipsis">
+    
+  
+    Statystyka i prawdopodobieństwo
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statystyka i prawdopodobieństwo
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/">
+<span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/expected_value/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Expected Value
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/filtration/">
+<span class="md-ellipsis">
+    
+  
+    Filtration: Information Over Time
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/tower_property/">
+<span class="md-ellipsis">
+    
+  
+    Tower Property of Conditional Expectation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/gaussian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Derivation of the Gaussian Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/jensen_inequality/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Jensen Inequality
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/momentum_generating_functions/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Moment Generating Functions
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/">
+<span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<span class="md-ellipsis">
+    
+  
+    Maximum Likelihood Estimation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../stochastic_calculus/">
+<span class="md-ellipsis">
+    
+  
+    Rachunek stochastyczny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Rachunek stochastyczny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_motion/">
+<span class="md-ellipsis">
+    
+  
+    Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/quadratic_variation/">
+<span class="md-ellipsis">
+    
+  
+    Variation and Quadratic Variation of Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Itô Integrals with Respect to Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/ito_product_rule/">
+<span class="md-ellipsis">
+    
+  
+    Itô's Product Rule
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/itos_isometry/">
+<span class="md-ellipsis">
+    
+  
+    Itô’s Isometry: an attempt for derivation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    AI i informatyka
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    AI i informatyka
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computing/">
+<span class="md-ellipsis">
+    
+  
+    AI &amp; Computing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/">
+<span class="md-ellipsis">
+    
+  
+    Sztuczna inteligencja
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sztuczna inteligencja
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/supervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Supervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/unsupervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Unsupervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unsupervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Networks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/backpropagation_methodology/">
+<span class="md-ellipsis">
+    
+  
+    Metodyka propagacji wstecznej
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../">
+<span class="md-ellipsis">
+    
+  
+    Informatyka
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Informatyka
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Algorithmic Design
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmic Design
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../searching_in_data_structures/">
+<span class="md-ellipsis">
+    
+  
+    Searching in Data Structures
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Searching in Data Structures
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../searching_in_data_structures/linear_search/">
+<span class="md-ellipsis">
+    
+  
+    Linear Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../searching_in_data_structures/binary_search/">
+<span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../sorting/">
+<span class="md-ellipsis">
+    
+  
+    Sorting Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_3" id="__nav_4_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sorting Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sorting/merge_sort/">
+<span class="md-ellipsis">
+    
+  
+    Merge Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sorting/quick_sort/">
+<span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../sorting/heap_sort/">
+<span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../graph_algorithms/">
+<span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_4" id="__nav_4_3_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Graph Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../graph_algorithms/bfs/">
+<span class="md-ellipsis">
+    
+  
+    Breadth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../graph_algorithms/dfs/">
+<span class="md-ellipsis">
+    
+  
+    Depth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../graph_algorithms/dijkstra/">
+<span class="md-ellipsis">
+    
+  
+    Dijkstra's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../graph_algorithms/kruskal/">
+<span class="md-ellipsis">
+    
+  
+    Kruskal's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../graph_algorithms/prim/">
+<span class="md-ellipsis">
+    
+  
+    Prim's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../optimisation/">
+<span class="md-ellipsis">
+    
+  
+    Optimisation
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_5" id="__nav_4_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Optimisation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../optimisation/interval_scheduling/">
+<span class="md-ellipsis">
+    
+  
+    Interval Scheduling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../optimisation/knapsack/">
+<span class="md-ellipsis">
+    
+  
+    0/1 Knapsack
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_4_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    State-Space Search
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_6" id="__nav_4_3_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_4_3_2_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    State-Space Search
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../uniform_cost_search/">
+<span class="md-ellipsis">
+    
+  
+    Uniform-Cost Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../best_first_search/">
+<span class="md-ellipsis">
+    
+  
+    Best-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    A* Search Method
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    A* Search Method
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Spis treści" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-core-idea">
+<span class="md-ellipsis">
+      
+        The Core Idea
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#admissibility-and-optimality">
+<span class="md-ellipsis">
+      
+        Admissibility and Optimality
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-algorithm">
+<span class="md-ellipsis">
+      
+        The Algorithm
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heuristic-design">
+<span class="md-ellipsis">
+      
+        Heuristic Design
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variants-and-extensions">
+<span class="md-ellipsis">
+      
+        Variants and Extensions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complexity">
+<span class="md-ellipsis">
+      
+        Complexity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applications-and-relevance">
+<span class="md-ellipsis">
+      
+        Applications and Relevance
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#limitations-and-challenges">
+<span class="md-ellipsis">
+      
+        Limitations and Challenges
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactive-demonstration">
+<span class="md-ellipsis">
+      
+        Interactive Demonstration
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../iterative_deepening/">
+<span class="md-ellipsis">
+    
+  
+    Iterative Deepening Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/">
+<span class="md-ellipsis">
+    
+  
+    Ekonomia
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ekonomia
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/">
+<span class="md-ellipsis">
+    
+  
+    Macroeconomics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Macroeconomics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/interest_rate_parity/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Parity
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../">
+<span class="md-ellipsis">
+    
+  
+    Wszystkie tematy
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Spis treści" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-core-idea">
+<span class="md-ellipsis">
+      
+        The Core Idea
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#admissibility-and-optimality">
+<span class="md-ellipsis">
+      
+        Admissibility and Optimality
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-algorithm">
+<span class="md-ellipsis">
+      
+        The Algorithm
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#heuristic-design">
+<span class="md-ellipsis">
+      
+        Heuristic Design
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#variants-and-extensions">
+<span class="md-ellipsis">
+      
+        Variants and Extensions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#complexity">
+<span class="md-ellipsis">
+      
+        Complexity
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#applications-and-relevance">
+<span class="md-ellipsis">
+      
+        Applications and Relevance
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#limitations-and-challenges">
+<span class="md-ellipsis">
+      
+        Limitations and Challenges
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#interactive-demonstration">
+<span class="md-ellipsis">
+      
+        Interactive Demonstration
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<nav aria-label="Nawigacja" class="md-path">
+<ol class="md-path__list">
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../../">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../computing/">
+<span class="md-ellipsis">
+    AI i informatyka
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../">
+<span class="md-ellipsis">
+    Informatyka
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../">
+<span class="md-ellipsis">
+    Algorithmic Design
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../">
+<span class="md-ellipsis">
+    State-Space Search
+  </span>
+</a>
+</li>
+</ol>
+</nav>
+<article class="md-content__inner md-typeset">
+<h1 id="a-search-method"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> A* Search Method</h1>
+<p>The A* search algorithm was introduced in 1968 by Peter Hart, Nils Nilsson, and Bertram Raphael at Stanford Research Institute <sup id="fnref:hart1968"><a class="footnote-ref" href="#fn:hart1968">1</a></sup>. It stands as one of the most influential algorithms in artificial intelligence, combining the completeness of uninformed search with the efficiency of heuristic guidance. A* is the foundation for a vast family of pathfinding methods used in robotics, navigation, game AI, and combinatorial optimisation.</p>
+<h2 id="the-core-idea"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Core Idea</h2>
+<p>A* is a best-first search algorithm that operates on a graph <span class="arithmatex">\(G = (V, E)\)</span> starting from a node <span class="arithmatex">\(s\)</span> and expanding nodes in an order determined by an evaluation function. It does not explicitly "search for the minimum-cost path" in the sense of enumerating and comparing all paths. Instead, it follows a principled expansion strategy: at each step it selects from an open list the node <span class="arithmatex">\(n\)</span> that minimises:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(n) = g(n) + h(n)
+\label{eq:astar_eval}
+\end{equation}
+\]</div>
+<p>Here <span class="arithmatex">\(g(n)\)</span> is the exact cost of the cheapest path found so far from the start node <span class="arithmatex">\(s\)</span> to node <span class="arithmatex">\(n\)</span>, and <span class="arithmatex">\(h(n)\)</span> is a heuristic function estimating the cost of the cheapest path from <span class="arithmatex">\(n\)</span> to the goal. The function <span class="arithmatex">\(f(n)\)</span> therefore estimates the total cost of a solution that passes through <span class="arithmatex">\(n\)</span>. This interplay between known cost and estimated future cost is what distinguishes A* from pure breadth-first or depth-first expansion, and equally from greedy best-first search, which considers only <span class="arithmatex">\(h(n)\)</span> and may follow misleading short-term shortcuts.</p>
+<p>The key theoretical result, and the central contribution of Hart, et.al. in 1968 paper <sup id="fnref2:hart1968"><a class="footnote-ref" href="#fn:hart1968">1</a></sup>, is that under a specific condition on the heuristic (admissibility, defined below), the first path the algorithm finds to the goal is provably optimal. Optimality is therefore a <em>consequence</em> of the algorithm's behaviour, not an explicit objective encoded in its mechanics.</p>
+<h2 id="admissibility-and-optimality"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Admissibility and Optimality</h2>
+<p>A heuristic <span class="arithmatex">\(h(n)\)</span> is called <strong>admissible</strong> if it never overestimates the true cost <span class="arithmatex">\(h^*(n)\)</span> to the goal:</p>
+<div class="arithmatex">\[
+\begin{equation}
+h(n) \leq h^*(n) \quad \forall\, n \in V
+\label{eq:admissibility}
+\end{equation}
+\]</div>
+<p>When the heuristic is admissible, A<em> is guaranteed to find an optimal solution the first time it expands the goal node. This result was proved formally in the original paper by Hart, Nilsson, and Raphael <sup id="fnref3:hart1968"><a class="footnote-ref" href="#fn:hart1968">1</a></sup> and is the central theoretical guarantee that made A</em> so attractive to the AI community. A stronger property, <strong>consistency</strong> (also called <strong>monotonicity</strong>), requires that for every edge <span class="arithmatex">\((n, n')\)</span> with cost <span class="arithmatex">\(c(n, n')\)</span>:</p>
+<div class="arithmatex">\[
+\begin{equation}
+h(n) \leq c(n, n') + h(n')
+\label{eq:consistency}
+\end{equation}
+\]</div>
+<p>A consistent heuristic is always admissible, and when consistency holds the <span class="arithmatex">\(f\)</span>-values along any path are non-decreasing, which allows A* to avoid re-expanding nodes it has already closed—making the algorithm more efficient in practice. Russell and Norvig provide a thorough treatment of both conditions and their consequences <sup id="fnref:russell2020"><a class="footnote-ref" href="#fn:russell2020">2</a></sup>.</p>
+<h2 id="the-algorithm"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> The Algorithm</h2>
+<p>A<em> maintains two sets. The </em><em>open list</em><em> (typically a min-priority queue ordered by <span class="arithmatex">\(f\)</span>) holds nodes that have been generated but not yet expanded. The </em><em>closed list</em>* (or visited set) holds nodes that have already been expanded.</p>
+<p>The algorithm begins by placing <span class="arithmatex">\(s\)</span> in the open list with <span class="arithmatex">\(g(s) = 0\)</span>. At each iteration it extracts the node <span class="arithmatex">\(n\)</span> with the smallest <span class="arithmatex">\(f(n)\)</span>. If <span class="arithmatex">\(n\)</span> is the goal, the path is reconstructed by tracing back through parent pointers and the procedure terminates. Otherwise <span class="arithmatex">\(n\)</span> is moved to the closed list and each of its successors <span class="arithmatex">\(n'\)</span> is evaluated. If <span class="arithmatex">\(n'\)</span> has not been seen before, or if the path through <span class="arithmatex">\(n\)</span> offers a lower <span class="arithmatex">\(g\)</span>-value than any previously recorded path, <span class="arithmatex">\(n'\)</span> is inserted or updated in the open list with:</p>
+<div class="arithmatex">\[
+\begin{equation}
+g(n') = g(n) + c(n, n'), \qquad f(n') = g(n') + h(n')
+\label{eq:astar_update}
+\end{equation}
+\]</div>
+<p>The algorithm is both <strong>complete</strong> (it will always find a solution if one exists on a finite graph) and, under admissibility, <strong>optimally efficient</strong>: no algorithm with the same heuristic information can expand fewer nodes while guaranteeing optimality <sup id="fnref:pearl1984"><a class="footnote-ref" href="#fn:pearl1984">3</a></sup>.</p>
+<h2 id="heuristic-design"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Heuristic Design</h2>
+<p>The practical performance of A<em> depends critically on the quality of <span class="arithmatex">\(h(n)\)</span>. A heuristic that is well-informed—meaning <span class="arithmatex">\(h(n)\)</span> is close to <span class="arithmatex">\(h^*(n)\)</span>—leads to far fewer node expansions than a weak or uninformative one. A classic example is the </em><em>Manhattan distance</em>* heuristic used in grid-based pathfinding, which counts the minimum number of horizontal and vertical steps between two cells and is admissible whenever diagonal moves are forbidden. For the Euclidean plane, the straight-line distance to the goal is a natural admissible heuristic.</p>
+<p>Judea Pearl thoroughly analyses the relationship between heuristic accuracy and search efficiency in his monograph on heuristic search <sup id="fnref2:pearl1984"><a class="footnote-ref" href="#fn:pearl1984">3</a></sup>, showing that the expected number of node expansions grows polynomially with problem size when a tight heuristic is available, compared to exponential growth with an uninformative one. In practice, designing a good heuristic often requires deep domain knowledge, and there is no universal recipe for obtaining one.</p>
+<h2 id="variants-and-extensions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Variants and Extensions</h2>
+<p>Several important variants of A<em> address its limitations. </em><em>IDA*</em><em> (Iterative Deepening A</em>), introduced by Korf, eliminates the open list by performing iterative deepening with the <span class="arithmatex">\(f\)</span>-cost as the threshold, drastically reducing memory requirements while preserving optimality. <strong>SMA*</strong> (Simplified Memory-Bounded A<em>) discards the least promising frontier nodes whenever memory is exhausted, retaining enough information to regenerate them if needed. </em><em>Weighted A*</em>* relaxes the optimality requirement by using:</p>
+<div class="arithmatex">\[
+\begin{equation}
+f(n) = g(n) + w \cdot h(n), \quad w &gt; 1
+\label{eq:weighted_astar}
+\end{equation}
+\]</div>
+<p>trading solution quality (the returned path costs at most <span class="arithmatex">\(w \cdot f^*\)</span>) for substantially faster search. These extensions, along with their formal analyses, are discussed in detail by Russell and Norvig <sup id="fnref2:russell2020"><a class="footnote-ref" href="#fn:russell2020">2</a></sup>.</p>
+<h2 id="complexity"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Complexity</h2>
+<p>In the worst case, A<em> expands all nodes <span class="arithmatex">\(n\)</span> with <span class="arithmatex">\(f(n) &lt; f^*\)</span>, where <span class="arithmatex">\(f^*\)</span> is the optimal solution cost. The time complexity is therefore exponential in the depth of the solution, identical to that of uninformed search in the worst case. However, with a near-perfect heuristic the number of expanded nodes approaches the length of the optimal path itself, making A</em> effectively polynomial in practice. The space complexity is <span class="arithmatex">\(O(b^d)\)</span>, where <span class="arithmatex">\(b\)</span> is the branching factor and <span class="arithmatex">\(d\)</span> is the depth of the shallowest optimal solution, since all generated nodes must be retained in memory.</p>
+<h2 id="applications-and-relevance"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Applications and Relevance</h2>
+<p>Since its introduction, A<em> has become the reference algorithm for single-source shortest-path problems in AI. It underlies route-planning systems in mapping services such as GPS navigation, robotic motion planning where a robot must move around obstacles, video game pathfinding where hundreds of agents may search simultaneously, and natural language parsing where the search space is a lattice of partial analyses. Nilsson <sup id="fnref:nilsson1971"><a class="footnote-ref" href="#fn:nilsson1971">4</a></sup> provided early context for A</em>'s role within the broader landscape of problem-solving methods in AI, helping establish it as a go-to technique for graph search.</p>
+<h2 id="limitations-and-challenges"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Limitations and Challenges</h2>
+<p>Despite its strengths, A<em> faces meaningful challenges in practice. Its memory requirements can become prohibitive in large state spaces, since all frontier nodes must be stored simultaneously in the open list. Designing an effective admissible heuristic is non-trivial and highly domain-dependent; a poor heuristic degrades performance toward that of Dijkstra's algorithm or worse. A</em> is also sensitive to the representation of the problem: the same search problem formulated with a finer or differently structured state space may require orders of magnitude more computation. Finally, in dynamic environments where edge costs change while the algorithm runs, A<em> must be restarted or replaced with incremental variants such as D</em> or D* Lite, which update the search tree efficiently as new information arrives.</p>
+<h2 id="interactive-demonstration"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> Interactive Demonstration</h2>
+<p>The animation below runs A<em> step by step on a small grid. Each cell in the open list shows its current <span class="arithmatex">\(f\)</span>, <span class="arithmatex">\(g\)</span>, and <span class="arithmatex">\(h\)</span> values. The Manhattan distance is used as the heuristic. Use </em><em>Step</em><em> to advance one expansion at a time, or </em><em>Play</em>* to run automatically.</p>
+<p>The numbers along the top and left edges are the column and row indices of each cell. The start node <strong>S</strong> sits at (row 1, col 1) and the goal <strong>G</strong> at (row 8, col 12).
+Because no moves have been made yet, <span class="arithmatex">\(g(s)=0\)</span>, so the initial <span class="arithmatex">\(f\)</span>-value is driven entirely by the heuristic: </p>
+<div class="arithmatex">\[h(s) = |1-8| + |1-12| = 7 + 11 = 18\]</div>
+<p>This is the Manhattan distance — the minimum number of horizontal and vertical steps needed to reach the goal on an obstacle-free grid.</p>
+<div id="astar-demo" style="max-width:620px;margin:2em auto;font-family:system-ui,sans-serif;">
+<canvas height="440" id="astar-canvas" style="border:1px solid var(--md-default-fg-color);border-radius:4px;display:block;margin:0 auto;background:var(--md-default-bg-color);opacity:0.95;" width="608"></canvas>
+<div id="astar-legend" style="display:flex;flex-wrap:wrap;gap:0.45em 1.1em;justify-content:center;margin:0.65em 0 0.4em;font-size:0.8em;color:var(--md-typeset-color);">
+<!-- swatches injected by JS so they also pick up theme colours -->
+</div>
+<div style="display:flex;align-items:center;justify-content:center;gap:0.55em;flex-wrap:wrap;">
+<button id="astar-btn-reset" style="padding:.32em .85em;border-radius:4px;border:1px solid var(--md-default-fg-color);cursor:pointer;background:var(--md-default-bg-color);color:var(--md-typeset-color);font-size:.9em;">Reset</button>
+<button id="astar-btn-step" style="padding:.32em .85em;border-radius:4px;border:1px solid var(--md-default-fg-color);cursor:pointer;background:var(--md-default-bg-color);color:var(--md-typeset-color);font-size:.9em;">Step</button>
+<button id="astar-btn-play" style="padding:.32em .85em;border-radius:4px;border:1px solid var(--md-accent-bg-color);cursor:pointer;background:var(--md-accent-bg-color);color:var(--md-primary-fg-color);font-weight:600;font-size:.9em;">Play</button>
+<label style="font-size:.82em;color:var(--md-typeset-color);">Speed 
+      <input id="astar-speed" max="900" min="80" style="width:88px;vertical-align:middle;" type="range" value="350"/>
+</label>
+</div>
+<p id="astar-info" style="text-align:center;margin:.5em 0 0;font-size:.82em;color:var(--md-typeset-color);min-height:1.1em;"></p>
+</div>
+<script>
+(function () {
+  'use strict';
+  var COLS = 14, ROWS = 10, CELL = 42, ML = 20, MT = 20;
+
+  var WALL_LIST = [
+    [1,4],[1,5],[1,6],[1,7],
+    [2,7],
+    [3,2],[3,7],
+    [4,2],[4,4],[4,5],[4,7],
+    [5,2],[5,4],
+    [6,2],[6,4],[6,5],[6,6],[6,7],[6,8],[6,9],[6,10]
+  ];
+
+  var START = { r: 1, c: 1 };
+  var GOAL  = { r: 8, c: 12 };
+
+  var wallSet = new Set(WALL_LIST.map(function (w) { return w[0] + ',' + w[1]; }));
+
+  var canvas = document.getElementById('astar-canvas');
+  var ctx    = canvas.getContext('2d');
+  var infoEl = document.getElementById('astar-info');
+
+  /* ── Theme-aware colour palette ────────────────────────────────────────── */
+  function isDarkScheme() {
+    var scheme =
+      document.body.getAttribute('data-md-color-scheme') ||
+      document.documentElement.getAttribute('data-md-color-scheme') || 'default';
+    return scheme === 'slate';
+  }
+
+  function getColors() {
+    var dark = isDarkScheme();
+    return {
+      /* grid cells */
+      empty:   dark ? '#1d2d44' : '#cec8c2',
+      wall:    dark ? '#0d1321' : '#433e3f',
+      start:   dark ? '#748cab' : '#8e6e53',
+      goal:    dark ? '#ff6b6b' : '#c62828',
+      closed:  dark ? '#2a4a6b' : '#c8e0f5',
+      open:    dark ? '#1a3d2b' : '#c7eed7',
+      current: dark ? '#f0ebd8' : '#c69c72',
+      path:    dark ? '#ffb74d' : '#e65100',
+      /* canvas chrome */
+      grid:    dark ? '#3e5c76' : '#b0a89f',
+      bg:      dark ? '#1d2d44' : '#c0b7b1',
+      /* text drawn on canvas */
+      labelDark:  dark ? '#f0ebd8' : '#1f2937',
+      badgeText:  dark ? '#0d1321' : '#f0ebd8'
+    };
+  }
+
+  /* ── Legend (re-built on every theme change) ────────────────────────────── */
+  var LEGEND_ITEMS = [
+    { key: 'start',   label: 'Start'       },
+    { key: 'goal',    label: 'Goal'        },
+    { key: 'wall',    label: 'Wall'        },
+    { key: 'current', label: 'Current'     },
+    { key: 'open',    label: 'Open list'   },
+    { key: 'closed',  label: 'Closed list' },
+    { key: 'path',    label: 'Path'        }
+  ];
+
+  function rebuildLegend() {
+    var C   = getColors();
+    var leg = document.getElementById('astar-legend');
+    leg.innerHTML = '';
+    LEGEND_ITEMS.forEach(function (item) {
+      var span = document.createElement('span');
+      span.innerHTML =
+        '<span style="display:inline-block;width:11px;height:11px;background:' +
+        C[item.key] +
+        ';border-radius:2px;vertical-align:middle;margin-right:3px;"></span>' +
+        item.label;
+      leg.appendChild(span);
+    });
+  }
+
+  /* ── A* logic (unchanged) ───────────────────────────────────────────────── */
+  function key(r, c)     { return r + ',' + c; }
+  function isWall(r, c)  { return wallSet.has(key(r, c)); }
+  function isValid(r, c) { return r >= 0 && r < ROWS && c >= 0 && c < COLS && !isWall(r, c); }
+  function manhattan(r, c){ return Math.abs(r - GOAL.r) + Math.abs(c - GOAL.c); }
+
+  function computeSteps() {
+    var steps = [], openMap = new Map(), closedMap = new Map(), parentMap = new Map();
+    var sk = key(START.r, START.c), h0 = manhattan(START.r, START.c);
+    openMap.set(sk, { r: START.r, c: START.c, g: 0, h: h0, f: h0 });
+    parentMap.set(sk, null);
+
+    while (openMap.size > 0) {
+      var minF = Infinity, minKey = null;
+      openMap.forEach(function (v, k) {
+        if (v.f < minF || (v.f === minF && minKey !== null && v.h < openMap.get(minKey).h)) {
+          minF = v.f; minKey = k;
+        }
+      });
+      var cur = openMap.get(minKey);
+      openMap.delete(minKey);
+      closedMap.set(minKey, cur);
+
+      var isGoal = (minKey === key(GOAL.r, GOAL.c)), path = [];
+      if (isGoal) {
+        var kk = minKey;
+        while (kk !== null) {
+          var pp = kk.split(',');
+          path.unshift({ r: +pp[0], c: +pp[1] });
+          kk = parentMap.get(kk);
+        }
+      }
+      steps.push({ open: new Map(openMap), closed: new Map(closedMap),
+                   current: minKey, curNode: cur, done: isGoal, path: path });
+      if (isGoal) break;
+
+      var dirs = [[-1,0],[1,0],[0,-1],[0,1]];
+      for (var d = 0; d < dirs.length; d++) {
+        var nr = cur.r + dirs[d][0], nc = cur.c + dirs[d][1];
+        if (!isValid(nr, nc)) continue;
+        var nk = key(nr, nc);
+        if (closedMap.has(nk)) continue;
+        var ng = cur.g + 1, old = openMap.get(nk);
+        if (!old || ng < old.g) {
+          var nh = manhattan(nr, nc);
+          openMap.set(nk, { r: nr, c: nc, g: ng, h: nh, f: ng + nh });
+          parentMap.set(nk, minKey);
+        }
+      }
+    }
+    return steps;
+  }
+
+  /* ── Drawing ─────────────────────────────────────────────────────────────── */
+  function drawGrid(step) {
+    var C       = getColors();
+    var pathSet = new Set(step ? step.path.map(function (p) { return key(p.r, p.c); }) : []);
+    var SK = key(START.r, START.c), GK = key(GOAL.r, GOAL.c);
+
+    /* canvas background */
+    ctx.fillStyle = C.bg;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    /* ── row / column index labels ─────────────────────────────────────── */
+    ctx.fillStyle    = C.labelDark;
+    ctx.font         = '10px system-ui,sans-serif';
+    ctx.textAlign    = 'center';
+    ctx.textBaseline = 'middle';
+    for (var ci = 0; ci < COLS; ci++) {
+      ctx.fillText(ci, ML + ci * CELL + CELL / 2, MT / 2);
+    }
+    ctx.textAlign = 'center';
+    for (var ri = 0; ri < ROWS; ri++) {
+      ctx.fillText(ri, ML / 2, MT + ri * CELL + CELL / 2);
+    }
+    ctx.textBaseline = 'alphabetic';
+
+    for (var r = 0; r < ROWS; r++) {
+      for (var c = 0; c < COLS; c++) {
+        var k = key(r, c);
+        var x = ML + c * CELL, y = MT + r * CELL;
+
+        var type = 'empty';
+        if (isWall(r, c))                             type = 'wall';
+        else if (step && step.done && pathSet.has(k)) type = 'path';
+        else if (step && step.current === k)          type = 'current';
+        else if (step && step.closed.has(k))          type = 'closed';
+        else if (step && step.open.has(k))            type = 'open';
+        if (k === SK) type = 'start';
+        if (k === GK) type = 'goal';
+
+        ctx.fillStyle = C[type];
+        ctx.fillRect(x + 1, y + 1, CELL - 2, CELL - 2);
+
+        /* f/g/h labels inside open/closed/current cells */
+        if (step && type !== 'wall' && type !== 'start' && type !== 'goal' &&
+            type !== 'empty' && type !== 'path') {
+          var info = (step.current === k) ? step.curNode : (step.open.get(k) || step.closed.get(k));
+          if (info) {
+            ctx.fillStyle    = C.labelDark;
+            ctx.font         = '9px system-ui,sans-serif';
+            ctx.textAlign    = 'left';
+            ctx.textBaseline = 'top';
+            ctx.fillText('f:' + info.f, x + 3, y + 3);
+            ctx.fillText('g:' + info.g, x + 3, y + 14);
+            ctx.fillText('h:' + info.h, x + 3, y + 25);
+            ctx.textBaseline = 'alphabetic';
+          }
+        }
+
+        /* S / G badge */
+        if (k === SK || k === GK) {
+          ctx.fillStyle    = C.badgeText;
+          ctx.font         = 'bold 15px system-ui,sans-serif';
+          ctx.textAlign    = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText(k === SK ? 'S' : 'G', x + CELL / 2, y + CELL / 2);
+          ctx.textBaseline = 'alphabetic';
+        }
+
+        ctx.strokeStyle = C.grid;
+        ctx.lineWidth   = 0.5;
+        ctx.strokeRect(x, y, CELL, CELL);
+      }
+    }
+  }
+
+  /* ── Controls ────────────────────────────────────────────────────────────── */
+  var steps = [], stepIndex = -1, timer = null, lastStep = null;
+
+  function init() {
+    stopPlay();
+    steps     = computeSteps();
+    stepIndex = -1;
+    lastStep  = null;
+    rebuildLegend();
+    drawGrid(null);
+    infoEl.textContent = 'Press Step to advance one expansion, or Play to run automatically.';
+    document.getElementById('astar-btn-play').textContent = 'Play';
+  }
+
+  function stepForward() {
+    if (stepIndex >= steps.length - 1) { stopPlay(); return; }
+    stepIndex++;
+    lastStep = steps[stepIndex];
+    var s = lastStep, n = s.curNode;
+    drawGrid(s);
+    infoEl.textContent = s.done
+      ? 'Step ' + (stepIndex + 1) + ' / ' + steps.length + ' — Goal reached at (' + n.r + ',' + n.c + ')  |  path length: ' + (s.path.length - 1) + ' steps'
+      : 'Step ' + (stepIndex + 1) + ' / ' + steps.length + ' — Expanding (' + n.r + ',' + n.c + ')  f=' + n.f + '  g=' + n.g + '  h=' + n.h + '  |  open: ' + s.open.size + '  closed: ' + s.closed.size;
+  }
+
+  function startPlay() {
+    if (timer) return;
+    var delay = 950 - parseInt(document.getElementById('astar-speed').value, 10);
+    document.getElementById('astar-btn-play').textContent = 'Pause';
+    timer = setInterval(function () {
+      if (stepIndex >= steps.length - 1) { stopPlay(); return; }
+      stepForward();
+    }, delay);
+  }
+
+  function stopPlay() {
+    clearInterval(timer); timer = null;
+    document.getElementById('astar-btn-play').textContent = 'Play';
+  }
+
+  document.getElementById('astar-btn-reset').addEventListener('click', init);
+  document.getElementById('astar-btn-step').addEventListener('click', function () { stopPlay(); stepForward(); });
+  document.getElementById('astar-btn-play').addEventListener('click', function () { if (timer) stopPlay(); else startPlay(); });
+  document.getElementById('astar-speed').addEventListener('input', function () { if (timer) { stopPlay(); startPlay(); } });
+
+  /* ── React to MkDocs Material theme-switch ──────────────────────────────── */
+  var themeObserver = new MutationObserver(function () {
+    rebuildLegend();
+    drawGrid(lastStep);   /* redraw current frame with new palette */
+  });
+  /* Material sets data-md-color-scheme on <body> */
+  themeObserver.observe(document.body, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+  themeObserver.observe(document.documentElement, { attributes: true, attributeFilter: ['data-md-color-scheme'] });
+
+  init();
+}());
+</script>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:hart1968">
+<p>Peter E. Hart, Nils J. Nilsson, and Bertram Raphael. A formal basis for the heuristic determination of minimum cost paths. <em>IEEE Transactions on Systems Science and Cybernetics</em>, 4(2):100–107, 1968. <a href="https://doi.org/10.1109/TSSC.1968.300136">doi:10.1109/TSSC.1968.300136</a>. <a class="footnote-backref" href="#fnref:hart1968" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:hart1968" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:hart1968" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:russell2020">
+<p>Stuart Russell and Peter Norvig. <em>Artificial Intelligence: A Modern Approach</em>. Pearson, 4th edition, 2020. ISBN 978-0-13-461099-3. <a class="footnote-backref" href="#fnref:russell2020" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:russell2020" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:pearl1984">
+<p>Judea Pearl. <em>Heuristics: Intelligent Search Strategies for Computer Problem Solving</em>. Addison-Wesley, 1984. ISBN 978-0-201-05594-0. <a class="footnote-backref" href="#fnref:pearl1984" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:pearl1984" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:nilsson1971">
+<p>Nils J. Nilsson. <em>Problem-Solving Methods in Artificial Intelligence</em>. McGraw-Hill, 1971. <a class="footnote-backref" href="#fnref:nilsson1971" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Powrót do góry
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/yourusername" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank" title="linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9.0.1</span> Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+</li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Akceptuj</button>
+<button class="md-button md-button--primary" type="reset">Odrzuć</button>
+<label class="md-button" for="__settings">Zarządzaj ustawieniami</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+<script src="../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../../../../javascripts/consent-mode.js"></script>
+<script src="../../../../../../javascripts/home-parallax.js"></script>
+<script src="../../../../../../javascripts/external-links.js"></script>
+<script src="../../../../../../javascripts/mathjax.js"></script>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
+</body>
+</html>

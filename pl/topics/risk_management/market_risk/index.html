@@ -1,0 +1,2450 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="pl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
+<link href="https://quantero.kruk-ai.com/pl/topics/risk_management/market_risk/" rel="canonical"/>
+<link href="../" rel="prev"/>
+<link href="value_at_risk/" rel="next"/>
+<link href="../../../../topics/risk_management/market_risk/" hreflang="en" rel="alternate"/>
+<link href="../../../../es/topics/risk_management/market_risk/" hreflang="es" rel="alternate"/>
+<link href="./" hreflang="pl" rel="alternate"/>
+<link href="../../../../nl/topics/risk_management/market_risk/" hreflang="nl" rel="alternate"/>
+<link href="../../../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Market Risk - Quȧntero</title>
+<link href="../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-RSMTNXK402"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-RSMTNXK402",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-RSMTNXK402",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+<!-- Open Graph / Social Media Preview -->
+<meta content="website" property="og:type"/>
+<meta content="Market Risk" property="og:title"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
+<meta content="https://quantero.kruk-ai.com/pl/topics/risk_management/market_risk/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#market-risk">
+          Przejdź do treści
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Nagłówek" class="md-header__inner md-grid">
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../../" title="Quȧntero">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Quȧntero
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Market Risk
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Wybierz język" class="md-header__button md-icon quantero-language-selector">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+<span aria-hidden="true" class="quantero-language-selector__label">
+        EN / ES / PL / NL
+      </span>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../topics/risk_management/market_risk/" hreflang="en" lang="en">
+              English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../es/topics/risk_management/market_risk/" hreflang="es" lang="es">
+              Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="pl" lang="pl">
+              Polski
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../nl/topics/risk_management/market_risk/" hreflang="nl" lang="nl">
+              Nederlands
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Szukaj" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Szukaj" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Szukaj" class="md-search__options">
+<button aria-label="Wyczyść" class="md-search__icon md-icon" tabindex="-1" title="Wyczyść" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Inicjowanie wyszukiwania
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Zakładki" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../finance/">
+          
+  
+  
+    
+  
+  Finanse ilościowe
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../foundations/">
+          
+  
+  
+    
+  
+  Podstawy matematyczne
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../computing/">
+          
+  
+  
+    
+  
+  AI i informatyka
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../economics/">
+          
+  
+  
+    
+  
+  Ekonomia
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../">
+        
+  
+  
+    
+  
+  Wszystkie tematy
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Nawigacja" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../../" title="Quȧntero">
+<img alt="logo" src="../../../../assets/logo.png"/>
+</a>
+    Quȧntero
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Finanse ilościowe
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Finanse ilościowe
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../finance/">
+<span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/">
+<span class="md-ellipsis">
+    
+  
+    Modele wyceny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Modele wyceny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/interest_rates/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Interest Rate Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/interest_rates/vasicek_model/">
+<span class="md-ellipsis">
+    
+  
+    The Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/interest_rates/cir_model/">
+<span class="md-ellipsis">
+    
+  
+    The Cox-Ingersoll-Ross (CIR) Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/interest_rates/hull_white_model/">
+<span class="md-ellipsis">
+    
+  
+    The Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/">
+<span class="md-ellipsis">
+    
+  
+    Bond Affine Ansatz Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Bond Affine Ansatz Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/options/">
+<span class="md-ellipsis">
+    
+  
+    Options
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Options
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/options/black_scholes_equation/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/">
+<span class="md-ellipsis">
+    
+  
+    Volatility Surface Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3" id="__nav_2_2_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Volatility Surface Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/constant_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Constant Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_2" id="__nav_2_2_3_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Constant Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/constant_volatility/black_scholes_surface/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes and the Flat Volatility Surface
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/local_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Local Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_3" id="__nav_2_2_3_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_3_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Local Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/local_volatility/dupire_model/">
+<span class="md-ellipsis">
+    
+  
+    Dupire Local Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/stochastic_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Stochastic Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_4" id="__nav_2_2_3_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/stochastic_volatility/heston_model/">
+<span class="md-ellipsis">
+    
+  
+    Heston Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../pricing/options/volatility_surfaces/stochastic_volatility/sabr_model/">
+<span class="md-ellipsis">
+    
+  
+    SABR Stochastic Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Zarządzanie ryzykiem
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Zarządzanie ryzykiem
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Market Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link md-nav__link--active" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Market Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Value at Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="value_at_risk/value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Wartość zagrożona (VaR)
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="value_at_risk/conditional_value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Warunkowa wartość zagrożona (CVaR)
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../model_validation/">
+<span class="md-ellipsis">
+    
+  
+    Walidacja modeli
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Walidacja modeli
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../algorithmic_trading/">
+<span class="md-ellipsis">
+    
+  
+    Handel algorytmiczny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Handel algorytmiczny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../algorithmic_trading/exotic_charts/">
+<span class="md-ellipsis">
+    
+  
+    Wykresy niestandardowe
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Wykresy niestandardowe
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../algorithmic_trading/exotic_charts/point_and_figure/">
+<span class="md-ellipsis">
+    
+  
+    Wykres punktowo-symboliczny
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Podstawy matematyczne
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Podstawy matematyczne
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../foundations/">
+<span class="md-ellipsis">
+    
+  
+    Mathematical Foundations
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../statistics_and_probability/">
+<span class="md-ellipsis">
+    
+  
+    Statystyka i prawdopodobieństwo
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statystyka i prawdopodobieństwo
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/">
+<span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/expected_value/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Expected Value
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/filtration/">
+<span class="md-ellipsis">
+    
+  
+    Filtration: Information Over Time
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/tower_property/">
+<span class="md-ellipsis">
+    
+  
+    Tower Property of Conditional Expectation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/gaussian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Derivation of the Gaussian Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/jensen_inequality/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Jensen Inequality
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/probability/momentum_generating_functions/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Moment Generating Functions
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../statistics_and_probability/statistics/">
+<span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<span class="md-ellipsis">
+    
+  
+    Maximum Likelihood Estimation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../stochastic_calculus/">
+<span class="md-ellipsis">
+    
+  
+    Rachunek stochastyczny
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Rachunek stochastyczny
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../stochastic_calculus/brownian_motion/">
+<span class="md-ellipsis">
+    
+  
+    Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../stochastic_calculus/quadratic_variation/">
+<span class="md-ellipsis">
+    
+  
+    Variation and Quadratic Variation of Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../stochastic_calculus/brownian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Itô Integrals with Respect to Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../stochastic_calculus/ito_product_rule/">
+<span class="md-ellipsis">
+    
+  
+    Itô's Product Rule
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../stochastic_calculus/itos_isometry/">
+<span class="md-ellipsis">
+    
+  
+    Itô’s Isometry: an attempt for derivation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    AI i informatyka
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    AI i informatyka
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computing/">
+<span class="md-ellipsis">
+    
+  
+    AI &amp; Computing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/">
+<span class="md-ellipsis">
+    
+  
+    Sztuczna inteligencja
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sztuczna inteligencja
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/supervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Supervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/unsupervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Unsupervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unsupervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Networks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../artificial_intelligence/deep_learning/backpropagation_methodology/">
+<span class="md-ellipsis">
+    
+  
+    Metodyka propagacji wstecznej
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/">
+<span class="md-ellipsis">
+    
+  
+    Informatyka
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Informatyka
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/">
+<span class="md-ellipsis">
+    
+  
+    Algorithmic Design
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmic Design
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/searching_in_data_structures/">
+<span class="md-ellipsis">
+    
+  
+    Searching in Data Structures
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Searching in Data Structures
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/searching_in_data_structures/linear_search/">
+<span class="md-ellipsis">
+    
+  
+    Linear Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/searching_in_data_structures/binary_search/">
+<span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/sorting/">
+<span class="md-ellipsis">
+    
+  
+    Sorting Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_3" id="__nav_4_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sorting Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/sorting/merge_sort/">
+<span class="md-ellipsis">
+    
+  
+    Merge Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/sorting/quick_sort/">
+<span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/sorting/heap_sort/">
+<span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/">
+<span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_4" id="__nav_4_3_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Graph Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/bfs/">
+<span class="md-ellipsis">
+    
+  
+    Breadth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/dfs/">
+<span class="md-ellipsis">
+    
+  
+    Depth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/dijkstra/">
+<span class="md-ellipsis">
+    
+  
+    Dijkstra's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/kruskal/">
+<span class="md-ellipsis">
+    
+  
+    Kruskal's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/graph_algorithms/prim/">
+<span class="md-ellipsis">
+    
+  
+    Prim's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/optimisation/">
+<span class="md-ellipsis">
+    
+  
+    Optimisation
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_5" id="__nav_4_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Optimisation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/optimisation/interval_scheduling/">
+<span class="md-ellipsis">
+    
+  
+    Interval Scheduling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/optimisation/knapsack/">
+<span class="md-ellipsis">
+    
+  
+    0/1 Knapsack
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/state_space_search/">
+<span class="md-ellipsis">
+    
+  
+    State-Space Search
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_6" id="__nav_4_3_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    State-Space Search
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/state_space_search/uniform_cost_search/">
+<span class="md-ellipsis">
+    
+  
+    Uniform-Cost Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/state_space_search/best_first_search/">
+<span class="md-ellipsis">
+    
+  
+    Best-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/state_space_search/a_star_search/">
+<span class="md-ellipsis">
+    
+  
+    A* Search Method
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../computer_science/algorithmic_design/state_space_search/iterative_deepening/">
+<span class="md-ellipsis">
+    
+  
+    Iterative Deepening Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../economics/">
+<span class="md-ellipsis">
+    
+  
+    Ekonomia
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Ekonomia
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../economics/macroeconomics/">
+<span class="md-ellipsis">
+    
+  
+    Macroeconomics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Macroeconomics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../economics/macroeconomics/interest_rate_parity/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Parity
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Wszystkie tematy
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Spis treści" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Spis treści
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-nature-and-scope-of-market-risk">
+<span class="md-ellipsis">
+      
+        The Nature and Scope of Market Risk
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#fundamental-components-of-market-risk-exposure">
+<span class="md-ellipsis">
+      
+        Fundamental Components of Market Risk Exposure
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#quantitative-risk-measurement-approaches">
+<span class="md-ellipsis">
+      
+        Quantitative Risk Measurement Approaches
+      
+    </span>
+</a>
+<nav aria-label="Quantitative Risk Measurement Approaches" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#value-at-risk-and-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Value at Risk and Expected Shortfall
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#stress-testing-and-scenario-analysis">
+<span class="md-ellipsis">
+      
+        Stress Testing and Scenario Analysis
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#sensitivity-measures-for-risk-decomposition">
+<span class="md-ellipsis">
+      
+        Sensitivity Measures for Risk Decomposition
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#modeling-approaches-for-portfolio-valuation">
+<span class="md-ellipsis">
+      
+        Modeling Approaches for Portfolio Valuation
+      
+    </span>
+</a>
+<nav aria-label="Modeling Approaches for Portfolio Valuation" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#linear-approximations">
+<span class="md-ellipsis">
+      
+        Linear Approximations
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#full-revaluation-methods">
+<span class="md-ellipsis">
+      
+        Full Revaluation Methods
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-market-risk-management-framework">
+<span class="md-ellipsis">
+      
+        The Market Risk Management Framework
+      
+    </span>
+</a>
+<nav aria-label="The Market Risk Management Framework" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-identification-and-mapping">
+<span class="md-ellipsis">
+      
+        Risk Identification and Mapping
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-measurement-and-analytics">
+<span class="md-ellipsis">
+      
+        Risk Measurement and Analytics
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-limits-and-controls">
+<span class="md-ellipsis">
+      
+        Risk Limits and Controls
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#monitoring-reporting-and-escalation">
+<span class="md-ellipsis">
+      
+        Monitoring, Reporting, and Escalation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#backtesting-and-model-validation">
+<span class="md-ellipsis">
+      
+        Backtesting and Model Validation
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regulatory-capital-framework-for-market-risk">
+<span class="md-ellipsis">
+      
+        Regulatory Capital Framework for Market Risk
+      
+    </span>
+</a>
+<nav aria-label="Regulatory Capital Framework for Market Risk" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#basel-iii-market-risk-regime">
+<span class="md-ellipsis">
+      
+        Basel III Market Risk Regime
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#the-fundamental-review-of-the-trading-book">
+<span class="md-ellipsis">
+      
+        The Fundamental Review of the Trading Book
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-mitigation-strategies">
+<span class="md-ellipsis">
+      
+        Risk Mitigation Strategies
+      
+    </span>
+</a>
+<nav aria-label="Risk Mitigation Strategies" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#hedging-approaches">
+<span class="md-ellipsis">
+      
+        Hedging Approaches
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portfolio-diversification">
+<span class="md-ellipsis">
+      
+        Portfolio Diversification
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-limits-and-mechanical-controls">
+<span class="md-ellipsis">
+      
+        Risk Limits and Mechanical Controls
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analytics-and-decomposition-for-risk-understanding">
+<span class="md-ellipsis">
+      
+        Analytics and Decomposition for Risk Understanding
+      
+    </span>
+</a>
+<nav aria-label="Analytics and Decomposition for Risk Understanding" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-aggregation-across-dimensions">
+<span class="md-ellipsis">
+      
+        Risk Aggregation Across Dimensions
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#profit-and-loss-attribution">
+<span class="md-ellipsis">
+      
+        Profit and Loss Attribution
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#risk-factor-decomposition">
+<span class="md-ellipsis">
+      
+        Risk Factor Decomposition
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#practical-implementation-challenges">
+<span class="md-ellipsis">
+      
+        Practical Implementation Challenges
+      
+    </span>
+</a>
+<nav aria-label="Practical Implementation Challenges" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#model-risk-and-validation">
+<span class="md-ellipsis">
+      
+        Model Risk and Validation
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#data-quality-and-infrastructure">
+<span class="md-ellipsis">
+      
+        Data Quality and Infrastructure
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#computational-performance">
+<span class="md-ellipsis">
+      
+        Computational Performance
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#emerging-developments-in-market-risk">
+<span class="md-ellipsis">
+      
+        Emerging Developments in Market Risk
+      
+    </span>
+</a>
+<nav aria-label="Emerging Developments in Market Risk" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#climate-related-market-risks">
+<span class="md-ellipsis">
+      
+        Climate-Related Market Risks
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cryptocurrency-and-digital-asset-risks">
+<span class="md-ellipsis">
+      
+        Cryptocurrency and Digital Asset Risks
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#machine-learning-applications">
+<span class="md-ellipsis">
+      
+        Machine Learning Applications
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#integrating-measurement-management-and-judgment">
+<span class="md-ellipsis">
+      
+        Integrating Measurement, Management, and Judgment
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<nav aria-label="Nawigacja" class="md-path">
+<ol class="md-path__list">
+<li class="md-path__item">
+<a class="md-path__link" href="../../../">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../finance/">
+<span class="md-ellipsis">
+    Finanse ilościowe
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../">
+<span class="md-ellipsis">
+    Zarządzanie ryzykiem
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="./">
+<span class="md-ellipsis">
+    Market Risk
+  </span>
+</a>
+</li>
+</ol>
+</nav>
+<article class="md-content__inner md-typeset">
+<h1 id="market-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Market Risk</h1>
+<p>Market risk represents the potential for financial losses arising from adverse movements in market prices and rates. As a fundamental category of financial risk, understanding and managing market risk is essential for financial institutions, corporations, and investment portfolios. The discipline has evolved considerably over the past three decades, transforming from simple position limits and gap analysis to sophisticated quantitative frameworks that capture complex dependencies and non-linear exposures across global markets <sup id="fnref:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="the-nature-and-scope-of-market-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> The Nature and Scope of Market Risk</h2>
+<p>Market risk encompasses the uncertainty of returns due to changes in market conditions across multiple dimensions. At its core, equity price risk manifests through changes in stock prices and equity indices, affecting both individual security positions and broad portfolio exposures. The magnitude of this risk varies considerably across market regimes, sectors, and geographic regions, with volatility clustering and regime-switching behavior presenting ongoing challenges to risk managers. Interest rate risk impacts fixed income portfolios through yield curve movements, affecting both the level and shape of the curve. The sensitivity to these movements depends critically on duration, convexity, and the specific structure of cash flows, with non-parallel shifts in the yield curve often generating unexpected losses in portfolios that appear well-hedged against parallel movements <sup id="fnref:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">2</a></sup>.</p>
+<p>Foreign exchange risk arises from exposure to currency fluctuations, affecting not only foreign-denominated assets but also the competitive position of firms with international operations. The interconnected nature of currency markets means that moves in one exchange rate often ripple through correlated currency pairs, creating complex patterns of exposure. Commodity price risk encompasses volatility in energy, metals, and agricultural markets, where physical supply constraints, storage costs, and convenience yields introduce unique features not present in financial assets. The term structure of commodity futures often exhibits backwardation or contango patterns that significantly affect hedging strategies and portfolio valuations <sup id="fnref:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>Credit spread risk, while sometimes classified separately as credit risk, represents a critical component of market risk for portfolios holding credit-sensitive instruments. Changes in credit quality spreads affect corporate bonds, credit default swaps, and structured credit products, with spread movements often exhibiting non-linear relationships to underlying credit fundamentals. Finally, volatility risk captures exposure to changes in both implied and realized volatility, affecting not only options portfolios but also variance swaps, volatility indices, and any strategy with convexity exposure <sup id="fnref:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. The volatility surface itself presents a complex risk landscape, with term structure effects, strike dependencies, and dynamic relationships to underlying asset prices creating multidimensional risk factors <sup id="fnref:derman2016"><a class="footnote-ref" href="#fn:derman2016">5</a></sup>.</p>
+<p>Effective market risk management combines quantitative measurement, stress testing, scenario analysis, and risk limits to protect capital while enabling profitable trading and investment activities. The integration of these complementary approaches creates a robust framework capable of identifying and managing risks under both normal market conditions and during periods of extreme stress.</p>
+<h2 id="fundamental-components-of-market-risk-exposure"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Fundamental Components of Market Risk Exposure</h2>
+<p>Market risk can be decomposed into several fundamental components that capture different dimensions of exposure to market movements <sup id="fnref2:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Understanding these components is essential for comprehensive risk measurement and management, as each dimension presents distinct characteristics and requires tailored approaches to quantification and mitigation.</p>
+<p>Directional risk represents exposure to overall market movements in a particular direction, capturing the most straightforward form of market exposure. A long equity portfolio faces directional risk from potential market declines, with losses accumulating as prices fall. Similarly, a short bond position becomes vulnerable to falling interest rates, which drive bond prices higher and generate losses on the short position. Currency exposure from foreign investments creates directional risk to exchange rate movements, where depreciation of the foreign currency relative to the domestic currency erodes the value of those investments when translated back to the home currency. The management of directional risk typically involves position sizing, portfolio diversification, and the use of hedging instruments such as futures contracts or offsetting positions in correlated assets <sup id="fnref3:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Basis risk emerges from imperfect correlations between hedging instruments and the positions they are intended to protect. Even when a hedge appears conceptually sound, differences in contract specifications, delivery locations, or quality grades can create residual exposure. For instance, hedging Brent crude oil exposure with WTI futures introduces basis risk from the price differential between these two oil benchmarks, which can fluctuate significantly based on regional supply-demand dynamics and transportation costs. Cross-currency hedging mismatches occur when hedging one currency pair with another related but different pair, creating exposure to relative currency movements. The practice of hedging individual stock positions with equity index futures introduces basis risk from the specific stock's idiosyncratic movements relative to the broader market. This basis risk often crystalizes during periods of market stress when correlations break down and individual securities behave differently from their historical relationships with benchmark indices <sup id="fnref2:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>Volatility risk, particularly relevant for options portfolios and strategies with non-linear payoffs, captures sensitivity to changes in the volatility of underlying assets. A long straddle position profits from increases in volatility, as larger price movements in either direction enhance the value of the combined call and put options. Conversely, short gamma positions suffer losses from large price moves regardless of direction, as the convexity of their payoff structure works against them when markets become turbulent. Vega risk in volatility trading strategies creates exposure not just to realized price movements but to market expectations about future volatility embedded in options prices <sup id="fnref2:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. The complexity of volatility risk management increases substantially when considering the term structure of volatility and the smile effects across different strikes, requiring sophisticated multi-dimensional hedging approaches <sup id="fnref2:derman2016"><a class="footnote-ref" href="#fn:derman2016">5</a></sup>.</p>
+<p>Curve risk reflects exposure to non-parallel shifts in yield curves, commodity forward curves, or volatility surfaces. Unlike simple directional risk to overall rate levels, curve risk captures the vulnerability to changes in the shape of these curves. Yield curve steepening, where long-term rates rise more than short-term rates, affects portfolios differently than parallel shifts, creating profits for some positions while generating losses for others based on their specific duration profiles. Changes in the forward rate term structure impact the valuation of futures and forward contracts, particularly in commodity markets where storage costs and convenience yields create complex intertemporal relationships. Volatility smile dynamics introduce curve risk in options portfolios, as changes in the relationship between strike prices and implied volatilities alter the relative values of options with different strikes. Modern risk management systems capture these curve risks through principal component analysis of term structures, identifying the key factors driving curve evolution and measuring portfolio sensitivities to each factor <sup id="fnref:hull1990"><a class="footnote-ref" href="#fn:hull1990">6</a></sup>.</p>
+<h2 id="quantitative-risk-measurement-approaches"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Quantitative Risk Measurement Approaches</h2>
+<h3 id="value-at-risk-and-expected-shortfall"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Value at Risk and Expected Shortfall</h3>
+<p>Value at Risk provides a probabilistic measure of potential losses, quantifying the maximum loss over a specified time horizon at a given confidence level under normal market conditions. Mathematically, for a loss <span class="arithmatex">\(L\)</span>, VaR at confidence level <span class="arithmatex">\(\alpha\)</span> satisfies:</p>
+<div class="arithmatex">\[
+P(L &gt; \text{VaR}_\alpha) = \alpha
+\]</div>
+<p>This intuitive statistic enables risk aggregation across diverse portfolios and has become the cornerstone of regulatory capital requirements and internal risk management frameworks. For a comprehensive treatment of VaR methodologies, calculation approaches, and practical implementation challenges, see <a href="value_at_risk/">Value at Risk</a>.</p>
+<p>While VaR has achieved widespread acceptance, its limitations have motivated the development of more sophisticated risk measures. VaR provides no information about the magnitude of losses beyond the threshold, treating all tail events identically regardless of severity. Expected Shortfall, also known as Conditional Value at Risk (CVaR), addresses this deficiency by measuring the average loss given that the VaR threshold has been exceeded:</p>
+<div class="arithmatex">\[
+\text{ES}_\alpha = \mathbb{E}[L \mid L &gt; \text{VaR}_\alpha]
+\]</div>
+<p>Expected Shortfall possesses superior mathematical properties, particularly the characteristic of coherence, meaning it satisfies subadditivity and properly rewards diversification <sup id="fnref4:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The Basel Committee's decision to replace VaR with Expected Shortfall in the Fundamental Review of the Trading Book acknowledges these theoretical advantages and the measure's better capture of tail risk.</p>
+<h3 id="stress-testing-and-scenario-analysis"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Stress Testing and Scenario Analysis</h3>
+<p>Stress testing complements statistical risk measures by examining portfolio behavior under specific extreme scenarios <sup id="fnref:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">7</a></sup>. Unlike VaR, which relies on statistical distributions calibrated to recent market history, stress tests evaluate performance under conditions that may be rare but potentially devastating. Historical stress scenarios replay past market crises, assessing how current positions would have performed during events such as the 2008 financial crisis, the COVID-19 market disruption of March 2020, or the Long-Term Capital Management collapse of 1998. These retrospective analyses provide tangible insights into vulnerabilities, though their relevance depends on the degree to which current portfolios resemble those held during historical events.</p>
+<p>Hypothetical stress scenarios construct extreme but plausible market moves, often informed by macroeconomic analysis or regulatory requirements. A representative scenario might examine the impact of a sudden 300 basis point increase in interest rates combined with equity market declines and widening credit spreads. The specification of these scenarios requires careful consideration of correlation structures during stress periods, as assets that appear uncorrelated in normal times often move together during crises. Reverse stress testing takes a different approach, working backward from unacceptable outcomes to identify the market conditions that would threaten the institution's viability. This methodology has gained regulatory favor following the financial crisis, as it forces institutions to confront their most significant vulnerabilities and develop contingency plans for scenarios that might otherwise be dismissed as implausible.</p>
+<h3 id="sensitivity-measures-for-risk-decomposition"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> Sensitivity Measures for Risk Decomposition</h3>
+<p>Quantifying exposure to specific risk factors through sensitivity measures enables granular risk management and effective hedging strategies. Delta represents the first-order sensitivity to changes in underlying asset prices, capturing directional exposure and serving as the foundation for hedging programs. Gamma measures the rate of change of delta, quantifying convexity and revealing how delta itself evolves as markets move. High gamma positions require frequent rebalancing to maintain desired risk profiles, introducing transaction costs and implementation challenges <sup id="fnref3:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>.</p>
+<p>Vega captures sensitivity to changes in implied volatility, a critical risk factor for options portfolios that often dominates daily P&amp;L variation. Unlike delta and gamma, vega exposure cannot be hedged using the underlying asset alone, requiring positions in other options or volatility derivatives <sup id="fnref3:derman2016"><a class="footnote-ref" href="#fn:derman2016">5</a></sup>. Theta quantifies time decay, measuring how option values erode as expiration approaches. This sensitivity creates the fundamental tension in options strategies between collecting time decay and managing the risk of adverse market moves. Rho measures interest rate sensitivity, particularly important for longer-dated options and interest rate derivatives. For fixed income portfolios, DV01 serves as the standard measure, quantifying the dollar value impact of a oné basis point shift in interest rates and enabling risk aggregation across instruments with different maturities and cash flow structures <sup id="fnref2:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">2</a></sup>.</p>
+<h2 id="modeling-approaches-for-portfolio-valuation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Modeling Approaches for Portfolio Valuation</h2>
+<h3 id="linear-approximations"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Linear Approximations</h3>
+<p>For portfolios dominated by linear instruments such as stocks, bonds, and foreign exchange positions, the change in portfolio value can be approximated through a linear combination of risk factor sensitivities:</p>
+<div class="arithmatex">\[
+\Delta P = \sum_{i=1}^{n} \Delta_i \times \Delta S_i
+\]</div>
+<p>where <span class="arithmatex">\(\Delta_i\)</span> represents the sensitivity to the <span class="arithmatex">\(i\)</span>-th risk factor and <span class="arithmatex">\(\Delta S_i\)</span> denotes the change in that risk factor. This linear approximation enables computationally efficient risk calculations, particularly valuable for portfolios containing thousands of positions across multiple asset classes <sup id="fnref5:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The delta-normal VaR methodology exploits this linearity, combining position sensitivities with a variance-covariance matrix of risk factor returns to compute Value at Risk analytically. While this approach offers speed and transparency, it breaks down for portfolios with material non-linear exposures, where higher-order effects become significant.</p>
+<h3 id="full-revaluation-methods"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Full Revaluation Methods</h3>
+<p>For portfolios containing options, structured products, or other instruments with non-linear payoffs, full revaluation becomes necessary to capture the true risk profile. This approach revalues the entire portfolio under each scenario, computing the loss as:</p>
+<div class="arithmatex">\[
+\text{Loss} = P(\text{scenario}) - P(\text{current})
+\]</div>
+<p>where <span class="arithmatex">\(P(\text{scenario})\)</span> represents the portfolio value under alternative market conditions and <span class="arithmatex">\(P(\text{current})\)</span> denotes the current portfolio value. Options portfolios with their non-linear payoffs require full revaluation to capture gamma and higher-order effects accurately <sup id="fnref4:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. Path-dependent products such as Asian options, barrier options, and autocallable structures demand simulation of entire price paths rather than just terminal values. Credit derivatives with complex trigger mechanisms and structured products with embedded optionality require detailed valuation modeling that cannot be captured through sensitivity-based approximations.</p>
+<p>Monte Carlo simulation provides a flexible framework for full revaluation across scenarios, generating thousands of potential paths for risk factors and computing portfolio values along each path <sup id="fnref3:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. This approach naturally handles path dependence, correlation complexities, and distributional assumptions beyond the normal distribution. However, the computational burden can become substantial for large portfolios, motivating various acceleration techniques including variance reduction methods, quasi-Monte Carlo approaches, and GPU-accelerated computation.</p>
+<h2 id="the-market-risk-management-framework"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> The Market Risk Management Framework</h2>
+<p>Effective market risk management requires a comprehensive framework integrating identification, measurement, monitoring, and control of risk exposures. This framework must operate at multiple levels, from individual trading positions through business unit aggregation to enterprise-wide risk consolidation, while accommodating the distinct characteristics of different asset classes and trading strategies.</p>
+<h3 id="risk-identification-and-mapping"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> Risk Identification and Mapping</h3>
+<p>The foundation of market risk management lies in systematically mapping all sources of market exposure within an organization. This process begins with cataloging positions across all trading books and investment portfolios, identifying the specific market variables that drive their values. Each position must be decomposed into its constituent risk factors, recognizing that seemingly simple instruments may harbor multiple exposures. A corporate bond, for instance, contains interest rate risk across the relevant yield curve tenors, credit spread risk specific to the issuer's rating and sector, and potentially currency risk if denominated in foreign currency.</p>
+<p>The risk identification process extends beyond current positions to encompass exposures created by standing commitments, contingent claims, and operational practices. Written options create potential exposures that materialize if exercised, collateral agreements generate dependency on asset values that may need to be posted or received, and business relationships may create implicit obligations that function as economic exposures even without explicit contractual commitments. Establishing comprehensive reporting requirements ensures that risk information flows systematically to decision-makers at appropriate frequencies and levels of detail <sup id="fnref6:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h3 id="risk-measurement-and-analytics"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Risk Measurement and Analytics</h3>
+<p>Risk measurement translates the identified exposures into quantitative metrics that enable comparison, aggregation, and limit monitoring. Daily calculation of Value at Risk and Expected Shortfall has become standard practice for trading operations, providing probability-based measures of potential losses under normal market conditions. These calculations must be complemented by sensitivity measures that capture exposures to specific risk factors, enabling both hedging decisions and granular understanding of risk drivers. The Greeks for options portfolios, DV01 for interest rate risk, and foreign exchange deltas for currency exposures provide actionable information that purely statistical measures cannot deliver <sup id="fnref3:brigo2006"><a class="footnote-ref" href="#fn:brigo2006">2</a></sup>.</p>
+<p>Stress scenarios supplement statistical measures by examining performance under extreme but plausible market conditions. These scenarios must be sufficiently severe to reveal true vulnerabilities while remaining grounded in economic reality <sup id="fnref2:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">7</a></sup>. Concentration risk monitoring identifies accumulations of exposure to specific issuer names, sectors, or correlated risk factors that could generate losses beyond those suggested by diversified portfolio measures. The analytical infrastructure supporting these calculations must handle the full complexity of modern portfolios, including non-linear instruments, path dependencies, and dynamic hedging strategies <sup id="fnref4:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<h3 id="risk-limits-and-controls"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.3</span> Risk Limits and Controls</h3>
+<p>Risk limits establish boundaries on acceptable exposures, translating risk appetite determined at senior management and board levels into operational constraints on trading activities. VaR limits allocated to individual trading desks and business units create accountability and enable decentralized risk-taking within defined parameters. Position limits expressed in notional amounts, DV01, or delta equivalents prevent excessive concentrations in specific instruments or market sectors. Stop-loss limits trigger position reductions or closures when cumulative losses reach predetermined thresholds, providing a mechanical brake on deteriorating trading strategies.</p>
+<p>Concentration limits address the danger of accumulating excessive exposure to specific issuers, counterparties, or correlated risk factors. Scenario loss limits impose thresholds on potential losses under stress conditions, ensuring that trading strategies remain viable even when statistical models break down. The hierarchy of these limits must be carefully structured, with enterprise-wide constraints cascading down to business units and individual traders while maintaining consistency and avoiding double-counting of diversification benefits. Regular limit review processes adapt constraints to changing market conditions, business strategies, and institutional risk appetite.</p>
+<h3 id="monitoring-reporting-and-escalation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.4</span> Monitoring, Reporting, and Escalation</h3>
+<p>Daily monitoring activities compare actual positions and risk metrics against established limits, identify breaches requiring explanation or remediation, and track profit and loss attribution to understand whether returns are accruing from intended risk exposures or unexpected sources. Risk factor movements must be tracked systematically, enabling rapid identification of market conditions that could threaten positions or invalidate hedging strategies. Exceptional exposures emerging from large transactions, unusual market moves, or operational issues require immediate escalation to ensure appropriate management attention and response <sup id="fnref7:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Risk reporting must be tailored to different audiences, providing traders with detailed position-level information supporting hedging decisions while giving senior management consolidated views suitable for strategic oversight. The frequency and detail of reporting should match the time scale and nature of risks, with intraday monitoring for active trading operations and longer-horizon analysis for strategic portfolios. Exception reporting that highlights limit breaches, unusual risk concentrations, or significant stress scenario losses ensures that critical information surfaces prominently rather than being buried in routine reports.</p>
+<h3 id="backtesting-and-model-validation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.5</span> Backtesting and Model Validation</h3>
+<p>Backtesting compares predicted Value at Risk with realized profit and loss, providing empirical evidence of model accuracy and appropriate calibration. Statistical tests such as the Kupiec proportion of failures test evaluate whether the frequency of VaR exceedances matches theoretical expectations, while more sophisticated analyses examine the magnitude and clustering of exceptions. Persistent underprediction of losses signals model weakness or changes in market behavior requiring recalibration or methodological enhancement. Conversely, systematic overestimation of risk may indicate excessive conservatism that unnecessarily constrains business activity <sup id="fnref8:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Model validation extends beyond backtesting to encompass theoretical soundness, implementation correctness, and appropriateness of assumptions for current market conditions. Independent validation teams assess whether risk models properly capture relevant risk factors, handle correlations appropriately, and implement intended methodologies without coding errors or numerical instabilities <sup id="fnref:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>. Regular recalibration of model parameters ensures that historical data inputs remain relevant, adapting to evolving market volatility and correlation structures. The validation process must also evaluate whether models remain suitable as portfolios evolve and new products are introduced, preventing silent degradation of model quality as usage patterns shift away from original design assumptions.</p>
+<h2 id="regulatory-capital-framework-for-market-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Regulatory Capital Framework for Market Risk</h2>
+<h3 id="basel-iii-market-risk-regime"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Basel III Market Risk Regime</h3>
+<p>The regulatory treatment of market risk under Basel III reflects fundamental lessons from the financial crisis while balancing the need for risk sensitivity against practical implementation concerns. The framework offers banks two distinct approaches for calculating market risk capital requirements, recognizing that institutions vary substantially in their sophistication, portfolio complexity, and resources available for risk model development.</p>
+<p>The Standardized Approach provides a simplified methodology that assigns fixed risk weights to various asset classes and position types, enabling calculation of capital requirements without requiring complex internal models. This approach trades precision for simplicity, applying standardized formulas that may not capture portfolio-specific risk characteristics but ensure a minimum capital floor and provide a benchmark for model-based approaches. The standardized approach has particular value for smaller institutions or those with straightforward trading activities that do not justify the investment in advanced modeling infrastructure <sup id="fnref9:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>The Internal Models Approach (IMA) allows banks to use their own Value at Risk and Expected Shortfall models to calculate regulatory capital, subject to strict supervisory approval and ongoing validation requirements. Adoption of the IMA requires demonstrating that internal models meet rigorous standards for data quality, methodological soundness, and governance oversight. The regulatory standards mandate specific assumptions about confidence levels, holding periods, and historical observation windows, ensuring minimum consistency across institutions while permitting flexibility in modeling techniques <sup id="fnref2:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>. Banks using internal models face intensive backtesting requirements, with regulatory consequences including capital multipliers when realized losses exceed model predictions at frequencies suggesting inadequate calibration.</p>
+<p>The transition from Value at Risk to Expected Shortfall as the primary regulatory measure reflects recognition that VaR fails to capture tail risk severity, focusing solely on a threshold percentile without addressing the magnitude of losses beyond that point. The Basel Committee's adoption of 97.5% Expected Shortfall over a ten-day horizon represents a deliberate choice to measure average tail losses rather than merely identifying a threshold exceedance level. This shift places greater emphasis on stress scenarios and extreme market moves, aligning regulatory capital more closely with the actual loss distributions observed during crisis periods <sup id="fnref10:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Beyond the base Expected Shortfall calculation, the revised framework introduces a stress scenario capital add-on, a default risk capital component addressing jump-to-default risk for credit-sensitive instruments, and comprehensive model validation and governance requirements that compel banks to maintain independent validation functions and ensure appropriate senior management oversight <sup id="fnref3:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>.</p>
+<h3 id="the-fundamental-review-of-the-trading-book"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> The Fundamental Review of the Trading Book</h3>
+<p>The Fundamental Review of the Trading Book (FRTB) represents the most comprehensive reform of market risk capital requirements in decades, addressing fundamental flaws in the pre-crisis regulatory framework. The reforms commence with clarifying the boundary between the trading book and banking book, closing loopholes that permitted regulatory arbitrage through strategic assignment of positions to whichever book generated lower capital requirements. The new boundary rules focus on instruments' intent and liquidity rather than permitting discretionary classification, with specific criteria for what constitutes trading book treatment and restrictions on transfers between books.</p>
+<p>The sensitivities-based approach introduced in FRTB standardizes how positions are decomposed into risk factors across different asset classes, creating a common framework that captures basis risk, correlation risk, and optionality more comprehensively than previous standardized approaches. This methodology computes capital requirements by aggregating sensitivities to defined risk factors according to prescribed correlation assumptions, creating a middle ground between the simplicity of crude standardized approaches and the complexity of full internal models. The revised standardized approach serves both as a fallback for institutions not qualifying for internal models and as a floor beneath internal model capital, preventing excessive reliance on potentially aggressive model assumptions.</p>
+<p>Enhanced internal models approach requirements under FRTB impose stricter standards for model approval and continued use. The profit and loss attribution test compares theoretical P&amp;L from risk models against actual trading desk results, with sustained divergences triggering capital surcharges or even desk-level reversion to standardized approaches. This requirement ensures that internal models accurately capture the risk factors actually driving trading outcomes rather than presenting stylized approximations disconnected from economic reality. The non-modellable risk factors treatment addresses market variables for which insufficient liquid pricing data exists to support statistical modeling, requiring capital calculations based on stressed scenarios rather than permitting incorporation into internal models where their parameters would necessarily rely on subjective judgment rather than empirical evidence. These provisions prevent situations where banks claim model sophistication while actually making unverifiable assumptions about thinly-traded exposures.</p>
+<h2 id="risk-mitigation-strategies"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Risk Mitigation Strategies</h2>
+<p>Market risk mitigation employs a combination of hedging techniques, portfolio diversification, position limits, and tactical risk adjustments. The selection and implementation of these strategies must balance the costs of risk reduction against the benefits of maintaining exposures that generate returns, recognizing that perfect hedging is neither economically feasible nor strategically desirable for most market participants <sup id="fnref11:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h3 id="hedging-approaches"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.1</span> Hedging Approaches</h3>
+<p>Hedging strategies aim to offset undesired risk exposures through positions in instruments whose values move oppositely to the primary exposure. Delta hedging addresses directional risk by taking offsetting positions sized according to sensitivity calculations, enabling market-makers and proprietary traders to neutralize exposure to underlying price movements while capturing profits from other sources such as volatility trading or bid-ask spreads <sup id="fnref5:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. The implementation of delta hedging requires continuous monitoring and rebalancing as deltas change with market moves and time passage, introducing transaction costs and basis risk that must be weighed against the protection provided.</p>
+<p>Dynamic hedging extends this concept to options portfolios, where gamma and other higher-order sensitivities create exposures that evolve non-linearly with market movements <sup id="fnref4:derman2016"><a class="footnote-ref" href="#fn:derman2016">5</a></sup>. The continuous rebalancing required for gamma hedging can be costly during volatile periods when frequent adjustments become necessary, while infrequent rebalancing leaves residual risk exposure between adjustment points. Cross-hedging becomes necessary when perfect hedges are unavailable, using correlated but not identical instruments to provide approximate protection. The Brent-WTI crude oil spread, equity index futures used to hedge individual stock portfolios, and cross-currency hedges all illustrate situations where basis risk must be accepted as the price of accessing liquid hedging instruments <sup id="fnref12:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Macro hedges address portfolio-level risk without attempting to eliminate every individual position's exposure, using index derivatives, interest rate futures, or currency forwards to manage aggregate exposures efficiently. This approach accepts residual basis risk at the position level in exchange for lower transaction costs and simpler implementation compared to fully granular hedging. The effectiveness of macro hedges depends critically on maintaining stable relationships between the hedge instruments and the underlying portfolio exposures, relationships that can deteriorate during market stress when correlations shift unexpectedly.</p>
+<h3 id="portfolio-diversification"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.2</span> Portfolio Diversification</h3>
+<p>Diversification exploits imperfect correlations between risk factors to reduce aggregate portfolio volatility. The portfolio variance formula demonstrates this mathematically:</p>
+<div class="arithmatex">\[
+\sigma_p^2 = \mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w} &lt; \sum_{i=1}^{n} w_i^2 \sigma_i^2
+\]</div>
+<p>where the portfolio variance on the left side falls below the weighted sum of individual variances on the right when the covariance matrix <span class="arithmatex">\(\boldsymbol{\Sigma}\)</span> contains off-diagonal elements less than unity. This mathematical benefit of diversification works most effectively during normal market periods but deteriorates during crises when correlations tend to increase <sup id="fnref13:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The flight-to-quality phenomenon during stress episodes often causes diverse asset classes to move together as investors simultaneously reduce risk exposures, temporarily eliminating diversification benefits precisely when they are most needed.</p>
+<p>Effective diversification requires identifying truly independent risk sources rather than merely holding multiple positions that appear different superficially but share common underlying drivers. Geographic diversification can fail when global shocks dominate local factors, sector diversification provides limited protection when systematic factors overwhelm idiosyncratic risks, and asset class diversification may disappoint if liquidity constraints force simultaneous unwinding of positions across markets. Quantitative approaches to diversification including risk parity, factor-based allocation, and correlation-adjusted position sizing attempt to formalize these insights, though all rely on historical relationships that may shift during the precise scenarios prompting diversification strategies <sup id="fnref5:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<h3 id="risk-limits-and-mechanical-controls"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.3</span> Risk Limits and Mechanical Controls</h3>
+<p>Position limits establish maximum exposure thresholds based on notional amounts, sensitivity measures such as DV01 or delta, or scenario losses under stress conditions. These limits prevent individual traders or desks from accumulating exposures beyond organizational risk appetite, creating accountability structures that decentralize risk-taking decisions while maintaining enterprise-wide controls. Effective limit frameworks cascade from top-level capital allocation decisions through business unit risk budgets to trader-specific constraints, maintaining consistency while allowing flexibility for tactical adjustments as market conditions evolve <sup id="fnref14:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Stop-loss orders provide mechanical risk controls that automatically reduce or exit positions when cumulative losses reach predetermined thresholds. These automatic triggers remove human judgment from loss-cutting decisions, preventing the tendency to maintain losing positions in hope of eventual recoveries. However, stop-loss approaches can crystallize losses at local price extremes, prevent participation in subsequent reversals, and prove difficult to implement for illiquid positions where execution at specified prices cannot be guaranteed. The determination of stop-loss levels requires balancing tightness against allowing normal market fluctuations, with levels set too tightly generating excessive turnover while those set too loosely fail to limit losses meaningfully <sup id="fnref15:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="analytics-and-decomposition-for-risk-understanding"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8</span> Analytics and Decomposition for Risk Understanding</h2>
+<h3 id="risk-aggregation-across-dimensions"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.1</span> Risk Aggregation Across Dimensions</h3>
+<p>Combining risks across multiple asset classes, trading desks, legal entities, and geographic regions presents both conceptual and practical challenges. The fundamental difficulty lies in aggregating exposures to diverse risk factors while properly accounting for correlations, non-linear effects, and tail dependencies that may not be apparent in historical data. Simple summing of risk measures across portfolios systematically overstates total risk when correlations are less than perfect, while sophisticated aggregation approaches requiring covariance matrices face dimensionality challenges and parameter estimation uncertainty <sup id="fnref16:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Correlation structures between risk factors enable aggregation that credits diversification benefits, but these correlations prove notoriously unstable across market regimes. Normal-period correlations often understate the degree to which risks accumulate during crises, when formerly independent risk factors begin moving in concert. Non-linear exposures from options and structured products create complications for analytics tools built on linear assumptions, requiring full revaluation approaches that increase computational burdens <sup id="fnref6:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. Tail dependencies captured through copula functions or stressed correlation matrices attempt to address the phenomenon where extreme moves in one risk factor correspond to elevated probabilities of extreme moves in others, though specifying these tail dependence structures requires judgment that goes beyond what historical data alone can support <sup id="fnref6:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<h3 id="profit-and-loss-attribution"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.2</span> Profit and Loss Attribution</h3>
+<p>Decomposing daily profit and loss into contributions from different sources provides essential feedback on whether returns are accruing from intended risk-taking or unexpected factors. The explained P&amp;L component arises from risk factor movements captured by the risk management system, calculated by repricing positions under observed market changes. Theta decay represents the expected time-value erosion for options portfolios, occurring mechanically as time passes even without market movements <sup id="fnref7:gatheral2006"><a class="footnote-ref" href="#fn:gatheral2006">4</a></sup>. Carry and roll capture the profit from holding positions that earn interest income, dividends, or benefit from the passage of time along forward curves.</p>
+<p>Model changes and recalibrations generate P&amp;L through alterations in valuation parameters or methodologies rather than genuine market risk, requiring careful tracking to avoid conflating model adjustments with trading performance. The unexplained residual, representing the difference between actual trading desk P&amp;L and the sum of identified components, signals potential problems ranging from missing risk factors through model inadequacies to operational errors or unauthorized activities <sup id="fnref17:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Persistent large unexplained P&amp;L indicates that the risk management system fails to capture important value drivers, potentially leaving risks unhedged or limits unenforced. Under FRTB's profit and loss attribution test, sustained divergences between theoretical and actual P&amp;L trigger regulatory consequences including capital surcharges or reversion to standardized approaches.</p>
+<h3 id="risk-factor-decomposition"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.8.3</span> Risk Factor Decomposition</h3>
+<p>Breaking down aggregate Value at Risk into contributions from specific asset classes, risk factors, trading desks, and individual positions illuminates the sources of portfolio risk and identifies concentration concerns. Asset class decomposition reveals whether fixed income, equity, foreign exchange, commodity, or credit risks dominate the overall profile, enabling strategic capital allocation decisions and business mix evaluation. Risk factor-level decomposition goes deeper, isolating contributions from specific interest rate tenors, equity indices, currency pairs, or commodity grades <sup id="fnref18:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Trading desk attribution assigns risk to organizational units, supporting limit monitoring and performance evaluation that adjusts returns for risks taken. Position-level decomposition identifies specific instruments driving portfolio risk, highlighting concentrations that might warrant position reductions or targeted hedges. The mathematical decomposition of VaR into marginal contributions exploits the linear homogeneity property of coherent risk measures, though the calculations become more complex for Expected Shortfall which, while coherent, lacks VaR's computationally convenient properties. In practice, decomposition methods based on sensitivity calculations, marginal VaR computed through finite differences, or component VaR calculated through covariance contributions each offer different tradeoffs between accuracy, computational burden, and intuitive interpretability <sup id="fnref19:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="practical-implementation-challenges"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9</span> Practical Implementation Challenges</h2>
+<h3 id="model-risk-and-validation"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9.1</span> Model Risk and Validation</h3>
+<p>Model risk emerges when the mathematical frameworks used to value positions or measure risks fail to capture reality accurately, leading to mispriced exposures or misleading risk metrics <sup id="fnref4:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>. Incorrect model specification, such as assuming geometric Brownian motion for asset prices that actually exhibit jumps or mean reversion, introduces systematic biases that persist regardless of how carefully parameters are estimated. Parameter estimation error arises from limited sample sizes and the non-stationarity of financial markets, where historical relationships provide imperfect guides to future behavior. Misspecified correlations between risk factors can dramatically distort portfolio risk calculations, particularly when tail dependencies differ from normal-period correlations <sup id="fnref7:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>The tendency to ignore tail events represents a particularly dangerous form of model risk, as models calibrated to normal market conditions systematically underestimate the probability and severity of extreme movements. Fat-tailed distributions, jump processes, and regime-switching models attempt to address these shortcomings, though they introduce additional parameters requiring estimation and assumptions demanding validation <sup id="fnref20:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The mitigation of model risk requires comprehensive validation frameworks that assess both theoretical soundness and empirical performance. Multiple model comparisons reveal the sensitivity of results to modeling choices, while conservative parameter choices provide buffers against estimation uncertainty. Regular model review ensures that assumptions remain appropriate as markets evolve and new products or strategies emerge <sup id="fnref5:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>.</p>
+<h3 id="data-quality-and-infrastructure"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9.2</span> Data Quality and Infrastructure</h3>
+<p>Accurate market risk measurement depends fundamentally on high-quality data feeds providing reliable prices, rates, volatilities, and other market inputs. Stale prices, erroneous quotes, or missing data points can generate phantom profits or losses, trigger false limit breaches, or mask genuine risk exposures. Complete position data capturing all trades, modifications, and settlements ensures that risk calculations reflect actual exposures rather than incomplete snapshots. Inconsistencies between trading systems, risk platforms, and accounting records create reconciliation challenges and opportunities for positions to escape risk oversight <sup id="fnref21:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<p>Consistent valuation methods across front office trading systems and middle office risk platforms prevent situations where the same position appears differently valued depending on which system is queried. Time series integrity, maintaining historical market data and position snapshots suitable for backtesting and historical analysis, enables validation of risk models and investigation of unusual events. The infrastructure supporting these data requirements represents substantial investments in market data vendors, internal databases, extract-transform-load processes, and data governance frameworks ensuring quality standards are maintained.</p>
+<h3 id="computational-performance"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.9.3</span> Computational Performance</h3>
+<p>For large portfolios containing thousands of positions across multiple asset classes, computational efficiency becomes essential to deliver risk metrics at required frequencies. Incremental VaR calculations that update only the portions of portfolios that have changed since the previous calculation reduce computational burden compared to full recalculation from scratch <sup id="fnref8:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. Approximation methods trading modest accuracy erosion for substantial speed improvements enable more frequent risk updates or incorporation of additional scenarios. Parallel processing exploiting modern multi-core processors and GPU architectures can dramatically accelerate Monte Carlo simulations and full revaluation workflows.</p>
+<p>The trade off between overnight batch calculations that leverage high computational resources and intraday calculations providing timely updates with constrained resources requires careful architecture decisions. Overnight processes can employ more sophisticated modeling, broader scenario sets, and comprehensive analytics, while intraday calculations may rely on simpler approximations and delta-based sensitivities to deliver real-time updates. Cloud computing and on-demand computational resources increasingly enable flexible scaling, though latency, data security, and regulatory considerations constrain which calculations can migrate to cloud environments <sup id="fnref22:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="emerging-developments-in-market-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10</span> Emerging Developments in Market Risk</h2>
+<h3 id="climate-related-market-risks"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.1</span> Climate-Related Market Risks</h3>
+<p>Climate risk intersects with market risk through multiple transmission mechanisms, creating new sources of price volatility and portfolio exposure. Carbon pricing policies whether implemented through taxes, cap-and-trade systems, or regulatory mandates affect energy-intensive sectors and commodity markets, with evolving policy frameworks introducing substantial uncertainty into long-term price forecasts. The energy transition away from fossil fuels toward renewable and low-carbon alternatives generates winners and losers across equity markets, creates stranded asset concerns for conventional energy holdings, and introduces new commodities such as battery metals and carbon credits into portfolio exposures.</p>
+<p>Physical climate impacts from increased frequency and severity of extreme weather events affect agriculture, insurance, real estate, and infrastructure investments, with geographic and seasonal patterns of risk requiring new analytical frameworks. Green asset repricing, as environmental, social, and governance considerations increasingly influence investor preferences and regulatory requirements, creates rotation risks between conventional and sustainable investment classes. The long time horizons, fundamental uncertainties, and limited historical precedents associated with climate scenarios challenge traditional risk measurement approaches built on recent market data and stationary distributional assumptions <sup id="fnref3:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">7</a></sup>.</p>
+<h3 id="cryptocurrency-and-digital-asset-risks"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.2</span> Cryptocurrency and Digital Asset Risks</h3>
+<p>Cryptocurrencies and digital assets present unique market risk challenges stemming from their nascent nature and distinctive characteristics. Extreme volatility substantially exceeding that of traditional asset classes requires risk systems to accommodate larger fluctuations and avoid assuming normal distributions that understate tail events. The 24/7 operation of cryptocurrency markets eliminates the natural breaks in trading that traditionally delineate risk measurement horizons and provide opportunities for operational processes. Novel risk factors including blockchain fork events, consensus mechanism changes, and regulatory announcements specific to digital assets lack established frameworks for valuation impact assessment.</p>
+<p>Limited historical data covering few market cycles constrains statistical model calibration, while questions about appropriate valuation benchmarks and the economic fundamentals driving long-term prices remain actively debated. The opacity of trading venues, uncertainties about counterparty reliability, and evolving custody arrangements introduce operational risks intertwined with market exposures. Correlation structures between cryptocurrencies and traditional assets remain unsettled, fluctuating across observation periods and providing uncertain guidance for portfolio diversification strategies <sup id="fnref23:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h3 id="machine-learning-applications"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.10.3</span> Machine Learning Applications</h3>
+<p>Machine learning techniques offer promising applications to market risk management, though their adoption requires careful validation and governance. Risk factor identification using dimensionality reduction techniques such as principal component analysis or autoencoders can uncover latent factors driving portfolio returns beyond conventional categorizations. Non-linear relationship modeling through neural networks, kernel methods, or tree-based algorithms potentially captures complex dependencies between risk factors that linear correlations miss. Scenario generation employing generative adversarial networks or variational autoencoders produces synthetic stress scenarios exploring regions of the risk factor space not represented in historical data <sup id="fnref9:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>Anomaly detection algorithms flag unusual trading activity, model performance degradation, or operational irregularities warranting investigation. The challenges of implementing machine learning in risk management include the opacity of complex models that resist interpretation, the data hunger of sophisticated algorithms requiring substantial training samples, and the danger of overfitting whereby models learn historical noise rather than generalizable patterns. Regulatory expectations around model explainability, requirements for theoretical justification beyond empirical performance, and governance frameworks ensuring appropriate oversight create additional hurdles for machine learning adoption in regulatory capital calculations, though internal risk management applications face fewer constraints <sup id="fnref6:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>.</p>
+<h2 id="integrating-measurement-management-and-judgment"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11</span> Integrating Measurement, Management, and Judgment</h2>
+<p>Market risk management has evolved from simple position limits and gap analysis into a sophisticated discipline integrating quantitative measurement, stress testing, and structured governance frameworks. The multidimensional nature of market risk, spanning equity prices, interest rates, foreign exchange, commodities, credit spreads, and volatility, demands comprehensive factor identification and measurement approaches that capture both linear and non-linear exposures <sup id="fnref24:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. No single metric suffices to characterize market risk completely; Value at Risk provides probabilistic loss estimates under normal conditions, Expected Shortfall captures tail risk severity, stress tests evaluate extreme scenarios, and sensitivity measures decompose exposures into manageable components. These complementary approaches together create a layered understanding of risk that proves more robust than reliance on any single methodology <sup id="fnref4:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">7</a></sup>.</p>
+<p>Regulatory standards continue evolving, driven by lessons from successive market crises and advancing quantitative techniques. Basel III's transition from Value at Risk to Expected Shortfall and the Fundamental Review of the Trading Book's enhanced boundary definitions, sensitivities-based approaches, and profit-and-loss attribution requirements reflect ongoing refinement of supervisory frameworks <sup id="fnref25:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. These regulatory developments simultaneously raise minimum standards for laggard institutions while creating compliance burdens for all market participants. The interplay between regulatory minimum requirements and internal risk management best practices generates a dynamic environment where leading institutions develop capabilities exceeding regulatory minimums to gain competitive advantages, which subsequently inform future regulatory expectations.</p>
+<p>Model validation remains critical to effective market risk management, ensuring that quantitative methodologies accurately capture exposures and provide reliable inputs to decision-making <sup id="fnref7:sr11_7"><a class="footnote-ref" href="#fn:sr11_7">8</a></sup>. Backtesting comparing predicted losses to actual outcomes, independent review of modeling assumptions and implementation, and ongoing recalibration adapting to evolving market conditions together create accountability for model quality. The limitations of historical data and statistical models demand humility; past performance provides uncertain guidance to future outcomes, particularly during market regime changes when structural relationships shift <sup id="fnref10:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. Models necessarily simplify reality, introducing approximation errors and blind spots that can prove consequential during precisely the stress scenarios that risk management aims to address.</p>
+<p>Portfolio diversification, while mathematically sound and empirically valuable during normal periods, demonstrates troubling fragility during crises when correlations increase and seemingly independent risk factors move together <sup id="fnref26:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. The flight-to-quality dynamics, forced deleveraging across asset classes, and common information shocks during stress episodes can temporarily eliminate diversification benefits, leaving portfolios more exposed than statistical measures calibrated to normal periods would suggest. This correlation instability reinforces the need for stress testing that explicitly considers adverse correlation scenarios rather than assuming that historical relationships will persist invariably.</p>
+<p>Ultimately, effective market risk management integrates quantitative measurement with qualitative judgment, structured processes with adaptability to changing circumstances, and mechanical controls with human oversight. The frameworks, models, and analytics provide essential tools, but their effective deployment requires practitioners who understand both their strengths and limitations. Market risk management succeeds not by predicting the future precisely but by creating organizational resilience capable of weathering a wide range of market scenarios while maintaining the risk-taking activities that generate returns and serve client needs <sup id="fnref27:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<hr/>
+<p><em>Measuring and managing exposure to market movements</em></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:christoffersen2011">
+<p>Peter F. Christoffersen. <em>Elements of Financial Risk Management</em>. Academic Press, 2nd edition, 2011. ISBN 978-0-12-374448-7. <a class="footnote-backref" href="#fnref:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref6:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref7:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref8:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref9:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref10:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref11:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref12:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref13:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref14:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref15:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref16:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref17:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref18:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref19:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref20:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref21:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref22:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref23:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref24:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref25:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref26:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref27:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:brigo2006">
+<p>Damiano Brigo and Fabio Mercurio. <em>Interest Rate Models – Theory and Practice: With Smile, Inflation and Credit</em>. Springer, 2nd edition, 2006. URL: <a href="https://link.springer.com/book/10.1007/978-3-540-34604-3">https://link.springer.com/book/10.1007/978-3-540-34604-3</a>. <a class="footnote-backref" href="#fnref:brigo2006" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:brigo2006" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:brigo2006" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:glasserman2003">
+<p>Paul Glasserman. <em>Monte Carlo Methods in Financial Engineering</em>. Springer, 2003. <a href="https://doi.org/10.1007/978-0-387-21617-1">doi:10.1007/978-0-387-21617-1</a>. <a class="footnote-backref" href="#fnref:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref3:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref4:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref5:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref6:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref7:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref8:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref9:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref10:glasserman2003" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+<li id="fn:gatheral2006">
+<p>Jim Gatheral. <em>The Volatility Surface: A Practitioner's Guide</em>. Wiley Finance, 2006. <a href="https://doi.org/10.1002/9781119202073">doi:10.1002/9781119202073</a>. <a class="footnote-backref" href="#fnref:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref2:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref3:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref4:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref5:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref6:gatheral2006" title="Jump back to footnote 4 in the text">↩</a><a class="footnote-backref" href="#fnref7:gatheral2006" title="Jump back to footnote 4 in the text">↩</a></p>
+</li>
+<li id="fn:derman2016">
+<p>Emanuel Derman. <em>The Volatility Smile</em>. Wiley, 2016. ISBN 978-1-118-95945-9. <a class="footnote-backref" href="#fnref:derman2016" title="Jump back to footnote 5 in the text">↩</a><a class="footnote-backref" href="#fnref2:derman2016" title="Jump back to footnote 5 in the text">↩</a><a class="footnote-backref" href="#fnref3:derman2016" title="Jump back to footnote 5 in the text">↩</a><a class="footnote-backref" href="#fnref4:derman2016" title="Jump back to footnote 5 in the text">↩</a></p>
+</li>
+<li id="fn:hull1990">
+<p>John Hull and Alan White. Pricing interest-rate-derivative securities. <em>The Review of Financial Studies</em>, 3(4):573–592, 1990. <a href="https://doi.org/10.1093/rfs/3.4.573">doi:10.1093/rfs/3.4.573</a>. <a class="footnote-backref" href="#fnref:hull1990" title="Jump back to footnote 6 in the text">↩</a></p>
+</li>
+<li id="fn:rebonato2010">
+<p>Riccardo Rebonato. <em>Coherent Stress Testing: A Bayesian Approach to the Analysis of Financial Stress</em>. Wiley, 2010. ISBN 978-0-470-66608-8. <a class="footnote-backref" href="#fnref:rebonato2010" title="Jump back to footnote 7 in the text">↩</a><a class="footnote-backref" href="#fnref2:rebonato2010" title="Jump back to footnote 7 in the text">↩</a><a class="footnote-backref" href="#fnref3:rebonato2010" title="Jump back to footnote 7 in the text">↩</a><a class="footnote-backref" href="#fnref4:rebonato2010" title="Jump back to footnote 7 in the text">↩</a></p>
+</li>
+<li id="fn:sr11_7">
+<p>Board of Governors of the Federal Reserve System. Supervisory guidance on model risk management. SR Letter 11-7, Federal Reserve, 2011. URL: <a href="https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm">https://www.federalreserve.gov/supervisionreg/srletters/sr1107.htm</a>. <a class="footnote-backref" href="#fnref:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref2:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref3:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref4:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref5:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref6:sr11_7" title="Jump back to footnote 8 in the text">↩</a><a class="footnote-backref" href="#fnref7:sr11_7" title="Jump back to footnote 8 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Powrót do góry
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/yourusername" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank" title="linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.11.0.1</span> Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+</li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Akceptuj</button>
+<button class="md-button md-button--primary" type="reset">Odrzuć</button>
+<label class="md-button" for="__settings">Zarządzaj ustawieniami</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Skopiowano do schowka", "clipboard.copy": "Kopiuj do schowka", "search.result.more.one": "1 wi\u0119cej na tej stronie", "search.result.more.other": "# wi\u0119cej na tej stronie", "search.result.none": "Brak wynik\u00f3w wyszukiwania", "search.result.one": "Wyniki wyszukiwania: 1", "search.result.other": "Wyniki wyszukiwania: #", "search.result.placeholder": "Zacznij pisa\u0107, aby szuka\u0107", "search.result.term.missing": "Brak", "select.version": "Wybierz wersj\u0119"}, "version": null}</script>
+<script src="../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../../javascripts/consent-mode.js"></script>
+<script src="../../../../javascripts/home-parallax.js"></script>
+<script src="../../../../javascripts/external-links.js"></script>
+<script src="../../../../javascripts/mathjax.js"></script>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
+</body>
+</html>

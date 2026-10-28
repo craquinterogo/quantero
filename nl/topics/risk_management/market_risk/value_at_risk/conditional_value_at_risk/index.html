@@ -1,0 +1,2525 @@
+
+<!DOCTYPE html>
+
+<html class="no-js" lang="nl">
+<head>
+<meta charset="utf-8"/>
+<meta content="width=device-width,initial-scale=1" name="viewport"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" name="description"/>
+<link href="https://quantero.kruk-ai.com/nl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" rel="canonical"/>
+<link href="../value_at_risk/" rel="prev"/>
+<link href="../../../../model_validation/" rel="next"/>
+<link href="../../../../../../topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="en" rel="alternate"/>
+<link href="../../../../../../es/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="es" rel="alternate"/>
+<link href="../../../../../../pl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="pl" rel="alternate"/>
+<link href="./" hreflang="nl" rel="alternate"/>
+<link href="../../../../../../favicon.ico" rel="icon"/>
+<meta content="mkdocs-1.6.1, mkdocs-material-9.7.6" name="generator"/>
+<title>Conditional Value at Risk - Quȧntero</title>
+<link href="../../../../../../assets/stylesheets/main.484c7ddc.min.css" rel="stylesheet"/>
+<link href="../../../../../../assets/stylesheets/palette.ab4e12ef.min.css" rel="stylesheet"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&amp;display=fallback" rel="stylesheet"/>
+<style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+<link href="../../../../../../stylesheets/extra.css" rel="stylesheet"/>
+<script>__md_scope=new URL("../../../../../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+<script id="__analytics">function __md_analytics(){function e(){dataLayer.push(arguments)}window.dataLayer=window.dataLayer||[],e("js",new Date),e("config","G-RSMTNXK402"),document.addEventListener("DOMContentLoaded",(function(){document.forms.search&&document.forms.search.query.addEventListener("blur",(function(){this.value&&e("event","search",{search_term:this.value})}));document$.subscribe((function(){var t=document.forms.feedback;if(void 0!==t)for(var a of t.querySelectorAll("[type=submit]"))a.addEventListener("click",(function(a){a.preventDefault();var n=document.location.pathname,d=this.getAttribute("data-md-value");e("event","feedback",{page:n,data:d}),t.firstElementChild.disabled=!0;var r=t.querySelector(".md-feedback__note [data-md-value='"+d+"']");r&&(r.hidden=!1)})),t.hidden=!1})),location$.subscribe((function(t){e("config","G-RSMTNXK402",{page_path:t.pathname})}))}));var t=document.createElement("script");t.async=!0,t.src="https://www.googletagmanager.com/gtag/js?id=G-RSMTNXK402",document.getElementById("__analytics").insertAdjacentElement("afterEnd",t)}</script>
+<script>if("undefined"!=typeof __md_analytics){var consent=__md_get("__consent");consent&&consent.analytics&&__md_analytics()}</script>
+<!-- Open Graph / Social Media Preview -->
+<meta content="website" property="og:type"/>
+<meta content="Conditional Value at Risk" property="og:title"/>
+<meta content="Quantitative Finance, Algorithmic Trading, Portfolio Management, Risk Management Documentation and Artificial Intelligence" property="og:description"/>
+<meta content="https://quantero.kruk-ai.com/nl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" property="og:url"/>
+<meta content="https://quantero.kruk-ai.com/assets/social-preview.png" property="og:image"/>
+<meta content="1200" property="og:image:width"/>
+<meta content="630" property="og:image:height"/>
+</head>
+<body data-md-color-accent="custom" data-md-color-primary="custom" data-md-color-scheme="slate" dir="ltr">
+<input autocomplete="off" class="md-toggle" data-md-toggle="drawer" id="__drawer" type="checkbox"/>
+<input autocomplete="off" class="md-toggle" data-md-toggle="search" id="__search" type="checkbox"/>
+<label class="md-overlay" for="__drawer"></label>
+<div data-md-component="skip">
+<a class="md-skip" href="#conditional-value-at-risk">
+          Ga naar inhoud
+        </a>
+</div>
+<div data-md-component="announce">
+</div>
+<header class="md-header" data-md-component="header">
+<nav aria-label="Header" class="md-header__inner md-grid">
+<a aria-label="Quȧntero" class="md-header__button md-logo" data-md-component="logo" href="../../../../../" title="Quȧntero">
+<img alt="logo" src="../../../../../../assets/logo.png"/>
+</a>
+<label class="md-header__button md-icon" for="__drawer">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"></path></svg>
+</label>
+<div class="md-header__title" data-md-component="header-title">
+<div class="md-header__ellipsis">
+<div class="md-header__topic">
+<span class="md-ellipsis">
+            Quȧntero
+          </span>
+</div>
+<div class="md-header__topic" data-md-component="header-topic">
+<span class="md-ellipsis">
+            
+              Conditional Value at Risk
+            
+          </span>
+</div>
+</div>
+</div>
+<form class="md-header__option" data-md-component="palette">
+<input aria-label="Switch to light mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="slate" id="__palette_0" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_1" hidden="" title="Switch to light mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+<input aria-label="Switch to dark mode" class="md-option" data-md-color-accent="custom" data-md-color-media="" data-md-color-primary="custom" data-md-color-scheme="default" id="__palette_1" name="__palette" type="radio"/>
+<label class="md-header__button md-icon" for="__palette_0" hidden="" title="Switch to dark mode">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"></path></svg>
+</label>
+</form>
+<script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+<div class="md-header__option">
+<div class="md-select">
+<button aria-label="Selecteer taal" class="md-header__button md-icon quantero-language-selector">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="m12.87 15.07-2.54-2.51.03-.03A17.5 17.5 0 0 0 14.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2zm-2.62 7 1.62-4.33L19.12 17z"></path></svg>
+<span aria-hidden="true" class="quantero-language-selector__label">
+        EN / ES / PL / NL
+      </span>
+</button>
+<div class="md-select__inner">
+<ul class="md-select__list">
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="en" lang="en">
+              English
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../es/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="es" lang="es">
+              Español
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="../../../../../../pl/topics/risk_management/market_risk/value_at_risk/conditional_value_at_risk/" hreflang="pl" lang="pl">
+              Polski
+            </a>
+</li>
+<li class="md-select__item">
+<a class="md-select__link" href="./" hreflang="nl" lang="nl">
+              Nederlands
+            </a>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<label class="md-header__button md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+</label>
+<div class="md-search" data-md-component="search" role="dialog">
+<label class="md-search__overlay" for="__search"></label>
+<div class="md-search__inner" role="search">
+<form class="md-search__form" name="search">
+<input aria-label="Zoeken" autocapitalize="off" autocomplete="off" autocorrect="off" class="md-search__input" data-md-component="search-query" name="query" placeholder="Zoeken" required="" spellcheck="false" type="text"/>
+<label class="md-search__icon md-icon" for="__search">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"></path></svg>
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"></path></svg>
+</label>
+<nav aria-label="Zoeken" class="md-search__options">
+<button aria-label="Leegmaken" class="md-search__icon md-icon" tabindex="-1" title="Leegmaken" type="reset">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path></svg>
+</button>
+</nav>
+<div class="md-search__suggest" data-md-component="search-suggest"></div>
+</form>
+<div class="md-search__output">
+<div class="md-search__scrollwrap" data-md-scrollfix="" tabindex="0">
+<div class="md-search-result" data-md-component="search-result">
+<div class="md-search-result__meta">
+            Zoeken initialiseren
+          </div>
+<ol class="md-search-result__list" role="presentation"></ol>
+</div>
+</div>
+</div>
+</div>
+</div>
+</nav>
+</header>
+<div class="md-container" data-md-component="container">
+<nav aria-label="Tabs" class="md-tabs" data-md-component="tabs">
+<div class="md-grid">
+<ul class="md-tabs__list">
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../../">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+</li>
+<li class="md-tabs__item md-tabs__item--active">
+<a class="md-tabs__link" href="../../../../finance/">
+          
+  
+  
+    
+  
+  Kwantitatieve financiering
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../foundations/">
+          
+  
+  
+    
+  
+  Wiskundige grondslagen
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../computing/">
+          
+  
+  
+    
+  
+  AI en informatica
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../economics/">
+          
+  
+  
+    
+  
+  Economie
+
+        </a>
+</li>
+<li class="md-tabs__item">
+<a class="md-tabs__link" href="../../../../">
+        
+  
+  
+    
+  
+  Alle onderwerpen
+
+      </a>
+</li>
+</ul>
+</div>
+</nav>
+<main class="md-main" data-md-component="main">
+<div class="md-main__inner md-grid">
+<div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Navigatie" class="md-nav md-nav--primary md-nav--lifted" data-md-level="0">
+<label class="md-nav__title" for="__drawer">
+<a aria-label="Quȧntero" class="md-nav__button md-logo" data-md-component="logo" href="../../../../../" title="Quȧntero">
+<img alt="logo" src="../../../../../../assets/logo.png"/>
+</a>
+    Quȧntero
+  </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../../">
+<span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2" type="checkbox"/>
+<label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+<span class="md-ellipsis">
+    
+  
+    Kwantitatieve financiering
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="true" aria-labelledby="__nav_2_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Kwantitatieve financiering
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../finance/">
+<span class="md-ellipsis">
+    
+  
+    Quantitative Finance
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/">
+<span class="md-ellipsis">
+    
+  
+    Waarderingsmodellen
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2" id="__nav_2_2_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Waarderingsmodellen
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2" id="__nav_2_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Interest Rate Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/vasicek_model/">
+<span class="md-ellipsis">
+    
+  
+    The Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/cir_model/">
+<span class="md-ellipsis">
+    
+  
+    The Cox-Ingersoll-Ross (CIR) Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/hull_white_model/">
+<span class="md-ellipsis">
+    
+  
+    The Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/">
+<span class="md-ellipsis">
+    
+  
+    Bond Affine Ansatz Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_2_5" id="__nav_2_2_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Bond Affine Ansatz Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/vasicek/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Vasicek Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/interest_rates/bond_affine_ansatz_models/hull_white/">
+<span class="md-ellipsis">
+    
+  
+    Affine Bond Pricing: Hull-White Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/">
+<span class="md-ellipsis">
+    
+  
+    Options
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3" id="__nav_2_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Options
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/black_scholes_equation/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes equation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/">
+<span class="md-ellipsis">
+    
+  
+    Volatility Surface Models
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3" id="__nav_2_2_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_2_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Volatility Surface Models
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Constant Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_2" id="__nav_2_2_3_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_2_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Constant Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/constant_volatility/black_scholes_surface/">
+<span class="md-ellipsis">
+    
+  
+    Black-Scholes and the Flat Volatility Surface
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Local Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_3" id="__nav_2_2_3_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_3_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Local Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/local_volatility/dupire_model/">
+<span class="md-ellipsis">
+    
+  
+    Dupire Local Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_2_3_3_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/">
+<span class="md-ellipsis">
+    
+  
+    Stochastic Volatility
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_2_3_3_4" id="__nav_2_2_3_3_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_2_3_3_4_label" class="md-nav" data-md-level="5">
+<label class="md-nav__title" for="__nav_2_2_3_3_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastic Volatility
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/heston_model/">
+<span class="md-ellipsis">
+    
+  
+    Heston Model
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../pricing/options/volatility_surfaces/stochastic_volatility/sabr_model/">
+<span class="md-ellipsis">
+    
+  
+    SABR Stochastic Volatility Model
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../">
+<span class="md-ellipsis">
+    
+  
+    Risicobeheer
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3" id="__nav_2_3_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Risicobeheer
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../">
+<span class="md-ellipsis">
+    
+  
+    Market Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2" id="__nav_2_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Market Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--active md-nav__item--nested">
+<input checked="" class="md-nav__toggle md-toggle" id="__nav_2_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_3_2_2" id="__nav_2_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="true" aria-labelledby="__nav_2_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_2_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Value at Risk
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../value_at_risk/">
+<span class="md-ellipsis">
+    
+  
+    Value at Risk
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--active">
+<input class="md-nav__toggle md-toggle" id="__toc" type="checkbox"/>
+<label class="md-nav__link md-nav__link--active" for="__toc">
+<span class="md-ellipsis">
+    
+  
+    Conditional Value at Risk
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<a class="md-nav__link md-nav__link--active" href="./">
+<span class="md-ellipsis">
+    
+  
+    Conditional Value at Risk
+  
+
+    
+  </span>
+</a>
+<nav aria-label="Inhoudsopgave" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wiskundige-grondslag-en-definitie">
+<span class="md-ellipsis">
+      
+        Wiskundige grondslag en definitie
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coherentie-en-sterkere-theoretische-eigenschappen">
+<span class="md-ellipsis">
+      
+        Coherentie en sterkere theoretische eigenschappen
+      
+    </span>
+</a>
+<nav aria-label="Coherentie en sterkere theoretische eigenschappen" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#het-raamwerk-van-coherente-risicomaatstaven">
+<span class="md-ellipsis">
+      
+        Het raamwerk van coherente risicomaatstaven
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convexiteit-en-toepassingen-bij-optimalisatie">
+<span class="md-ellipsis">
+      
+        Convexiteit en toepassingen bij optimalisatie
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#berekeningsmethoden">
+<span class="md-ellipsis">
+      
+        Berekeningsmethoden
+      
+    </span>
+</a>
+<nav aria-label="Berekeningsmethoden" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#historische-schatting-van-cvar">
+<span class="md-ellipsis">
+      
+        Historische schatting van CVaR
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parametrische-cvar-bij-normaliteit">
+<span class="md-ellipsis">
+      
+        Parametrische CVaR bij normaliteit
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cvar-schatten-met-monte-carlo">
+<span class="md-ellipsis">
+      
+        CVaR schatten met Monte Carlo
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bijdragen-aan-staartrisico-en-decompositie">
+<span class="md-ellipsis">
+      
+        Bijdragen aan staartrisico en decompositie
+      
+    </span>
+</a>
+<nav aria-label="Bijdragen aan staartrisico en decompositie" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyse-van-component-cvar">
+<span class="md-ellipsis">
+      
+        Analyse van component-CVaR
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marginale-cvar-en-incrementeel-risico">
+<span class="md-ellipsis">
+      
+        Marginale CVaR en incrementeel risico
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regelgevende-invoering-en-de-fundamental-review-of-the-trading-book">
+<span class="md-ellipsis">
+      
+        Regelgevende invoering en de Fundamental Review of the Trading Book
+      
+    </span>
+</a>
+<nav aria-label="Regelgevende invoering en de Fundamental Review of the Trading Book" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#de-overgang-van-var-naar-expected-shortfall">
+<span class="md-ellipsis">
+      
+        De overgang van VaR naar Expected Shortfall
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uitdagingen-bij-de-backtesting-van-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Uitdagingen bij de backtesting van Expected Shortfall
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#praktische-toepassingen-buiten-naleving-van-regelgeving">
+<span class="md-ellipsis">
+      
+        Praktische toepassingen buiten naleving van regelgeving
+      
+    </span>
+</a>
+<nav aria-label="Praktische toepassingen buiten naleving van regelgeving" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portefeuilleoptimalisatie-met-cvar-beperkingen">
+<span class="md-ellipsis">
+      
+        Portefeuilleoptimalisatie met CVaR-beperkingen
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#afdekking-en-beheer-van-staartrisico">
+<span class="md-ellipsis">
+      
+        Afdekking en beheer van staartrisico
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusie-de-rol-van-cvar-in-modern-risicobeheer">
+<span class="md-ellipsis">
+      
+        Conclusie: de rol van CVaR in modern risicobeheer
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../model_validation/">
+<span class="md-ellipsis">
+    
+  
+    Modelvalidatie
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_4_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Modelvalidatie
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--section md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/">
+<span class="md-ellipsis">
+    
+  
+    Algoritmische handel
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5" id="__nav_2_5_label" tabindex="">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algoritmische handel
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_2_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/">
+<span class="md-ellipsis">
+    
+  
+    Exotische grafieken
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_2_5_2" id="__nav_2_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_2_5_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_2_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Exotische grafieken
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../algorithmic_trading/exotic_charts/point_and_figure/">
+<span class="md-ellipsis">
+    
+  
+    Point-and-figure
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3" type="checkbox"/>
+<label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    Wiskundige grondslagen
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_3_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Wiskundige grondslagen
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../foundations/">
+<span class="md-ellipsis">
+    
+  
+    Mathematical Foundations
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/">
+<span class="md-ellipsis">
+    
+  
+    Statistiek en kansrekening
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistiek en kansrekening
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/">
+<span class="md-ellipsis">
+    
+  
+    Probability
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_2" id="__nav_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Probability
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/expected_value/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Expected Value
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/filtration/">
+<span class="md-ellipsis">
+    
+  
+    Filtration: Information Over Time
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/tower_property/">
+<span class="md-ellipsis">
+    
+  
+    Tower Property of Conditional Expectation
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/gaussian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Derivation of the Gaussian Integral
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/jensen_inequality/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Jensen Inequality
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/probability/momentum_generating_functions/">
+<span class="md-ellipsis">
+    
+  
+    Statistics And Probability - Moment Generating Functions
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/">
+<span class="md-ellipsis">
+    
+  
+    Statistics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_2_3" id="__nav_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Statistics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../statistics_and_probability/statistics/maximum_likelihood_estimation/">
+<span class="md-ellipsis">
+    
+  
+    Maximum Likelihood Estimation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_3_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../stochastic_calculus/">
+<span class="md-ellipsis">
+    
+  
+    Stochastische analyse
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_3_3" id="__nav_3_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_3_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_3_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Stochastische analyse
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_motion/">
+<span class="md-ellipsis">
+    
+  
+    Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/quadratic_variation/">
+<span class="md-ellipsis">
+    
+  
+    Variation and Quadratic Variation of Functions
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/brownian_integral/">
+<span class="md-ellipsis">
+    
+  
+    Itô Integrals with Respect to Brownian Motion
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/ito_product_rule/">
+<span class="md-ellipsis">
+    
+  
+    Itô's Product Rule
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../stochastic_calculus/itos_isometry/">
+<span class="md-ellipsis">
+    
+  
+    Itô’s Isometry: an attempt for derivation
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4" type="checkbox"/>
+<label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+<span class="md-ellipsis">
+    
+  
+    AI en informatica
+  
+
+    
+  </span>
+<span class="md-nav__icon md-icon"></span>
+</label>
+<nav aria-expanded="false" aria-labelledby="__nav_4_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    AI en informatica
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computing/">
+<span class="md-ellipsis">
+    
+  
+    AI &amp; Computing
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/">
+<span class="md-ellipsis">
+    
+  
+    Kunstmatige intelligentie
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2" id="__nav_4_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Kunstmatige intelligentie
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/supervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Supervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Supervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/unsupervised_learning/">
+<span class="md-ellipsis">
+    
+  
+    Unsupervised Learning
+  
+
+    
+  </span>
+</a>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_3_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Unsupervised Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/">
+<span class="md-ellipsis">
+    
+  
+    Deep Learning
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_2_4" id="__nav_4_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_2_4_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Deep Learning
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/neural_network/">
+<span class="md-ellipsis">
+    
+  
+    Neural Networks
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../artificial_intelligence/deep_learning/backpropagation_methodology/">
+<span class="md-ellipsis">
+    
+  
+    Methodiek van backpropagatie
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/">
+<span class="md-ellipsis">
+    
+  
+    Informatica
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3" id="__nav_4_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_4_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Informatica
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/">
+<span class="md-ellipsis">
+    
+  
+    Algorithmic Design
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2" id="__nav_4_3_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_label" class="md-nav" data-md-level="3">
+<label class="md-nav__title" for="__nav_4_3_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Algorithmic Design
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/">
+<span class="md-ellipsis">
+    
+  
+    Searching in Data Structures
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_2" id="__nav_4_3_2_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_2_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Searching in Data Structures
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/linear_search/">
+<span class="md-ellipsis">
+    
+  
+    Linear Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/searching_in_data_structures/binary_search/">
+<span class="md-ellipsis">
+    
+  
+    Binary Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_3" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/">
+<span class="md-ellipsis">
+    
+  
+    Sorting Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_3" id="__nav_4_3_2_3_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_3_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_3">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Sorting Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/merge_sort/">
+<span class="md-ellipsis">
+    
+  
+    Merge Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/quick_sort/">
+<span class="md-ellipsis">
+    
+  
+    Quick Sort
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/sorting/heap_sort/">
+<span class="md-ellipsis">
+    
+  
+    Heap Sort
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_4" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/">
+<span class="md-ellipsis">
+    
+  
+    Graph Algorithms
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_4" id="__nav_4_3_2_4_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_4_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_4">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Graph Algorithms
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/bfs/">
+<span class="md-ellipsis">
+    
+  
+    Breadth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/dfs/">
+<span class="md-ellipsis">
+    
+  
+    Depth-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/dijkstra/">
+<span class="md-ellipsis">
+    
+  
+    Dijkstra's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/kruskal/">
+<span class="md-ellipsis">
+    
+  
+    Kruskal's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/graph_algorithms/prim/">
+<span class="md-ellipsis">
+    
+  
+    Prim's Algorithm
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/">
+<span class="md-ellipsis">
+    
+  
+    Optimisation
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_5" id="__nav_4_3_2_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_5_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Optimisation
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/interval_scheduling/">
+<span class="md-ellipsis">
+    
+  
+    Interval Scheduling
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/optimisation/knapsack/">
+<span class="md-ellipsis">
+    
+  
+    0/1 Knapsack
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_4_3_2_6" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/">
+<span class="md-ellipsis">
+    
+  
+    State-Space Search
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_4_3_2_6" id="__nav_4_3_2_6_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_4_3_2_6_label" class="md-nav" data-md-level="4">
+<label class="md-nav__title" for="__nav_4_3_2_6">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    State-Space Search
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/uniform_cost_search/">
+<span class="md-ellipsis">
+    
+  
+    Uniform-Cost Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/best_first_search/">
+<span class="md-ellipsis">
+    
+  
+    Best-First Search
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/a_star_search/">
+<span class="md-ellipsis">
+    
+  
+    A* Search Method
+  
+
+    
+  </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../computer_science/algorithmic_design/state_space_search/iterative_deepening/">
+<span class="md-ellipsis">
+    
+  
+    Iterative Deepening Search
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/">
+<span class="md-ellipsis">
+    
+  
+    Economie
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_label" class="md-nav" data-md-level="1">
+<label class="md-nav__title" for="__nav_5">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Economie
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item md-nav__item--nested">
+<input class="md-nav__toggle md-toggle" id="__nav_5_2" type="checkbox"/>
+<div class="md-nav__link md-nav__container">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/">
+<span class="md-ellipsis">
+    
+  
+    Macroeconomics
+  
+
+    
+  </span>
+</a>
+<label class="md-nav__link" for="__nav_5_2" id="__nav_5_2_label" tabindex="0">
+<span class="md-nav__icon md-icon"></span>
+</label>
+</div>
+<nav aria-expanded="false" aria-labelledby="__nav_5_2_label" class="md-nav" data-md-level="2">
+<label class="md-nav__title" for="__nav_5_2">
+<span class="md-nav__icon md-icon"></span>
+            
+  
+    Macroeconomics
+  
+
+          </label>
+<ul class="md-nav__list" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../economics/macroeconomics/interest_rate_parity/">
+<span class="md-ellipsis">
+    
+  
+    Interest Rate Parity
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="../../../../">
+<span class="md-ellipsis">
+    
+  
+    Alle onderwerpen
+  
+
+    
+  </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc">
+<div class="md-sidebar__scrollwrap">
+<div class="md-sidebar__inner">
+<nav aria-label="Inhoudsopgave" class="md-nav md-nav--secondary">
+<label class="md-nav__title" for="__toc">
+<span class="md-nav__icon md-icon"></span>
+      Inhoudsopgave
+    </label>
+<ul class="md-nav__list" data-md-component="toc" data-md-scrollfix="">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#wiskundige-grondslag-en-definitie">
+<span class="md-ellipsis">
+      
+        Wiskundige grondslag en definitie
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#coherentie-en-sterkere-theoretische-eigenschappen">
+<span class="md-ellipsis">
+      
+        Coherentie en sterkere theoretische eigenschappen
+      
+    </span>
+</a>
+<nav aria-label="Coherentie en sterkere theoretische eigenschappen" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#het-raamwerk-van-coherente-risicomaatstaven">
+<span class="md-ellipsis">
+      
+        Het raamwerk van coherente risicomaatstaven
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#convexiteit-en-toepassingen-bij-optimalisatie">
+<span class="md-ellipsis">
+      
+        Convexiteit en toepassingen bij optimalisatie
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#berekeningsmethoden">
+<span class="md-ellipsis">
+      
+        Berekeningsmethoden
+      
+    </span>
+</a>
+<nav aria-label="Berekeningsmethoden" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#historische-schatting-van-cvar">
+<span class="md-ellipsis">
+      
+        Historische schatting van CVaR
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#parametrische-cvar-bij-normaliteit">
+<span class="md-ellipsis">
+      
+        Parametrische CVaR bij normaliteit
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#cvar-schatten-met-monte-carlo">
+<span class="md-ellipsis">
+      
+        CVaR schatten met Monte Carlo
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#bijdragen-aan-staartrisico-en-decompositie">
+<span class="md-ellipsis">
+      
+        Bijdragen aan staartrisico en decompositie
+      
+    </span>
+</a>
+<nav aria-label="Bijdragen aan staartrisico en decompositie" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#analyse-van-component-cvar">
+<span class="md-ellipsis">
+      
+        Analyse van component-CVaR
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#marginale-cvar-en-incrementeel-risico">
+<span class="md-ellipsis">
+      
+        Marginale CVaR en incrementeel risico
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#regelgevende-invoering-en-de-fundamental-review-of-the-trading-book">
+<span class="md-ellipsis">
+      
+        Regelgevende invoering en de Fundamental Review of the Trading Book
+      
+    </span>
+</a>
+<nav aria-label="Regelgevende invoering en de Fundamental Review of the Trading Book" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#de-overgang-van-var-naar-expected-shortfall">
+<span class="md-ellipsis">
+      
+        De overgang van VaR naar Expected Shortfall
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#uitdagingen-bij-de-backtesting-van-expected-shortfall">
+<span class="md-ellipsis">
+      
+        Uitdagingen bij de backtesting van Expected Shortfall
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#praktische-toepassingen-buiten-naleving-van-regelgeving">
+<span class="md-ellipsis">
+      
+        Praktische toepassingen buiten naleving van regelgeving
+      
+    </span>
+</a>
+<nav aria-label="Praktische toepassingen buiten naleving van regelgeving" class="md-nav">
+<ul class="md-nav__list">
+<li class="md-nav__item">
+<a class="md-nav__link" href="#portefeuilleoptimalisatie-met-cvar-beperkingen">
+<span class="md-ellipsis">
+      
+        Portefeuilleoptimalisatie met CVaR-beperkingen
+      
+    </span>
+</a>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#afdekking-en-beheer-van-staartrisico">
+<span class="md-ellipsis">
+      
+        Afdekking en beheer van staartrisico
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</li>
+<li class="md-nav__item">
+<a class="md-nav__link" href="#conclusie-de-rol-van-cvar-in-modern-risicobeheer">
+<span class="md-ellipsis">
+      
+        Conclusie: de rol van CVaR in modern risicobeheer
+      
+    </span>
+</a>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+</div>
+<div class="md-content" data-md-component="content">
+<nav aria-label="Navigatie" class="md-path">
+<ol class="md-path__list">
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../../">
+<span class="md-ellipsis">
+    Home
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../../finance/">
+<span class="md-ellipsis">
+    Kwantitatieve financiering
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../../">
+<span class="md-ellipsis">
+    Risicobeheer
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../../">
+<span class="md-ellipsis">
+    Market Risk
+  </span>
+</a>
+</li>
+<li class="md-path__item">
+<a class="md-path__link" href="../">
+<span class="md-ellipsis">
+    Value at Risk
+  </span>
+</a>
+</li>
+</ol>
+</nav>
+<article class="md-content__inner md-typeset">
+<h1 id="conditional-value-at-risk"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.</span> Conditional Value at Risk</h1>
+<p>Conditional Value at Risk is ontstaan als antwoord op een fundamentele beperking van Value at Risk: VaR zegt niets over de omvang van verliezen boven de VaR-grens <sup id="fnref:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. VaR geeft een kritieke grens aan die verliezen met een bepaalde kans niet zouden moeten overschrijden, maar biedt geen informatie over de ernst van verliezen wanneer die grens wordt overschreden. Tijdens de financiële crisis van 2008 ontdekten instellingen met portefeuilles waarvan de VaR bescheiden leek dat de verliezen in de staart de verwachtingen ruimschoots overtroffen. Hun risicomaatstaven legden de ernst van extreme gebeurtenissen niet vast. Conditional Value at Risk, ook bekend als Expected Shortfall of Average Value at Risk, pakt dit tekort rechtstreeks aan door het gemiddelde verlies te meten onder de voorwaarde dat de VaR wordt overschreden.</p>
+<h2 id="wiskundige-grondslag-en-definitie"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.1</span> Wiskundige grondslag en definitie</h2>
+<details class="info" open="open">
+<summary>Definitie van Conditional Value at Risk</summary>
+<p>Conditional Value at Risk bij betrouwbaarheidsniveau <span class="arithmatex">\((1-\alpha)\)</span> is het verwachte verlies gegeven dat het verlies de Value at Risk-grens overschrijdt. Voor een verliesvariabele <span class="arithmatex">\(L\)</span> met kansdichtheidsfunctie <span class="arithmatex">\(f(l)\)</span> wordt CVaR gedefinieerd als:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \mathbb{E}[L \mid L &gt; \text{VaR}_\alpha] = \frac{1}{\alpha}\int_{\text{VaR}_\alpha}^{\infty} l \cdot f(l) \, dl
+\label{eq:cvar_definition}
+\end{aligned}\]</div>
+<p>Deze conditionele verwachting geeft de gemiddelde ernst van verliezen in de <span class="arithmatex">\(\alpha\)</span>-staart van de verdeling weer en levert informatie die VaR alleen niet kan bieden.</p>
+</details>
+<p>De wiskundige structuur in vergelijking \eqref{eq:cvar_definition} laat zien dat CVaR het gemiddelde is van de staartverdeling voorbij de VaR-grens, gewogen met de staartkans <span class="arithmatex">\(\alpha\)</span>. Voor continue verliesverdelingen is CVaR altijd groter dan of gelijk aan VaR. Het verschil tussen beide geeft de dikte van de staart aan. Bij verdelingen met dikke staarten is CVaR aanzienlijk groter dan VaR, omdat de staart niet alleen uit marginaal slechtere uitkomsten bestaat, maar ook echt catastrofale scenario's bevat. Neem een portefeuille met een VaR van 95% van $10 miljoen. Als CVaR $12 miljoen is, heeft de verdeling relatief dunne staarten, maar als CVaR $25 miljoen bereikt, bevat de staart een geconcentreerd risico dat aandacht vereist boven op wat VaR alleen laat zien <sup id="fnref:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>.</p>
+<p>Alternatieve formuleringen drukken CVaR uit in vormen die de berekening en theoretische analyse vergemakkelijken. Een bijzonder bruikbare weergave vermijdt expliciete conditionering:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \text{VaR}_\alpha + \frac{1}{\alpha}\mathbb{E}[\max(L - \text{VaR}_\alpha, 0)]
+\label{eq:cvar_alternative}
+\end{aligned}\]</div>
+<p>Vergelijking \eqref{eq:cvar_alternative} splitst CVaR op in de VaR-grens plus het verwachte verlies boven die grens, geschaald met de staartkans. Deze formulering is handig bij optimalisatietoepassingen, omdat ze CVaR via verwachtingen uitdrukt in plaats van via conditionele grootheden. De weergave maakt ook duidelijk dat CVaR alle informatie van VaR bevat en daar informatie over de omvang van staartverliezen aan toevoegt. CVaR is daarmee een informatievere risicomaatstaf.</p>
+<h2 id="coherentie-en-sterkere-theoretische-eigenschappen"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2</span> Coherentie en sterkere theoretische eigenschappen</h2>
+<h3 id="het-raamwerk-van-coherente-risicomaatstaven"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.1</span> Het raamwerk van coherente risicomaatstaven</h3>
+<p>Artzner, Delbaen, Eber en Heath stelden het axioma's raamwerk voor coherente risicomaatstaven op en beschreven vier eigenschappen waaraan elke degelijke risicomaatstaf zou moeten voldoen <sup id="fnref2:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Een risicomaatstaf <span class="arithmatex">\(\rho\)</span> is coherent als deze aan de volgende voorwaarden voldoet:</p>
+<p><strong>Monotonie</strong>: Als portefeuille <span class="arithmatex">\(X\)</span> altijd verliezen oplevert die kleiner dan of gelijk aan die van portefeuille <span class="arithmatex">\(Y\)</span> zijn, dan geldt <span class="arithmatex">\(\rho(X) \leq \rho(Y)\)</span>. Deze ogenschijnlijk vanzelfsprekende eigenschap zorgt ervoor dat risicomaatstaven portefeuilles correct rangschikken naar risico.</p>
+<p><strong>Translatie-invariantie</strong>: Het toevoegen van een risicovrij actief verlaagt het gemeten risico precies met het toegevoegde bedrag: <span class="arithmatex">\(\rho(X + a) = \rho(X) - a\)</span>. Deze eigenschap waarborgt dat het aanhouden van contanten het gemeten risico daadwerkelijk evenredig verlaagt.</p>
+<p><strong>Homogeniteit</strong>: Een verdubbeling van de omvang van de portefeuille verdubbelt het gemeten risico: <span class="arithmatex">\(\rho(\lambda X) = \lambda \rho(X)\)</span> voor <span class="arithmatex">\(\lambda &gt; 0\)</span>. Het schalen van posities hoort het risico evenredig te schalen.</p>
+<p><strong>Subadditiviteit</strong>: Het combineren van portefeuilles verhoogt het totale risico nooit: <span class="arithmatex">\(\rho(X + Y) \leq \rho(X) + \rho(Y)\)</span>. Deze cruciale eigenschap waarborgt dat diversificatie altijd helpt en voorkomt perverse prikkels om portefeuilles kunstmatig op te splitsen.</p>
+<p>Value at Risk schendt de subadditiviteit, vooral bij verdelingen met dikke staarten waarbij de VaR van samengevoegde portefeuilles hoger kan zijn dan de som van de afzonderlijke VaR's <sup id="fnref3:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Conditional Value at Risk voldoet daarentegen aan alle vier coherentieaxioma's. De subadditiviteit van CVaR volgt uit de conditionele definitie: het gemiddelde van de slechtste uitkomsten van een gecombineerde portefeuille kan niet hoger zijn dan de som van de gemiddelden van de afzonderlijke slechtste uitkomsten, omdat diversificatie de frequentie en ernst van extreme gezamenlijke verliezen verlaagt. Dit wiskundige kenmerk biedt in de praktijk voordelen. Kapitaal dat op basis van CVaR wordt toegewezen, houdt rekening met diversificatievoordelen en stimuleert risicoreductie door portefeuilleconstructie in plaats van kunstmatige opsplitsing.</p>
+<h3 id="convexiteit-en-toepassingen-bij-optimalisatie"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.2.2</span> Convexiteit en toepassingen bij optimalisatie</h3>
+<p>Naast coherentie heeft CVaR de convexiteitseigenschap die cruciaal is voor optimalisatietoepassingen <sup id="fnref2:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>. Een risicomaatstaf <span class="arithmatex">\(\rho\)</span> is convex als:</p>
+<div class="arithmatex">\[\begin{aligned}
+\rho(\lambda X + (1-\lambda)Y) \leq \lambda \rho(X) + (1-\lambda)\rho(Y) \text{ for } \lambda \in [0,1]
+\label{eq:convexity}
+\end{aligned}\]</div>
+<p>Convexiteit in vergelijking \eqref{eq:convexity} zorgt ervoor dat een mengsel van portefeuilles geen groter risico heeft dan het gewogen gemiddelde van de individuele risico's. Dit biedt een sterke theoretische basis voor portefeuilleoptimalisatie. Minimalisatieproblemen voor CVaR van de vorm:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{w}} \text{CVaR}_\alpha(\mathbf{w}) \quad \text{subject to constraints}
+\label{eq:cvar_optimization}
+\end{aligned}\]</div>
+<p>worden convexe optimalisatieproblemen waarvoor efficiënte numerieke oplossingen bestaan via herformuleringen als lineaire programmeringsproblemen of gespecialiseerde interior-pointmethoden <sup id="fnref:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. Deze rekenkundige hanteerbaarheid onderscheidt CVaR van VaR, waarvoor optimalisatie niet-convex is en door lokale minima wordt bemoeilijkt. Portefeuillebeheerders die portefeuilles met minimaal risico willen samenstellen of bestaande blootstellingen willen afdekken, kunnen met CVaR-optimalisatie zowel theoretisch als praktisch betere resultaten behalen dan met VaR-gebaseerde methoden.</p>
+<h2 id="berekeningsmethoden"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3</span> Berekeningsmethoden</h2>
+<h3 id="historische-schatting-van-cvar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.1</span> Historische schatting van CVaR</h3>
+<p>De historische simulatiemethode voor CVaR volgt logisch op historische VaR en breidt de analyse uit van het bepalen van de grens naar het middelen van de staartuitkomsten <sup id="fnref4:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Gegeven historische rendementen die zijn gerangschikt als <span class="arithmatex">\(r_{(1)} \leq r_{(2)} \leq \cdots \leq r_{(n)}\)</span>, identificeert de historische VaR bij betrouwbaarheidsniveau <span class="arithmatex">\((1-\alpha)\)</span> het <span class="arithmatex">\(\lceil \alpha n \rceil\)</span>-de slechtste rendement. De historische CVaR neemt vervolgens het gemiddelde van alle rendementen die slechter zijn dan deze grens:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = -\frac{1}{\lceil \alpha n \rceil} \sum_{i=1}^{\lceil \alpha n \rceil} r_{(i)}
+\label{eq:historical_cvar}
+\end{aligned}\]</div>
+<p>Voor een CVaR van 95% op basis van 250 handelsdagen neemt vergelijking \eqref{eq:historical_cvar} het gemiddelde van de 13 slechtste gerealiseerde rendementen. Dat levert een directe empirische schatting van het verwachte staartverlies op. Deze aanpak behoudt de voordelen van historische simulatie, omdat werkelijke kenmerken van de verdeling worden vastgelegd zonder parametrische aannames en zonder complexe modellering. De schatting blijft niet-parametrisch en intuïtief. Er wordt eenvoudigweg een enkel kwantiel vervangen door het gemiddelde van waarnemingen in de staart.</p>
+<p>Het middelen van staartuitkomsten vergroot echter de problemen met de steekproefomvang bij historische simulatie. Voor het schatten van VaR hoeft alleen een percentiel te worden bepaald, terwijl CVaR een nauwkeurige beschrijving van de volledige staart vereist. Die bevat per definitie weinig waarnemingen. Bij 250 dagen aan historische gegevens berust de CVaR van 95% op slechts 13 waarnemingen, waardoor schattingen sterk gevoelig zijn voor afzonderlijke extreme gebeurtenissen. Een enkele uitschieter uit ongebruikelijke historische omstandigheden kan de CVaR-schatting jarenlang domineren totdat voldoende nieuwe gegevens de invloed ervan verdunnen. Door dit probleem met de steekproefomvang zijn langere historische reeksen nodig, moet grotere onzekerheid in staartschattingen worden geaccepteerd of kunnen parametrische methoden worden gebruikt die met verdelingsaannames het gebrek aan gegevens opvangen.</p>
+<h3 id="parametrische-cvar-bij-normaliteit"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.2</span> Parametrische CVaR bij normaliteit</h3>
+<p>Voor portefeuilles waarvan de rendementen bij benadering normaal verdeeld zijn, heeft CVaR gesloten-vormuitdrukkingen die vergelijkbaar zijn met parametrische VaR <sup id="fnref5:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Onder de aanname dat het portefeuillerendement <span class="arithmatex">\(R \sim N(\mu, \sigma^2)\)</span> geldt, is de VaR bij betrouwbaarheidsniveau <span class="arithmatex">\((1-\alpha)\)</span>:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{VaR}_\alpha = \mu + z_\alpha \sigma
+\label{eq:normal_var}
+\end{aligned}\]</div>
+<p>waarbij <span class="arithmatex">\(z_\alpha\)</span> het <span class="arithmatex">\((1-\alpha)\)</span>-kwantiel van de standaardnormale verdeling aanduidt. De bijbehorende CVaR volgt uit integratie van de normale dichtheid over het staartgebied:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \mu + \sigma \frac{\phi(z_\alpha)}{\alpha}
+\label{eq:normal_cvar}
+\end{aligned}\]</div>
+<p>waarbij <span class="arithmatex">\(\phi(\cdot)\)</span> de kansdichtheidsfunctie van de standaardnormale verdeling is. De verhouding <span class="arithmatex">\(\phi(z_\alpha)/\alpha\)</span> geeft het gemiddelde van een afgeknotte normale verdeling voorbij de grens <span class="arithmatex">\(z_\alpha\)</span>. Bij een betrouwbaarheidsniveau van 95% is <span class="arithmatex">\(z_{0.95} = 1.645\)</span> en <span class="arithmatex">\(\phi(1.645) = 0.1031\)</span>. Daaruit volgt <span class="arithmatex">\(\phi(z_{0.95})/0.05 = 2.063\)</span>. De CVaR van 95% is daarom gelijk aan het gemiddelde plus 2.063 standaardafwijkingen, tegenover 1.645 standaardafwijkingen voor VaR.</p>
+<p>Voor portefeuilles met gewichten <span class="arithmatex">\(\mathbf{w}\)</span> en covariantiematrix <span class="arithmatex">\(\boldsymbol{\Sigma}\)</span> wordt de parametrische CVaR:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = z_\alpha \sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}} + \frac{\phi(z_\alpha)}{\alpha}\sqrt{\mathbf{w}^T \boldsymbol{\Sigma} \mathbf{w}}
+\label{eq:parametric_cvar}
+\end{aligned}\]</div>
+<p>Deze formulering in vergelijking \eqref{eq:parametric_cvar} combineert de VaR-component met een aanvullende term voor het verwachte extra verlies. Beide worden geschaald met de volatiliteit van de portefeuille. De rekenkundige efficiëntie van parametrische CVaR is vergelijkbaar met die van parametrische VaR, zodat risico's voor grote portefeuilles snel kunnen worden berekend. De aanpak erft echter alle beperkingen van de normaliteitsaanname. Het staartrisico wordt onderschat bij verdelingen met dikke staarten en asymmetrie in rendementen met negatieve scheefheid wordt gemist. Bij normaliteit staat het verschil tussen CVaR en VaR vast op ongeveer 25% bij een betrouwbaarheidsniveau van 95%, terwijl de staart van werkelijke portefeuilles vaak veel dikker is en CVaR daardoor veel hoger uitkomt dan deze verhouding aangeeft.</p>
+<h3 id="cvar-schatten-met-monte-carlo"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.3.3</span> CVaR schatten met Monte Carlo</h3>
+<p>Monte-Carlosimulatie biedt veel flexibiliteit voor de berekening van CVaR en kan van nature omgaan met niet-lineaire instrumenten, complexe afhankelijkheden en willekeurige verdelingsaannames <sup id="fnref2:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. De methode genereert <span class="arithmatex">\(N\)</span> scenario's voor de ontwikkeling van risicofactoren, herwaardeert de portefeuille in elk scenario en verkrijgt zo verliezen <span class="arithmatex">\(L_1, L_2, \ldots, L_N\)</span>. Vervolgens wordt CVaR uit de gesimuleerde verdeling geschat. Na rangschikking van de verliezen als <span class="arithmatex">\(L_{(1)} \leq L_{(2)} \leq \cdots \leq L_{(N)}\)</span> identificeert de VaR-schatting het <span class="arithmatex">\(\lceil \alpha N \rceil\)</span>-de grootste verlies en neemt CVaR het gemiddelde van de staart voorbij deze grens:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_\alpha = \frac{1}{\lceil \alpha N \rceil} \sum_{i=1}^{\lceil \alpha N \rceil} L_{(i)}
+\label{eq:monte_carlo_cvar}
+\end{aligned}\]</div>
+<p>De schatter in vergelijking \eqref{eq:monte_carlo_cvar} convergeert naar de werkelijke CVaR wanneer het aantal scenario's toeneemt. Bij goed gedragen verdelingen wordt de convergentiesnelheid bepaald door de vierkantswortel van <span class="arithmatex">\(N\)</span>. Voor een aanvaardbare nauwkeurigheid zijn voor CVaR aanzienlijk meer scenario's nodig dan voor VaR, omdat CVaR van de volledige staart afhangt en niet van één kwantiel. 10.000 scenario's kunnen volstaan voor redelijke VaR-schattingen, maar voor een vergelijkbare nauwkeurigheid zijn voor CVaR vaak 50.000 of 100.000 scenario's nodig, vooral bij hoge betrouwbaarheidsniveaus waarbij de staart dun bezet is.</p>
+<p>Technieken voor variantiereductie zijn vooral waardevol bij het schatten van CVaR, omdat de aandacht voor de staart standaard Monte-Carlosimulatie inefficiënt maakt <sup id="fnref3:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. Importance sampling oversampelt scenario's in de staart ten opzichte van hun natuurlijke kansen en richt zo de rekeninspanning op het gebied dat de CVaR bepaalt. Dit verbetert de schattingsefficiëntie sterk. Gestratificeerde steekproeftrekking zorgt voor voldoende representatie van staartgebieden door scenario's in vooraf bepaalde kwantielintervallen te plaatsen. Conditionele Monte Carlo berekent waar mogelijk staartverwachtingen analytisch, gegeven de gesimuleerde risicofactoren, en vermindert de variantie door één laag simulatieonzekerheid weg te nemen. Deze geavanceerde technieken vergen een geavanceerde implementatie, maar kunnen de rekenlast van een nauwkeurige CVaR-schatting met een orde van grootte verlagen ten opzichte van naïeve Monte-Carlosimulatie.</p>
+<h2 id="bijdragen-aan-staartrisico-en-decompositie"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4</span> Bijdragen aan staartrisico en decompositie</h2>
+<h3 id="analyse-van-component-cvar"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.1</span> Analyse van component-CVaR</h3>
+<p>Het ontleden van de totale CVaR van een portefeuille in bijdragen van afzonderlijke posities levert belangrijke inzichten op voor risicobeheer en kapitaalallocatie <sup id="fnref6:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Anders dan bij VaR, waarvan de niet-subadditiviteit de decompositie bemoeilijkt, zorgt de coherentie van CVaR ervoor dat de componentbijdragen optellen tot het totale portefeuillerisico:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}(\text{Portfolio}) = \sum_{i=1}^{n} \text{CVaR}_i^{\text{component}}
+\label{eq:cvar_decomposition}
+\end{aligned}\]</div>
+<p>De component-CVaR voor actief <span class="arithmatex">\(i\)</span> meet de bijdrage aan het totale staartrisico via de samenhang met portefeuilleverliezen in extreme scenario's. Posities die juist veel verliezen wanneer de gehele portefeuille de slechtste uitkomsten kent, leveren grote component-CVaR's op. Posities die de staart afdekken, laten negatieve bijdragen zien. De berekening gebruikt het allocatieprincipe van Euler, gebaseerd op de homogeniteit van CVaR:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_i^{\text{component}} = w_i \times \mathbb{E}\left[\frac{\partial L}{\partial w_i} \bigg| L &gt; \text{VaR}_\alpha\right]
+\label{eq:component_cvar}
+\end{aligned}\]</div>
+<p>Hierbij is <span class="arithmatex">\(w_i\)</span> het portefeuillegewicht van actief <span class="arithmatex">\(i\)</span> en is de verwachting conditioneel op staartgebeurtenissen waarbij VaR wordt overschreden. In vergelijking \eqref{eq:component_cvar} geeft de marginale bijdrage <span class="arithmatex">\(\partial L/\partial w_i\)</span> weer hoe een verhoging van positie <span class="arithmatex">\(i\)</span> het portefeuilleverlies beïnvloedt, gemiddeld over de staartscenario's. Activa met grote verliezen tijdens stressgebeurtenissen voor de portefeuille hebben hoge marginale bijdragen. Dat levert grote component-CVaR's op die wijzen op geconcentreerd staartrisico.</p>
+<p>Voor de praktische berekening van component-CVaR met historische simulatie of Monte Carlo worden staartscenario's geïdentificeerd, wordt het rendement van elk actief in die scenario's berekend en wordt het gemiddelde genomen, gewogen met het portefeuillegewicht van het actief. Bij parametrische CVaR onder normaliteit vereenvoudigt de componentbijdrage tot:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}_i^{\text{component}} = \frac{\phi(z_\alpha)}{\alpha} w_i \sum_{j=1}^{n} w_j \sigma_{ij}
+\label{eq:parametric_component_cvar}
+\end{aligned}\]</div>
+<p>waarbij <span class="arithmatex">\(\sigma_{ij}\)</span> de covariantie tussen activa <span class="arithmatex">\(i\)</span> en <span class="arithmatex">\(j\)</span> aangeeft. Deze formulering laat zien dat component-CVaR afhangt van de covariantie van het actief met de gehele portefeuille. Zo worden diversificerende posities die het staartrisico verminderen door negatieve correlaties met dominante blootstellingen in de portefeuille passend gewaardeerd <sup id="fnref7:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h3 id="marginale-cvar-en-incrementeel-risico"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.4.2</span> Marginale CVaR en incrementeel risico</h3>
+<p>Marginale CVaR kwantificeert hoe kleine veranderingen in de omvang van een positie het totale staartrisico van de portefeuille beïnvloeden en biedt daarmee houvast voor de optimale positiegrootte en hedgeverhoudingen <sup id="fnref8:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. De marginale CVaR ten opzichte van actief <span class="arithmatex">\(i\)</span> wordt gedefinieerd als:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{MCVaR}_i = \frac{\partial \text{CVaR}(\mathbf{w})}{\partial w_i}
+\label{eq:marginal_cvar}
+\end{aligned}\]</div>
+<p>De afgeleide in vergelijking \eqref{eq:marginal_cvar} geeft aan met welke momentane snelheid de CVaR van de portefeuille verandert wanneer de positie in actief <span class="arithmatex">\(i\)</span> toeneemt, terwijl de overige posities gelijk blijven. Een positieve marginale CVaR betekent dat een vergroting van de positie het staartrisico verhoogt. Negatieve waarden wijzen erop dat de positie de staart afdekt. De marginale bijdragen voldoen aan de homogeniteitsrelatie:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{CVaR}(\text{Portfolio}) = \sum_{i=1}^{n} w_i \times \text{MCVaR}_i
+\label{eq:euler_allocation}
+\end{aligned}\]</div>
+<p>Dit bevestigt dat de som van de gewogen marginale bijdragen de totale CVaR reconstrueert, een eigenschap die volgt uit de homogeniteit van CVaR.</p>
+<p>Bij discrete positiewijzigingen meet incrementele CVaR het totale effect op het portefeuillerisico van het toevoegen of verwijderen van specifieke posities:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{ICVaR}_i = \text{CVaR}(\text{Portfolio} + \text{Asset } i) - \text{CVaR}(\text{Portfolio})
+\label{eq:incremental_cvar}
+\end{aligned}\]</div>
+<p>Incrementele CVaR in vergelijking \eqref{eq:incremental_cvar} omvat niet-lineaire effecten en portefeuille-specifieke interacties die marginale CVaR, als afgeleide, slechts lokaal benadert. Bij grote positiewijzigingen of portefeuilles met aanzienlijke convexiteit door opties geeft incrementele CVaR een nauwkeuriger beoordeling dan het opschalen van marginale bijdragen. Voor de berekening moet de volledige CVaR van de portefeuille met en zonder de positie opnieuw worden bepaald. Dit kost meer rekenwerk, maar biedt meer nauwkeurigheid voor hedgeanalyses en handelsbeslissingen <sup id="fnref9:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="regelgevende-invoering-en-de-fundamental-review-of-the-trading-book"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5</span> Regelgevende invoering en de Fundamental Review of the Trading Book</h2>
+<h3 id="de-overgang-van-var-naar-expected-shortfall"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.1</span> De overgang van VaR naar Expected Shortfall</h3>
+<p>De Fundamental Review of the Trading Book (FRTB) van het Bazels Comité is de belangrijkste regelgevende verschuiving naar kapitaalvereisten op basis van CVaR. Het comité schrijft Expected Shortfall voor als de primaire maatstaf voor marktrisico in interne modellen <sup id="fnref10:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. De beslissing weerspiegelt de verzamelde aanwijzingen dat het onvermogen van VaR om de ernst van staartverliezen vast te leggen, tijdens de financiële crisis van 2008 heeft bijgedragen aan onvoldoende kapitaal voor handelsboeken. Banken met portefeuilles met een bescheiden VaR van 99% ontdekten dat hun werkelijke staartverliezen de verwachtingen ruimschoots overtroffen. Posities vertoonden sterk niet-lineaire verliezen of correlaties verslechterden tijdens stress.</p>
+<p>Expected Shortfall onder FRTB gebruikt een betrouwbaarheidsniveau van 97,5% over een horizon van 10 dagen en vervangt daarmee de eerdere VaR-vereiste van 99%:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{ES}_{0.975} = \mathbb{E}[L \mid L &gt; \text{VaR}_{0.975}]
+\label{eq:frtb_es}
+\end{aligned}\]</div>
+<p>De kleine verlaging van het betrouwbaarheidsniveau van 99% naar 97,5% compenseert gedeeltelijk dat Expected Shortfall doorgaans hoger uitvalt dan VaR. Het doel is vergelijkbare totale kapitaalniveaus te behouden en tegelijk de risicogevoeligheid te verbeteren. De regelgevende kapitaallast volgt een vergelijkbare structuur als kapitaal op basis van VaR. De dagelijkse Expected Shortfall wordt vergeleken met een gemiddelde over 60 dagen en er worden vermenigvuldigingsfactoren toegepast op basis van de backtestresultaten:</p>
+<div class="arithmatex">\[\begin{aligned}
+\text{Capital}_{\text{ES}} = \max\left(\text{ES}_{t-1}, m_c \times \frac{1}{60}\sum_{i=1}^{60}\text{ES}_{t-i}\right)
+\label{eq:es_capital}
+\end{aligned}\]</div>
+<p>De vermenigvuldigingsfactor <span class="arithmatex">\(m_c\)</span> neemt toe wanneer backtesting tekortkomingen in het model aan het licht brengt. Het behoud van stressscenario's die zijn berekend met parameters uit een stressperiode van 12 maanden zorgt ervoor dat kapitaalvereisten prudent blijven, ook wanneer de huidige marktvolatiliteit laag lijkt.</p>
+<h3 id="uitdagingen-bij-de-backtesting-van-expected-shortfall"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.5.2</span> Uitdagingen bij de backtesting van Expected Shortfall</h3>
+<p>Backtesting van VaR via het tellen van uitzonderingen is eenvoudig, maar de conditionele aard van Expected Shortfall maakt validatie lastiger <sup id="fnref11:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Het is niet rechtstreeks waarneembaar of het gemiddelde staartverlies overeenkomt met de prognose. De gebeurtenis waarop wordt geconditioneerd treedt bij de Expected Shortfall van 97,5% onder FRTB per definitie maar 2,5% van de tijd op. Bij 250 handelsdagen per jaar vallen er ongeveer zes waarnemingen per jaar in de relevante staart. Dat is onvoldoende voor robuuste statistische toetsen of de gemiddelde staartverliezen met de prognoses overeenkomen.</p>
+<p>FRTB pakt deze uitdaging aan met alternatieve validatiemethoden. De P&amp;L-attributietoets vergelijkt de theoretische P&amp;L uit risicomodellen met de werkelijke resultaten van handelsdesks en brengt desks in kaart waarvan de modellen de risicofactoren die de uitkomsten sturen niet vastleggen. Aanhoudende verschillen tussen de door het model voorspelde en de werkelijke P&amp;L wijzen erop dat risicomaatstaven, zowel VaR als Expected Shortfall, belangrijke blootstellingen missen. Het raamwerk voor niet-modelleerbare risicofactoren identificeert marktvariabelen waarvoor onvoldoende liquide prijswaarnemingen beschikbaar zijn om statistische modellen te ondersteunen. Kapitaal voor die factoren wordt berekend op basis van stressscenario's in plaats van Expected Shortfall. Deze indirecte validatiemethoden erkennen dat maatstaven voor staartrisico niet met eenvoudig tellen van uitzonderingen kunnen worden gebacktest. Een geavanceerdere beoordeling van modelkwaliteit en dekking is nodig <sup id="fnref12:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<details class="tip" open="open">
+<summary>Tijdlijn voor de invoering van regelgeving</summary>
+<p>De overgang van VaR naar Expected Shortfall onder FRTB volgt een gefaseerd invoeringsschema dat banken tijd geeft om de benodigde systemen en methoden te ontwikkelen:</p>
+<ul>
+<li><strong>2019-2022</strong>: kwantitatieve impactstudies en overleg met de sector</li>
+<li><strong>2023</strong>: definitieve normen gepubliceerd met invoeringsdata</li>
+<li><strong>2025</strong>: eerste invoering bij grote internationale banken</li>
+<li><strong>2026-2028</strong>: geleidelijke invoering bij kleinere instellingen</li>
+</ul>
+<p>De langere tijdlijn houdt rekening met de aanzienlijke investeringen in infrastructuur en de methodologische ontwikkeling die nodig zijn om Expected Shortfall te berekenen. Dit geldt in het bijzonder voor de behandeling van niet-modelleerbare risicofactoren, die verder gaat dan bestaande VaR-systemen.</p>
+</details>
+<h2 id="praktische-toepassingen-buiten-naleving-van-regelgeving"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6</span> Praktische toepassingen buiten naleving van regelgeving</h2>
+<h3 id="portefeuilleoptimalisatie-met-cvar-beperkingen"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.1</span> Portefeuilleoptimalisatie met CVaR-beperkingen</h3>
+<p>Portefeuilleoptimalisatie met CVaR-beperkingen maakt het mogelijk portefeuilles samen te stellen die het staartrisico expliciet beheersen en tegelijk rendementsdoelen nastreven <sup id="fnref3:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>. Het klassieke gemiddelde-variantieraamwerk optimaliseert verwacht rendement tegenover variantie en veronderstelt daarbij impliciet normaliteit en een symmetrische behandeling van risico. Optimalisatie op basis van CVaR houdt rekening met asymmetrie in rendementen en met de voorkeuren van beleggers, die doorgaans meer bezorgd zijn over neerwaarts risico dan over even grote volatiliteit aan de bovenkant.</p>
+<p>Een gebruikelijk optimalisatieprobleem met CVaR-beperkingen heeft de volgende vorm:</p>
+<div class="arithmatex">\[\begin{aligned}
+\max_{\mathbf{w}} \quad &amp; \mathbb{E}[R(\mathbf{w})] \\
+\text{subject to} \quad &amp; \text{CVaR}_\alpha(\mathbf{w}) \leq C \\
+&amp; \sum_{i=1}^{n} w_i = 1 \\
+&amp; w_i \geq 0 \quad \forall i
+\label{eq:cvar_portfolio_opt}
+\end{aligned}\]</div>
+<p>Hierbij staat <span class="arithmatex">\(R(\mathbf{w})\)</span> voor het portefeuillerendement, is <span class="arithmatex">\(C\)</span> de maximaal aanvaardbare CVaR en zorgen de beperkingen voor volledige belegging en het ontbreken van shortposities <sup id="fnref4:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>. De optimalisatie in vergelijking \eqref{eq:cvar_portfolio_opt} maximaliseert het verwachte rendement en waarborgt tegelijk dat de verwachte staartverliezen binnen de risicotolerantie van de instelling blijven. Anders dan beperkingen op VaR, die niet-convexe optimalisatielandschappen met ongunstige numerieke eigenschappen opleveren, behouden CVaR-beperkingen de convexiteit. Daardoor kunnen ze efficiënt worden opgelost met herformuleringen als lineaire programmeringsproblemen of met conische optimalisatietechnieken.</p>
+<p>Rockafellar en Uryasev ontwikkelden bijzonder elegante methoden voor CVaR-optimalisatie die expliciete berekeningen van staartkansen vermijden en in plaats daarvan een hulpfunctie minimaliseren:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{w}, \beta} \quad \beta + \frac{1}{\alpha}\mathbb{E}[\max(L(\mathbf{w}) - \beta, 0)]
+\label{eq:rockafellar_cvar}
+\end{aligned}\]</div>
+<p>Hierbij komt <span class="arithmatex">\(\beta\)</span> via de optimalisatie naar voren als het VaR-niveau, zodat dit niet afzonderlijk hoeft te worden berekend. Deze formulering in vergelijking \eqref{eq:rockafellar_cvar} kan bij scenario-gebaseerde verliesrepresentaties worden herformuleerd als een lineair programmeringsprobleem. Daardoor is CVaR-optimalisatie uitvoerbaar, ook voor portefeuilles met honderden activa. De methode is breed ingevoerd in institutioneel portefeuillebeheer, vooral bij pensioenfondsen en schenkingsfondsen die neerwaarts risico willen beheersen en tegelijk rendementsdoelen willen halen.</p>
+<h3 id="afdekking-en-beheer-van-staartrisico"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.6.2</span> Afdekking en beheer van staartrisico</h3>
+<p>CVaR biedt betere richtlijnen voor afdekkingsbeslissingen dan VaR, omdat effectieve afdekkingen niet alleen de kans op overschrijding van grenzen verlagen, maar ook de ernst van verliezen wanneer slechte uitkomsten optreden <sup id="fnref13:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. Denk aan een portefeuillebeheerder die tussen twee afdekkingsstrategieën kiest. De ene verlaagt de VaR met 10% via opties die verliezen op gematigde niveaus begrenzen. De andere verlaagt de VaR met slechts 5%, maar biedt echte bescherming tegen catastrofale verliezen. Minimalisatie van VaR geeft de voorkeur aan de eerste strategie, terwijl CVaR de bescherming van de tweede strategie in de staart passend waardeert.</p>
+<p>Dynamische afdekkingsprogramma's gebruiken CVaR steeds vaker als optimalisatiedoel en lossen het volgende op:</p>
+<div class="arithmatex">\[\begin{aligned}
+\min_{\mathbf{h}} \quad \text{CVaR}_\alpha(\mathbf{w} + \mathbf{h}) + \lambda \cdot \text{Cost}(\mathbf{h})
+\label{eq:cvar_hedging}
+\end{aligned}\]</div>
+<p>Hierbij zijn <span class="arithmatex">\(\mathbf{w}\)</span> de bestaande posities, zijn <span class="arithmatex">\(\mathbf{h}\)</span> de hedgeposities en brengt <span class="arithmatex">\(\lambda\)</span> de verlaging van het staartrisico in evenwicht met de afdekkingskosten. De optimalisatie in vergelijking \eqref{eq:cvar_hedging} identificeert afdekkingsstructuren die de verwachte staartverliezen na aftrek van uitvoeringskosten minimaliseren. Vaak worden out-of-the-money putopties of andere instrumenten aanbevolen die specifiek bescherming bieden tegen catastrofale scenario's, zelfs als die duur lijken in verhouding tot hun VaR-verlaging per euro <sup id="fnref5:glasserman2003"><a class="footnote-ref" href="#fn:glasserman2003">3</a></sup>.</p>
+<p>Verzekeringsmaatschappijen gebruiken CVaR veelvuldig voor het beheer van blootstelling aan catastrofes, waarbij de ernst van staartverliezen belangrijker is dan de frequentie ervan. Een portefeuille met een CVaR van 99,5% van $100 miljoen betekent dat de gemiddelde schade $100 miljoen bedraagt wanneer zich catastrofale verliezen voordoen. Dit biedt duidelijkere richtlijnen voor de aankoop van herverzekering dan VaR alleen. De sector heeft geavanceerde methoden ontwikkeld voor kapitaalallocatie op basis van CVaR. Die verdelen het totale kapitaal van een onderneming over bedrijfsonderdelen en geografische regio's op basis van hun marginale bijdragen aan het staartrisico, zodat prijzen en middelen worden afgestemd op de werkelijke staartblootstellingen en niet alleen op de gemiddelde volatiliteit <sup id="fnref14:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<h2 id="conclusie-de-rol-van-cvar-in-modern-risicobeheer"><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7</span> Conclusie: de rol van CVaR in modern risicobeheer</h2>
+<p>Conditional Value at Risk is geëvolueerd van academische curiositeit tot praktische noodzaak in modern risicobeheer. Dit komt door de invoering ervan in de regelgeving onder FRTB en het groeiende besef dat de ernst van staartverliezen net zo belangrijk is als de kans op staartgebeurtenissen <sup id="fnref15:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>. De coherentie-eigenschappen van de maatstaf bieden theoretische voordelen en zorgen ervoor dat portefeuilleoptimalisatie, kapitaalallocatie en risicoaggregatie tot zinvolle resultaten leiden waarbij diversificatie correct wordt gewaardeerd. De convexiteit van CVaR maakt efficiënte berekening mogelijk, zelfs voor complexe portefeuilles. Daardoor is geavanceerd risicobeheer praktisch uitvoerbaar en niet alleen theoretisch aantrekkelijk.</p>
+<p>De overgang van VaR naar CVaR weerspiegelt de ontwikkeling van de risicobeheerpraktijk. De aandacht verschuift van uitsluitend de frequentie van grensoverschrijdingen naar de economische gevolgen van staartgebeurtenissen. Deze ontwikkeling sluit aan bij bredere inzichten uit de financiële wereld: Gaussische aannames en een symmetrische behandeling van risico leggen de aard van financieel risico niet goed vast. Neerwaartse en opwaartse bewegingen gedragen zich verschillend en extreme gebeurtenissen bepalen een groot deel van de verwachte verliezen. CVaR vereist meer gegevens en rekenwerk dan VaR, maar de aanvullende informatie rechtvaardigt die kosten voor portefeuilles waarbij staartrisico de werkelijke zorg is en niet de dagelijkse volatiliteit <sup id="fnref4:rebonato2010"><a class="footnote-ref" href="#fn:rebonato2010">2</a></sup>.</p>
+<p>CVaR vormt steeds vaker de basis voor geïntegreerde risicoraamwerken die meerdere risicotypen tegelijk behandelen. Banken berekenen CVaR voor markt-, krediet- en operationele risico's en aggregeren deze met copulagebaseerde modellen die staartafhankelijkheden vastleggen die met correlatiematrices onvoldoende worden weergegeven. Vermogensbeheerders gebruiken CVaR in rapportages aan cliënten en gaan daarmee verder dan Sharpe-ratio's om bescherming tegen neerwaarts risico transparanter te communiceren. De toenemende invoering van de maatstaf weerspiegelt niet alleen de verplichtingen vanuit regelgeving, maar ook het oprechte besef dat inzicht in de ernst van staartverliezen essentieel is voor prudent risicobeheer op financiële markten met dikke staarten en asymmetrische rendementen <sup id="fnref16:christoffersen2011"><a class="footnote-ref" href="#fn:christoffersen2011">1</a></sup>.</p>
+<hr/>
+<p><em>Verwachte verliezen bij staartgebeurtenissen in portefeuilles meten</em></p>
+<div class="footnote">
+<hr/>
+<ol>
+<li id="fn:christoffersen2011">
+<p>Peter F. Christoffersen. <em>Elements of Financial Risk Management</em>. Academic Press, 2nd edition, 2011. ISBN 978-0-12-374448-7. <a class="footnote-backref" href="#fnref:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref2:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref3:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref4:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref5:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref6:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref7:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref8:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref9:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref10:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref11:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref12:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref13:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref14:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref15:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a><a class="footnote-backref" href="#fnref16:christoffersen2011" title="Jump back to footnote 1 in the text">↩</a></p>
+</li>
+<li id="fn:rebonato2010">
+<p>Riccardo Rebonato. <em>Coherent Stress Testing: A Bayesian Approach to the Analysis of Financial Stress</em>. Wiley, 2010. ISBN 978-0-470-66608-8. <a class="footnote-backref" href="#fnref:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref2:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref3:rebonato2010" title="Jump back to footnote 2 in the text">↩</a><a class="footnote-backref" href="#fnref4:rebonato2010" title="Jump back to footnote 2 in the text">↩</a></p>
+</li>
+<li id="fn:glasserman2003">
+<p>Paul Glasserman. <em>Monte Carlo Methods in Financial Engineering</em>. Springer, 2003. <a href="https://doi.org/10.1007/978-0-387-21617-1">doi:10.1007/978-0-387-21617-1</a>. <a class="footnote-backref" href="#fnref:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref2:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref3:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref4:glasserman2003" title="Jump back to footnote 3 in the text">↩</a><a class="footnote-backref" href="#fnref5:glasserman2003" title="Jump back to footnote 3 in the text">↩</a></p>
+</li>
+</ol>
+</div>
+</article>
+</div>
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+</div>
+<button class="md-top md-icon" data-md-component="top" hidden="" type="button">
+<svg viewbox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"></path></svg>
+  Terug naar boven
+</button>
+</main>
+<footer class="md-footer">
+<div class="md-footer-meta md-typeset">
+<div class="md-footer-meta__inner md-grid">
+<div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" rel="noopener" target="_blank">
+      Material for MkDocs
+    </a>
+</div>
+<div class="md-social">
+<a class="md-social__link" href="https://github.com/yourusername" rel="noopener" target="_blank" title="github.com">
+<svg viewbox="0 0 512 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"></path></svg>
+</a>
+<a class="md-social__link" href="https://linkedin.com/in/yourprofile" rel="noopener" target="_blank" title="linkedin.com">
+<svg viewbox="0 0 448 512" xmlns="http://www.w3.org/2000/svg"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M416 32H31.9C14.3 32 0 46.5 0 64.3v383.4C0 465.5 14.3 480 31.9 480H416c17.6 0 32-14.5 32-32.3V64.3c0-17.8-14.4-32.3-32-32.3M135.4 416H69V202.2h66.5V416zM102.2 96a38.5 38.5 0 1 1 0 77 38.5 38.5 0 1 1 0-77m282.1 320h-66.4V312c0-24.8-.5-56.7-34.5-56.7-34.6 0-39.9 27-39.9 54.9V416h-66.4V202.2h63.7v29.2h.9c8.9-16.8 30.6-34.5 62.9-34.5 67.2 0 79.7 44.3 79.7 101.9z"></path></svg>
+</a>
+</div>
+</div>
+</div>
+</footer>
+</div>
+<div class="md-dialog" data-md-component="dialog">
+<div class="md-dialog__inner md-typeset"></div>
+</div>
+<div class="md-consent" data-md-component="consent" hidden="" id="__consent">
+<div class="md-consent__overlay"></div>
+<aside class="md-consent__inner">
+<form class="md-consent__form md-grid md-typeset" name="consent">
+<h4><span class="enumerate-headings-plugin enumerate-heading-plugin">1.7.0.1</span> Cookie consent</h4>
+<p>We use cookies to recognize your repeated visits and preferences, as well as to measure the effectiveness of our documentation and whether users find what they're searching for. With your consent, you're helping us to make our documentation better.</p>
+<input class="md-toggle" id="__settings" type="checkbox"/>
+<div class="md-consent__settings">
+<ul class="task-list">
+<li class="task-list-item">
+<label class="task-list-control">
+<input checked="" name="analytics" type="checkbox"/>
+<span class="task-list-indicator"></span>
+      Google Analytics
+    </label>
+</li>
+</ul>
+</div>
+<div class="md-consent__controls">
+<button class="md-button md-button--primary">Accepteren</button>
+<button class="md-button md-button--primary" type="reset">Afwijzen</button>
+<label class="md-button" for="__settings">Instellingen</label>
+</div>
+</form>
+</aside>
+</div>
+<script>var consent=__md_get("__consent");if(consent)for(var input of document.forms.consent.elements)input.name&&(input.checked=consent[input.name]||!1);else"file:"!==location.protocol&&setTimeout((function(){document.querySelector("[data-md-component=consent]").hidden=!1}),250);var form=document.forms.consent;for(var action of["submit","reset"])form.addEventListener(action,(function(e){if(e.preventDefault(),"reset"===e.type)for(var n of document.forms.consent.elements)n.name&&(n.checked=!1);__md_set("__consent",Object.fromEntries(Array.from(new FormData(form).keys()).map((function(e){return[e,!0]})))),location.hash="",location.reload()}))</script>
+<script id="__config" type="application/json">{"annotate": null, "base": "../../../../../..", "features": ["navigation.tabs", "navigation.top", "navigation.indexes", "navigation.sections", "navigation.path", "navigation.tracking", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../../../../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Gekopieerd naar klembord", "clipboard.copy": "Kopi\u00ebren naar klembord", "search.result.more.one": "1 extra overeenkomst op deze pagina", "search.result.more.other": "# extra overeenkomsten op deze pagina", "search.result.none": "Geen overeenkomende documenten", "search.result.one": "1 overeenkomende document", "search.result.other": "# overeenkomende documenten", "search.result.placeholder": "Typ om te beginnen met zoeken", "search.result.term.missing": "Ontbreekt", "select.version": "Selecteer versie"}, "version": null}</script>
+<script src="../../../../../../assets/javascripts/bundle.79ae519e.min.js"></script>
+<script src="../../../../../../javascripts/consent-mode.js"></script>
+<script src="../../../../../../javascripts/home-parallax.js"></script>
+<script src="../../../../../../javascripts/external-links.js"></script>
+<script src="../../../../../../javascripts/mathjax.js"></script>
+<script src="https://tikzjax.com/v1/tikzjax.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+<script src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6295523793608851"></script>
+</body>
+</html>

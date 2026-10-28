@@ -1,0 +1,407 @@
+/* ================================================================================
+   QUANTERO THEME - COMPLETE COLOR MANAGEMENT
+   All colors controlled here, not in mkdocs.yml
+   ================================================================================ */
+
+.md-main__inner.md-grid {
+  max-width: 80rem;
+}
+
+/* ================================================================================
+   LIGHT MODE (default scheme)
+   Color Palette: #433e3f, #c69c72, #8e6e53, #c0b7b1, #7a7265
+   ================================================================================ */
+
+/* ---------- Light Mode: CSS Variables ---------- */
+:root,
+[data-md-color-scheme="default"] {
+  /* Custom brand variables */
+  --custom-brand-secondary: #6a381f;
+  --custom-brand-secondary-quant: #8e6e53;
+  --custom-highlight: #c69c72;
+  --custom-text-muted: #7a7265;
+
+  /* Primary colors (header, navigation, tabs) */
+  --md-primary-fg-color: #c0b7b1;        /* Text on primary background */
+  --md-primary-bg-color: #433e3f;        /* Header/nav background - MEDIUM BROWN */
+  
+  /* Accent colors (links, buttons, highlights) */
+  --md-accent-fg-color: #c0b7b1;         /* Text on accent elements */
+  --md-accent-bg-color: #8e6e53;         /* Links and interactive elements - MEDIUM BROWN */
+  
+  /* Main content area */
+  --md-default-bg-color: #c0b7b1;        /* Main content background - LIGHT BEIGE */
+  --md-default-fg-color: #433e3f;        /* Main text color - DARKEST */
+  
+  /* Typography */
+  --md-typeset-color: #433e3f;           /* Body text - DARKEST */
+  --md-typeset-a-color: #8e6e53;         /* Links in content - MEDIUM BROWN */
+  
+  /* Code blocks */
+  --md-code-bg-color: #7a7265;           /* Code background - DARK GREY/BROWN */
+  --md-code-fg-color: #c0b7b1;           /* Code text - LIGHT BEIGE */
+  
+  /* Math highlighting colors - optimized for light backgrounds */
+  --math-highlight-1: #c62828;           /* Dark red for emphasis */
+  --math-highlight-2: #1565c0;           /* Dark blue for secondary */
+  --math-highlight-3: #139200;           /* Dark green for tertiary */
+  --math-highlight-4: #e65100;           /* Dark orange for quaternary */
+}
+
+/* ---------- Light Mode: Header & Navigation Overrides ---------- */
+[data-md-color-scheme="default"] .md-header {
+  background-color: #8e6e53 !important;
+}
+
+[data-md-color-scheme="default"] .md-tabs {
+  background-color: #8e6e53 !important;
+}
+
+[data-md-color-scheme="default"] .md-nav--primary .md-nav__title {
+  background-color: #8e6e53 !important;
+}
+
+/* ---------- Light Mode: Link Styling ---------- */
+/* Content area links (in main text) */
+[data-md-color-scheme="default"] .md-content a {
+  color: #7f7979 !important;
+}
+
+[data-md-color-scheme="default"] .md-content a:hover {
+  color: #a54a00 !important;
+}
+
+/* Navigation sidebar links */
+[data-md-color-scheme="default"] .md-nav a {
+  color: #433e3f !important;
+}
+
+[data-md-color-scheme="default"] .md-nav a:hover {
+  color: #a54a00 !important;
+}
+
+/* Active state for navigation links */
+[data-md-color-scheme="default"] .md-nav a.md-nav__link--active,
+[data-md-color-scheme="default"] .md-nav__link--active {
+  color: #a54a00 !important;
+  font-weight: bold !important;
+}
+
+/* ---------- Light Mode: Navigation Links ---------- */
+[data-md-color-scheme="default"] .md-nav__link {
+  color: #433e3f !important;
+}
+
+[data-md-color-scheme="default"] .md-nav__link:hover {
+  color: #ea8c55 !important;
+}
+
+/* ---------- Light Mode: Footer Links ---------- */
+[data-md-color-scheme="default"] .md-footer a {
+  color: #8e6e53 !important;
+}
+
+
+/* ================================================================================
+   DARK MODE (slate scheme)
+   Color Palette: #0d1321, #1d2d44, #3e5c76, #748cab, #f0ebd8
+   ================================================================================ */
+
+/* ---------- Dark Mode: CSS Variables ---------- */
+[data-md-color-scheme="slate"] {
+  /* Custom brand variables */
+  --custom-brand-secondary: #748cab;
+  --custom-brand-secondary-quant: #fe5f55;
+  --custom-highlight: #f0ebd8;
+  --custom-text-muted: #748cab;
+  
+  /* Primary colors (header, navigation, tabs) */
+  --md-primary-fg-color: #0d1321;        /* Text on primary background */
+  --md-primary-bg-color: #f0ebd8;        /* Header/nav background - LIGHT BEIGE */
+  
+  /* Accent colors (links, buttons, highlights) */
+  --md-accent-fg-color: #748cab;         /* Text on accent elements */
+  --md-accent-bg-color: #748cab;         /* Links and interactive elements - MEDIUM BLUE */
+  
+  /* Main content area */
+  --md-default-bg-color: #1d2d44;        /* Main content background - DARK BLUE */
+  --md-default-fg-color: #f0ebd8;        /* Main text color - LIGHTEST */
+  
+  /* Typography */
+  --md-typeset-color: #f0ebd8;           /* Body text - LIGHTEST */
+  --md-typeset-a-color: #748cab;         /* Links in content - MEDIUM BLUE */
+  
+  /* Code blocks */
+  --md-code-bg-color: #1d2d44;           /* Code background - DARK BLUE */
+  --md-code-fg-color: #f0ebd8;           /* Code text - LIGHTEST */
+  
+  /* Math highlighting colors - optimized for dark backgrounds */
+  --math-highlight-1: #ff6b6b;           /* Bright red for emphasis */
+  --math-highlight-2: #64b5f6;           /* Bright blue for secondary */
+  --math-highlight-3: #2bc433;           /* Bright green for tertiary */
+  --math-highlight-4: #ffb74d;           /* Bright orange for quaternary */
+}
+
+/* ---------- Dark Mode: Link Styling ---------- */
+[data-md-color-scheme="slate"] a {
+  color: #748cab !important;
+}
+
+[data-md-color-scheme="slate"] a:hover {
+  color: #3e5c76 !important;
+}
+
+/* ---------- Dark Mode: Navigation Links ---------- */
+[data-md-color-scheme="slate"] .md-nav__link {
+  color: #f0ebd8 !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link:hover {
+  color: #748cab !important;
+}
+
+[data-md-color-scheme="slate"] .md-nav__link--active {
+  color: #748cab !important;
+}
+
+/* ---------- Dark Mode: Footer Links ---------- */
+[data-md-color-scheme="slate"] .md-footer a {
+  color: #748cab !important;
+}
+
+
+/* ================================================================================
+   CUSTOM STYLES
+   Add any additional custom styles below this section
+   ================================================================================ */
+
+.md-header__button.quantero-language-selector {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: auto;
+}
+
+.quantero-language-selector__label {
+  font-size: 0.6rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+:root,
+[data-md-color-scheme="default"] {
+  --quantero-card-bg: #e5ded7;
+  --quantero-card-border: #a99a8b;
+  --quantero-card-accent: #6a381f;
+  --quantero-card-shadow: 0 3px 12px rgb(67 62 63 / 8%);
+}
+
+[data-md-color-scheme="slate"] {
+  --quantero-card-bg: #263b53;
+  --quantero-card-border: #506b85;
+  --quantero-card-accent: #b8d0e6;
+  --quantero-card-shadow: 0 3px 12px rgb(0 0 0 / 14%);
+}
+
+.md-typeset .grid.cards {
+  gap: 0.9rem;
+}
+
+.md-typeset .grid.cards > ul > li {
+  padding: 1rem;
+  border: 1px solid var(--quantero-card-border);
+  border-top: 3px solid var(--quantero-card-accent);
+  border-radius: 0.5rem;
+  background-color: var(--quantero-card-bg);
+  box-shadow: var(--quantero-card-shadow);
+  transition: border-color 160ms ease, box-shadow 160ms ease;
+}
+
+.md-typeset .grid.cards > ul > li hr {
+  border-color: var(--quantero-card-border);
+  opacity: 0.5;
+}
+
+/* Override the existing theme-wide !important link colors inside cards only. */
+.md-typeset .grid.cards > ul > li a {
+  color: var(--quantero-card-accent) !important;
+  text-decoration: underline;
+  text-decoration-color: transparent;
+  text-underline-offset: 0.2em;
+}
+
+.md-typeset .grid.cards > ul > li a:hover,
+.md-typeset .grid.cards > ul > li a:focus-visible {
+  text-decoration-color: currentColor;
+}
+
+.md-typeset .grid.cards > ul > li a:focus-visible {
+  outline: 2px solid var(--quantero-card-accent);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.md-typeset .grid.cards > ul > li:focus-within {
+  border-color: var(--quantero-card-accent);
+  box-shadow: 0 6px 18px rgb(0 0 0 / 16%);
+}
+
+@media (hover: hover) {
+  .md-typeset .grid.cards > ul > li:hover {
+    border-color: var(--quantero-card-accent);
+    box-shadow: 0 6px 18px rgb(0 0 0 / 16%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .md-typeset .grid.cards > ul > li {
+    transition: none;
+  }
+}
+
+.quantero-home-intro > p:first-child {
+  font-size: 1.5em;
+  line-height: 1.35;
+}
+
+.quantero-home-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.quantero-home-actions > p {
+  display: contents;
+}
+
+.quantero-author {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.2rem;
+  margin: 1.2rem 0;
+}
+
+.md-typeset .quantero-author__portrait {
+  box-sizing: border-box;
+  flex: none;
+  width: 96px;
+  height: 96px;
+  min-width: 96px;
+  min-height: 96px;
+  max-width: 96px;
+  max-height: 96px;
+  aspect-ratio: 1;
+  object-fit: cover;
+  object-position: center;
+  border: 2px solid var(--md-default-fg-color--lightest);
+  border-radius: 50%;
+}
+
+.quantero-author__intro {
+  min-width: 0;
+}
+
+.quantero-author__intro > p:first-child {
+  margin-top: 0;
+}
+
+.quantero-author__intro > p:last-child {
+  margin-bottom: 0;
+}
+
+@media (max-width: 599px) {
+  .quantero-author {
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+}
+
+/* Existing global link overrides require equally explicit button colors. */
+.md-typeset .quantero-home-actions .md-button {
+  color: var(--md-default-fg-color) !important;
+  border-color: currentColor;
+  text-align: center;
+}
+
+.md-typeset .quantero-home-actions .md-button--primary {
+  background-color: var(--md-default-fg-color);
+  border-color: var(--md-default-fg-color);
+  color: var(--md-default-bg-color) !important;
+}
+
+.md-typeset .quantero-home-actions .md-button:hover,
+.md-typeset .quantero-home-actions .md-button:focus-visible {
+  background-color: var(--md-default-fg-color);
+  border-color: var(--md-default-fg-color);
+  color: var(--md-default-bg-color) !important;
+  outline: 2px solid var(--md-default-fg-color);
+  outline-offset: 3px;
+}
+
+.quantero-hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  margin: 0 0 2.5rem;
+  border: 1px solid #3e5c76;
+  border-radius: 0.8rem;
+  background: #0d1321;
+  color: #f0ebd8;
+  /* Keep hero controls independent of the surrounding light/dark palette. */
+  --md-default-fg-color: #f0ebd8;
+  --md-default-bg-color: #0d1321;
+}
+
+.quantero-hero__background {
+  position: absolute;
+  z-index: -2;
+  inset: -64px 0;
+  background: url("../assets/quant-surface.svg") center right / cover no-repeat;
+  transform: translate3d(0, var(--quantero-parallax-offset, 0px), 0);
+}
+
+.quantero-hero::before {
+  position: absolute;
+  z-index: -1;
+  inset: 0;
+  background: linear-gradient(100deg, rgb(13 19 33 / 96%), rgb(13 19 33 / 80%) 55%, rgb(13 19 33 / 40%));
+  content: "";
+}
+
+.quantero-hero__content {
+  position: relative;
+  padding: clamp(1.25rem, 4vw, 2.5rem);
+}
+
+.md-typeset .quantero-hero h1 {
+  margin: 0 0 1.5rem;
+  color: #f0ebd8;
+  font-size: 2.5em;
+  font-weight: 700;
+}
+
+.quantero-hero__brand {
+  font-family: "Montserrat", sans-serif;
+  color: #fe9b87;
+}
+
+.quantero-hero__brand > span {
+  color: #f0ebd8;
+}
+
+.quantero-hero .quantero-home-actions {
+  margin-bottom: 0;
+}
+
+@media (min-width: 960px) and (prefers-reduced-motion: no-preference) {
+  .quantero-hero--parallax .quantero-hero__background {
+    will-change: transform;
+  }
+}
+
+@media (max-width: 959px), (prefers-reduced-motion: reduce) {
+  .quantero-hero__background {
+    transform: none;
+  }
+}

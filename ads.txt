@@ -1,0 +1,5 @@
+# Authorized Digital Sellers for quantero.kruk-ai.com
+# More info: https://iabtechlab.com/ads-txt/
+
+# Google AdSense
+google.com, pub-6295523793608851, DIRECT, f08c47fec0942fa0
